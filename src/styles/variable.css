@@ -1,0 +1,30 @@
+:root {
+    /* Primary Theme Colors */
+    --primary-main: #1a1a2e;    /* Dark Blue */
+    --primary-light: #2e2e50;   /* Lighter Shade of Primary */
+    --primary-dark: #0f0f1a;    /* Darker Shade of Primary */
+  
+    /* Accent Colors */
+    --accent-main: #fea116;     /* Orange */
+    --accent-light: #ffc057;    /* Light Orange */
+    --accent-dark: #c77c04;     /* Darker Orange */
+  
+    /* Background Colors */
+    --background-main: #f8f9fa; /* Light Gray */
+    --background-dark: #e9ecef; /* Slightly Darker Gray */
+    --background-light: #ffffff; /* Pure White */
+  
+    /* Text Colors */
+    --text-white: #ffffff;       /* White */
+    --text-secondary: #b0b3c0;  /* Light Gray */
+    --text-dark: #121212;       /* Dark Text */
+  
+    /* Border Colors */
+    --border-light: #d6d8db;    /* Light Border */
+    --border-dark: #5c5c5c;     /* Dark Border */
+  
+    /* Hover & Active Colors */
+    --hover-primary: #343a40;   /* Dark Gray for hover */
+    --hover-accent: #e69500;    /* Slightly Darker Orange */
+  }
+  

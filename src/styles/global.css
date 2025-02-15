@@ -1,0 +1,381 @@
+   
+   /* variables */
+   .sec_heading h2{
+    font-size: 44px;
+    color: #000;
+   }
+   section {
+    padding: 70px 0;
+   }
+   .obj_fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+ 
+   
+ 
+   
+   /* banner css */
+  .home-banner {
+    background-image: url('../assets/images/banner-img.png'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 804px; /* Adjust height as needed */
+   padding: 50px 20px;
+   position: relative;
+  }
+  
+  .banner-text {
+    color: white; /* Ensure text is visible */
+    max-width: 600px;
+    position: absolute;
+    top: 26%;
+    left: 7%;
+  }
+  .banner-text h1 {
+    font-size: 64px;
+  }
+  .banner-text p {
+    font-size: 20px;
+  }
+  
+  .try-btn {
+    background-color: #FEA116;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .try-btn:hover {
+    background-color: #d88b00;
+  }
+  
+  .app-btn {
+    width: 180px;
+    display: flex;
+  }
+  .store-images {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* App Store & Google Play images */
+.store-images a {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .store-images a img {
+    width: 150px; /* Adjust size */
+    height: auto;
+  }
+  
+  /* Hover effect: Slightly scale images */
+  .store-images a:hover {
+    transform: scale3d(1.02, 1.02, 1.02);
+}
+  
+  
+/* Full-page login container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("../assets/images/login-background.jpg");    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Centering the login box */
+  .login-box {
+    background: rgba(255, 255, 255, 0.8); /* Adds a white transparent overlay */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+  }
+  
+  /* Title */
+  .login-box h2 {
+    margin-bottom: 25px;
+    color: #243b55;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .logo-web {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  .website-logo {
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* Input Fields */
+  .input-group {
+    text-align: left;
+    margin-bottom: 18px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #fea116;
+    box-shadow: 0 0 5px rgba(254, 161, 22, 0.5);
+  }
+  
+  /* Remember me & Forgot password */
+  .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .forgot-link {
+    color: #FEA116;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .forgot-link:hover {
+    text-decoration: underline;
+    color: #d98b0a;
+  }
+  
+  /* Login Button */
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #FEA116;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    border: none !important;
+  }
+  
+  .login-btn:hover {
+    background: #d98b0a;
+  }
+  
+  /* Divider */
+  .or-text {
+    margin: 18px 0;
+    font-size: 14px;
+    color: #666;
+    position: relative;
+  }
+  
+  .or-text::before,
+  .or-text::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+    top: 50%;
+  }
+  
+  .or-text::before {
+    left: 0;
+  }
+  
+  .or-text::after {
+    right: 0;
+  }
+  
+  /* Social Login */
+  .social-login {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .social-login button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .google {
+    color: #DB4437 !important;
+  }
+  
+  .microsoft {
+    color: #0078D7 !important;
+  }
+  
+  .apple {
+    color: #000 !important;
+  }
+  
+
+  
+  /* Icons */
+  .social-login button i {
+    font-size: 18px;
+  }
+  
+  /* Back to Home */
+  .back-home {
+    display: block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #243b55;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  .back-home:hover {
+    text-decoration: underline;
+    color: #FEA116;
+  }
+  
+ .recent_post h3 {
+  font-size: 22px;
+  color: #fff;
+  border-radius: 0 0 20px 23px;
+  background-color: #FEA116;
+  display: inline-block;
+  padding: 15px 50px;
+ }
+
+
+ .section_latest {
+  /* background-color: #ccc; */
+ }
+ 
+
+ .news-wrap img {
+  height: 450px;
+}
+.news-wrap h3 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.news-wrap a {
+  text-decoration: none;
+  color: #000;
+}
+
+.other-news-card {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 15px;
+}
+.other-news-info h4 {
+  font-size: 16px;
+}
+.side-news-img {
+  width: 200px;
+}
+
+.other-news_section {
+  height: 517px;
+  overflow-y: auto;
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 7px; /* Adjust width */
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light background */
+  border-radius: 10px;
+}
+
+/* Handle (scrolling part) */
+::-webkit-scrollbar-thumb {
+  background: #fea116; /* Your theme color */
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9800;
+}
+
+
+.popular_card img {
+  height: 340px;
+  width: 100%;
+}
+.popular_card a {
+  text-decoration: none !important;
+}
+
+.card-desc  {
+  padding: 20px;
+  color: #fff;
+  background-color: #d88b00;
+
+}
+.card-desc h3 {
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    border: 2px solid #000;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 10px;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+    background-color: #000;
+
+}
+
+.card-desc p {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
