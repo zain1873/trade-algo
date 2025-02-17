@@ -50,9 +50,9 @@ const Footer = () => {
 
       {/* Social Media Icons */}
       <div className="footer-social">
-        <a href="https://twitter.com/tradealgo_" target="_blank" rel="noopener noreferrer" className="social-icon twitter">
+        {/* <a href="https://twitter.com/tradealgo_" target="_blank" rel="noopener noreferrer" className="social-icon twitter">
           Twitter
-        </a>
+        </a> */}
       </div>
     </footer>
   );

@@ -12,20 +12,23 @@
     height: 100%;
     object-fit: cover;
     }
+    h3 {
+      font-size: 24px;
+    }
  
    
  
    
    /* banner css */
   .home-banner {
-    background-image: url('../assets/images/banner-img.png'); /* Replace with your actual image path */
+    /* background-image: url('../assets/images/banner-img.png');  */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 804px; /* Adjust height as needed */
-   padding: 50px 20px;
+    height: 800px; /* Adjust height as needed */
    position: relative;
+   overflow: hidden;
   }
   
   .banner-text {
@@ -41,7 +44,9 @@
   .banner-text p {
     font-size: 20px;
   }
-  
+  .text_down {
+    margin-top: 90px;
+  }
   .try-btn {
     background-color: #FEA116;
     color: white;
@@ -379,3 +384,111 @@
 }
 
 
+.newsletter-section {
+  background-color: black; /* Black background */
+  background-image: url('../assets/images/background-line-img.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 60px 0;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.newsletter-content h3 {
+  font-size: 40px;
+}
+
+.newsletter-form input {
+  padding: 12px;
+}
+.newsletter-form input:focus {
+  border: 2px solid #d88b00;
+ /* Soft yellow glow */
+  outline: none;
+}
+
+/* section editor */
+.editors-choice img {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.editors-choice .choice_img {
+  overflow: hidden !important;
+  height: 210px;
+
+}
+.editors-choice:hover img {
+  transform: scale(1.1);
+  overflow: hidden !important;
+
+}
+.editors-choice a {
+  text-decoration: none;
+}
+.editor_desc h3 {
+  letter-spacing: .3px;
+  border: 2px solid #000;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 4px 14px;
+  color: #000;
+  transition: .3s;
+
+}
+.editor_desc p {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+}
+.editor_desc {
+  background-color: #d98b0a;
+  padding: 14px 10px;
+  height: 170px;
+  margin-bottom: 20px;
+}
+.editors-choice:hover .editor_desc h3 {
+  background-color: #000;
+  color: #fff;
+}
+.extra-heading {
+  color: #000 !important;
+  font-weight: 700;
+  font-size: 36px;
+}
+.market_details .editor_desc {
+  background-color: transparent;
+  border-bottom: 2px solid #000;
+}
+.market_details p {
+  font-size: 18px;
+}
+
+.market_details .mid_img {
+  height: 360px;
+}
+.market_detail_img {
+  overflow: hidden;
+  height: 185px;
+}
+.max_height {
+  min-height: 280px;
+}
+.img_height {
+  height: 450px;
+}
+
+.market_details .name {
+  font-size: 18px;
+  color: #000;
+  margin-top: 50px;
+  font-weight: 700;
+}

@@ -1,5 +1,7 @@
 import React from 'react'
 import walmartImg from "../assets/images/walmart-img.webp"; 
+import crypto from "../assets/images/crypto-latest.png"; 
+
 
 
 function postEditor() {
@@ -11,7 +13,7 @@ function postEditor() {
           <div className="row">
             <div className="col-lg-12">
               <div className="sec_heading">
-                <h2 className="pb-4">Popular Post</h2>
+                <h2 className="pb-4">Crypto</h2>
               </div>
             </div>
           </div>
@@ -27,10 +29,10 @@ function postEditor() {
           <div className="row pt-5" data-aos="fade-up">
             <div className="col-lg-8">
               <div className="news-wrap">
-                <a href="">
+                <a href="#">
                   <img
                     className="obj_fit"
-                    src={walmartImg}
+                    src={crypto}
                     alt="Walmart News"
                   />
 

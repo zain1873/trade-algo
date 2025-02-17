@@ -1,5 +1,7 @@
 import React from "react";
 import walmartImg from "../assets/images/walmart-img.webp"; 
+import recentPost from "../assets/images/editor-choice1.webp"; 
+
 
 function Posts() {
   return (
@@ -29,7 +31,7 @@ function Posts() {
                   <a href="">
                     <img
                       className="obj_fit"
-                      src={walmartImg}
+                      src={recentPost}
                       alt="Walmart News"
                     />
 

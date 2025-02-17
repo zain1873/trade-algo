@@ -3,12 +3,13 @@ import Technology1 from "../assets/images/technology1.webp";
 import Technology2 from "../assets/images/technology2.webp"; 
 
 
+
 function Technology() {
   return (
     <section>
       <div className="container">
         <div className="technology">
-          <div className="row" data-aos="fade-right">
+          <div className="row" data-aos="fade-top">
             {/* Section Heading */}
             <div className="col-12">
               <div className="sec_heading">
