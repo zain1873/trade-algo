@@ -3,6 +3,7 @@ import "../styles/navbar.css";
 import "../styles/variable.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/Valour_Wealth.png";
+import ForexTicker from "./forexTicker";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,8 @@ const Navbar = () => {
 
   return (
     <>
+    {/* forex ticker component */}
+    <ForexTicker/>
       {/* Main Navbar */}
       <nav className="navbar navbar-expand-lg">
         <div className="container">
@@ -28,7 +31,11 @@ const Navbar = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
+
+          {/* Login Button */}
+          <button className="btn-login-mobile d-lg-none d-md-block">Login</button>
           </button>
+  
 
           <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
             <ul className="navbar-nav ms-auto">

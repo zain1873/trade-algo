@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="footer-container">
         {/* Left Section - About */}
         <div className="footer-left">
-          <h2 className="footer-logo-title">TradeAlgo</h2>
+          <h2 className="footer-logo-title">Valour Wealth</h2>
           <p className="footer-text">
-            Headquartered in New York. TradeAlgo delivers unparalleled access to market tools with over 50 billion
+            Headquartered in New York. ValourWealth delivers unparalleled access to market tools with over 50 billion
             events processed daily.
           </p>
 

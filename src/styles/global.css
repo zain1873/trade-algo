@@ -97,7 +97,7 @@
     align-items: center;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url("../assets/images/login-background.jpg");    background-size: cover;
+    url("../assets/images/login-img.jpeg");    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -491,4 +491,25 @@
   color: #000;
   margin-top: 50px;
   font-weight: 700;
+}
+
+/* forex ticker */
+.forex-ticker-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #efefef;
+  padding: 6px 0;
+  position: relative;
+}
+
+.forex-ticker-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  text-align: center;
 }

@@ -13,10 +13,10 @@ function newsletter() {
           {/* Left Side - Text and Form */}
           <div className="col-md-6">
             <div className="newsletter-content p-4">
-              <img src={websiteLogowhite} alt="TradeAlgo Logo" className="mb-3" height="50" />
+              <img src={websiteLogowhite} alt="ValourWealth Logo" className="mb-3" height="50" />
               <h3 className="">Subscribe to our <span className="text-gray">newsletter!</span></h3>
               <p className="">
-                As a leading independent research provider, TradeAlgo keeps you connected from anywhere.
+                As a leading independent research provider, ValourWealth keeps you connected from anywhere.
               </p>
            
             </div>

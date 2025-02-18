@@ -1,0 +1,23 @@
+@media only screen and (max-width:992px) {
+
+    .container {
+        max-width: none;
+    }
+    .market_cards  {
+        flex-direction: column;
+    }
+    .banner-text {
+        color: white;
+        max-width: 600px;
+        position: absolute;
+        top: 26%;
+        left: 2%;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .second-navbar {
+        display: none;
+    }
+
+}
