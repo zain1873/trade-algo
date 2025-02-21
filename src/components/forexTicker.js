@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Slider from "react-slick"; // Import react-slick
-import "slick-carousel/slick/slick.css"; // Import slick carousel styles
-import "slick-carousel/slick/slick-theme.css"; // Import slick carousel theme
+import Slider from "react-slick"; 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; 
 
 const ForexTicker = () => {
   const [forexData, setForexData] = useState(null);
@@ -20,19 +20,19 @@ const ForexTicker = () => {
     };
 
     fetchForexData();
-    const intervalId = setInterval(fetchForexData, 60000); // Update every 60 seconds
+    const intervalId = setInterval(fetchForexData, 60000); 
     return () => clearInterval(intervalId);
   }, []);
 
   const settings = {
     dots: false,
-    infinite: true, // Ensure the slider runs in an infinite loop
+    infinite: true, 
     speed: 800,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 2000, // Set the autoplay speed to 2 seconds
-    pauseOnHover: false, // Ensure autoplay continues even when hovered over
+    autoplay: true, 
+    autoplaySpeed: 2000, 
+    pauseOnHover: false, 
     focusOnSelect: true,
     responsive: [
       {

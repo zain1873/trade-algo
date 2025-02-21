@@ -45,7 +45,7 @@
   transition: color 0.3s ease-in-out;
 }
 .nav-item:hover {
-  color: #FEA116;
+  /* color: #FEA116; */
 }
 
 
@@ -222,6 +222,7 @@
 .search-box .search-icon i {
   color: #fff;
   transition: color 0.3s ease;
+  margin-left: -4px;
 }
 
 .search-box .search-icon:hover i {

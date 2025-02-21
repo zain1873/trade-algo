@@ -13,7 +13,6 @@ import Stocks from "../components/Stocks";
 import Products from "../components/Products";
 import EditorChoice from "../components/editorChoice";
 import MarketDetails from "../components/marketDetails";
-// import ForexTicker from "../components/forexTicker";
 import backgroundVideo from "../assets/images/banner-video.mp4";
 
 function Home() {

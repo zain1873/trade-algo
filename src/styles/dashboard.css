@@ -1,0 +1,187 @@
+
+
+  /* Basic Reset and Container Styles */
+.vh-100 {
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Sidebar Transition */
+  .transition-width {
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Navigation Link Styles */
+  .nav-link {
+    color: inherit;
+    background: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .bg-dark .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-link.active {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #ffc057;
+    background-color: #ffc057;
+  }
+ 
+  .bg-dark .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  .bg-dark .nav-link {
+    color: #fff!important;
+  }
+ 
+  
+  /* Card Styles */
+  .card {
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .bg-dark .card {
+    background-color: #2d3238;
+  }
+  
+  /* Welcome Card Gradient Background */
+  .card.bg-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+  }
+  
+  /* Search Input Styles */
+  .form-control-lg {
+    height: 3rem;
+    font-size: 1rem;
+  }
+  
+  .bg-dark .form-control {
+    background-color: #2d3238;
+    border-color: #495057;
+  }
+  
+  .bg-dark .form-control:focus {
+    background-color: #2d3238;
+    border-color: #0d6efd;
+    color: #fff;
+  }
+  
+  /* Button Styles */
+  .btn-outline-secondary {
+    border-color: #dee2e6;
+  }
+  
+  .bg-dark .btn-outline-secondary {
+    border-color: #495057;
+    color: #fff;
+  }
+  
+  .bg-dark .btn-outline-secondary:hover {
+    background-color: #495057;
+    border-color: #495057;
+  }
+  
+  /* Dark Mode Text Colors */
+  .bg-dark .text-muted {
+    color: #adb5bd !important;
+  }
+  
+  /* Sentiment Circle Animation */
+  .rounded-circle.bg-success {
+    transition: transform 0.3s ease;
+  }
+  
+  .rounded-circle.bg-success:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Custom Scrollbar for Sidebar */
+  .nav.flex-column {
+    scrollbar-width: thin;
+    height: auto;
+    margin-top: 50px;
+
+  }
+  .nav.flex-column .nav-link  {
+    padding: 12px;
+  }
+  .nav.flex-column span {
+    color: #000;
+  }
+ 
+
+  .nav.flex-column::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .nav.flex-column::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .nav.flex-column::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .bg-dark .nav.flex-column::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Button Link Reset */
+  .btn-link {
+    color: inherit;
+  }
+  
+  .btn-link:hover {
+    color: inherit;
+    opacity: 0.8;
+  }
+  
+  /* Profile Image Hover Effect */
+  .rounded-circle {
+    transition: transform 0.2s ease;
+  }
+  
+  .rounded-circle:hover {
+    transform: scale(1.1);
+  }
+
+  .nav-tabs .nav-item .nav-link {
+    color: #000;
+  }
+  .nav-tabs .nav-item .nav-link:hover {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+  .nav-tabs .nav-item .active {
+    background-color: #ffc057 !important;
+    border-radius: 0;
+}
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .col-8, .col-4 {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    
+    .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+
+
+
+  
