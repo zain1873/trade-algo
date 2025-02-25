@@ -78,8 +78,8 @@
 }
 
 .demo-btn {
-    background-color: #FEA116 !important;
-    color: #000;
+    background-color: var(--theme-color) !important;
+    color: #fff !important;
     font-weight: 500;
 }
 
@@ -210,7 +210,7 @@
   margin-left: 10px;
   position: absolute;
   right: 10px;
-  background-color: #FEA116;
+  background-color: var(--theme-color);
   color: #fff;
   border-radius: 50%;
   height: 36px;
@@ -311,6 +311,12 @@
   }
 
   
+}
+
+@media only screen and (max-width: 768px) {
+  .login_mbl {
+    display: flex;
+  }
 }
 
 

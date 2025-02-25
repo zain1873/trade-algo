@@ -48,7 +48,7 @@
     margin-top: 90px;
   }
   .try-btn {
-    background-color: #FEA116;
+    background-color: var(--theme-color);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -110,6 +110,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 500px;
+    height: 600px;
   }
   
   /* Title */
@@ -153,7 +154,7 @@
   
   .input-group input:focus {
     outline: none;
-    border-color: #fea116;
+    border-color: var(--theme-color);
     box-shadow: 0 0 5px rgba(254, 161, 22, 0.5);
   }
   
@@ -166,21 +167,21 @@
   }
   
   .forgot-link {
-    color: #FEA116;
+    color: var(--theme-color);
     text-decoration: none;
     transition: 0.3s;
   }
   
   .forgot-link:hover {
     text-decoration: underline;
-    color: #d98b0a;
+    color: var(--theme-color);
   }
   
   /* Login Button */
   .login-btn {
     width: 100%;
     padding: 12px;
-    background: #FEA116;
+    background: var(--theme-color);
     color: #fff;
     cursor: pointer;
     font-size: 16px;
@@ -191,7 +192,7 @@
   }
   
   .login-btn:hover {
-    background: #d98b0a;
+    background: var(--theme-color);
   }
   
   /* Divider */
@@ -273,14 +274,14 @@
   
   .back-home:hover {
     text-decoration: underline;
-    color: #FEA116;
+    color: var(--theme-color);
   }
   
  .recent_post h3 {
   font-size: 22px;
   color: #fff;
   border-radius: 0 0 20px 23px;
-  background-color: #FEA116;
+  background-color: var(--theme-color);
   display: inline-block;
   padding: 15px 50px;
  }
@@ -334,13 +335,13 @@
 
 /* Handle (scrolling part) */
 ::-webkit-scrollbar-thumb {
-  background: #fea116; /* Your theme color */
+  background: var(--theme-color); /* Your theme color */
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff9800;
+  background: var(--theme-color);
 }
 
 
@@ -355,7 +356,7 @@
 .card-desc  {
   padding: 20px;
   color: #fff;
-  background-color: #d88b00;
+  background-color: var(--theme-color);
 
 }
 .card-desc h3 {
@@ -405,7 +406,7 @@
   padding: 12px;
 }
 .newsletter-form input:focus {
-  border: 2px solid #d88b00;
+  border: 2px solid var(--theme-color);
  /* Soft yellow glow */
   outline: none;
 }
@@ -439,26 +440,25 @@
   text-decoration: none;
   display: inline-block;
   padding: 4px 14px;
-  color: #000;
+  color: #fff;
   transition: .3s;
+  background-color: #000;
 
 }
 .editor_desc p {
   font-weight: 700;
   font-size: 16px;
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 .editor_desc {
-  background-color: #d98b0a;
+  background-color: var(--theme-color);
+  
   padding: 14px 10px;
   height: 170px;
   margin-bottom: 20px;
 }
-.editors-choice:hover .editor_desc h3 {
-  background-color: #000;
-  color: #fff;
-}
+
 .extra-heading {
   color: #000 !important;
   font-weight: 700;
@@ -470,6 +470,7 @@
 }
 .market_details p {
   font-size: 18px;
+  color: #000;
 }
 
 .market_details .mid_img {

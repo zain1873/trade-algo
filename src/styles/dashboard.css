@@ -8,8 +8,12 @@
   
   /* Sidebar Transition */
   .transition-width {
-    transition: width 0.3s ease-in-out;
-  }
+    transition: width 0.2s ease-in-out;
+    -webkit-transition: width 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-in-out;
+    -ms-transition: width 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-in-out;
+}
   
   /* Navigation Link Styles */
   .nav-link {
@@ -62,7 +66,7 @@
     padding: 10px 50px 10px 15px; /* Adjusted padding to prevent icon overlap */
     font-size: 1rem;
     border-radius: 50px !important;
-    border: 2px solid #4ade80; /* Green border */
+    border: 2px solid #fff;
     outline: none;
     transition: 0.3s ease-in-out;
     background-color: white;
@@ -76,8 +80,8 @@
 }
 
 .search_bar:focus {
-    border-color: #34d399; /* Lighter green on focus */
-    box-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+    /* border-color: var(); */
+    box-shadow: 0 0 10px #007bff;
 }
 
 .dark-mode .search_bar {
@@ -112,7 +116,6 @@
     color: #4ade80;
     font-size: 1.2rem;
     cursor: pointer;
-    pointer-events: none; /* Prevents clicking on the icon */
 }
 .user_info {
   display: flex;

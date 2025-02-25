@@ -7,6 +7,9 @@ import valourWealth from "../assets/images/Valour_Wealth.png";
 import DashboardData from './DashboardSidebarComp/DashboardData';
 import LiveSessions from './DashboardSidebarComp/LiveSessions';
 import TradeProducts from './DashboardSidebarComp/TradeProducts';
+import Emerald from './DashboardSidebarComp/Emerald';
+import Platinum from './DashboardSidebarComp/Platinum';
+import OptionsAcademy from './DashboardSidebarComp/OptionsAcademy';
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,9 +40,15 @@ const Dashboard = () => {
         return <LiveSessions />;
       case 'Trade-products':
         return <TradeProducts />;
-      
       case 'trading-tools':
         return <LiveSessions />;
+      case 'emerald':
+        return <Emerald />;
+      case 'platinum':
+        return <Platinum />;
+      case 'options-academy':
+        return <OptionsAcademy />;
+
       case 'resources':
         return <h1>Resources Section</h1>;
    
@@ -91,13 +100,13 @@ const Dashboard = () => {
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'}`}>
           <div className="container-fluid py-4">
             <div className="row mb-4 align-items-center">
-            <div className="col position-relative">
+            <div className="col position-relative d-flex align-items-center">
             <input
               type="text"
-              className={`search_bar form-control-lg pe-5 ${darkMode ? "dark-mode" : ""}`}
+              className={`search_bar pe-5 ${darkMode ? "dark-mode" : ""}`}
               placeholder="Search Tickers..."
             />
-            {/* <Search className="search-icon" /> */}
+            <Search className="search-icon"  style={{marginLeft: "-30px"}} color='#5555'/>
           </div>
               <div className="col-auto user_info">
                 <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />

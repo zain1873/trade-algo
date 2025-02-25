@@ -1,5 +1,8 @@
 .dashboard-header {
-    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    background-image: url(../images/dashboard-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     border-radius: 10px;
     padding: 20px;
@@ -7,6 +10,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+    height: 336px;
   }
   
   .header-content {
@@ -14,6 +18,9 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    position: absolute;
+    top: 25%;
+    width: 96%;
   }
   
   .header-left h2 {
@@ -22,7 +29,7 @@
   }
   
   .highlight {
-    color: #4ade80; /* Green accent */
+    color: var(--theme-blue-color)
   }
   
   .underline {

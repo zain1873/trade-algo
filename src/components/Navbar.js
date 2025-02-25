@@ -22,6 +22,7 @@ const Navbar = () => {
             <img src={logo} alt="TradeAlgo Logo" height="40" className="me-2" />
           </Link>
 
+        <div className="login_mbl">
           <button
             className={`navbar-toggler ${isOpen ? "" : "collapsed"}`}
             type="button"
@@ -31,10 +32,13 @@ const Navbar = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-
-          {/* Login Button */}
-          <button className="btn-login-mobile d-lg-none d-md-block">Login</button>
           </button>
+              {/* Login Button */}
+              <button className="btn-login-mobile d-lg-none d-md-block">
+              <a href="/login" className="text-decoration-none text-white">Login</a>
+             </button>
+
+              </div>
   
 
           <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
@@ -44,7 +48,7 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/support" onClick={closeNavbar}>Customer Support</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/analysts" onClick={closeNavbar}>Our Analysts</Link></li>
-              <li className="nav-item"><Link className="btn demo-btn text-dark mx-2" to="/demo" onClick={closeNavbar}>Request Demo</Link></li>
+              <li className="nav-item"><Link className="btn demo-btn mx-2" to="/dashboard" onClick={closeNavbar}>Request Demo</Link></li>
               <li className="nav-item"><Link className="btn login-btn head-btn" to="/login" onClick={closeNavbar}>My Login</Link></li>
             </ul>
           </div>

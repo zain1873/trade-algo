@@ -1,7 +1,7 @@
 :root {
     /* Primary Theme Colors */
-    --primary-main: #1a1a2e;    /* Dark Blue */
-    --primary-light: #2e2e50;   /* Lighter Shade of Primary */
+    --theme-blue-color: #007bff;    /* Dark Blue */
+    --theme-color: #59534c;   /* Lighter Shade of Primary */
     --primary-dark: #0f0f1a;    /* Darker Shade of Primary */
   
     /* Accent Colors */

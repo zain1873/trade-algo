@@ -13,6 +13,9 @@
         top: 26%;
         left: 2%;
     }
+    .login-box {
+        height: auto;
+    }
 }
 
 @media only screen and (max-width:768px) {

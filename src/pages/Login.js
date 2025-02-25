@@ -6,7 +6,7 @@ import websiteLogo from "../assets/images/Valour_Wealth.png"
 
 function Login() {
   return (
-    <div className="login-container">
+    <div className="login-container p-4">
       <div className="login-box">
         <div className="logo-web">
           <img src={websiteLogo} alt="Website Logo" className="website-logo" />
@@ -28,7 +28,10 @@ function Login() {
             </label>
             <Link to="/forgot-password" className="forgot-link">Forgot Password?</Link>
           </div>
-          <button type="submit" className="login-btn">Login</button>
+          {/* <button type="submit" className="login-btn">Login</button> */}
+          <button className="login-btn" type='submit'>
+              <a href="/dashboard" className="text-decoration-none text-white">Login</a>
+            </button>
         </form>
 
         <p className="or-text">Or login with</p>

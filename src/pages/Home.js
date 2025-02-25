@@ -13,7 +13,7 @@ import Stocks from "../components/Stocks";
 import Products from "../components/Products";
 import EditorChoice from "../components/editorChoice";
 import MarketDetails from "../components/marketDetails";
-import backgroundVideo from "../assets/images/banner-video.mp4";
+import backgroundVideo from "../assets/images/home_banner_video.mp4";
 
 function Home() {
   useEffect(() => {
@@ -25,7 +25,7 @@ function Home() {
       <div className="row">
         <div className="col-lg-12 p-0">
           <div className="home-banner">
-            <video className="banner-video" autoPlay loop muted>
+            <video className="banner-video w-100" autoPlay loop muted>
               <source src={backgroundVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
