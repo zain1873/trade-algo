@@ -23,17 +23,43 @@
     .second-navbar {
         display: none;
     }
-   
+    section {
+        padding: 50px 0;
+    }
 
 }
 
 @media only screen and (max-width:600px) {
+    .banner-text h1 {
+        font-size: 54px;
+    }
     .footer-form {
         flex-direction: column;
     }
     .footer-join-btn {
         margin-top: 10px;
         margin-left: 0;
+    }
+    .market_details .name {
+        margin-top: 25px;
+    }
+    .extra-heading {
+        font-size: 32px;        
+    }
+    .other-news_section {
+        margin-top: 20px;
+    }
+    .side-news-img {
+        width: 164px;
+    }
+    .popular_card img {
+        height: 300px;
+    }
+    .news-wrap img {
+        height: 400px;
+    }
+    .editor_desc {
+        height: 140px;
     }
 
 }

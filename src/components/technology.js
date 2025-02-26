@@ -18,7 +18,7 @@ function Technology() {
             </div>
 
             {/* Technology Card 1 */}
-            <div className="col-lg-6 mb-lg-0 mb-sm-3">
+            <div className="col-lg-6 mb-lg-0 mb-3">
          
               <div className="popular_card">
               <a href="">
@@ -33,7 +33,7 @@ function Technology() {
             </div>
 
             {/* Technology Card 2 (Duplicate for another column) */}
-            <div className="col-lg-6">        
+            <div className="col-lg-6 mb-3">        
               <div className="popular_card">
               <a href="">
                 <img src={Technology2} alt="Technology" className="img-fluid" />

@@ -1,10 +1,10 @@
 import React from 'react'
 import "../DashboardSidebarComp/styles/DashboardData.css"; // Import the CSS
 import HistoricalDataFlow from './HistoricalDataFlow';
+import ProgressBar from './ProgressBar';
 
 
 function DashboardData() {
-
       return (
         <div className="container">
            <div className="dashboard-header">
@@ -28,6 +28,7 @@ function DashboardData() {
             </div>
           </div>         
         </div>  
+        <ProgressBar />
         <HistoricalDataFlow />
         </div>
        
