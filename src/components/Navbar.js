@@ -37,7 +37,6 @@ const Navbar = () => {
               <button className="btn-login-mobile d-lg-none d-md-block">
               <a href="/login" className="text-decoration-none text-white">Login</a>
              </button>
-
               </div>
   
 

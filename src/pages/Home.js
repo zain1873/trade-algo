@@ -25,7 +25,7 @@ function Home() {
       <div className="row">
         <div className="col-lg-12 p-0">
           <div className="home-banner">
-            <video className="banner-video w-100" autoPlay loop muted>
+            <video className="banner-video w-100 obj_fit" autoPlay loop muted>
               <source src={backgroundVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
