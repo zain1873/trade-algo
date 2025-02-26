@@ -22,7 +22,7 @@ const Navbar = () => {
             <img src={logo} alt="TradeAlgo Logo" height="40" className="me-2" />
           </Link>
 
-        <div className="login_mbl">
+        <div className="login_mbl d-flex">
           <button
             className={`navbar-toggler ${isOpen ? "" : "collapsed"}`}
             type="button"

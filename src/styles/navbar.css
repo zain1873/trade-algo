@@ -153,10 +153,11 @@
   box-shadow: none !important;
 }
 .btn-login-mobile  {
-  background-color: #FEA116;
+  background-color: var(--theme-color);
   border: none;
   padding: 10px 20px;
   font-weight: 500;
+  
 }
 
 .second-navbar .nav-links {
