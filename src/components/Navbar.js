@@ -47,7 +47,7 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/support" onClick={closeNavbar}>Customer Support</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/analysts" onClick={closeNavbar}>Our Analysts</Link></li>
-              <li className="nav-item"><Link className="btn demo-btn mx-2" to="/dashboard" onClick={closeNavbar}>Request Demo</Link></li>
+              <li className="nav-item"><Link className="theme_btn mx-2" to="/dashboard" onClick={closeNavbar}>Request Demo</Link></li>
               <li className="nav-item"><Link className="btn login-btn head-btn" to="/login" onClick={closeNavbar}>My Login</Link></li>
             </ul>
           </div>

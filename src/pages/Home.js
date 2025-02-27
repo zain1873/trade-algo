@@ -37,7 +37,7 @@ function Home() {
                 The revolutionary A.I. powered trading assistant is here to help
                 you elevate your trading to the next level
               </p>
-              <button className="try-btn">Try It For Free</button>
+              <button className="theme_btn">Try It For Free</button>
 
               <div className="text_down">
                 <p>Available now on mobile</p>

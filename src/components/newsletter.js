@@ -37,7 +37,7 @@ function newsletter() {
                   placeholder="Your Email"
                   required
                 />
-                <button type="submit" className="login-btn m-0 ">Join!</button>
+                <button type="submit" className="theme_btn m-0 ">Join!</button>
               </form>
           </div>
         </div>

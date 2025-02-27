@@ -64,7 +64,7 @@ const Platinum = () => {
           your profits, minimize your risks. Join now and start seeing the
           benefits of being a part of our insider community.
         </p>
-        <button className="btn btn-primary">Join Real-time Trading Alerts</button>
+        <button className="theme_btn">Join Real-time Trading Alerts</button>
       </div>
     </div>
   );

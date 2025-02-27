@@ -2,6 +2,7 @@ import React from 'react'
 import "../DashboardSidebarComp/styles/DashboardData.css"; // Import the CSS
 import HistoricalDataFlow from './HistoricalDataFlow';
 import ProgressBar from './ProgressBar';
+import LiveTrainingSession from './liveTrainingSession';
 
 
 function DashboardData() {
@@ -28,6 +29,7 @@ function DashboardData() {
             </div>
           </div>         
         </div>  
+        <LiveTrainingSession />
         <ProgressBar />
         <HistoricalDataFlow />
         </div>

@@ -10,6 +10,9 @@ import TradeProducts from './DashboardSidebarComp/TradeProducts';
 import Emerald from './DashboardSidebarComp/Emerald';
 import Platinum from './DashboardSidebarComp/Platinum';
 import OptionsAcademy from './DashboardSidebarComp/OptionsAcademy';
+import Mentorship from './DashboardSidebarComp/Mentorship';
+import WealthSeries from './DashboardSidebarComp/WealthSeries';
+import Resources from './DashboardSidebarComp/Resources';
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -48,9 +51,12 @@ const Dashboard = () => {
         return <Platinum />;
       case 'options-academy':
         return <OptionsAcademy />;
-
+      case 'wealth-series':
+        return <WealthSeries />;
+      case 'mentorship':
+        return <Mentorship />;
       case 'resources':
-        return <h1>Resources Section</h1>;
+        return <Resources />;
    
     }
   };

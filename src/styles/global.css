@@ -15,6 +15,30 @@
     h3 {
       font-size: 24px;
     }
+
+    .theme_btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      background-color: var(--theme-color);
+      color: #fff;
+      min-height: 47px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+    .theme_btn:hover {
+      background-color: var(--theme-yellow-color) !important;
+    }
+    .btn_second {
+      
+
+
+    }
  
    
  
@@ -411,6 +435,12 @@
   outline: none;
 }
 
+.newsletter-form .theme_btn {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 /* section editor */
 .editors-choice img {
   width: 100%;

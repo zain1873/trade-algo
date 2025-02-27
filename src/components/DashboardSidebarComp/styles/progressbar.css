@@ -64,6 +64,9 @@
     mask: radial-gradient(transparent 55px, black 55px);
     -webkit-mask: radial-gradient(transparent 55px, black 55px);
   }
+  .circular-progress h4 {
+    text-align: center;
+  }
  
   
   /* Optional: Add responsive sizing */
