@@ -38,7 +38,6 @@ const Navbar = () => {
               <a href="/login" className="text-decoration-none text-white">Login</a>
              </button>
               </div>
-  
 
           <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
             <ul className="navbar-nav ms-auto">
@@ -48,7 +47,7 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/support" onClick={closeNavbar}>Customer Support</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/analysts" onClick={closeNavbar}>Our Analysts</Link></li>
               <li className="nav-item"><Link className="theme_btn mx-2" to="/dashboard" onClick={closeNavbar}>Request Demo</Link></li>
-              <li className="nav-item"><Link className="btn login-btn head-btn" to="/login" onClick={closeNavbar}>My Login</Link></li>
+              <li className="nav-item"><Link className="theme_btn " to="/login" onClick={closeNavbar}>My Login</Link></li>
             </ul>
           </div>
         </div>

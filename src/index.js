@@ -15,6 +15,8 @@ import "./styles/navbar.css";
 import "./styles/footer.css";
 import "./styles/variable.css";
 import "./styles/responsive.css";
+import "./index.css";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

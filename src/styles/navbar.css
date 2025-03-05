@@ -3,13 +3,15 @@
 
 /* Navbar Styling */
 .navbar {
-  background-color: var(--secondary-color);
   padding: 12px 20px;
   border-bottom: 2px solid #000;
   /* position: fixed !important; */
-  background: #fff;
+  background: #000;
+  color: #fff;
   z-index: 2;
   width: 100%;
+  border-bottom: 1px solid #555
+  
 }
 .navbar-brand {
   font-size: 1.5rem;
@@ -45,7 +47,7 @@
   transition: color 0.3s ease-in-out;
 }
 .nav-item:hover {
-  /* color: #FEA116; */
+  color: var(--theme-color);
 }
 
 
@@ -135,14 +137,19 @@
   color: #fff !important;
   border-color: #000;
 }
+.search-box .search-input:focus {
+  outline: none; /* Removes the default outline */
+  box-shadow: none; /* Removes any shadow effect */
+}
+
 
 
 /* second navbar */
 /* Second Navbar */
 .second-navbar {
-  background: #f8f9fa;
+  background: #000;
+  color: #fff;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
   position: sticky;
     top: -1px;
     z-index: 10;
@@ -177,13 +184,13 @@
 
 .second-navbar .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .second-navbar .nav-links a:hover {
-  color: #007bff;
+  color: var(--theme-color) !important;
 }
 
 /* Search Box */
@@ -192,7 +199,7 @@
 }
 
 .search-box .search-input {
-  background-color: #e7e5e5;
+  background-color: #fff;
   color: #191919;
   border-radius: 30px;
   padding: 12px 24px;

@@ -2,7 +2,7 @@
    /* variables */
    .sec_heading h2{
     font-size: 44px;
-    color: #000;
+    color: #fff;
    }
    section {
     padding: 70px 0;
@@ -34,13 +34,8 @@
     .theme_btn:hover {
       background-color: var(--theme-yellow-color) !important;
     }
-    .btn_second {
-      
+    
 
-
-    }
- 
-   
  
    
    /* banner css */
@@ -379,8 +374,8 @@
 
 .card-desc  {
   padding: 20px;
-  color: #fff;
-  background-color: var(--theme-color);
+  color: #000;
+  background-color: #fff;
 
 }
 .card-desc h3 {
@@ -400,6 +395,7 @@
     -ms-transition: .4s;
     -o-transition: .4s;
     background-color: #000;
+    color: #fff;
 
 }
 
@@ -478,12 +474,11 @@
 .editor_desc p {
   font-weight: 700;
   font-size: 16px;
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 .editor_desc {
-  background-color: var(--theme-color);
-  
+  background-color: #fff;
   padding: 14px 10px;
   height: 170px;
   margin-bottom: 20px;
@@ -495,7 +490,7 @@
   font-size: 36px;
 }
 .market_details .editor_desc {
-  background-color: transparent;
+  background-color: #fff;
   border-bottom: 2px solid #000;
 }
 .market_details p {
@@ -655,6 +650,9 @@
   top: 50%;
   transform: translateY(-50%);
   color: #6c757d;
+}
+.search-box .search-icon i {
+  color: #fff !important;
 }
 
 .search-box input {

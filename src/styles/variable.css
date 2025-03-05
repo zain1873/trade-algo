@@ -1,8 +1,9 @@
 :root {
     /* Primary Theme Colors */
     --theme-blue-color: #007bff;    /* Dark Blue */
-    --theme-color: #59534c;   /* Lighter Shade of Primary */
-    --theme-yellow-color: #d88b00;
+    /* --theme-color: #59534c;   */
+    --theme-color: #228B22; /*forest green */
+    --theme-yellow-color: #13af0a;  /*forest green hover */
     --primary-dark: #0f0f1a;    /* Darker Shade of Primary */
   
     /* Accent Colors */
@@ -23,9 +24,8 @@
     /* Border Colors */
     --border-light: #d6d8db;    /* Light Border */
     --border-dark: #5c5c5c;     /* Dark Border */
+
+
+    
   
-    /* Hover & Active Colors */
-    --hover-primary: #343a40;   /* Dark Gray for hover */
-    --hover-accent: #e69500;    /* Slightly Darker Orange */
-  }
-  
+}
