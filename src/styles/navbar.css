@@ -142,6 +142,9 @@
   box-shadow: none; /* Removes any shadow effect */
 }
 
+.navbar-toggler-icon {
+  background-color: #fff;
+}
 
 
 /* second navbar */

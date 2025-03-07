@@ -19,7 +19,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg">
         <div className="container">
           <Link className="navbar-brand fw-bold" to="/">
-            <img src={logo} alt="TradeAlgo Logo" height="40" className="me-2" />
+            <img src={logo} alt="ValourWealth Logo" height="40" className="me-2" />
           </Link>
 
         <div className="login_mbl d-flex">
@@ -33,10 +33,15 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-              {/* Login Button */}
-              <button className="btn-login-mobile d-lg-none d-md-block">
+              {/* Login and demo  Button */}
+              {/* <button className="btn-login-mobile d-lg-none d-md-block me-2">
               <a href="/login" className="text-decoration-none text-white">Login</a>
+             </button> */}
+             <button className="btn-login-mobile d-lg-none d-md-block">
+             <a href="/login" className="text-decoration-none text-white">Request Demo</a>
+
              </button>
+
               </div>
 
           <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
@@ -46,8 +51,8 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/support" onClick={closeNavbar}>Customer Support</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/analysts" onClick={closeNavbar}>Our Analysts</Link></li>
-              <li className="nav-item"><Link className="theme_btn mx-2" to="/dashboard" onClick={closeNavbar}>Request Demo</Link></li>
-              <li className="nav-item"><Link className="theme_btn " to="/login" onClick={closeNavbar}>My Login</Link></li>
+              <li className="nav-item"><Link className="theme_btn d-lg-block d-none mx-2" to="/dashboard" onClick={closeNavbar}>Request Demo</Link></li>
+              <li className="nav-item"><Link className="theme_btn d-lg-block d-none" to="/login" onClick={closeNavbar}>My Login</Link></li>
             </ul>
           </div>
         </div>

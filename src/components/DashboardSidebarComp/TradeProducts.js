@@ -3,8 +3,8 @@ import "./styles/products.css"; // Import CSS file
 
 const products = [
   {
-    title: "TRADEALGO TERMINAL",
-    description: "Experience the full potential of TradeAlgo",
+    title: "ValourWealth TERMINAL",
+    description: "Experience the full potential of ValourWealth",
     buttonText: "Purchase",
     imageClass: "card1",
   },

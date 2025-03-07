@@ -23,7 +23,7 @@ const Resources = () => {
           <img src={authorImg} alt="Author" className="author-img me-2" />
           <div>
             <h6 className="author-name m-0">Dane Gilsek <span className="verified-badge">✔</span></h6>
-            <p className="author-role m-0">TradeAlgo Analyst</p>
+            <p className="author-role m-0">ValourWealth Analyst</p>
           </div>
         </div>
 

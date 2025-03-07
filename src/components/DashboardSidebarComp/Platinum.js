@@ -14,7 +14,7 @@ const Platinum = () => {
         />
         <div className="ms-3">
           <h5 className="mb-0">Eric Armenteros</h5>
-          <p className="text-muted small">TradeAlgo Professional Analyst</p>
+          <p className="text-muted small">ValourWealth Professional Analyst</p>
         </div>
       </div>
 
@@ -22,7 +22,7 @@ const Platinum = () => {
       <h3 className="fw-bold">The Platinum Daily Livestreams</h3>
       <p className="text-muted">
         Join us and get ready to buckle up and blast off with the one and only
-        Eric Armenteros at the TradeAlgo's Platinum Daily livestream event! With
+        Eric Armenteros at the ValourWealth Platinum Daily livestream event! With
         Eric at the helm, you'll be taken on an electrifying journey through the
         markets as he scours for the most profitable trades out there. This
         daily event is <strong>THE place to be</strong> if you want to gain
