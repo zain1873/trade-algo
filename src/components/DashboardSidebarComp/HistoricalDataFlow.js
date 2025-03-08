@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const HistoricalDataFlow = () => {
   const [activeTab, setActiveTab] = useState("largeCaps");
@@ -38,7 +38,7 @@ const HistoricalDataFlow = () => {
 
       {/* Table */}
       <div className="table-responsive mt-3">
-        <table className="table table-bordered">
+        <table className="table table-bordered table_history">
           <thead className="table-primary">
             <tr>
               <th>TICKER</th>
@@ -52,24 +52,25 @@ const HistoricalDataFlow = () => {
             {activeTab === "largeCaps" && (
               <>
                 <tr>
-                  <td>LLY</td>
+                  <td>MT</td>
                   <td>
-                    $857.21 <br /> <small>Feb 19th 8:15 AM</small>
+                  $30.29
+                  <br /> <small>Mar 5th 8:04 AM</small>
                   </td>
                   <td>
-                    $871.53 <br /> <small>Feb 19th 12:36 PM</small>
+                  $33.69 <br /> <small>Feb 19th 12:36 PM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">392.99x</span>
+                    <span className="badge bg-success">144658.18x</span>
                   </td>
                   <td>
                     +1.67% <br /> <small>4 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>GRMN</td>
+                  <td>FMC</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $36.58<br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -83,9 +84,9 @@ const HistoricalDataFlow = () => {
                 </tr>
 
                 <tr>
-                  <td>CTAS</td>
+                  <td>KNSL</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $433.93<br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -98,9 +99,9 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>TXN</td>
+                  <td>HII</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $172.29 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -113,9 +114,9 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>DY</td>
+                  <td>INCY</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $69.70 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -128,9 +129,9 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>NXPI</td>
+                  <td>FNV</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $142.91 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -143,9 +144,39 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>ADI</td>
+                  <td>IDXX</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $441.71 <br /> <small>Feb 19th 8:03 AM</small>
+                  </td>
+                  <td>
+                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">250.53x</span>
+                  </td>
+                  <td>
+                    +12.69% <br /> <small>1 day</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CDXC</td>
+                  <td>
+                  $8.59 <br /> <small>Feb 19th 8:03 AM</small>
+                  </td>
+                  <td>
+                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">250.53x</span>
+                  </td>
+                  <td>
+                    +12.69% <br /> <small>1 day</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NNOX</td>
+                  <td>
+                  $6.04 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -160,7 +191,7 @@ const HistoricalDataFlow = () => {
                 <tr>
                   <td>TPL</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $1366.43 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -173,9 +204,9 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>QCOM</td>
+                  <td>WSM</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $183.48 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -188,9 +219,9 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>MMC</td>
+                  <td>NICE</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $144.62 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -203,39 +234,9 @@ const HistoricalDataFlow = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>BKNG</td>
+                  <td>REGN</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MA</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>COF</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $679.06 <br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>
@@ -250,7 +251,7 @@ const HistoricalDataFlow = () => {
                 <tr>
                   <td>WM</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                  $312.03<br /> <small>Feb 19th 8:03 AM</small>
                   </td>
                   <td>
                     $242.06 <br /> <small>Feb 20th 8:03 AM</small>

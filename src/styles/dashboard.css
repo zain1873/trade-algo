@@ -249,6 +249,55 @@ body .dark {
 }
 
 
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #000 !important;
+  color: white !important;
+}
+
+.dark-mode .card {
+  background-color: #000 !important;
+  border-color: #333 !important;
+}
+
+.dark-mode .sidebar-logo img {
+  filter: brightness(0) invert(1);
+}
+
+.dark-mode .nav-link {
+  color: white !important;
+}
+
+.dark-mode .nav-link.active {
+  background-color: #222 !important;
+  color: #ffa500 !important; /* Optional: Accent color */
+}
+
+.dark-mode .btn-link {
+  color: white !important;
+}
+
+.dark-mode input {
+  background-color: #222 !important;
+  color: white !important;
+  border: 1px solid #555;
+}
+
+.dark-mode input::placeholder {
+  color: #bbb !important;
+}
+
+.dark-mode .border-end {
+  border-color: #444 !important;
+}
+
+.dark-mode .border-top {
+  border-color: #444 !important;
+}
+
+
+
   
   /* Responsive Adjustments */
   @media (max-width: 768px) {
@@ -267,3 +316,5 @@ body .dark {
 
 
   
+
+ 

@@ -38,7 +38,7 @@ const Navbar = () => {
               <a href="/login" className="text-decoration-none text-white">Login</a>
              </button> */}
              <button className="btn-login-mobile d-lg-none d-md-block">
-             <a href="/login" className="text-decoration-none text-white">Request Demo</a>
+             <a href="/dashboard" className="text-decoration-none text-white">Request Demo</a>
 
              </button>
 
