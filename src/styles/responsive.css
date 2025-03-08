@@ -83,4 +83,9 @@
     .news-wrap img {
         height: 300px;
     }
+    .btn-login-mobile {
+        padding: 6px 14px;
+        font-weight: 500;
+        font-size: 13px;
+    }
 }
