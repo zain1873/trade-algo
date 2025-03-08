@@ -88,4 +88,11 @@
         font-weight: 500;
         font-size: 13px;
     }
+    .navbar-brand img {
+        height: 72px;
+        margin-left: -50px !important;
+    }
+    .navbar-brand {
+        margin: 0 !important;
+    }
 }
