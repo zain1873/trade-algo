@@ -13,7 +13,7 @@ import Stocks from "../components/Stocks";
 import Products from "../components/Products";
 import EditorChoice from "../components/editorChoice";
 import MarketDetails from "../components/marketDetails";
-import backgroundVideo from "../assets/images/home_banner_video.mp4";
+import backgroundVideo from "../assets/images/bannergreen.mp4";
 
 function Home() {
   useEffect(() => {

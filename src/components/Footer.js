@@ -43,8 +43,16 @@ const Footer = () => {
             <li><a href="/terms-of-service">Terms Of Service</a></li>
             <li><a href="/acceptable-use-policy">Acceptable Use Policy</a></li>
             <li><a href="/legal-disclaimer">Legal Disclaimer</a></li>
-            <li><a href="/regcf">Form CAR</a></li>
           </ul>
+        </div>
+
+        <div className="contact-menu">
+          <h3 className="footer-title" style={{textAlign: "left"}}>Contact</h3>
+          <ul className="footer-links" style={{textAlign: "left"}}>
+          <li> <a href="mailto:your-email@example.com">Email: your-email@example.com</a></li>
+          <li> <a href="tel:+1234567890">Number: +1 234 567 890</a></li>
+          </ul>
+
         </div>
       </div>
 
