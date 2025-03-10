@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 
 
-const HistoricalDataFlow = () => {
+const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
 
   return (
-    <div className="container mt-4">
+      <div className="container mt-4"
+      style={{
+        backgroundColor: darkMode ? "#000000" : "#ffffff", // Full black background
+        color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+        padding: "20px",
+        borderRadius: "10px",
+        border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
+      }}>
       <h2>Historic ATS Gainers & Losers</h2>
 
       {/* Tabs */}
@@ -38,8 +46,13 @@ const HistoricalDataFlow = () => {
 
       {/* Table */}
       <div className="table-responsive mt-3">
-        <table className="table table-bordered table_history">
-          <thead className="table-primary">
+      <table
+  className="table table-bordered table_history">
+      <thead className="table-primary"   style={{
+    backgroundColor: darkMode ? "#000000" : "#ffffff", // Pure black in dark mode
+    color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+    border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
+  }}>
             <tr>
               <th>TICKER</th>
               <th>FROM</th>
@@ -48,7 +61,11 @@ const HistoricalDataFlow = () => {
               <th>PERCENT CHANGE</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody   style={{
+    backgroundColor: darkMode ? "#000000" : "#ffffff", // Pure black in dark mode
+    color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+    border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
+  }}>
             {activeTab === "largeCaps" && (
               <>
                 <tr>

@@ -23,15 +23,28 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   // Add this effect to apply CSS variables for dark mode
+
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.style.setProperty('--text-color', 'white');
-      document.documentElement.style.setProperty('--background-color', '#212529');
+      document.documentElement.style.setProperty('--text-color', '#ffffff');  // White text
+      document.documentElement.style.setProperty('--background-color', '#000000'); // Full black background
+      document.documentElement.style.setProperty('--sidebar-color', '#000000'); // Full black sidebar
+      document.documentElement.style.setProperty('--card-background', '#000000'); // Full black cards
+      document.documentElement.style.setProperty('--input-background', '#222222'); // Darker input fields
+      document.documentElement.style.setProperty('--border-color', '#444444'); // Softer borders in dark mode
     } else {
-      document.documentElement.style.setProperty('--text-color', 'inherit');
-      document.documentElement.style.setProperty('--background-color', '#f8f9fa');
+      document.documentElement.style.setProperty('--text-color', '#000000'); // Black text
+      document.documentElement.style.setProperty('--background-color', '#ffffff'); // White background
+      document.documentElement.style.setProperty('--sidebar-color', '#f8f9fa'); // Light sidebar
+      document.documentElement.style.setProperty('--card-background', '#ffffff'); // White cards
+      document.documentElement.style.setProperty('--input-background', '#ffffff'); // White input fields
+      document.documentElement.style.setProperty('--border-color', '#dddddd'); // Light borders
     }
   }, [darkMode]);
+  
+  
+
+  
 
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: <Home size={20} /> },
@@ -46,39 +59,53 @@ const Dashboard = () => {
     { id: 'options-academy', label: 'Options Academy', icon: <GraduationCap size={20} /> },
     { id: 'mentorship', label: 'Options Mentorship', icon: <Users size={20} /> },
   ];
-
   const renderContent = () => {
-    switch (activeTab) {
-      case 'dashboard':
-        return <DashboardData />;
-      case 'historical-darkflow':
-        return <HistoricalDataFlow />;
-      case 'live-sessions':
-        return <LiveSessions />;
-      case 'Trade-products':
-        return <TradeProducts />;
-      case 'trading-tools':
-        return <LiveSessions />;
-      case 'emerald':
-        return <Emerald />;
-      case 'platinum':
-        return <Platinum />;
-      case 'options-academy':
-        return <OptionsAcademy />;
-      case 'wealth-series':
-        return <WealthSeries />;
-      case 'mentorship':
-        return <Mentorship />;
-      case 'resources':
-        return <Resources />;
-    }
+    return (
+      <div className={darkMode ? "dark-mode-content" : "light-mode-content"}>
+        {(() => {
+          switch (activeTab) {
+            case 'dashboard':
+              return <DashboardData darkMode={darkMode} />;
+            case 'historical-darkflow':
+              return <HistoricalDataFlow darkMode={darkMode} />;
+            case 'live-sessions':
+              return <LiveSessions darkMode={darkMode} />;
+            case 'Trade-products':
+              return <TradeProducts darkMode={darkMode} />;
+            case 'trading-tools':
+              return <LiveSessions darkMode={darkMode} />;
+            case 'emerald':
+              return <Emerald darkMode={darkMode} />;
+            case 'platinum':
+              return <Platinum darkMode={darkMode} />;
+            case 'options-academy':
+              return <OptionsAcademy darkMode={darkMode} />;
+            case 'wealth-series':
+              return <WealthSeries darkMode={darkMode} />;
+            case 'mentorship':
+              return <Mentorship darkMode={darkMode} />;
+            case 'resources':
+              return <Resources darkMode={darkMode} />;
+            default:
+              return null;
+          }
+        })()}
+      </div>
+    );
   };
+  
 
   return (
     <div className={darkMode ? 'bg-dark text-white vh-100' : 'bg-light vh-100'}>
       <div className="row g-0">
         {/* Sidebar */}
-        <div className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 border-end transition-width ${darkMode ? 'bg-dark' : 'bg-white'}`}>
+        <div
+          className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 border-end transition-width`}
+          style={{ 
+            backgroundColor: 'var(--background-color)', 
+            color: 'var(--text-color)' 
+          }}
+>
           {/* Sidebar Header */}
           <div className="d-flex justify-content-between align-items-center border-bottom p-3">
             {!sidebarCollapsed && (
@@ -136,7 +163,7 @@ const Dashboard = () => {
         
         {/* Main Content Area */}
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'}`}>
-          <div className="container-fluid py-4">
+          <div className="container-fluid py-4" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
             <div className="row mb-4 align-items-center">
               <div className="col position-relative d-flex align-items-center">
@@ -145,7 +172,7 @@ const Dashboard = () => {
                   className={`search_bar pe-5 ${darkMode ? "dark-mode" : ""}`}
                   placeholder="Search Tickers..."
                 />
-                <Search className="search-icon" style={{marginLeft: "-30px"}} color={darkMode ? '#fff' : '#5555'}/>
+                <Search className="search-icon" style={{marginLeft: "-30px"}} color={darkMode ? '#fff' : '#000'}/>
               </div>
               <div className="col-auto user_info">
                 <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
@@ -157,7 +184,7 @@ const Dashboard = () => {
             </div>
             
             {/* Content Card */}
-            <div className={darkMode ? 'card bg-dark text-white p-4' : 'card bg-light text-dark p-4'}>
+            <div className={darkMode ? '' : 'card bg-light text-dark p-4'}>
               {renderContent()}
             </div>
           </div>

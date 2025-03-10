@@ -1,17 +1,13 @@
 import React from "react";
 import "../DashboardSidebarComp/styles/platinum.css";
-import profileImg from "../DashboardSidebarComp/images/thubnail_stream.png"
+import profileImg from "../DashboardSidebarComp/images/thubnail_stream.png";
 
-const Platinum = () => {
+const Platinum = ({ darkMode }) => {
   return (
-    <div className="container mt-4 platinum-container">
+    <div className={`container mt-4 platinum-container ${darkMode ? "dark-mode" : "light-mode"}`}>
       {/* Profile Section */}
       <div className="d-flex align-items-center mb-3">
-        <img
-          src={profileImg} // Update with correct path
-          alt="Eric Armenteros"
-          className="profile-img"
-        />
+        <img src={profileImg} alt="Eric Armenteros" className="profile-img" />
         <div className="ms-3">
           <h5 className="mb-0">Eric Armenteros</h5>
           <p className="text-muted small">ValourWealth Professional Analyst</p>
@@ -20,14 +16,9 @@ const Platinum = () => {
 
       {/* Title & Description */}
       <h3 className="fw-bold">The Platinum Daily Livestreams</h3>
-      <p className="text-muted">
+      <p>
         Join us and get ready to buckle up and blast off with the one and only
-        Eric Armenteros at the ValourWealth Platinum Daily livestream event! With
-        Eric at the helm, you'll be taken on an electrifying journey through the
-        markets as he scours for the most profitable trades out there. This
-        daily event is <strong>THE place to be</strong> if you want to gain
-        invaluable insights, stay on top of your game, and receive explosive
-        trade ideas that'll make your portfolio soar to new heights!
+        Eric Armenteros at the ValourWealth Platinum Daily livestream event!
       </p>
 
       {/* Live Schedule */}
@@ -60,9 +51,7 @@ const Platinum = () => {
         <h4 className="fw-bold">Real-time Trading Alerts</h4>
         <p>
           Our team of experts delivers real-time, profitable trading
-          opportunities straight to your phone via the Telegram app. Maximize
-          your profits, minimize your risks. Join now and start seeing the
-          benefits of being a part of our insider community.
+          opportunities straight to your phone via the Telegram app.
         </p>
         <button className="theme_btn">Join Real-time Trading Alerts</button>
       </div>

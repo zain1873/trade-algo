@@ -108,7 +108,7 @@ body .dark {
 }
 
 .bg-dark .nav-link.active {
-  color: #FEA116 !important; /* Highlight active tab */
+  color: #000 !important; /* Highlight active tab */
 }
 
 /* Search Icon Styling */
