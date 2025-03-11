@@ -2,8 +2,7 @@ import React from 'react';
 import '../DashboardSidebarComp/styles/progressbar.css';
 
 const CircularProgressBar = ({ percentage, color }) => {
-  // Calculate the rotation based on percentage
-  const rotation = percentage * 3.6; // 3.6 degrees per percentage point (360/100)
+  const rotation = percentage * 3.6; 
   
   return (
     <div className="circular-progress">
@@ -15,7 +14,6 @@ const CircularProgressBar = ({ percentage, color }) => {
         </div>
       </div>
       
-      {/* Progress indicator using CSS ::before and ::after pseudo-elements */}
       <div 
         className="progress-circle" 
         style={{ 
@@ -58,9 +56,3 @@ const ProgressBarsDisplay = () => {
 };
 
 export default ProgressBarsDisplay;
-
-
-
-
-
-

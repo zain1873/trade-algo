@@ -42,9 +42,6 @@ const Dashboard = () => {
     }
   }, [darkMode]);
   
-  
-
-  
 
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: <Home size={20} /> },

@@ -48,48 +48,47 @@
 // export default Login;
 
 
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/global.css";
 import websiteLogo from "../assets/images/Valour_Wealth.png";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); // FIXED: Correct state variable
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Prevent multiple clicks
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Update with your backend API URL
+  // ✅ Ensure your ngrok link is active
   const API_URL = "https://5402-119-155-34-189.ngrok-free.app/api/token/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error before a new request
+    setError("");
     setLoading(true);
 
     try {
-      console.log("🔵 Sending login request..."); // Debugging log
+      console.log("🔵 Sending login request...");
 
       const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username: email, password }), 
       });
 
-      console.log("🟡 Raw Response:", response); // Log full response
+      console.log("🟡 Raw Response:", response);
 
       const data = await response.json();
-      console.log("🟢 Response Data:", data); // Log API response
+      console.log("🟢 Response Data:", data);
 
       if (response.ok) {
         console.log("✅ Login Successful:", data);
-        localStorage.setItem("authToken", data.token); // Store token
-        navigate("/dashboard"); // Redirect to dashboard
+        localStorage.setItem("authToken", data.token);
+        navigate("/dashboard");
       } else {
-        console.error("🔴 Login Error:", data); 
-        setError(data.detail || "Invalid credentials. Try again.");
+        console.error("🔴 Login Error:", data);
+        setError(data.detail || "Invalid credentials. Please try again.");
       }
     } catch (err) {
       console.error("❌ Network Error:", err);
@@ -112,11 +111,11 @@ function Login() {
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <label>Email</label>
+            <label>Username</label>
             <input
               type="email"
-              placeholder="Enter your email"
-              value={email}
+              placeholder="Enter your Username"
+              value={email} 
               onChange={(e) => setEmail(e.target.value)}
               required
             />

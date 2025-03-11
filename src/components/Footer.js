@@ -49,8 +49,8 @@ const Footer = () => {
         <div className="contact-menu">
           <h3 className="footer-title" style={{textAlign: "left"}}>Contact</h3>
           <ul className="footer-links" style={{textAlign: "left"}}>
-          <li> <a href="mailto:your-email@example.com">Email: your-email@example.com</a></li>
-          <li> <a href="tel:+1234567890">Number: +1 234 567 890</a></li>
+          <li> <a href="mailto:your-email@example.com">Contact@valourwealth.com</a></li>
+          <li> <a href="tel:+1234567890">141 448 58800</a></li>
           </ul>
 
         </div>

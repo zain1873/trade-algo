@@ -1,5 +1,5 @@
 import React from 'react'
-import "../DashboardSidebarComp/styles/DashboardData.css"; // Import the CSS
+import "../DashboardSidebarComp/styles/DashboardData.css"; 
 import HistoricalDataFlow from './HistoricalDataFlow';
 import ProgressBar from './ProgressBar';
 import LiveTrainingSession from './liveTrainingSession';
@@ -20,8 +20,8 @@ function DashboardData({darkMode}) {
               </p>
               <p>Choose from the available styles of trading that will suit your needs</p>
               <div className="buttons">
-                <button className="btn btn-primary">Intraday Trading</button>
-                <button className="btn btn-outline">Swing Trading</button>
+                <button className="btn primary_btn">Intraday Trading</button>
+                <button className=" btn-outline">Swing Trading</button>
               </div>
             </div>
             <div className="header-right">
@@ -33,11 +33,8 @@ function DashboardData({darkMode}) {
         <ProgressBar />
         <HistoricalDataFlow  darkMode={darkMode}/>
         </div>
-       
-        
+    
       );
       };
-    
-
 
 export default DashboardData

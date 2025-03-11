@@ -45,8 +45,26 @@ body .dark {
   .bg-dark .nav-link {
     color: #fff!important;
   }
+  .btn-outline {
+    color: #ffff;
+    background-color: turquoise;
+    padding: 12px 20px;
+  }
  
-  
+  .buttons .primary_btn {
+    background-color: #007bff;
+    padding: 12px 20px;
+    color: #fff;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+.buttons .primary_btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
   /* Card Styles */
   .card {
     border-radius: 0.5rem;
