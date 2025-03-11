@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/footer.css"; 
+import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -25,26 +27,26 @@ const Footer = () => {
 
         {/* Middle Section - Menu */}
         <div className="footer-middle">
-          <h3 className="footer-title">Menu</h3>
-          <ul className="footer-links">
-            <li><a href="/about">About</a></li>
-            <li><a href="/features">Technology</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/leave-a-review">Leave a Review</a></li>
-          </ul>
-        </div>
+        <h3 className="footer-title">Menu</h3>
+        <ul className="footer-links">
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/features">Technology</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/news">News</Link></li>
+          <li><Link to="/leave-a-review">Leave a Review</Link></li>
+        </ul>
+      </div>
 
         {/* Right Section - Pages */}
         <div className="footer-right">
-          <h3 className="footer-title">Pages</h3>
-          <ul className="footer-links">
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-            <li><a href="/terms-of-service">Terms Of Service</a></li>
-            <li><a href="/acceptable-use-policy">Acceptable Use Policy</a></li>
-            <li><a href="/legal-disclaimer">Legal Disclaimer</a></li>
-          </ul>
-        </div>
+        <h3 className="footer-title">Pages</h3>
+        <ul className="footer-links">
+          <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+          <li><Link to="/terms-of-service">Terms Of Service</Link></li>
+          <li><Link to="/acceptable-use-policy">Acceptable Use Policy</Link></li>
+          <li><Link to="/legal-disclaimer">Legal Disclaimer</Link></li>
+        </ul>
+      </div>
 
         <div className="contact-menu">
           <h3 className="footer-title" style={{textAlign: "left"}}>Contact</h3>

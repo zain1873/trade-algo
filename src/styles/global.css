@@ -33,6 +33,7 @@
     }
     .theme_btn:hover {
       background-color: var(--theme-yellow-color) !important;
+      text-decoration: none;
     }
     
 
@@ -316,6 +317,7 @@
 }
 .news-wrap h3 {
   font-size: 24px;
+  color: #fff;
   margin-top: 20px;
 }
 
@@ -469,12 +471,12 @@
   color: #fff;
   transition: .3s;
   background-color: #000;
-
 }
+
 .editor_desc p {
   font-weight: 700;
   font-size: 16px;
-  color: #000;
+  color: #000 !important;
   text-decoration: none;
 }
 .editor_desc {
@@ -703,6 +705,92 @@
 .bg-gradient {
   background: linear-gradient(45deg, #0d6efd, #6610f2);
 }
+
+/* privacy policy */
+
+/* Container */
+.privacy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: white;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+/* Header */
+.privacy-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.privacy-header h1 {
+  color: #000;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.divider {
+  height: 4px;
+  width: 80px;
+  background: linear-gradient(to right, var(--theme-yellow-color), var(--theme-color));
+  margin: 0 auto;
+  border-radius: 2px;
+}
+.privacy-intro h2{
+  color: #000;
+  line-height: 34px;
+  margin-bottom: 14px;
+}
+.privacy-intro p{
+  color: #000;
+}
+.privacy-intro ul li {
+  color: #000;
+}
+/* Content */
+.privacy-content {
+  padding: 0 20px;
+}
+
+.effective-date {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+/* Footer */
+.privacy-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  color: #777;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Responsive */
 @media (max-width: 768px) {

@@ -72,7 +72,7 @@
   }
   
   .footer-title {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 8px;
   }
   
@@ -89,11 +89,17 @@
     color: #fff;
     text-decoration: none;
     opacity: 0.8;
-    transition: opacity 0.3s;
-  }
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
   
   .footer-links a:hover {
     opacity: 1;
+    text-decoration: none;
+    color: var(--theme-color);
   }
   
   /* Social Media */
