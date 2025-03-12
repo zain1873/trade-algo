@@ -1,5 +1,26 @@
 /* MentorshipTabs.css */
 
+.dark-mode .nav-tabs .nav-link {
+  color: #cccccc;
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+.dark-mode-tab {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 15px;
+}
+.dark-mode .level-card {
+  background-color: #121212 !important; /* Dark background */
+  color: #fff !important; /* Light text */
+  border: 1px solid #333 !important; /* Darker border */
+}
+
+.dark-mode .level-card .card-body {
+  background-color: #1a1a1a !important; /* Slightly lighter dark */
+  color: #ddd !important;
+}
 
   
   /* Custom styling for the navigation tabs */

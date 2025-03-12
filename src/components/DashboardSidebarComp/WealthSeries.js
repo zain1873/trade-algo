@@ -2,7 +2,7 @@ import React from "react";
 import "../DashboardSidebarComp/styles/wealthseries.css"; 
 import Mentorship from "./Mentorship";
 
-const WealthSeries = () => {
+const WealthSeries = ({ darkMode }) => {
   const cards = [
     {
       title: "Sentiment Sentry",
@@ -27,10 +27,8 @@ const WealthSeries = () => {
   ];
 
   return (
-    <div className="container mt-4">
-      <h4 className="text-primary wealth-header">
-        Smart, Simple AI Stock Recommendations
-      </h4>
+    <div className={`container mt-4 wealth-series ${darkMode ? "dark-mode" : ""}`}>
+      <h4 className="wealth-header">Smart, Simple AI Stock Recommendations</h4>
       <p className="wealth-subtext">
         Powered by four distinct approaches, our AI highlights a range of stocks
         for every type of investor. Discover new opportunities at a glance and
@@ -52,8 +50,6 @@ const WealthSeries = () => {
           </div>
         ))}
       </div>
-
-      <Mentorship />
     </div>
   );
 };

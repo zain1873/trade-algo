@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
 
-const Mentorship = () => {
+const Mentorship = ( {darkMode} ) => {
   const [activeTab, setActiveTab] = useState("sessions");
   const [activeSubTab, setActiveSubTab] = useState("platinum");
 
@@ -27,8 +27,8 @@ const Mentorship = () => {
         </li>
       </ul>
 
-      <div className="tab-content mt-3">
-        {/* Sessions Tab */}
+      <div className={`tab-content mt-3 ${darkMode ? "dark-mode-tab" : ""}`}>
+      {/* Sessions Tab */}
         {activeTab === "sessions" && (
           <div className="tab-pane fade show active">
             <h5>Sessions available:</h5>
@@ -66,8 +66,8 @@ const Mentorship = () => {
               {/* Platinum Tab */}
               {activeSubTab === "platinum" && (
                 <div className="tab-pane fade show active">
-                  <div className="card">
-                    <div className="card-body p-5">
+                <div className={`card level-card ${darkMode ? "dark-mode" : ""}`}>
+                   <div className="card-body p-5">
                       <h4 className="text-primary">Platinum Level</h4>
                       <p>
                         Personalized coaching and equipping users with key
@@ -88,8 +88,8 @@ const Mentorship = () => {
               {/* Emerald Tab */}
               {activeSubTab === "emerald" && (
                 <div className="tab-pane fade show active">
-                  <div className="card">
-                    <div className="card-body p-5">
+                <div className={`card level-card ${darkMode ? "dark-mode" : ""}`}>
+                <div className="card-body p-5">
                       <h4 className="text-success">Emerald Level</h4>
                       <p>
                         Advanced mentorship with real-time trading analysis and

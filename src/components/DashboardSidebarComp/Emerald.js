@@ -36,12 +36,11 @@ const emeraldCards = [
   },
 ];
 
-const Emerald = () => {
+const Emerald = ( {darkMode} ) => {
   return (
-    <div className="container mt-4">
-      <h2 className="section-title">Emerald Income Alerts</h2>
+<div className={`container mt-4 ${darkMode ? "dark-mode" : ""}`}>      
+  <h2 className="section-title">Emerald Income Alerts</h2>
       <p className="lesson-info">12 lessons • 3 hours 33 mins</p>
-
       <div className="row">
         {emeraldCards.map((card, index) => (
           <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-4">

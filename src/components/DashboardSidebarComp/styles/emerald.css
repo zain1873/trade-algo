@@ -38,11 +38,13 @@
   .card-title {
     font-size: 18px;
     font-weight: bold;
+    color: #ffff !important;
   }
   
   .card-text {
     font-size: 14px;
     font-weight: lighter;
+    color: #ffff !important;
   }
   
   .view-video {

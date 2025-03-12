@@ -316,9 +316,9 @@
   height: 450px;
 }
 .news-wrap h3 {
-  font-size: 24px;
-  color: #fff;
-  margin-top: 20px;
+  background: #fff;
+  color: #000;
+  padding: 10px;
 }
 
 .news-wrap a {
