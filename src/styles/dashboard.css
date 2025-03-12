@@ -524,23 +524,26 @@ body .dark {
     font-weight: 700;
 }
 .buttons .primary_btn {
-  font-size: 14px;
-}
-.btn-outline {
-  font-size: 14px;
-}
-.date-btn {
   font-size: 12px;
 }
+.btn-outline {
+  font-size: 12px;
+}
+.date-btn {
+  font-size: 10px !important;
+}
 .header-left p {
-  font-size: 14px;
+  font-size: 12px;
 }
 .search_bar{
-  padding: 6px 46px 8px 12px;
+  padding: 2px 33px 6px 10px;
 }
 .dashboard-head {
   flex-direction: column;
   margin-left: 12px !important;
+}
+.nav-tabs .nav-link {
+  width: 100%;
 }
 }
 
@@ -570,9 +573,13 @@ body .dark {
   color: white;
   padding: 6px 10px;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 8px !important;
   transition: 0.3s ease-in-out;
 }
+ .dashboard-head {
+  margin: 0 !important;
+  padding-bottom: 10px !important;
+ }
 } 
 
 /* Ensure the sidebar is properly sized on very small screens */
