@@ -337,7 +337,7 @@ const Dashboard = () => {
           }}
         >
           {/* Sidebar Header */}
-          <div className="d-flex justify-content-between align-items-center border-bottom p-3 left-toggle">
+          <div className="d-flex justify-content-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
             {!sidebarCollapsed && (
               <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
                 <div className="sidebar_logo">
@@ -394,8 +394,8 @@ const Dashboard = () => {
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
           <div className="container-fluid py-lg-4 py-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
-            <div className="row mb-lg-4 mb-2 align-items-center">
-              <div className="col position-relative d-flex align-items-center">
+            <div className="row mb-lg-4 mb-2 align-items-center dashboard-head">
+              <div className="col position-relative d-flex align-items-center search-main">
                 <input
                   type="text"
                   className={`search_bar pe-5 ${darkMode ? "dark-mode" : ""}`}

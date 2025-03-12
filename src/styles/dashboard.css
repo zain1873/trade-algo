@@ -37,10 +37,13 @@ body .dark {
     color: #fff !important;
     background-color: #007bff;
   }
+  .bg-dark .flex-column .active span {
+    color: #000 !important;
+  }
  
   .bg-dark .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background-color: #ffff;
+    color: #0000 !important;
   }
   .bg-dark .nav-link {
     color: #fff!important;
@@ -421,7 +424,6 @@ body .dark {
     padding: 8px 14px;
   }
   .search_bar {
-    width: 100%;
     max-width: 300px;
   }
   .table_history tbody {
@@ -479,15 +481,22 @@ body .dark {
   .username_data p {
     font-size: 12px;
   }
+  .search-main {
+    justify-content: start;
+  }
   
   .search_bar {
-    max-width: 180px;
-    margin-left: 18px;
+    max-width: 300px !important;
+  }
+  .user_info {
+    text-align: left;
+    margin-top: 14px !important;
+    width: 100% !important;
   }
   .nav.flex-column .nav-link {
-    padding: 10px 24px;
-    margin: 0 10px;
-    width: 24px;
+    /* padding: 10px 24px; */
+    /* margin: 0 10px; */
+    /* width: 24px; */
   }
   .sidebar-mbl {
     width: 60px;
@@ -507,8 +516,6 @@ body .dark {
   .nav-tabs {
     flex-direction: column;
   }
-
-
   .search_bar::placeholder {
     font-size: 12px;
   }
@@ -531,15 +538,61 @@ body .dark {
 .search_bar{
   padding: 6px 46px 8px 12px;
 }
-
-
+.dashboard-head {
+  flex-direction: column;
+  margin-left: 12px !important;
 }
+}
+
+
+@media (max-width: 425px) {
+  .col-1.position-fixed {
+    width: 40px !important;
+}
+.nav.flex-column .nav-link {
+  margin: 0px 0px;
+}
+.col-3.position-fixed .nav.flex-column .nav-link {
+  margin: 0px 10px;
+}
+.nav.flex-column span {
+  font-size: 13px;
+}
+.left-toggle {
+  padding: 6px !important;
+}
+.col-3.position-fixed  .left-toggle {
+  width: 100% !important;
+}
+.date-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  transition: 0.3s ease-in-out;
+}
+} 
+
 /* Ensure the sidebar is properly sized on very small screens */
 @media (max-width: 375px) {
-  
-  .offset-1 {
-    margin-left: 60px !important;
-  }
+  .header-left h2 {
+    font-size: 26px !important;
+    font-weight: 700;
+}
+.header-left p {
+  font-size: 13px !important;
+}
+.dashboard-header {
+  height: 330px !important;
+}
+.buttons .primary_btn {
+  font-size: 12px;
+}
+.btn-outline {
+  font-size: 12px;
+}
 }
 
 /* Fix icon sizing at different screen sizes */
