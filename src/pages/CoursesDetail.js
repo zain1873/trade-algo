@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from 'react';
 import "../styles/coursedetails.css";
 
@@ -82,11 +79,11 @@ function CoursesDetail() {
             
             {/* Video Section */}
             <div className="video-container">
-              <div className="ratio ratio-16x9">
+              <div className="ratio">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="FOREX Scalping for Beginners" allowFullScreen></iframe>
               </div>
               <div className="video-controls mt-3">
-                <button className="btn btn-success play-btn">Play Video</button>
+                {/* <button className="btn btn-success play-btn">Play Video</button> */}
               </div>
             </div>
 
@@ -140,7 +137,7 @@ function CoursesDetail() {
             
             {/* Video Section */}
             <div className="video-container locked-video">
-              <div className="ratio ratio-16x9">
+              <div className="ratio">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Intermediate FOREX Scalping Techniques" allowFullScreen></iframe>
                 <div className="video-lock-overlay">
                   <div className="lock-content">
@@ -197,7 +194,7 @@ function CoursesDetail() {
             
             {/* Video Section */}
             <div className="video-container locked-video">
-              <div className="ratio ratio-16x9">
+              <div className="ratio">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Professional FOREX Scalping Strategies" allowFullScreen></iframe>
                 <div className="video-lock-overlay">
                   <div className="lock-content">

@@ -117,6 +117,9 @@
     position: relative;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
+  .video-container .ratio {
+    height: 400px;
+  }
   
   .video-controls {
     display: flex;
@@ -245,4 +248,29 @@
     .tab-content {
       padding: 20px;
     }
+    .course-details-container {
+      padding: 32px 40px;
+    }
+    .course-tabs .nav-tabs .nav-link {
+      padding: 16px;
+    }
+    .video-container {
+      height: 350px;
+      background-color: transparent;
+    }
+
+  }
+
+  @media (max-width: 425px) {
+    .video-container {
+      height: 100%;
+    }
+    .video-container .ratio {
+      height: 320px;
+    } 
+    .course-header h1 {
+      font-size: 24px;
+    }
+
+
   }

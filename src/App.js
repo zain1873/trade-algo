@@ -17,8 +17,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy/>} />
         <Route path="/course-detail" element={<CoursesDetail/>} />
-
-    
       </Routes>
     </Router>
   );
