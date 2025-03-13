@@ -39,7 +39,7 @@
     justify-content: start;
   }
   
-  .nav-tabs {
+  .course-tabs .nav-tabs {
     border-bottom: none;
     background-color: #f8f9fa;
   }

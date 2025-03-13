@@ -16,8 +16,19 @@
 }
 
 
+
 .course-card {
     padding: 16px;
+}
+.bg-dark .course-card {
+    color: #fff !important;
+    background: #000 !important;
+}
+.bg-dark .course-title {
+    color: #fff !important;
+}
+.bg-dark .session-date  {
+    color: #fff !important;
 }
 .course-title {
     font-size: 18px;

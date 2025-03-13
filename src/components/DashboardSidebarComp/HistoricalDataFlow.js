@@ -17,7 +17,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
       <h2>Historic ATS Gainers & Losers</h2>
 
       {/* Tabs */}
-      <ul className="nav nav-tabs gap-2 mt-4">
+      <ul className="nav nav-tabs gap-2 mt-4 historic-table">
         <li className="nav-item">
           <button
             className={`nav-link ${activeTab === "largeCaps" ? "active" : ""}`}
@@ -65,788 +65,488 @@ const HistoricalDataFlow = ({ darkMode }) => {
     backgroundColor: darkMode ? "#000000" : "#ffffff", // Pure black in dark mode
     color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
     border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
-  }}>
+                         }}>
+
             {activeTab === "largeCaps" && (
               <>
                 <tr>
-                  <td>MT</td>
+                  <td>ICE</td>
                   <td>
-                  $30.29
-                  <br /> <small>Mar 5th 8:04 AM</small>
+                    $169.46<br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                  $33.69 <br /> <small>Feb 19th 12:36 PM</small>
+                    $169.52 <br /> <small>Mar 11th 11:46 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">144658.18x</span>
+                    <span className="badge bg-success">58.55x</span>
                   </td>
                   <td>
-                    +1.67% <br /> <small>4 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>FMC</td>
-                  <td>
-                  $36.58<br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>KNSL</td>
-                  <td>
-                  $433.93<br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.04% <br /> <small>2 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>HII</td>
+                  <td>VRTX</td>
                   <td>
-                  $172.29 <br /> <small>Feb 19th 8:03 AM</small>
+                    $499.70<br /> <small>Mar 11th 8:04 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $499.94 <br /> <small>Mar 11th 8:10 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">35.22x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>INCY</td>
-                  <td>
-                  $69.70 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.05% <br /> <small>6 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>FNV</td>
+                  <td>MTN</td>
                   <td>
-                  $142.91 <br /> <small>Feb 19th 8:03 AM</small>
+                    $164.90<br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $165.39 <br /> <small>Mar 12th 8:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">24.28x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>IDXX</td>
-                  <td>
-                  $441.71 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.30% <br /> <small>22 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>CDXC</td>
+                  <td>TEAM</td>
                   <td>
-                  $8.59 <br /> <small>Feb 19th 8:03 AM</small>
+                    $217.00<br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $222.57 <br /> <small>Mar 11th 2:04 PM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">23.86x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>NNOX</td>
-                  <td>
-                  $6.04 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +2.57% <br /> <small>4 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>TPL</td>
+                  <td>RL</td>
                   <td>
-                  $1366.43 <br /> <small>Feb 19th 8:03 AM</small>
+                    $220.32<br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $223.69 <br /> <small>Mar 11th 10:44 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">11.9x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>WSM</td>
-                  <td>
-                  $183.48 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +1.53% <br /> <small>1 hour</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>NICE</td>
+                  <td>MNDY</td>
                   <td>
-                  $144.62 <br /> <small>Feb 19th 8:03 AM</small>
+                    $235.80<br /> <small>Mar 11th 9:35 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $240.20 <br /> <small>Mar 11th 3:41 PM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">11.16x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>REGN</td>
-                  <td>
-                  $679.06 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +1.87% <br /> <small>6 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>WM</td>
+                  <td>WIX</td>
                   <td>
-                  $312.03<br /> <small>Feb 19th 8:03 AM</small>
+                    $171.79<br /> <small>Mar 11th 9:35 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $175.41 <br /> <small>Mar 11th 11:54 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">8.1x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>CMI</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +2.10% <br /> <small>2 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>PEN</td>
+                  <td>ELV</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $409.60<br /> <small>Mar 11th 8:44 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $422.44 <br /> <small>Mar 12th 8:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">7.64x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +3.13% <br /> <small>23 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>MDGL</td>
+                  <td>TXRH</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $178.86<br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $179.40 <br /> <small>Mar 11th 9:54 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">6.02x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.30% <br /> <small>23 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ADSK</td>
+                  <td>
+                    $248.69<br /> <small>Mar 11th 9:31 AM</small>
+                  </td>
+                  <td>
+                    $252.38 <br /> <small>Mar 11th 11:44 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.19x</span>
+                  </td>
+                  <td>
+                    +1.49% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DOV</td>
+                  <td>
+                    $178.59<br /> <small>Mar 11th 9:31 AM</small>
+                  </td>
+                  <td>
+                    $179.43 <br /> <small>Mar 11th 1:32 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.12x</span>
+                  </td>
+                  <td>
+                    +0.47% <br /> <small>4 hours</small>
                   </td>
                 </tr>
               </>
             )}
+
             {activeTab === "mediumCaps" && (
               <>
                 <tr>
-                  <td>CTAS</td>
+                  <td>COHR</td>
                   <td>
-                    $857.21 <br /> <small>Feb 19th 8:15 AM</small>
+                    $62.84 <br /> <small>Mar 11th 8:06 AM</small>
                   </td>
                   <td>
-                    $871.53 <br /> <small>Feb 19th 12:36 PM</small>
+                    $64.92 <br /> <small>Mar 11th 11:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">392.99x</span>
+                    <span className="badge bg-success">233.49x</span>
                   </td>
                   <td>
-                    +1.67% <br /> <small>4 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>TXN</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>CTAS</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +3.32% <br /> <small>2 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>TXN</td>
+                  <td>D</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $56.54 <br /> <small>Mar 11th 9:16 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $56.72 <br /> <small>Mar 11th 9:54 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">184.11x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DY</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.32% <br /> <small>38 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>NXPI</td>
+                  <td>RBLX</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $53.61 <br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $54.73 <br /> <small>Mar 12th 8:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">49.69x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ADI</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +2.10% <br /> <small>22 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>TPL</td>
+                  <td>DG</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $82.83 <br /> <small>Mar 11th 8:04 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $82.87 <br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">17.52x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>QCOM</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.05% <br /> <small>1 hour</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>MMC</td>
+                  <td>DEO</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $112.09 <br /> <small>Mar 11th 8:20 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $112.16 <br /> <small>Mar 11th 8:54 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">16.57x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>BKNG</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.06% <br /> <small>33 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>MA</td>
+                  <td>DOCU</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $79.47 <br /> <small>Mar 11th 9:35 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $80.82 <br /> <small>Mar 11th 11:25 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">16.02x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>COF</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +1.70% <br /> <small>1 hour</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>WM</td>
+                  <td>CCK</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $91.24 <br /> <small>Mar 11th 8:34 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $91.33 <br /> <small>Mar 11th 9:31 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">11.62x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>CMI</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.10% <br /> <small>57 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>PEN</td>
+                  <td>MMM</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $147.56 <br /> <small>Mar 11th 8:26 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $147.58 <br /> <small>Mar 11th 8:34 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">11.07x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.01% <br /> <small>8 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>MDGL</td>
+                  <td>IRM</td>
                   <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
+                    $84.00 <br /> <small>Mar 11th 9:35 AM</small>
                   </td>
                   <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
+                    $84.18 <br /> <small>Mar 11th 10:44 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">250.53x</span>
+                    <span className="badge bg-success">7.91x</span>
                   </td>
                   <td>
-                    +12.69% <br /> <small>1 day</small>
+                    +0.21% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ALB</td>
+                  <td>
+                    $76.33 <br /> <small>Mar 11th 8:04 AM</small>
+                  </td>
+                  <td>
+                    $76.36 <br /> <small>Mar 11th 8:44 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">7.85x</span>
+                  </td>
+                  <td>
+                    +0.04% <br /> <small>39 minutes</small>
                   </td>
                 </tr>
               </>
             )}
-            {activeTab === "smallCaps" && (
-              <>
-                <tr>
-                  <td>LLY</td>
-                  <td>
-                    $857.21 <br /> <small>Feb 19th 8:15 AM</small>
-                  </td>
-                  <td>
-                    $871.53 <br /> <small>Feb 19th 12:36 PM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">392.99x</span>
-                  </td>
-                  <td>
-                    +1.67% <br /> <small>4 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>GRMN</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
 
-                <tr>
-                  <td>CTAS</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>TXN</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DY</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>NXPI</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ADI</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>TPL</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>QCOM</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MMC</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>BKNG</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MA</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>COF</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>WM</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>CMI</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>PEN</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MDGL</td>
-                  <td>
-                    $214.80 <br /> <small>Feb 19th 8:03 AM</small>
-                  </td>
-                  <td>
-                    $242.06 <br /> <small>Feb 20th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">250.53x</span>
-                  </td>
-                  <td>
-                    +12.69% <br /> <small>1 day</small>
-                  </td>
-                </tr>
-              </>
+           {activeTab === "smallCaps" && (
+  <>
+    <tr>
+      <td>HCC</td>
+      <td>
+        $47.05 <br /> <small>Mar 11th 8:19 AM</small>
+      </td>
+      <td>
+        $47.07 <br /> <small>Mar 11th 9:31 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">190.36x</span>
+      </td>
+      <td>
+        +0.04% <br /> <small>1 hour</small>
+      </td>
+    </tr>
+    <tr>
+      <td>CUTR</td>
+      <td>
+        $0.12 <br /> <small>Mar 11th 8:04 AM</small>
+      </td>
+      <td>
+        $0.16 <br /> <small>Mar 11th 11:03 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">58.28x</span>
+      </td>
+      <td>
+        +34.24% <br /> <small>2 hours</small>
+      </td>
+    </tr>
+    <tr>
+      <td>HAL</td>
+      <td>
+        $24.95 <br /> <small>Mar 11th 9:35 AM</small>
+      </td>
+      <td>
+        $25.03 <br /> <small>Mar 11th 9:44 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">29.9x</span>
+      </td>
+      <td>
+        +0.32% <br /> <small>8 minutes</small>
+      </td>
+    </tr>
+    <tr>
+      <td>HLF</td>
+      <td>
+        $8.90 <br /> <small>Mar 11th 8:04 AM</small>
+      </td>
+      <td>
+        $8.91 <br /> <small>Mar 11th 8:34 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">25.44x</span>
+      </td>
+      <td>
+        +0.06% <br /> <small>29 minutes</small>
+      </td>
+    </tr>
+    <tr>
+      <td>HSAI</td>
+      <td>
+        $19.88 <br /> <small>Mar 11th 9:35 AM</small>
+      </td>
+      <td>
+        $24.12 <br /> <small>Mar 12th 8:15 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">15.71x</span>
+      </td>
+      <td>
+        +21.33% <br /> <small>22 hours</small>
+      </td>
+    </tr>
+    <tr>
+      <td>EPD</td>
+      <td>
+        $33.62 <br /> <small>Mar 11th 8:06 AM</small>
+      </td>
+      <td>
+        $33.64 <br /> <small>Mar 11th 9:31 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">14.73x</span>
+      </td>
+      <td>
+        +0.06% <br /> <small>1 hour</small>
+      </td>
+    </tr>
+    <tr>
+      <td>COMP</td>
+      <td>
+        $8.57 <br /> <small>Mar 11th 9:10 AM</small>
+      </td>
+      <td>
+        $8.58 <br /> <small>Mar 11th 9:31 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">14.35x</span>
+      </td>
+      <td>
+        +0.12% <br /> <small>20 minutes</small>
+      </td>
+    </tr>
+    <tr>
+      <td>VNET</td>
+      <td>
+        $11.43 <br /> <small>Mar 11th 8:04 AM</small>
+      </td>
+      <td>
+        $11.43 <br /> <small>Mar 11th 8:44 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">13.14x</span>
+      </td>
+      <td>
+        +0.04% <br /> <small>39 minutes</small>
+      </td>
+    </tr>
+    <tr>
+      <td>ASAN</td>
+      <td>
+        $12.18 <br /> <small>Mar 11th 10:56 AM</small>
+      </td>
+      <td>
+        $12.65 <br /> <small>Mar 12th 8:03 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">11.99x</span>
+      </td>
+      <td>
+        +3.86% <br /> <small>21 hours</small>
+      </td>
+    </tr>
+    <tr>
+      <td>SFIX</td>
+      <td>
+        $4.15 <br /> <small>Mar 11th 8:44 AM</small>
+      </td>
+      <td>
+        $4.21 <br /> <small>Mar 12th 8:03 AM</small>
+      </td>
+      <td>
+        <span className="badge bg-success">10.45x</span>
+      </td>
+      <td>
+        +1.45% <br /> <small>23 hours</small>
+      </td>
+    </tr>
+  </>
             )}
+
           </tbody>
         </table>
       </div>
