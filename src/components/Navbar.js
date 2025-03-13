@@ -4,6 +4,7 @@ import "../styles/variable.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/Valour_Wealth.png";
 import ForexTicker from "./forexTicker";
+import SecondNav from "../components/secondNav"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,10 +40,10 @@ const Navbar = () => {
              </button> */}
              <button className="btn-login-mobile d-lg-none d-md-block">
              <a href="/dashboard" className="text-decoration-none text-white">Request Demo</a>
-
              </button>
 
-              </div>
+            </div>
+
 
           <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
             <ul className="navbar-nav ms-auto">
@@ -59,28 +60,9 @@ const Navbar = () => {
       </nav>
 
       {/* Second Navbar (Header Below) */}
-      <nav className="second-navbar">
-        <div className="container d-flex justify-content-between align-items-center">
-          {/* Sections */}
-          <ul className="nav-links">
-            <li><Link id="markets" to="/markets">Markets</Link></li>
-            <li><Link id="technology" to="/technology">Technology</Link></li>
-            <li><Link id="wealth" to="/wealth">Wealth</Link></li>
-            <li><Link id="events" to="/events">Events</Link></li>
-            <li><Link id="crypto" to="/crypto">Crypto</Link></li>
-            <li><Link id="products" to="/products">Products</Link></li>
-            <li><Link id="more" to="/more">More</Link></li>
-          </ul>
 
-          {/* Search Bar - Always Visible */}
-          <div className="search-box">
-            <input type="text" className="search-input" placeholder="Search..." />
-            <button className="search-icon">
-              <i className="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </nav>
+      <SecondNav />
+      
     </>
   );
 };

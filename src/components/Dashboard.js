@@ -395,14 +395,15 @@ const Dashboard = () => {
           <div className="container-fluid py-lg-4 py-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
             <div className="row mb-lg-4 mb-2 align-items-center dashboard-head">
-              <div className="col position-relative d-flex align-items-center search-main">
-                <input
-                  type="text"
-                  className={`search_bar pe-5 ${darkMode ? "dark-mode" : ""}`}
-                  placeholder="Search Tickers..."
-                />
-                <Search className="search-icon" style={{marginLeft: "-30px"}} color={darkMode ? '#fff' : '#000'}/>
-              </div>
+            <div className="col position-relative search-main">
+           <input
+                type="text"
+                className={`search_bar ${darkMode ? "dark-mode" : ""}`}
+                placeholder="Search Tickers..."
+              />
+              <i className="fas fa-search search-icon"></i> 
+             </div>
+
               <div className="col-auto user_info">
                 <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
                 <div className='username_data'>

@@ -382,6 +382,14 @@ body .dark {
 }
 
 
+.search-main i {
+  color: #000;
+  margin-left: -50px;
+  background-color: transparent;
+}
+.bg-dark .search-main i {
+  color : #fff !important;
+}
 
 
 /* Mobile View */
@@ -450,6 +458,7 @@ body .dark {
    }
    .sidebar-mbl {
     width: 100% !important;
+    /* width: 56% !important; */
    }
    .nav.flex-column .nav-link {
     /* width: 100%; */
@@ -483,7 +492,10 @@ body .dark {
   }
   .search-main {
     justify-content: start;
+    display: flex !important;
+    align-items: center;
   }
+
   
   .search_bar {
     max-width: 300px !important;

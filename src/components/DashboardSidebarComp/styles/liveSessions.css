@@ -1,12 +1,4 @@
-.card {
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
-    -webkit-transition: transform 0.2s ease-in-out;
-    -moz-transition: transform 0.2s ease-in-out;
-    -ms-transition: transform 0.2s ease-in-out;
-    -o-transition: transform 0.2s ease-in-out;
-}
+
 .card-img-top {
     height: 180px;
     object-fit: cover;
@@ -21,4 +13,22 @@
 .session-duration {
     font-size: 14px;
     color: #666;
+}
+
+
+.course-card {
+    padding: 16px;
+}
+.course-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    line-height: 24px;
+}
+.course-desc {
+    font-size: 15px;
+}
+.course-card .theme_btn {
+    width: fit-content;
+    margin-top: 20px;
 }

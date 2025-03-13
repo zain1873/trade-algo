@@ -43,7 +43,7 @@
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 8px 16px !important;
   transition: color 0.3s ease-in-out;
 }
 .nav-item .nav-link:hover {
@@ -138,9 +138,8 @@
 }
 
 
-/* second navbar */
 /* Second Navbar */
-.second-navbar {
+/* .second-navbar {
   background: #000;
   color: #fff;
   padding: 10px 0;
@@ -149,7 +148,7 @@
     z-index: 10;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 
-}
+} */
 .navbar-toggler:focus {
   box-shadow: none !important;
 }
@@ -161,7 +160,7 @@
   
 }
 
-.second-navbar .nav-links {
+/* .second-navbar .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
@@ -170,9 +169,9 @@
 }
 .second-navbar .nav-links li a:hover {
   color: #FEA116;
-}
+} */
 
-.second-navbar .nav-links li {
+/* .second-navbar .nav-links li {
   display: inline-block;
 }
 
@@ -185,7 +184,7 @@
 
 .second-navbar .nav-links a:hover {
   color: var(--theme-color) !important;
-}
+} */
 
 /* Search Box */
 .search-box {
@@ -200,7 +199,7 @@
   border: 0 !important;
   width: 100%;
   position: relative;
-  width: 350px;
+  width: 320px;
 }
 
 
@@ -230,6 +229,23 @@
 .search-box .search-icon:hover i {
   color: #007bff;
 }
+
+
+/* ------------second navbar css--------- */
+
+
+
+
+/* -----end------ */
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 992px) {
   .navbar-nav {
@@ -268,6 +284,16 @@
 
   .navbar-nav .nav-link {
     color: #fff !important;
+    border-bottom: 1px solid #474040;    
+    padding: 20px 12px !important;
+  }
+  .navbar-nav .nav-item {
+    width: 100%;
+    text-align: left;
+  }
+  .navbar-nav  {
+    padding: 0 !important;
+    gap: 0;
   }
 
   /* Fix: Use max-height for smooth open/close */
@@ -298,7 +324,7 @@
 
   }
 
-  .second-navbar .container {
+  /* .second-navbar .container {
     justify-content: center !important;
 
   }
@@ -310,7 +336,7 @@
   .second-navbar {
     z-index: 100 !important;
     display: none;
-  }
+  } */
 
   
 }
@@ -349,3 +375,8 @@
   font-size: 16px;
   color: #333;
 }
+
+
+
+
+

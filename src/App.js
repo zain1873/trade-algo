@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Dashboard from "./components/Dashboard";
 import PrivacyPolicy from "./pages/Privacypolicy";
+import CoursesDetail from "./pages/CoursesDetail";
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy/>} />
+        <Route path="/course-detail" element={<CoursesDetail/>} />
+
     
       </Routes>
     </Router>
