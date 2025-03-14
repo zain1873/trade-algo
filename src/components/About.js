@@ -1,8 +1,9 @@
 import React from "react";
+import Feature from "../pages/Feature";
 
 function About() {
   return (
-    <section className="about_us ">
+    <section className="about_us pb-0">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8 text-center">
@@ -26,6 +27,8 @@ function About() {
           </div>
         </div>
       </div>
+
+      <Feature/>
     </section>
   );
 }

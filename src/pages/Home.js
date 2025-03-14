@@ -75,6 +75,7 @@ function Home() {
       </div>
 
       {/* posts components */}
+
       <MarketDetails />
       <Posts />
       <EditorChoice />

@@ -14,6 +14,9 @@ import TechnologyDetail from "./pages/TechnologyDetail";
 import WealthDetails from "./pages/WealthDetails";
 import EventsDetails from "./pages/EventsDetails";
 import CryptoDetails from "./pages/CryptoDetails";
+import CustomerSupport from "./pages/CustomerSupport";
+import Review from "./pages/Review";
+import News from "./components/News";
 
 
 
@@ -29,6 +32,12 @@ function App() {
         <Route path="/wealth-details" element={<Layout> <WealthDetails/> </Layout>} />
         <Route path="/events-details" element={<Layout> <EventsDetails/> </Layout>} />
         <Route path="/crypto-details" element={<Layout> <CryptoDetails/> </Layout>} />
+        <Route path="/customer-support" element={<Layout> <CustomerSupport/> </Layout>} />
+        <Route path="/leave-a-review" element={<Layout> <Review/> </Layout>} />
+        <Route path="/latest-news" element={<Layout> <News/> </Layout>} />
+
+
+
 
 
         <Route path="/dashboard" element={<Dashboard />} />

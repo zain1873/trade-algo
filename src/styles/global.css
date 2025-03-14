@@ -116,9 +116,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background:linear-gradient(to right, #4e565e, #494f84);
-    /* url("../assets/images/login-background.jpg");    */
-    background-size: cover;
+    /* background:linear-gradient(to right, #4e565e, #494f84); */
+   background-image: url("../assets/images/login-bg-new.avif");   
+    background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -832,17 +832,23 @@ section:last-child {
 
 /* about */
 .about-sec {
-  background-color: #fff;
+  background-color: #000;
   text-align: center;
   text-align: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid #fff;
 }
 .about-sec h2 {
   color: #000;
   font-weight: 700;
+  color: #fff;
+}
+.about-sec p {
+  color: #616d7e !important;
+
 }
 .chat {
   color:#fff;
@@ -894,6 +900,37 @@ section:last-child {
 .contact-us-btn a:hover {
   color: var(--theme-color);
 }
+
+
+/* leave a review */
+.review-form  {
+  margin-top: 50px;
+}
+.review-container {
+  max-width: 650px;
+    margin: auto;
+}
+.review-title {
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.review-input {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+.review-btn {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+
 
 
 

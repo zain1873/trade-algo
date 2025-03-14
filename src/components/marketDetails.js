@@ -11,7 +11,7 @@ function marketDetails() {
   return ( 
     <section className='market_details_section'>
     <div className="container">
-    <div className="market_cards d-flex gap-4">
+    <div className="row ">
 
     <div className="col-lg-3">
         <div className="editors-choice market_details">

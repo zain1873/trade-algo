@@ -30,9 +30,9 @@ const Footer = () => {
         <h3 className="footer-title">Menu</h3>
         <ul className="footer-links">
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/features">Technology</Link></li>
+          <li><Link to="/technology-details">Technology</Link></li>
           <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/news">News</Link></li>
+          <li><Link to="/latest-news">News</Link></li>
           <li><Link to="/leave-a-review">Leave a Review</Link></li>
         </ul>
       </div>
