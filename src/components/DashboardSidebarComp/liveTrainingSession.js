@@ -14,10 +14,10 @@ function LiveTrainingSession() {
 
         <div className="col-lg-6">
           <div className="session-card">
-            <img src={brianImg} alt="Brian Mitchell" className="session-img" />
+            <img src={brianImg} alt="Jack" className="session-img" />
             <div className="session-content">
               <h5 className="session-title">Live Trade Sessions</h5>
-              <p className="session-host">By Brian Mitchell</p>
+              <p className="session-host">By Jack</p>
               <p className="session-time">10:30am - 11:30am EST • Mon - Fri</p>
             </div>
           </div>

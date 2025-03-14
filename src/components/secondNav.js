@@ -1,4 +1,15 @@
 import "../styles/secondnavbar.css"
+import  market1  from "../assets/images/intel-mrket-img.webp"
+import  market2  from "../assets/images/reddit-market-img.webp"
+import  technology1  from "../assets/images/apple-img.webp"
+import  technology2  from "../assets/images/technology2.webp"
+import  wealth1  from "../assets/images/wealth1.webp"
+import  wealth2  from "../assets/images/wealth2.webp"
+import  event1  from "../assets/images/event1.webp"
+import  event2  from "../assets/images/event2.webp"
+import  crypto1  from "../assets/images/crypto1.webp"
+import  crypto2 from "../assets/images/crypto2.webp"
+
 
 const Navbar = () => {
   return (
@@ -6,7 +17,7 @@ const Navbar = () => {
       <div className="container d-flex justify-content-between align-items-center">
         <ul className="nav-links second-nav-links">
           <li className="nav-item">
-            <a className="ps-0" id="markets" href="/markets">
+            <a className="ps-0" id="markets" href="/market-details">
               Markets
             </a>
             <div className="dropdown-menu">
@@ -25,7 +36,7 @@ const Navbar = () => {
                   <div className="latest-articles">
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Stock market traders" />
+                        <img src={market1} alt="Stock market traders" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Markets</span>
@@ -37,7 +48,7 @@ const Navbar = () => {
                     </div>
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Macy's storefront" />
+                        <img src={market2} alt="Macy's storefront" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Markets</span>
@@ -50,20 +61,21 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-right">
                   <div className="follow-section">
-                    <h3>Follow TradeAlgo</h3>
+                    <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/markets">View More Markets →</a>
+                    <a className="theme_btn" href="/market-details">View More Markets →</a>
                   </div>
                 </div>
               </div>
             </div>
           </li>
+
           <li className="nav-item">
-            <a id="technology" href="/technology">
+            <a id="technology" href="technology-details">
               Technology
             </a>
             <div className="dropdown-menu">
@@ -82,42 +94,43 @@ const Navbar = () => {
                   <div className="latest-articles">
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="AI technology" />
+                        <img src={technology1} alt="AI technology" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Technology</span>
                         <h4 className="article-title">
-                          Tech Giants Unveil New AI Models That Could Revolutionize Industry
+                        How Apple Plans to Bring Generative Ai to All Its Devices
                         </h4>
                       </div>
                     </div>
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Semiconductor factory" />
+                        <img src={technology2} alt="Semiconductor factory" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Technology</span>
-                        <h4 className="article-title">Semiconductor Shortage Eases as Production Capacity Increases</h4>
+                        <h4 className="article-title">Meta Launches AI Coding Software in Competition With OpenAI</h4>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="dropdown-right">
                   <div className="follow-section">
-                    <h3>Follow TradeAlgo</h3>
+                    <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/technology">View More Technology →</a>
+                    <a className="theme_btn" href="technology-details">View More Technology →</a>
                   </div>
                 </div>
               </div>
             </div>
           </li>
+
           <li className="nav-item">
-            <a id="wealth" href="/wealth">
+            <a id="wealth" href="/wealth-details">
               Wealth
             </a>
             <div className="dropdown-menu">
@@ -136,7 +149,7 @@ const Navbar = () => {
                   <div className="latest-articles">
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Tax documents" />
+                        <img src={wealth1} alt="Tax documents" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Wealth</span>
@@ -145,7 +158,7 @@ const Navbar = () => {
                     </div>
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Investment portfolio" />
+                        <img src={wealth2} alt="Investment portfolio" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Wealth</span>
@@ -158,20 +171,21 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-right">
                   <div className="follow-section">
-                    <h3>Follow TradeAlgo</h3>
+                    <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/wealth">View More Wealth →</a>
+                    <a className="theme_btn" href="wealth-details">View More Wealth →</a>
                   </div>
                 </div>
               </div>
             </div>
           </li>
+
           <li className="nav-item">
-            <a id="events" href="/events">
+            <a id="events" href="/events-details">
               Events
             </a>
             <div className="dropdown-menu">
@@ -190,7 +204,7 @@ const Navbar = () => {
                   <div className="latest-articles">
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Investment summit" />
+                        <img src={event1} alt="Investment summit" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Events</span>
@@ -199,7 +213,7 @@ const Navbar = () => {
                     </div>
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Tech conference" />
+                        <img src={event2} alt="Tech conference" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Events</span>
@@ -210,20 +224,21 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-right">
                   <div className="follow-section">
-                    <h3>Follow TradeAlgo</h3>
+                    <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/events">View More Events →</a>
+                    <a className="theme_btn" href="/events-details">View More Events →</a>
                   </div>
                 </div>
               </div>
             </div>
           </li>
+
           <li className="nav-item">
-            <a id="crypto" href="/crypto">
+            <a id="crypto" href="/crypto-details">
               Crypto
             </a>
             <div className="dropdown-menu">
@@ -242,7 +257,7 @@ const Navbar = () => {
                   <div className="latest-articles">
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Bitcoin chart" />
+                        <img src={crypto1} alt="Bitcoin chart" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Crypto</span>
@@ -251,7 +266,7 @@ const Navbar = () => {
                     </div>
                     <div className="article">
                       <div className="article-image">
-                        <img src="https://placehold.co/150x100" alt="Cryptocurrency regulations" />
+                        <img src={crypto2} alt="Cryptocurrency regulations" />
                       </div>
                       <div className="article-content">
                         <span className="article-category">Crypto</span>
@@ -262,13 +277,13 @@ const Navbar = () => {
                 </div>
                 <div className="dropdown-right">
                   <div className="follow-section">
-                    <h3>Follow TradeAlgo</h3>
+                    <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/crypto">View More Crypto →</a>
+                    <a className="theme_btn" href="/crypto-details">View More Crypto →</a>
                   </div>
                 </div>
               </div>

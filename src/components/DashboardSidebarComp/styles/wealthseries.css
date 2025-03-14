@@ -15,6 +15,7 @@
     padding: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
+    color: #000;
   }
   
   .wealth-card:hover {
@@ -22,10 +23,10 @@
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
   }
   
-  .card-title {
+  .wealth-card h5 p {
     font-size: 18px;
     font-weight: bold;
-    /* color: #333; */
+    color: #000;
   }
   
   .card-text {
@@ -36,4 +37,5 @@
   .btn-outline-primary {
     border-radius: 20px;
   }
+  
   

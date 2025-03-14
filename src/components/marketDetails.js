@@ -1,8 +1,8 @@
 import React from 'react'
-import editorChoice1 from "../assets/images/editor-choice1.webp";
+import market1 from "../assets/images/intel-mrket-img.webp";
 import editorChoice2 from "../assets/images/editor-choice2.webp";
 import editorChoice3 from "../assets/images/editor-choice3.webp";
-import editorChoice4 from "../assets/images/reddit.webp";
+import editorChoice4 from "../assets/images/reddit-market-img.webp";
 import editorChoice5 from "../assets/images/walmart-img.webp";
 
 
@@ -57,15 +57,14 @@ function marketDetails() {
             <div className="market_detail_img img_height">
             <img
                 className="obj_fit"
-                src={editorChoice1}
+                src={market1}
                 alt="editorChoiceimg"
             />
             </div>
             <div className="editor_desc max_height mb-0">
                 <h3>Markets</h3>
                 <h2 className='extra-heading'>
-                This is How a Cheap Balanced Portfolio Flattens Those Pricey
-                Hedge Funds
+                Intel's Stock is Rising. Here's the Latest Rescue Hope
                 </h2>
                 <h4 className='name'>Editorial Board</h4>
             </div>
@@ -111,15 +110,7 @@ function marketDetails() {
         </a>
     </div>
     </div>
-
     </div>
-
-
-   
-          
-
-  
-  
     </div>
     </section>
   )

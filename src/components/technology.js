@@ -1,6 +1,6 @@
 import React from 'react';
 import Technology1 from "../assets/images/technology1.webp"; 
-import Technology2 from "../assets/images/technology2.webp"; 
+import Technology2 from "../assets/images/technology_latest.png"; 
 
 
 

@@ -19,10 +19,10 @@ function DashboardData({darkMode}) {
                 tickers in the <span className="underline">Stock Exchange</span>
               </p>
               <p>Choose from the available styles of trading that will suit your needs</p>
-              <div className="buttons">
+              {/* <div className="buttons">
                 <button className="btn primary_btn">Intraday Trading</button>
                 <button className=" btn-outline">Swing Trading</button>
-              </div>
+              </div> */}
             </div>
             <div className="header-right">
               <button className="date-btn">Date: February 24th, 2025</button>

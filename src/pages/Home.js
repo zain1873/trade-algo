@@ -26,16 +26,18 @@ function Home() {
         <div className="col-lg-12 p-0">
           <div className="home-banner">
           <video
-            className="banner-video w-100 obj_fit"
-            autoPlay
-            loop
-            muted
-            playsInline // Stops fullscreen issue on iPhones
-            preload="auto" // Ensures quick loading
-          >
-            <source src={backgroundVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          className="banner-video w-100 obj_fit"
+          autoPlay
+          loop
+          muted
+          playsInline // Stops fullscreen issue on iPhones
+          preload="auto" // Ensures quick loading
+          disablePictureInPicture // Disables PiP
+          controlsList="nodownload nofullscreen" // Removes additional options
+        >
+          <source src={backgroundVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
             <div className="banner-text" data-aos="fade-up">
               <h5>Introducing</h5>
@@ -78,7 +80,7 @@ function Home() {
       <EditorChoice />
       <Technology />
       <Stocks />
-      <Products />
+      {/* <Products /> */}
       <PostEditor />
       <Newsletter />
     </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import "../DashboardSidebarComp/styles/wealthseries.css"; 
-import Mentorship from "./Mentorship";
 
 const WealthSeries = ({ darkMode }) => {
   const cards = [
@@ -28,7 +27,7 @@ const WealthSeries = ({ darkMode }) => {
 
   return (
     <div className={`container mt-4 wealth-series ${darkMode ? "dark-mode" : ""}`}>
-      <h4 className="wealth-header">Smart, Simple AI Stock Recommendations</h4>
+      <h4 className="wealth-header text-dark">Smart, Simple AI Stock Recommendations</h4>
       <p className="wealth-subtext">
         Powered by four distinct approaches, our AI highlights a range of stocks
         for every type of investor. Discover new opportunities at a glance and
@@ -40,8 +39,8 @@ const WealthSeries = ({ darkMode }) => {
           <div key={index} className="col-md-6 col-lg-3">
             <div className="card wealth-card">
               <div className="card-body">
-                <h5 className="card-title">{card.title}</h5>
-                <p className="card-text">{card.description}</p>
+                <h5 className="card-title text-dark">{card.title}</h5>
+                <p className="card-text text-dark">{card.description}</p>
                 <button className="btn btn-outline-primary btn-sm">
                   View Picks
                 </button>

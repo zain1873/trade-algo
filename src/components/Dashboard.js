@@ -89,8 +89,8 @@ const Dashboard = () => {
     { id: 'wealth-series', label: 'Wealth Management Series', icon: <DollarSign size={20} />, isNew: true },
     { id: 'emerald', label: 'Emerald Inc.', icon: <Gem size={20} /> },
     { id: 'platinum', label: 'Platinum Program', icon: <Star size={20} /> },
-    { id: 'options-academy', label: 'Options Academy', icon: <GraduationCap size={20} /> },
-    { id: 'mentorship', label: 'Options Mentorship', icon: <Users size={20} /> },
+    { id: 'options-academy', label: 'Trading Academy', icon: <GraduationCap size={20} /> },
+    { id: 'mentorship', label: '1 on 1 Mentorship', icon: <Users size={20} /> },
   ];
   
   const renderContent = () => {

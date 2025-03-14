@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-left">
           <h2 className="footer-logo-title">Valour Wealth</h2>
           <p className="footer-text">
-            Headquartered in New York. ValourWealth delivers unparalleled access to market tools with over 50 billion
+            Headquartered in London. ValourWealth delivers unparalleled access to market tools with over 50 billion
             events processed daily.
           </p>
 
