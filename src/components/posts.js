@@ -1,5 +1,5 @@
 import React from "react";
-import walmartImg from "../assets/images/walmart-img.webp"; 
+import walmartImg from "../assets/images/event2.webp"; 
 import recentPost from "../assets/images/reddit-market-img.webp"; 
 // recent post images
 import recentPost2 from "../assets/images/reddit-market-img.webp"; 

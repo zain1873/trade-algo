@@ -2,10 +2,10 @@ import React from "react";
 import crypto from "../assets/images/crypto2.webp";
 import crypto1 from "../assets/images/crypto1.webp";
 import crypto2 from "../assets/images/event1.webp";
-import crypto3 from "../assets/images/walmart-img.webp";
-import crypto4 from "../assets/images/crypto-latest.png";
+import crypto3 from "../assets/images/apple-img.webp";
+import crypto4 from "../assets/images/wealth1.webp";
 import crypto5 from "../assets/images/editor-choice3.webp";
-import crypto6 from "../assets/images/walmart-img.webp";
+import crypto6 from "../assets/images/forex-latest.png";
 
 function postEditor() {
   return (

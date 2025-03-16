@@ -3,7 +3,7 @@ import market1 from "../assets/images/intel-mrket-img.webp";
 import editorChoice2 from "../assets/images/editor-choice2.webp";
 import editorChoice3 from "../assets/images/editor-choice3.webp";
 import editorChoice4 from "../assets/images/reddit-market-img.webp";
-import editorChoice5 from "../assets/images/walmart-img.webp";
+import editorChoice5 from "../assets/images/crypto2.webp";
 
 
 
