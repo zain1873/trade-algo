@@ -2,54 +2,42 @@ import React from "react";
 import "../DashboardSidebarComp/styles/wealthseries.css"; 
 
 const WealthSeries = ({ darkMode }) => {
-  const cards = [
-    {
-      title: "Sentiment Sentry",
-      description:
-        "Tracks market sentiment via social media, news, and analyst ratings.",
-    },
-    {
-      title: "Value and Growth",
-      description:
-        "Combines undervalued stocks with high growth potential.",
-    },
-    {
-      title: "Trend Tracker",
-      description:
-        "Uses technical indicators to spot short-term momentum.",
-    },
-    {
-      title: "Fundamentals First",
-      description:
-        "Focuses on strong financials, revenue growth, and profitability.",
-    },
-  ];
-
   return (
-    <div className={`container mt-4 wealth-series ${darkMode ? "dark-mode" : ""}`}>
-      <h4 className="wealth-header text-dark">Smart, Simple AI Stock Recommendations</h4>
-      <p className="wealth-subtext">
-        Powered by four distinct approaches, our AI highlights a range of stocks
-        for every type of investor. Discover new opportunities at a glance and
-        quickly find the strategy that matches your style.
-      </p>
+    <section className={`wealth-series ${darkMode ? "dark-mode" : "light-mode"}`}>
+      <div className={`container mt-4 wealth-container ${darkMode ? "dark-mode" : "light-mode"}`}>
+        <h2 className="text-center title">Wealth Management Series</h2>
 
-      <div className="row">
-        {cards.map((card, index) => (
-          <div key={index} className="col-md-6 col-lg-3">
-            <div className="card wealth-card">
-              <div className="card-body">
-                <h5 className="card-title text-dark">{card.title}</h5>
-                <p className="card-text text-dark">{card.description}</p>
-                <button className="btn btn-outline-primary btn-sm">
-                  View Picks
-                </button>
-              </div>
+        <div className="row">
+          {/* Diamond Alerts Section */}
+          <div className="col-lg-6">
+            <div className="wealth-card">
+              <h3 className="wealth-title">Diamond Alerts</h3>
+              <p className="investment-amount">Minimum Investment: <strong>$50,000</strong></p>
+              <p className="description">
+                The Diamond Alerts program provides high-net-worth individuals with 
+                exclusive market insights, real-time alerts, and strategic investment 
+                opportunities. Our AI-powered analytics ensure maximum profitability 
+                with precise risk management.
+              </p>
             </div>
           </div>
-        ))}
+
+          {/* Valour Wealth Fund Section */}
+          <div className="col-lg-6">
+            <div className="wealth-card">
+              <h3 className="wealth-title">Valour Wealth Fund</h3>
+              <p className="investment-amount">Minimum Investment: <strong>$125,000</strong></p>
+              <p className="description">
+                The Valour Wealth Fund is a premier investment vehicle for elite investors 
+                seeking long-term financial growth. With a diversified portfolio and access 
+                to top-tier market strategies, this fund is designed for wealth preservation 
+                and expansion.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

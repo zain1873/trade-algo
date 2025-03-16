@@ -32,7 +32,7 @@ function Stocks() {
             <div className="row pt-5" data-aos="fade-up">
               <div className="col-lg-8">
                 <div className="news-wrap">
-                  <a href="#">
+                  <a target="_blank" rel="noopener noreferrer"  href="https://coinmarketcap.com/currencies/bitcoin/">
                     <img
                       className="obj_fit"
                       src={stockImg}

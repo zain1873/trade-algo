@@ -5,7 +5,7 @@ import recentPost from "../assets/images/reddit-market-img.webp";
 import recentPost2 from "../assets/images/reddit-market-img.webp"; 
 import recentPost3 from "../assets/images/apple-img.webp"; 
 import recentPost4 from "../assets/images/crypto1.webp"; 
-import recentPost5 from "../assets/images/crypto2.webp"; 
+import recentPost5 from "../assets/images/intel-mrket-img.webp"; 
 import recentPost6 from "../assets/images/reddit.webp"; 
 
 
@@ -35,7 +35,7 @@ function Posts() {
             <div className="row pt-5">
               <div className="col-lg-8">
                 <div className="news-wrap">
-                  <a href="">
+                  <a href="https://www.forbes.com/digital-assets/news/?sh=511db729f9d5" target="_blank" rel="no opener">
                     <img
                       className="obj_fit"
                       src={recentPost}
