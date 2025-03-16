@@ -32,9 +32,8 @@ function postEditor() {
             <div className="row pt-5" data-aos="fade-up">
               <div className="col-lg-8">
                 <div className="news-wrap">
-                  <a href="#">
+                <a href="https://coincheckup.com/predictions" target="_blank" rel="noopener noreferrer">
                     <img className="obj_fit" src={crypto} alt="Walmart News" />
-
                     <h3>
                        Bitcoin Surged Beyond $30,000. Is Another Crypto Boom On The Way?
                     </h3>
@@ -48,7 +47,7 @@ function postEditor() {
                     <div className="other-news-card">
                       <a
                         className="other-news-img"
-                        href=""
+                        href="#"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

@@ -21,6 +21,7 @@ import TermsService from "./pages/TermsService";
 import UsePolicy from "./pages/UsePolicy";
 import LegalDisclaimer from "./pages/LegalDisclaimer";
 import OurAnalyst from "./pages/OurAnalyst";
+import Products from "./pages/Products";
 
 
 
@@ -43,6 +44,8 @@ function App() {
         <Route path="/acceptable-use-policy" element={<Layout> <UsePolicy/> </Layout>} />
         <Route path="/legal-disclaimer" element={<Layout> <LegalDisclaimer/> </Layout>} />
         <Route path="/our-analyst" element={<Layout> <OurAnalyst/> </Layout>} />
+        <Route path="/our-products" element={<Layout> <Products/> </Layout>} />
+
 
 
 

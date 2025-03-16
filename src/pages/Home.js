@@ -33,8 +33,8 @@ function Home() {
             playsInline // Stops fullscreen issue on iPhones
             preload="auto" // Ensures quick loading
             disablePictureInPicture // Disables PiP
-            controlsList="nodownload nofullscreen noremoteplayback" // Blocks additional options
-            onContextMenu={(e) => e.preventDefault()} // Disables right-click menu
+            controlsList="nodownload nofullscreen noremoteplayback" 
+            onContextMenu={(e) => e.preventDefault()} 
           >
             <source src={backgroundVideo} type="video/mp4" />
             Your browser does not support the video tag.
@@ -43,7 +43,7 @@ function Home() {
 
             <div className="banner-text" data-aos="fade-up">
               <h5>Introducing</h5>
-              <h1>ValourGPT</h1>
+              <h1>TradeGPT</h1>
               <p>
                 The revolutionary A.I. powered trading assistant is here to help
                 you elevate your trading to the next level
