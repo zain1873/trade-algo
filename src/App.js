@@ -17,6 +17,10 @@ import CryptoDetails from "./pages/CryptoDetails";
 import CustomerSupport from "./pages/CustomerSupport";
 import Review from "./pages/Review";
 import News from "./components/News";
+import TermsService from "./pages/TermsService";
+import UsePolicy from "./pages/UsePolicy";
+import LegalDisclaimer from "./pages/LegalDisclaimer";
+import OurAnalyst from "./pages/OurAnalyst";
 
 
 
@@ -35,6 +39,12 @@ function App() {
         <Route path="/customer-support" element={<Layout> <CustomerSupport/> </Layout>} />
         <Route path="/leave-a-review" element={<Layout> <Review/> </Layout>} />
         <Route path="/latest-news" element={<Layout> <News/> </Layout>} />
+        <Route path="/terms-of-service" element={<Layout> <TermsService/> </Layout>} />
+        <Route path="/acceptable-use-policy" element={<Layout> <UsePolicy/> </Layout>} />
+        <Route path="/legal-disclaimer" element={<Layout> <LegalDisclaimer/> </Layout>} />
+        <Route path="/our-analyst" element={<Layout> <OurAnalyst/> </Layout>} />
+
+
 
 
 
