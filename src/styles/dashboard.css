@@ -206,9 +206,7 @@ body .dark {
     font-weight: 500;
 
   }
-  .badge  {
-    color: #fff !important;
-  }
+ 
   .flex-column .active span {
     color: #fff !important;
     font-weight: 600;
