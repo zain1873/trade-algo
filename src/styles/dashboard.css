@@ -202,9 +202,12 @@ body .dark {
     margin: 0 20px;
 }
   .nav.flex-column span {
-    color: #fff;
+    color: #000;
     font-weight: 500;
 
+  }
+  .badge  {
+    color: #fff !important;
   }
   .flex-column .active span {
     color: #fff !important;
