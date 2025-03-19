@@ -6,7 +6,7 @@ function Review() {
       <div className="container">
         <div className="review-container">
         {/* Heading Section */}
-        <h6 className="review-title">OUR MISSION AT TRADE ALGO IS TO EMPOWER OVER 100 MILLION TRADERS TO TAKE CONTROL OF THEIR FINANCIAL DESTINY.</h6>
+        <h6 className="review-title">OUR MISSION AT VALOUR WEALTH IS TO EMPOWER OVER 100 MILLION TRADERS TO TAKE CONTROL OF THEIR FINANCIAL DESTINY.</h6>
         <h2 className="fw-bold mt-lg-5 mt-3">
           Leave Us An Honest Review <span role="img" aria-label="hand"></span>
         </h2>

@@ -12,9 +12,9 @@ function CoursesDetail() {
 
   return (
     <div className="course-details-container">
-      <div className="course-header">
+      <div className="course-header mb-5">
         <h1>The Complete FOREX Scalping Trading Course</h1>
-        <p className="course-subtitle">Master the art of FOREX scalping with our comprehensive course</p>
+        {/* <p className="course-subtitle">Master the art of FOREX scalping with our comprehensive course</p> */}
       </div>
 
       <div className="course-tabs">

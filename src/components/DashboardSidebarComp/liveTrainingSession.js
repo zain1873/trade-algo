@@ -9,7 +9,7 @@ function LiveTrainingSession() {
     <div className="container">
       <div className="row">
         <div className='sec_heading'>
-          <h2 className='text-black'>Live Trading Sessions</h2>
+          <h2 className='live-session-title'>Live Trading Sessions</h2>
         </div>
 
         <div className="col-lg-6">

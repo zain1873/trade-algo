@@ -3,6 +3,13 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+.live-session-title {
+  color: #000 !important;
+}
+.bg-dark .live-session-title {
+  color: #ffff !important;
+
+}
 
 .session-card {
   background: #fff;
