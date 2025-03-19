@@ -151,8 +151,8 @@ function UsePolicy() {
           <div className="privacy-intro">
             <h2>8. Contact Information</h2>
             <p>
-              <a href="mailto:support@valourwealth.com">
-                Email: support@valourwealth.com
+              <a href="mailto:Contact@valourwealth.com">
+                Email:Contact@valourwealth.com
               </a>
             </p>
             <p>
