@@ -496,8 +496,9 @@ body .dark {
     display: flex !important;
     align-items: center;
   }
-
-  
+  .wealth-card {
+    padding: 20px;
+  }
   .search_bar {
     max-width: 300px !important;
   }
