@@ -64,7 +64,7 @@ function CourseDetails() {
         {/* Sidebar */}
         <nav className="col-md-3 col-lg-2 p-0">
           <div className="sidebar-left-course">
-            <h5 className="mb-0 fw-bold">Announcements</h5>
+            <h5 className="mb-0 fw-bold">Wealth Academy</h5>
           </div>
           <div className="sidebar-menu">
             {["Beginner", "Intermediate", "Professional"].map((week) => (

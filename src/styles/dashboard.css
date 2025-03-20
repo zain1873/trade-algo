@@ -457,7 +457,7 @@ body .dark {
     padding: 0 !important;
    }
    .dashboard-header {
-    height: 390px !important;
+    height: 300px !important;
    }
    .col-1.position-fixed {
     width: 60px !important;
@@ -611,7 +611,7 @@ body .dark {
   font-size: 13px !important;
 }
 .dashboard-header {
-  height: 330px !important;
+  height: 290px !important;
 }
 .buttons .primary_btn {
   font-size: 12px;

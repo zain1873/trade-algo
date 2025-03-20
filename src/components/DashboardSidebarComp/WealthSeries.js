@@ -19,6 +19,9 @@ const WealthSeries = ({ darkMode }) => {
                 opportunities. Our AI-powered analytics ensure maximum profitability 
                 with precise risk management.
               </p>
+              <a className="theme_btn" href="">
+                Learn More
+              </a>
             </div>
           </div>
 
@@ -33,6 +36,9 @@ const WealthSeries = ({ darkMode }) => {
                 to top-tier market strategies, this fund is designed for wealth preservation 
                 and expansion.
               </p>
+              <a className="theme_btn" href="">
+                Learn More
+              </a>
             </div>
           </div>
         </div>

@@ -29,6 +29,16 @@
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3); /* Gold glow effect */
   margin-bottom: 20px;
 }
+.wealth-card .theme_btn {
+  background-color: gold;
+  width: fit-content;
+  color: #000;
+  font-weight: 600;
+}
+.wealth-card .theme_btn:hover {
+  background-color: #f7d625 !important;
+  
+}
 
 .wealth-title {
   font-size: 1.5rem;

@@ -231,6 +231,9 @@
     font-weight: 500;
     color: #dc3545;
   }
+  .courses-details {
+    text-align: center;
+  }
   
   /* Responsive Adjustments */
   @media (max-width: 768px) {
@@ -293,7 +296,7 @@
 }
 
 .sidebar-left-course {
-  background-color: #1a2035;
+  /* background-color: #1a2035; */
   color: white;
   padding: 20px 15px;
   font-weight: bold;
@@ -301,17 +304,23 @@
 }
 
 
-
 .sidebar-menu {
   padding: 0;
   height: 100vh;
+  padding: 12px 10px;
+  background-color: #000;
 }
 
 .sidebar-item {
-  padding: 12px 15px;
+  padding: 12px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
+  border-radius: 26px;
   transition: background-color 0.3s;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
 }
 .sidebar-menu .sidebar-item  span {
   font-weight: 700;
@@ -327,6 +336,7 @@
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
+
 }
 .accordion-item {
   border-radius: 0 !important;
@@ -334,6 +344,7 @@
   -moz-border-radius: 0 !important;
   -ms-border-radius: 0 !important;
   -o-border-radius: 0 !important;
+
 }
 .accordion-button {
   border-radius: 0 !important;
@@ -341,6 +352,9 @@
   -moz-border-radius: 0 !important;
   -ms-border-radius: 0 !important;
   -o-border-radius: 0 !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  padding: 20px !important;
 }
 .accordion-body {
   border-radius: 0 !important;
@@ -353,6 +367,11 @@
 .sidebar-item.active {
   background-color: #ffff;
   color: #000;
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
 }
 .sidebar-item.active .chevron {
   color: #000 !important;
@@ -436,6 +455,15 @@
 .completion-indicator.completed {
   background-color: #4caf50;
 }
+.accordion-button::after {
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 4px;
+}
 
 .card-title {
   text-align: center;
@@ -444,16 +472,22 @@
 }
 
 .course-videos {
-  width: 320px;
   height: 260px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .sidebar {
-    height: auto;
+  .sidebar-menu {
+    height: auto !important;
     border-right: none;
-    border-bottom: 2px solid #e91e63;
   }
 }
+
+@media (max-width: 500px) {
+  .course-content-section h2 {
+    font-size: 20px;
+  }
+  }
+
+
 
