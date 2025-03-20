@@ -93,7 +93,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-toast.configure();
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -123,18 +123,12 @@ const Contact = () => {
       if (response.status === 200) {
         setIsSubmitted(true);
         setFormData({ firstName: "", lastName: "", email: "", message: "" });
-        toast.success("Your message has been sent successfully!", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+
       }
     } catch (error) {
       setError("Failed to send message. Please try again.");
       console.error("API Error:", error);
-      toast.error("Error sending message. Try again.", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-      });
+      
     }
   };
 
