@@ -46,19 +46,9 @@ function App() {
         <Route path="/legal-disclaimer" element={<Layout> <LegalDisclaimer/> </Layout>} />
         <Route path="/our-analyst" element={<Layout> <OurAnalyst/> </Layout>} />
         <Route path="/our-products" element={<Layout> <Products/> </Layout>} />
-<<<<<<< HEAD
-        <Route path="/course-detail/:id" element={<CoursesDetail />} />
         
-
-
-
-
-
-
-
-=======
+        <Route path="/course-detail/:id" element={<CoursesDetail />} />
         <Route path="/request-a-demo" element={<Layout> <RequestDemo/> </Layout>} />
->>>>>>> upstream/main
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
