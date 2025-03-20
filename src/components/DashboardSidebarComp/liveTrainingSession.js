@@ -1,7 +1,7 @@
 import React from 'react';
 import "../DashboardSidebarComp/styles/live-training-session.css";
-import brianImg from "../DashboardSidebarComp/images/live_stream.png";
-import ericImg from "../DashboardSidebarComp/images/live_stream.png";
+import brianImg from "../DashboardSidebarComp/images/live-trading-session-img.jpg";
+import ericImg from "../DashboardSidebarComp/images/live-trading-session-img.jpg";
 
 function LiveTrainingSession() {
   return (

@@ -7,7 +7,7 @@ import LiveTrainingSession from './liveTrainingSession';
 
 function DashboardData({darkMode}) {
       return (
-        <div className="container">
+        <div className="container p-0">
            <div className="dashboard-header">
           <div className="header-content">
             <div className="header-left">
@@ -33,7 +33,6 @@ function DashboardData({darkMode}) {
         <ProgressBar />
         <HistoricalDataFlow  darkMode={darkMode}/>
         </div>
-    
       );
       };
 

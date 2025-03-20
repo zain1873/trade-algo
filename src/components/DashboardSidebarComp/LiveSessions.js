@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/liveSessions.css";  
-import stream_img from "./images/thubnail_stream.png"; // Your image
+import stream_img from "./images/course-card-img.jpg"; 
 import { Link } from "react-router-dom";
 
 
@@ -24,7 +24,7 @@ const LiveSessions = () => {
                 going to learn my favorite...
               </p>
               <p className="session-date mb-1">3/9/2025</p>
-              <Link to="/course-detail" className="theme_btn">View Details</Link>
+              <Link to="/course-details" className="theme_btn">View Details</Link>
               </div>
           </div>
         </div>

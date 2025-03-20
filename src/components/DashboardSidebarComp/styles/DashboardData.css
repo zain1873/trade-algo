@@ -1,17 +1,22 @@
 .dashboard-header {
-    background-image: url(../images/dashboard-bg.png);
+    background-image: url(../images/dashboard-main-new.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
     border-radius: 10px;
     padding: 20px;
-    /* margin-bottom: 20px; */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /*margin-bottom: 20px;
+    */box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     height: 336px;
-  }
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
   
   .header-content {
     display: flex;
@@ -29,7 +34,7 @@
   }
   
   .highlight {
-    color: var(--theme-blue-color)
+    color: #57cc61;
   }
   
   .underline {

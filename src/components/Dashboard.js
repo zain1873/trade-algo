@@ -217,7 +217,7 @@ const Dashboard = () => {
             </div>
             
             {/* Content Card */}
-            <div className={darkMode ? '' : 'card bg-light text-dark right-bar'}>
+            <div className={darkMode ? '' : 'card bg-light text-dark right-bar pt-0'}>
               {renderContent()}
             </div>
           </div>
