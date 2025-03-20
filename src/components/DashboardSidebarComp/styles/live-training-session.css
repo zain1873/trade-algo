@@ -24,11 +24,6 @@
 }
 
 .session-card:hover {
-  transform: scale(1.02);
-  -webkit-transform: scale(1.02);
-  -moz-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  -o-transform: scale(1.02);
   cursor: pointer;
 }
 

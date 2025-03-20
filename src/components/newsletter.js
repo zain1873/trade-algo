@@ -1,6 +1,5 @@
 import React from 'react'
-import websiteLogowhite from "../assets/images/Valour_Wealth.png"
-
+import websiteLogowhite from "../assets/images/valour-inverted-logo.jpeg"
 
 
 function newsletter() {
@@ -18,7 +17,6 @@ function newsletter() {
               <p className="">
                 As a leading independent research provider, ValourWealth keeps you connected from anywhere.
               </p>
-           
             </div>
           </div>
           

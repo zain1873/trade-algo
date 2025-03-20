@@ -1,5 +1,7 @@
 import React from 'react';
-import productImg from "../assets/images/product_img.jpg"
+import productImg from "../assets/images/products1.jpg"
+import productImg2 from "../assets/images/platinum-program.png"
+
 
 function Products() {
   return (
@@ -23,10 +25,10 @@ function Products() {
         <div className="row">
           {/* ValourWealth Terminal Card */}
           <div className="col-md-4">
-            <div className="card shadow-sm border-0 rounded-3 premium-product">
+            <div className="card products_card shadow-sm border-0 rounded-3 premium-product">
               <img src={productImg} className="card-img-top" alt="ValourWealth Terminal" />
               <div className="card-body">
-                <h5 className="card-title fw-bold text-black">ValourWealth Terminal</h5>
+                <h5 className="card-title fw-bold text-black text-left">ValourWealth Terminal</h5>
                 <p className="text-muted">Premium Programs</p>
               </div>
             </div>
@@ -34,10 +36,10 @@ function Products() {
 
           {/* Platinum Program Card */}
           <div className="col-md-4">
-            <div className="card shadow-sm border-0 rounded-3 premium-product">
-              <img src={productImg} className="card-img-top" alt="Platinum Program" />
+            <div className="card products_card shadow-sm border-0 rounded-3 premium-product">
+              <img src={productImg2} className="card-img-top" alt="Platinum Program" />
               <div className="card-body">
-                <h5 className="card-title fw-bold text-black">The Platinum Program</h5>
+                <h5 className="card-title fw-bold text-black text-left">The Platinum Program</h5>
                 <p className="text-muted">Premium Programs</p>
               </div>
             </div>

@@ -237,6 +237,8 @@ import "../styles/dashboard.css";
 import HistoricalDataFlow from './DashboardSidebarComp/HistoricalDataFlow';
 import user_logo from "../assets/images/dashboard_logo.png";
 import valourWealth from "../assets/images/Valour_Wealth.png";
+// import valourWealthInverted from "../assets/images/valour-inverted-logo.jpeg";
+
 import DashboardData from './DashboardSidebarComp/DashboardData';
 import LiveSessions from './DashboardSidebarComp/LiveSessions';
 import TradeProducts from './DashboardSidebarComp/TradeProducts';
@@ -336,7 +338,6 @@ const Dashboard = () => {
       setSidebarCollapsed(true);
     }
   };
-
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: <Home size={20} /> },
     { id: 'live-sessions', label: 'Live Sessions', icon: <Tv size={20} /> },
@@ -387,104 +388,104 @@ const Dashboard = () => {
   };
   
 
-
-return (
-  <div className={darkMode ? 'bg-dark text-white vh-100' : 'bg-light vh-100'}>
-    <div className="row g-0">
-      {/* Sidebar */}
-      <div
-        className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 border-end transition-width sidebar-mbl`}
-        style={{ 
-          backgroundColor: 'var(--background-color)', 
-          color: 'var(--text-color)' 
-        }}
-      >
-        {/* Sidebar Header */}
-        <div className="d-flex justify-content-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
-          {!sidebarCollapsed && (
-            <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
-              <div className="sidebar_logo">
-                <img src={valourWealth} alt="Logo" className="sidebar-logo obj_fit me-2" />
+  return (
+    <div className={darkMode ? 'bg-dark text-white vh-100' : 'bg-light vh-100'}>
+      <div className="row g-0">
+        {/* Sidebar */}
+        <div
+          className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 border-end transition-width sidebar-mbl`}
+          style={{ 
+            backgroundColor: 'var(--background-color)', 
+            color: 'var(--text-color)' 
+          }}
+        >
+          {/* Sidebar Header */}
+          <div className="d-flex justify-content-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
+            {!sidebarCollapsed && (
+              <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
+                <div className="sidebar_logo">
+                <img src={valourWealth} alt="Logo" className="sidebar-logo obj_fit me-2 light-logo" />
+                {/* <img src={valourWealthInverted} alt="Logo" className="sidebar-logo obj_fit me-2 dark-logo" /> */}
               </div>
-            </h4>
-          )}
-          <button className={`btn btn-link p-0 ${darkMode ? 'text-white' : ''}`} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
-            <Menu />
-          </button>
-        </div>
-        
-        {/* Navigation Menu */}
-        <div className="nav flex-column">
-          {menuItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleTabClick(item.id)}
-              className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
-              style={darkMode ? {color: 'white'} : {}} // Add inline style for dark mode
-            >
-              <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
-              {!sidebarCollapsed && (
-                <div className="d-flex align-items-center justify-content-between flex-grow-1">
-                  <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
-                  {item.isNew && <span className="badge bg-primary ms-2">NEW</span>}
-                </div>
-              )}
+              </h4>
+            )}
+            <button className={`btn btn-link p-0 ${darkMode ? 'text-white' : ''}`} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
+              <Menu />
             </button>
-          ))}
-        </div>
-
-        {/* Dark Mode Toggle */}
-        <div className="position-absolute bottom-0 w-100 border-top">
-          <button 
-            onClick={() => setDarkMode(!darkMode)} 
-            className={`btn btn-link d-flex align-items-center w-100 text-decoration-none night-btn ${darkMode ? 'text-white' : ''}`}
-            style={darkMode ? {color: 'white'} : {}} // Add inline style for dark mode
-          >
-            {darkMode ? 
-              <Sun className="me-2" style={{color: 'white'}} /> : 
-              <Moon className="me-2" />
-            }
-            {!sidebarCollapsed && 
-              <span style={darkMode ? {color: 'white'} : {}}>
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
-              </span>
-            }
-          </button>
-        </div>
-      </div>
-      
-      {/* Main Content Area */}
-      <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
-        <div className="container-fluid py-lg-4 py-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
-          {/* Header with Search */}
-          <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-3 px-sm-2">
-          <div className="col position-relative search-main">
-         <input
-              type="text"
-              className={`search_bar ${darkMode ? "dark-mode" : ""}`}
-              placeholder="Search Tickers..."
-            />
-            <i className="fas fa-search search-icon"></i> 
-           </div>
-
-            <div className="col-auto user_info">
-              <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
-              <div className='username_data'>
-                <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Valourwealth Platform</h5>
-                {/* <p className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Premium Member</p> */}
-              </div>
-            </div>
           </div>
           
-          {/* Content Card */}
-          <div className={darkMode ? '' : 'card bg-light text-dark right-bar'}>
-            {renderContent()}
+          {/* Navigation Menu */}
+          <div className="nav flex-column">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleTabClick(item.id)}
+                className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
+                style={darkMode ? {color: 'white'} : {}} // Add inline style for dark mode
+              >
+                <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
+                {!sidebarCollapsed && (
+                  <div className="d-flex align-items-center justify-content-between flex-grow-1">
+                    <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
+                    {item.isNew && <span className="badge bg-primary ms-2">NEW</span>}
+                  </div>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Dark Mode Toggle */}
+          <div className="position-absolute bottom-0 w-100 border-top">
+            <button 
+              onClick={() => setDarkMode(!darkMode)} 
+              className={`btn btn-link d-flex align-items-center w-100 text-decoration-none night-btn ${darkMode ? 'text-white' : ''}`}
+              style={darkMode ? {color: 'white'} : {}} // Add inline style for dark mode
+            >
+              {darkMode ? 
+                <Sun className="me-2" style={{color: 'white'}} /> : 
+                <Moon className="me-2" />
+              }
+              {!sidebarCollapsed && 
+                <span style={darkMode ? {color: 'white'} : {}}>
+                  {darkMode ? 'Light Mode' : 'Dark Mode'}
+                </span>
+              }
+            </button>
+          </div>
+        </div>
+        
+        {/* Main Content Area */}
+        <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
+          <div className="container-fluid py-lg-4 py-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
+            {/* Header with Search */}
+            <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-3 px-sm-2">
+            <div className="col position-relative search-main">
+           <input
+                type="text"
+                className={`search_bar ${darkMode ? "dark-mode" : ""}`}
+                placeholder="Search Tickers..."
+              />
+              <i className="fas fa-search search-icon"></i> 
+             </div>
+
+              <div className="col-auto user_info">
+                <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
+                <div className='username_data'>
+                  <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Valourwealth Platform</h5>
+                  {/* <p className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Premium Member</p> */}
+                </div>
+              </div>
+            </div>
+            
+            {/* Content Card */}
+            <div className={darkMode ? '' : 'card bg-light text-dark right-bar pt-0'}>
+              {renderContent()}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Dashboard;

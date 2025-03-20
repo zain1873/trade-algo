@@ -33,6 +33,11 @@
   display: flex;
   align-items: center;
 }
+.navbar-nav .theme_btn {
+  width: 150px;
+  border-radius: 0;
+  justify-content: center;
+}
 .navbar-nav  .login-btn {
   border: 2px solid #000 !important;
 }

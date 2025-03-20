@@ -23,6 +23,7 @@ import LegalDisclaimer from "./pages/LegalDisclaimer";
 import OurAnalyst from "./pages/OurAnalyst";
 import Products from "./pages/Products";
 import RequestDemo from "./pages/RequestDemo";
+import CourseDetails from "./pages/CourseDetails";
 
 
 
@@ -53,6 +54,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy/>} />
+        <Route path="/course-details" element={<CourseDetails/>} />
         <Route path="/contact" element={<ContactPage/>}></Route>
       </Routes>
     </Router>
