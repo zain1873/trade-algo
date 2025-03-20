@@ -37,7 +37,7 @@ function CourseDetails() {
               <div className="row">
                 {["Reading List", "Notes", "Knowledge"].map((subTitle, subIndex) => (
                   <div className="col-md-4" key={subIndex}>
-                    <div className="courses-details">
+                    <div className="courses-details shadow p-2">
                       <div className="course-videos">
                         <img className="obj_fit" src={course} alt="" />
                       </div>
