@@ -206,6 +206,7 @@ body .dark {
     font-weight: 500;
 
   }
+ 
   .flex-column .active span {
     color: #fff !important;
     font-weight: 600;
@@ -373,7 +374,7 @@ body .dark {
 }
 
   .right-bar {
-  padding: 20px;
+  padding: 10px 0px;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -495,8 +496,9 @@ body .dark {
     display: flex !important;
     align-items: center;
   }
-
-  
+  .wealth-card {
+    padding: 20px;
+  }
   .search_bar {
     max-width: 300px !important;
   }

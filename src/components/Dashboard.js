@@ -455,6 +455,7 @@ const Dashboard = () => {
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
           <div className="container-fluid py-lg-4 py-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
+<<<<<<< HEAD
             <div className="row mb-lg-4 mb-2 align-items-center dashboard-head">
               <div className="col position-relative search-main">
                 <input
@@ -464,13 +465,29 @@ const Dashboard = () => {
                 />
                 <i className="fas fa-search search-icon"></i> 
               </div>
+=======
+            <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-3 px-sm-2">
+            <div className="col position-relative search-main">
+           <input
+                type="text"
+                className={`search_bar ${darkMode ? "dark-mode" : ""}`}
+                placeholder="Search Tickers..."
+              />
+              <i className="fas fa-search search-icon"></i> 
+             </div>
+>>>>>>> upstream/main
 
               <div className="col-auto user_info">
                 <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
                 <div className='username_data'>
+<<<<<<< HEAD
                   <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>
                     {userData ? userData.username : "Loading..."}
                   </h5>
+=======
+                  <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Valourwealth Platform</h5>
+                  {/* <p className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Premium Member</p> */}
+>>>>>>> upstream/main
                 </div>
               </div>
             </div>

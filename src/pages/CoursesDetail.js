@@ -623,8 +623,8 @@ const CoursesDetail = () => {
   return (
     <div className="course-details-container">
       <div className="course-header">
-        <h1>{courseTitle}</h1>
-        <p className="course-subtitle">{courseDescription}</p>
+        <h1>The Complete FOREX Scalping Trading Course</h1>
+        <p className="course-subtitle">Master the art of FOREX scalping with our comprehensive course</p>
       </div>
 
       <div className="course-tabs">

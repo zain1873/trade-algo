@@ -12,12 +12,21 @@ const Contact = () => {
               Have any questions? Feel free to reach out to us!
             </p>
             <p className="mb-2">
-              <a className="text-white text-decoration-none" href="mailto:support@valourwealth.com">
-              <strong>Email:</strong> support@valourwealth.com
+              <a
+                className="text-white text-decoration-none"
+                href="mailto:contact@valourwealth.com "
+              >
+                <strong>Email:</strong> contact@valourwealth.com
               </a>
             </p>
             <p>
-             <a className="text-white text-decoration-none" href="tel:877-639-1327"> <strong>Phone:</strong> 877-639-1327</a>
+              <a
+                className="text-white text-decoration-none"
+                href="tel:+1 414 485 8800"
+              >
+                {" "}
+                <strong>Phone:</strong> +1 414 485 8800
+              </a>
             </p>
           </div>
         </div>

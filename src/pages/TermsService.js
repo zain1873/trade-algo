@@ -5,7 +5,9 @@ function TermsService() {
     <section className="terms-service">
       <div className="privacy-container privacy-term">
         <div className="privacy-header">
-        <h1 className="terms-title text-dark text-center fw-bold">Terms of Service</h1>
+          <h1 className="terms-title text-dark text-center fw-bold">
+            Terms of Service
+          </h1>
           <div className="divider"></div>
         </div>
 
@@ -147,13 +149,11 @@ function TermsService() {
           <h2>Contact Information</h2>
           <p>
             <a href="mailto:Contact@valourwealth.com">
-            Email: Contact@valourwealth.com
+              Email: Contact@valourwealth.com
             </a>
           </p>
           <p>
-            <a href="tel:877-639-1327">
-            Phone: 877-639-1327
-            </a>
+            <a href="tel:+1 414 485 8800">Phone: +1 414 485 8800</a>
           </p>
         </div>
       </div>
