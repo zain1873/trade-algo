@@ -39,9 +39,8 @@ const Navbar = () => {
               <a href="/login" className="text-decoration-none text-white">Login</a>
              </button> */}
              <button className="btn-login-mobile d-lg-none d-md-block">
-             <a href="/login" className="text-decoration-none text-white">Request Demo</a>
+             <a href="/request-a-demo" className="text-decoration-none text-white">Request Demo</a>
              </button>
-
             </div>
 
 
@@ -52,7 +51,7 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/customer-support" onClick={closeNavbar}>Customer Support</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/our-analyst" onClick={closeNavbar}>Our Analysts</Link></li>
-              <li className="nav-item"><Link className="theme_btn d-lg-block d-none mx-2" to="/login" onClick={closeNavbar}>Request Demo</Link></li>
+              <li className="nav-item"><Link className="theme_btn d-lg-block d-none mx-2" to="/request-a-demo" onClick={closeNavbar}>Request Demo</Link></li>
               <li className="nav-item"><Link className="theme_btn d-lg-block d-none" to="/login" onClick={closeNavbar}>My Login</Link></li>
             </ul>
           </div>

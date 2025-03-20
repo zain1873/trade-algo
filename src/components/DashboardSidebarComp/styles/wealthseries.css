@@ -79,9 +79,15 @@
   background: #0000;
   color: #f8c24d;
 }
+.dark-mode .title-wealth {
+  color: gold !important;
+}
+.dark-mode .wealth-title {
+  color: gold !important;
+}
 
 .light-mode .wealth-card {
-  background: #ffffff;
-  color: #333;
-  border-color: #aaa;
+  background: transparent;
+  color: #ffff;
+  border-color: #f8c24d;
 }
