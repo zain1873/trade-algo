@@ -147,7 +147,7 @@ function RequestDemo() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/request-demo/`, formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}api/request-demo/`, formData);
       if (response.status === 200) {
         setIsSubmitted(true);
         setFormData({ firstName: "", lastName: "", email: "", phone: "", date: "" });
