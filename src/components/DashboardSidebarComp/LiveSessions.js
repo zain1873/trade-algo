@@ -81,7 +81,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/liveSessions.css";
-import stream_img from "./images/thubnail_stream.png"; // Placeholder Image
+import stream_img from "./images/thumb.jpg"; // Placeholder Image
 import { useNavigate } from "react-router-dom";
 
 const LiveSessions = () => {
