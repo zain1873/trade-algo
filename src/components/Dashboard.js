@@ -7,6 +7,8 @@ import "../styles/dashboard.css";
 import HistoricalDataFlow from './DashboardSidebarComp/HistoricalDataFlow';
 import user_logo from "../assets/images/dashboard_logo.png";
 import valourWealth from "../assets/images/Valour_Wealth.png";
+// import valourWealthInverted from "../assets/images/valour-inverted-logo.jpeg";
+
 import DashboardData from './DashboardSidebarComp/DashboardData';
 import LiveSessions from './DashboardSidebarComp/LiveSessions';
 import TradeProducts from './DashboardSidebarComp/TradeProducts';
@@ -144,8 +146,9 @@ const Dashboard = () => {
             {!sidebarCollapsed && (
               <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
                 <div className="sidebar_logo">
-                  <img src={valourWealth} alt="Logo" className="sidebar-logo obj_fit me-2" />
-                </div>
+                <img src={valourWealth} alt="Logo" className="sidebar-logo obj_fit me-2 light-logo" />
+                {/* <img src={valourWealthInverted} alt="Logo" className="sidebar-logo obj_fit me-2 dark-logo" /> */}
+              </div>
               </h4>
             )}
             <button className={`btn btn-link p-0 ${darkMode ? 'text-white' : ''}`} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
