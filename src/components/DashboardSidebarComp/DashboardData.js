@@ -2,7 +2,7 @@ import React from 'react'
 import "../DashboardSidebarComp/styles/DashboardData.css"; 
 import HistoricalDataFlow from './HistoricalDataFlow';
 import ProgressBar from './ProgressBar';
-// import LiveTrainingSession from './liveTrainingSession';
+import LiveTrainingSession from './liveTrainingSession';
 
 
 function DashboardData({darkMode}) {
@@ -25,7 +25,7 @@ function DashboardData({darkMode}) {
             </div>
           </div>         
         </div>  
-        {/* <LiveTrainingSession /> */}
+        <LiveTrainingSession />
         <ProgressBar />
         <HistoricalDataFlow  darkMode={darkMode}/>
         </div>

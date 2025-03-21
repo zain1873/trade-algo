@@ -8,6 +8,13 @@
     color: #007bff;
   }
   
+  .blurred {
+    filter: blur(5px);  /* Apply blur effect */
+    pointer-events: none; /* Disable clicks */
+    opacity: 0.6; /* Slightly faded */
+    transition: all 0.3s ease-in-out;
+  }
+  
   .academy-card {
     background-image: url(../images/video_card-overlay.png);
     /* border-radius: 10px; */

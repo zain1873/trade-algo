@@ -4,7 +4,7 @@ import profileImg from "../DashboardSidebarComp/images/thubnail_stream.png";
 
 const Platinum = ({ darkMode }) => {
   return (
-      <div className={`container mt-4 platinum-container ${darkMode ? "dark-mode" : "light-mode"}`}>
+      <div className={`container mt-4 platinum-container blur ${darkMode ? "dark-mode" : "light-mode"}`}>
       {/* Profile Section */}
       <div className="d-flex align-items-center mb-3">
         <img src={profileImg} alt="IAN" className="profile-img" />

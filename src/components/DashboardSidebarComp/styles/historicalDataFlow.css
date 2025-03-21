@@ -27,12 +27,16 @@
     padding: 12px;
     vertical-align: middle;
   }
-  tbody tr:nth-child(n+4) {
+  /* tbody tr:nth-child(n+4) {
     filter: blur(5px);
     opacity: 0.5;
     transition: all 0.3s ease-in-out;
-  }
-  
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+   */
   
   /* Irregular Volume Badge */
   .badge {
@@ -46,7 +50,6 @@
     font-weight: bold;
   }
  
-  
   /* Default Table Styles */
 .table {
   width: 100%;
@@ -97,12 +100,6 @@
   --text-color: #ffffff; /* White text */
   --table-border-color: #444; /* Dark gray border */
 }
-
-
-
-
-
-  
   
   /* Responsive Table */
   @media (max-width: 768px) {

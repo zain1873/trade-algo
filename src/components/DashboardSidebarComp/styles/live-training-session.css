@@ -11,9 +11,9 @@
 
 }
 .locked {
-  filter: blur(3px);
-  pointer-events: none;
-  -webkit-filter: blur(3px);
+  /* filter: blur(3px); */
+  /* pointer-events: none;
+  -webkit-filter: blur(3px); */
 }
 
 .lock-overlay {
