@@ -4,8 +4,7 @@ import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png"
 
 const Resources = ({ darkMode }) => {
   return (
-    <div className={`container mt-4 resources-section ${darkMode ? "dark-mode" : "light-mode"}`}>
-
+    <div className={`container mt-4 resources-section blur ${darkMode ? "dark-mode" : "light-mode"}`}>
       <div className="video-container">
         <h4 className="video-title">Platform Walkthrough</h4>
         <iframe

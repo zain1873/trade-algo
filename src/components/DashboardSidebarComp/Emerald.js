@@ -38,7 +38,7 @@ const emeraldCards = [
 
 const Emerald = ( {darkMode} ) => {
   return (
-<div className={`container mt-4 ${darkMode ? "dark-mode" : ""}`}>      
+<div className={`container mt-4 blur ${darkMode ? "dark-mode" : ""}`}>      
   <h2 className="section-title">Emerald Income Alerts</h2>
       <p className="lesson-info">12 lessons • 3 hours 33 mins</p>
       <div className="row">

@@ -27,7 +27,7 @@ const CircularProgressBar = ({ percentage, color }) => {
 
 const ProgressBarsDisplay = () => {
   return (
-    <div className="container mb-5 p-0">
+    <div className="container my-5 p-0">
     <div className="progress_container shadow p-3">
         <div className="sec_heading ">
             <h2 className='text-white'>QBTS</h2>

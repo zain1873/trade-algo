@@ -237,8 +237,7 @@ import "../styles/dashboard.css";
 import HistoricalDataFlow from './DashboardSidebarComp/HistoricalDataFlow';
 import user_logo from "../assets/images/dashboard_logo.png";
 import valourWealth from "../assets/images/Valour_Wealth.png";
-// import valourWealthInverted from "../assets/images/valour-inverted-logo.jpeg";
-
+import valourWealthInverted from "../assets/images/valour-inverted-logo.jpeg";
 import DashboardData from './DashboardSidebarComp/DashboardData';
 import LiveSessions from './DashboardSidebarComp/LiveSessions';
 import TradeProducts from './DashboardSidebarComp/TradeProducts';
@@ -341,7 +340,7 @@ const Dashboard = () => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: <Home size={20} /> },
     { id: 'live-sessions', label: 'Live Sessions', icon: <Tv size={20} /> },
-    { id: 'historical-darkflow', label: 'Historical Darkflow', icon: <Building size={20} /> },
+    { id: 'darkpool-data', label: 'Darkpool Data', icon: <Building size={20} /> },
     { id: 'trading-tools', label: 'Trading Tools', icon: <Wrench size={20} /> },
     { id: 'resources', label: 'Resources', icon: <Book size={20} /> },
     { id: 'Trade-products', label: 'ValourWealth Products', icon: <Package size={20} /> },
@@ -359,7 +358,7 @@ const Dashboard = () => {
           switch (activeTab) {
             case 'dashboard':
               return <DashboardData darkMode={darkMode} />;
-            case 'historical-darkflow':
+            case 'darkpool-data':
               return <HistoricalDataFlow darkMode={darkMode} />;
             case 'live-sessions':
               return <LiveSessions darkMode={darkMode} />;
@@ -403,9 +402,17 @@ const Dashboard = () => {
           <div className="d-flex justify-content-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
             {!sidebarCollapsed && (
               <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
-                <div className="sidebar_logo">
-                <img src={valourWealth} alt="Logo" className="sidebar-logo obj_fit me-2 light-logo" />
-                {/* <img src={valourWealthInverted} alt="Logo" className="sidebar-logo obj_fit me-2 dark-logo" /> */}
+              <div className={`sidebar_logo ${darkMode ? "dark-mode" : ""}`}>
+                <img
+                  src={valourWealth}
+                  alt="Logo"
+                  className="sidebar-logo obj_fit me-2 default-logo"
+                />
+                <img
+                  src={valourWealthInverted}
+                  alt="Logo"
+                  className="sidebar-logo obj_fit me-2 inverted-logo"
+                />
               </div>
               </h4>
             )}

@@ -944,6 +944,13 @@ section:last-child {
   color: #ffff !important;
   margin-top: 20px;
 }
+.blur {
+  filter: blur(4px);
+  /*Adjustblurintensity*/pointer-events: none;
+  /*Disableinteractionwithblurredcontent*/user-select: none;
+  -webkit-filter: blur(4px);
+}
+
 
 .main-detail-img {
   height: 250px;

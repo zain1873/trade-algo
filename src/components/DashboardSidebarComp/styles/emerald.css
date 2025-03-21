@@ -24,6 +24,11 @@
     flex-direction: column;
     justify-content: space-between;
   }
+  .emerald-card .card-title {
+    text-align: left !important;
+
+
+  }
   
   .card-body {
     text-align: left;
