@@ -235,9 +235,7 @@
 
 
 
-
-// update for video player
-"use client";
+ "use client";
 
 import { useState } from "react";
 import "../styles/coursedetails.css";
@@ -276,27 +274,45 @@ function CourseDetails() {
           >
             <div className="accordion-body">
               <div className="row">
-                {["Notes", "Knowledge"].map((subTitle, subIndex) => (
-                  <div className="col-md-4" key={subIndex}>
+                {/* Render video only for first 'Resources' under Beginner */}
+                {category === "Beginner" && index === 0 ? (
+                  <div className="col-md-12">
                     <div className="courses-details shadow p-2">
                       <div className="course-videos">
-                        {category === "Beginner" && index === 0 ? (
-                          <video controls width="100%">
-                            <source src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/valourwealth.mp4" type="video/mp4" />
-                          </video>
-                        ) : (
-                          <img className="obj_fit" src={image} alt="" />
-                        )}
-                      </div>
-                      <div className="courses-details-body">
-                        <h5 className="courses-details-title">{subTitle}</h5>
-                        <p className="courses-details-text">
-                          Relevant information for {subTitle.toLowerCase()}.
-                        </p>
+                        <video
+                          controls
+                          autoPlay
+                          muted
+                          width="100%"
+                          onError={(e) => console.log("Video Error:", e)}
+                        >
+                          <source
+                            src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/valourwealth.mp4"
+                            type="video/mp4"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
                     </div>
                   </div>
-                ))}
+                ) : (
+                  // Render Notes & Knowledge normally
+                  ["Notes", "Knowledge"].map((subTitle, subIndex) => (
+                    <div className="col-md-4" key={subIndex}>
+                      <div className="courses-details shadow p-2">
+                        <div className="course-videos">
+                          <img className="obj_fit" src={image} alt="" />
+                        </div>
+                        <div className="courses-details-body">
+                          <h5 className="courses-details-title">{subTitle}</h5>
+                          <p className="courses-details-text">
+                            Relevant information for {subTitle.toLowerCase()}.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -359,12 +375,3 @@ function CourseDetails() {
 }
 
 export default CourseDetails;
-
-
-
-
-
-
-
-
- 
