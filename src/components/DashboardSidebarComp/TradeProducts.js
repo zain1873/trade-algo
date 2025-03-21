@@ -49,7 +49,7 @@ const products = [
 
 const ProductCards = () => {
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 blur">
       <div className="row">
         {products.map((product, index) => (
           <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-4">

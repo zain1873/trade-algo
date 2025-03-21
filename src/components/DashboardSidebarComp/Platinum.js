@@ -7,9 +7,9 @@ const Platinum = ({ darkMode }) => {
       <div className={`container mt-4 platinum-container ${darkMode ? "dark-mode" : "light-mode"}`}>
       {/* Profile Section */}
       <div className="d-flex align-items-center mb-3">
-        <img src={profileImg} alt="Eric Armenteros" className="profile-img" />
+        <img src={profileImg} alt="IAN" className="profile-img" />
         <div className="ms-3">
-          <h5 className="mb-0">Eric Armenteros</h5>
+          <h5 className="mb-0">IAN</h5>
           <p className="text-muted small">ValourWealth Professional Analyst</p>
         </div>
       </div>
@@ -18,7 +18,7 @@ const Platinum = ({ darkMode }) => {
       <h3 className="fw-bold">The Platinum Daily Livestreams</h3>
       <p>
         Join us and get ready to buckle up and blast off with the one and only
-        Eric Armenteros at the ValourWealth Platinum Daily livestream event!
+        IAN at the ValourWealth Platinum Daily livestream event!
       </p>
 
       {/* Live Schedule */}

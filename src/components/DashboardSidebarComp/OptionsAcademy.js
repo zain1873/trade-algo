@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/optionsAcademy.css"; // Import the CSS file
 import ProgressBarsDisplay from "../DashboardSidebarComp/ProgressBar";
+import Course from "../DashboardSidebarComp/Course";
 
 const optionsCourses = [
   {
@@ -63,6 +64,8 @@ const OptionsAcademy = () => {
         ))}
       </div>
 
+      {/* course and progress bar */}
+      <Course />
       <ProgressBarsDisplay />
     </div>
   );

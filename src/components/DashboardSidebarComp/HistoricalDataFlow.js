@@ -6,7 +6,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
 
   return (
     <div
-      className="container mt-4"
+      className="container"
       style={{
         backgroundColor: darkMode ? "#000000" : "#ffffff", // Full black background
         color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
@@ -83,7 +83,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     $169.52 <br /> <small>Mar 11th 11:46 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">58.55x</span>
+                    <span className="badge bg-success">98.5x</span>
                   </td>
                   <td>
                     +0.04% <br /> <small>2 hours</small>
@@ -99,7 +99,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     $499.94 <br /> <small>Mar 11th 8:10 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">35.22x</span>
+                    <span className="badge bg-success">78.29x</span>
                   </td>
                   <td>
                     +0.05% <br /> <small>6 minutes</small>
@@ -115,7 +115,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     $165.39 <br /> <small>Mar 12th 8:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">24.28x</span>
+                    <span className="badge bg-success">63.8x</span>
                   </td>
                   <td>
                     +0.30% <br /> <small>22 hours</small>
