@@ -87,6 +87,9 @@
   color: var(--text-color) !important;
   border: 1px solid var(--table-border-color);
 }
+.table_history tr th {
+  background-color: #007bff !important;
+}
 
 .table_history th,
 .table_history td {
