@@ -53,7 +53,7 @@ function Course() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/courses/`) // Updated API endpoint
+    fetch(`${API_BASE_URL}api/courses/`) // Updated API endpoint
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch courses");
