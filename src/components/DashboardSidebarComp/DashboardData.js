@@ -109,7 +109,7 @@ function DashboardData({ darkMode }) {
         </div>         
       </div>  
       {error && <p className="error-message">{error}</p>}
-      {/* <LiveTrainingSession /> */}
+      <LiveTrainingSession />
       <ProgressBar />
       <HistoricalDataFlow darkMode={darkMode} />
     </div>

@@ -24,15 +24,19 @@
     padding: 10px;
   }
   .table td {
-    padding: 12px;
+    padding: 9px;
     vertical-align: middle;
   }
-  tbody tr:nth-child(n+4) {
+  /* tbody tr:nth-child(n+4) {
     filter: blur(5px);
     opacity: 0.5;
     transition: all 0.3s ease-in-out;
-  }
-  
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+   */
   
   /* Irregular Volume Badge */
   .badge {
@@ -46,7 +50,6 @@
     font-weight: bold;
   }
  
-  
   /* Default Table Styles */
 .table {
   width: 100%;
@@ -84,6 +87,9 @@
   color: var(--text-color) !important;
   border: 1px solid var(--table-border-color);
 }
+.table_history tr th {
+  background-color: #007bff !important;
+}
 
 .table_history th,
 .table_history td {
@@ -97,12 +103,6 @@
   --text-color: #ffffff; /* White text */
   --table-border-color: #444; /* Dark gray border */
 }
-
-
-
-
-
-  
   
   /* Responsive Table */
   @media (max-width: 768px) {

@@ -74,179 +74,851 @@ const HistoricalDataFlow = ({ darkMode }) => {
             {activeTab === "largeCaps" && (
               <>
                 <tr>
-                  <td>ICE</td>
+                  <td>DRI</td>
                   <td>
-                    $169.46
-                    <br /> <small>Mar 11th 9:31 AM</small>
+                    $187.87
+                    <br /> <small>Mar 20th 8:27 AM</small>
                   </td>
                   <td>
-                    $169.52 <br /> <small>Mar 11th 11:46 AM</small>
+                    $188.89 <br /> <small>Mar 20th 9:57 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">98.5x</span>
+                    <span className="badge bg-success">2702.53x</span>
                   </td>
                   <td>
-                    +0.04% <br /> <small>2 hours</small>
+                    +0.86% <br /> <small>1.5 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>VRTX</td>
+                  <td>PODD</td>
                   <td>
-                    $499.70
-                    <br /> <small>Mar 11th 8:04 AM</small>
+                    $265.55
+                    <br /> <small>Mar 20th 8:02 AM</small>
                   </td>
                   <td>
-                    $499.94 <br /> <small>Mar 11th 8:10 AM</small>
+                    $265.56 <br /> <small>Mar 20th 9:48 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">78.29x</span>
+                    <span className="badge bg-success">254.54x</span>
                   </td>
                   <td>
-                    +0.05% <br /> <small>6 minutes</small>
+                    +0.01% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MDY</td>
+                  <td>
+                    $535.97
+                    <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $546.08 <br /> <small>Mar 20th 9:34 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">25.86x</span>
+                  </td>
+                  <td>
+                    +0.02% <br /> <small>1.5 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>FLUT</td>
+                  <td>
+                    $36.63
+                    <br /> <small>Mar 20th 8:16 AM</small>
+                  </td>
+                  <td>
+                    $37.42 <br /> <small>Mar 20th 10:21 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">14.46x</span>
+                  </td>
+                  <td>
+                    +2.16% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>BLD</td>
+                  <td>
+                    $336.03
+                    <br /> <small>Mar 20th 8:03 AM</small>
+                  </td>
+                  <td>
+                    $358.49 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">11.61x</span>
+                  </td>
+                  <td>
+                    +0.75% <br /> <small>29 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PNC</td>
+                  <td>
+                    $171.79
+                    <br /> <small>Mar 20th 8:44 AM</small>
+                  </td>
+                  <td>
+                    $172.50 <br /> <small>Mar 20th 10:02 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">10.9x</span>
+                  </td>
+                  <td>
+                    +0.41% <br /> <small>1.5 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CYRX</td>
+                  <td>
+                    $104.08
+                    <br /> <small>Mar 20th 8:08 AM</small>
+                  </td>
+                  <td>
+                    $105.54 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">10.64x</span>
+                  </td>
+                  <td>
+                    +1.27% <br /> <small>23 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TYL</td>
+                  <td>
+                    $579.18
+                    <br /> <small>Mar 20th 8:35 AM</small>
+                  </td>
+                  <td>
+                    $579.55 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">9.52x</span>
+                  </td>
+                  <td>
+                    +0.07% <br /> <small>57 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HEI</td>
+                  <td>
+                    $185.39
+                    <br /> <small>Mar 20th 9:10 AM</small>
+                  </td>
+                  <td>
+                    $186.88 <br /> <small>Mar 20th 9:16 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">9.08x</span>
+                  </td>
+                  <td>
+                    +0.8% <br /> <small>6 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ZS</td>
+                  <td>
+                    $203.93
+                    <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $204.03 <br /> <small>Mar 20th 8:21 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">6.46x</span>
+                  </td>
+                  <td>
+                    +0.77% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ADP</td>
+                  <td>
+                    $259.40
+                    <br /> <small>Mar 20th 8:03 AM</small>
+                  </td>
+                  <td>
+                    $259.35 <br /> <small>Mar 20th 9:04 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.8x</span>
+                  </td>
+                  <td>
+                    -0.77% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>LOW</td>
+                  <td>
+                    $225.52
+                    <br /> <small>Mar 20th 8:30 AM</small>
+                  </td>
+                  <td>
+                    $225.75 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.78x</span>
+                  </td>
+                  <td>
+                    +0.10% <br /> <small>26 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ROK</td>
+                  <td>
+                    $280.02
+                    <br /> <small>Mar 20th 8:30 AM</small>
+                  </td>
+                  <td>
+                    $280.18 <br /> <small>Mar 20th 9:25 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.6x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>50 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MSGS</td>
+                  <td>
+                    $93.69
+                    <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    $94.11 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.09x</span>
+                  </td>
+                  <td>
+                    +0.45% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PH</td>
+                  <td>
+                    $560.37
+                    <br /> <small>Mar 20th 8:20 AM</small>
+                  </td>
+                  <td>
+                    $562.36 <br /> <small>Mar 20th 9:18 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.07x</span>
+                  </td>
+                  <td>
+                    +0.10% <br /> <small>53 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>FI</td>
+                  <td>
+                    $220.30
+                    <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    $222.26 <br /> <small>Mar 20th 1:28 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.06x</span>
+                  </td>
+                  <td>
+                    +0.72% <br /> <small>5 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MLM</td>
+                  <td>
+                    $489.96
+                    <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    $490.36 <br /> <small>Mar 20th 9:48 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.02x</span>
+                  </td>
+                  <td>
+                    +0.08% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>KNSL</td>
+                  <td>
+                    $453.27
+                    <br /> <small>Mar 20th 8:03 AM</small>
+                  </td>
+                  <td>
+                    $451.48 <br /> <small>Mar 20th 9:10 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.9x</span>
+                  </td>
+                  <td>
+                    +0.04% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ACN</td>
+                  <td>
+                    $339.70
+                    <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $340.98 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.16x</span>
+                  </td>
+                  <td>
+                    +0.6% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RSP</td>
+                  <td>
+                    $175.31
+                    <br /> <small>Mar 20th 8:26 AM</small>
+                  </td>
+                  <td>
+                    $175.32 <br /> <small>Mar 20th 9:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.42x</span>
+                  </td>
+                  <td>
+                    +0.10% <br /> <small>37 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>WCC</td>
+                  <td>
+                    $195.27
+                    <br /> <small>Mar 20th 8:10 AM</small>
+                  </td>
+                  <td>
+                    $195.54 <br /> <small>Mar 20th 10:01 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.30x</span>
+                  </td>
+                  <td>
+                    +0.44% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>LULU</td>
+                  <td>
+                    $329.48
+                    <br /> <small>Mar 20th 8:44 AM</small>
+                  </td>
+                  <td>
+                    $329.71 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.29x</span>
+                  </td>
+                  <td>
+                    +0.07% <br /> <small>48 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NFLX</td>
+                  <td>
+                    $598.75
+                    <br /> <small>Mar 20th 8:32 AM</small>
+                  </td>
+                  <td>
+                    $599.82 <br /> <small>Mar 20th 9:44 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.2x</span>
+                  </td>
+                  <td>
+                    +0.31% <br /> <small>51 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ALL</td>
+                  <td>
+                    $162.69
+                    <br /> <small>Mar 20th 8:35 AM</small>
+                  </td>
+                  <td>
+                    $162.48 <br /> <small>Mar 20th 3:59 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.2x</span>
+                  </td>
+                  <td>
+                    -0.13% <br /> <small>7 hours</small>
                   </td>
                 </tr>
                 <tr>
                   <td>MTN</td>
                   <td>
-                    $164.90
-                    <br /> <small>Mar 11th 9:31 AM</small>
+                    $193.77
+                    <br /> <small>Mar 20th 8:03 AM</small>
                   </td>
                   <td>
-                    $165.39 <br /> <small>Mar 12th 8:03 AM</small>
+                    $194.80 <br /> <small>Mar 20th 9:32 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">63.8x</span>
+                    <span className="badge bg-success">2.89x</span>
                   </td>
                   <td>
-                    +0.30% <br /> <small>22 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>TEAM</td>
-                  <td>
-                    $217.00
-                    <br /> <small>Mar 11th 9:31 AM</small>
-                  </td>
-                  <td>
-                    $222.57 <br /> <small>Mar 11th 2:04 PM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">23.86x</span>
-                  </td>
-                  <td>
-                    +2.57% <br /> <small>4 hours</small>
+                    +0.55% <br /> <small>29 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>RL</td>
+                  <td>CLH</td>
                   <td>
-                    $220.32
-                    <br /> <small>Mar 11th 9:31 AM</small>
+                    $186.85
+                    <br /> <small>Mar 20th 8:04 AM</small>
                   </td>
                   <td>
-                    $223.69 <br /> <small>Mar 11th 10:44 AM</small>
+                    $186.75 <br /> <small>Mar 20th 1:27 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">11.9x</span>
+                    <span className="badge bg-success">2.57x</span>
                   </td>
                   <td>
-                    +1.53% <br /> <small>1 hour</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MNDY</td>
-                  <td>
-                    $235.80
-                    <br /> <small>Mar 11th 9:35 AM</small>
-                  </td>
-                  <td>
-                    $240.20 <br /> <small>Mar 11th 3:41 PM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">11.16x</span>
-                  </td>
-                  <td>
-                    +1.87% <br /> <small>6 hours</small>
+                    -0.04% <br /> <small>5 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>WIX</td>
+                  <td>WM</td>
                   <td>
-                    $171.79
-                    <br /> <small>Mar 11th 9:35 AM</small>
+                    $227.41
+                    <br /> <small>Mar 20th 8:16 AM</small>
                   </td>
                   <td>
-                    $175.41 <br /> <small>Mar 11th 11:54 AM</small>
+                    $228.06 <br /> <small>Mar 20th 10:33 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">8.1x</span>
+                    <span className="badge bg-success">2.36x</span>
                   </td>
                   <td>
-                    +2.10% <br /> <small>2 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ELV</td>
-                  <td>
-                    $409.60
-                    <br /> <small>Mar 11th 8:44 AM</small>
-                  </td>
-                  <td>
-                    $422.44 <br /> <small>Mar 12th 8:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">7.64x</span>
-                  </td>
-                  <td>
-                    +3.13% <br /> <small>23 hours</small>
+                    +0.29% <br /> <small>2 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>TXRH</td>
+                  <td>UTHR</td>
                   <td>
-                    $178.86
-                    <br /> <small>Mar 11th 9:31 AM</small>
+                    $376.64
+                    <br /> <small>Mar 20th 9:32 AM</small>
                   </td>
                   <td>
-                    $179.40 <br /> <small>Mar 11th 9:54 AM</small>
+                    $378.89 <br /> <small>Mar 20th 9:41 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">6.02x</span>
+                    <span className="badge bg-success">2.33x</span>
                   </td>
                   <td>
-                    +0.30% <br /> <small>23 minutes</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ADSK</td>
-                  <td>
-                    $248.69
-                    <br /> <small>Mar 11th 9:31 AM</small>
-                  </td>
-                  <td>
-                    $252.38 <br /> <small>Mar 11th 11:44 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">4.19x</span>
-                  </td>
-                  <td>
-                    +1.49% <br /> <small>2 hours</small>
+                    +0.71% <br /> <small>9 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>DOV</td>
+                  <td>DE</td>
                   <td>
-                    $178.59
-                    <br /> <small>Mar 11th 9:31 AM</small>
+                    $407.80
+                    <br /> <small>Mar 20th 10:03 AM</small>
                   </td>
                   <td>
-                    $179.43 <br /> <small>Mar 11th 1:32 PM</small>
+                    $407.93 <br /> <small>Mar 20th 10:41 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">4.12x</span>
+                    <span className="badge bg-success">2.3x</span>
                   </td>
                   <td>
-                    +0.47% <br /> <small>4 hours</small>
+                    +0.03% <br /> <small>38 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GS</td>
+                  <td>
+                    $397.48
+                    <br /> <small>Mar 20th 8:08 AM</small>
+                  </td>
+                  <td>
+                    $397.99 <br /> <small>Mar 20th 9:31 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.28x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>INBX</td>
+                  <td>
+                    $175.43
+                    <br /> <small>Mar 20th 8:10 AM</small>
+                  </td>
+                  <td>
+                    $177.99 <br /> <small>Mar 20th 10:04 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.24x</span>
+                  </td>
+                  <td>
+                    +0.43% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TT</td>
+                  <td>
+                    $330.38
+                    <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $331.13 <br /> <small>Mar 20th 11:31 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.22x</span>
+                  </td>
+                  <td>
+                    +0.43% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ESS</td>
+                  <td>
+                    $298.08
+                    <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    $298.54 <br /> <small>Mar 20th 8:44 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2x</span>
+                  </td>
+                  <td>
+                    +0.16% <br /> <small>10 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AGM</td>
+                  <td>
+                    $86.68
+                    <br /> <small>Mar 20th 12:21 PM</small>
+                  </td>
+                  <td>
+                    $86.72 <br /> <small>Mar 20th 2:41 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.88x</span>
+                  </td>
+                  <td>
+                    +0.05% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DEF</td>
+                  <td>
+                    $77.38
+                    <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $77.98 <br /> <small>Mar 20th 9:31 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.87x</span>
+                  </td>
+                  <td>
+                    +0.58% <br /> <small>18 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RGLD</td>
+                  <td>
+                    $124.77
+                    <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $124.91 <br /> <small>Mar 20th 10:33 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.87x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>1 minute</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AN</td>
+                  <td>
+                    $160.73
+                    <br /> <small>Mar 20th 10:03 AM</small>
+                  </td>
+                  <td>
+                    $160.71 <br /> <small>Mar 20th 10:10 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.82x</span>
+                  </td>
+                  <td>
+                    -0.59% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ISRG</td>
+                  <td>
+                    $493.37
+                    <br /> <small>Mar 20th 9:43 AM</small>
+                  </td>
+                  <td>
+                    $495.38 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.79x</span>
+                  </td>
+                  <td>
+                    +0.41% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CDNS</td>
+                  <td>
+                    $305.23
+                    <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $305.18 <br /> <small>Mar 20th 9:19 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.77x</span>
+                  </td>
+                  <td>
+                    -0.02% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>LDPE</td>
+                  <td>
+                    $170.31
+                    <br /> <small>Mar 20th 11:30 AM</small>
+                  </td>
+                  <td>
+                    $170.32 <br /> <small>Mar 20th 12:25 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.76x</span>
+                  </td>
+                  <td>
+                    +0.41% <br /> <small>49 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AMP</td>
+                  <td>
+                    $447.18
+                    <br /> <small>Mar 20th 8:15 AM</small>
+                  </td>
+                  <td>
+                    $450.51 <br /> <small>Mar 20th 10:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.72x</span>
+                  </td>
+                  <td>
+                    +0.41% <br /> <small>3 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>LIN</td>
+                  <td>
+                    $459.00
+                    <br /> <small>Mar 20th 9:38 AM</small>
+                  </td>
+                  <td>
+                    $459.10 <br /> <small>Mar 20th 10:06 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.68x</span>
+                  </td>
+                  <td>
+                    +0.22% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CVX</td>
+                  <td>
+                    $153.39
+                    <br /> <small>Mar 20th 9:43 AM</small>
+                  </td>
+                  <td>
+                    $153.73 <br /> <small>Mar 20th 9:48 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.67x</span>
+                  </td>
+                  <td>
+                    +0.22% <br /> <small>5 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SAP</td>
+                  <td>
+                    $191.99
+                    <br /> <small>Mar 20th 11:36 AM</small>
+                  </td>
+                  <td>
+                    $192.18 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.64x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>20 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>KLR</td>
+                  <td>
+                    $213.35
+                    <br /> <small>Mar 20th 9:11 AM</small>
+                  </td>
+                  <td>
+                    $214.45 <br /> <small>Mar 20th 10:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.63x</span>
+                  </td>
+                  <td>
+                    +0.40% <br /> <small>12 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MSCI</td>
+                  <td>
+                    $558.30
+                    <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    $559.05 <br /> <small>Mar 20th 10:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.6x</span>
+                  </td>
+                  <td>
+                    +0.10% <br /> <small>45 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EME</td>
+                  <td>
+                    $402.02
+                    <br /> <small>Mar 20th 10:31 AM</small>
+                  </td>
+                  <td>
+                    $403.29 <br /> <small>Mar 20th 1:42 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.6x</span>
+                  </td>
+                  <td>
+                    +0.17% <br /> <small>3 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TSM</td>
+                  <td>
+                    $175.74
+                    <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $175.75 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.57x</span>
+                  </td>
+                  <td>
+                    +0.01% <br /> <small>31 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>OTLS</td>
+                  <td>
+                    $16.28
+                    <br /> <small>Mar 20th 10:10 AM</small>
+                  </td>
+                  <td>
+                    $16.40 <br /> <small>Mar 20th 2:45 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.56x</span>
+                  </td>
+                  <td>
+                    +0.77% <br /> <small>4 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PGR</td>
+                  <td>
+                    $276.83
+                    <br /> <small>Mar 20th 8:46 AM</small>
+                  </td>
+                  <td>
+                    $277.82 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.5x</span>
+                  </td>
+                  <td>
+                    +0.31% <br /> <small>10 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SPY</td>
+                  <td>
+                    $517.02
+                    <br /> <small>Mar 20th 8:31 AM</small>
+                  </td>
+                  <td>
+                    $518.80 <br /> <small>Mar 20th 9:58 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.4x</span>
+                  </td>
+                  <td>
+                    +0.34% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AAPL</td>
+                  <td>
+                    $170.25
+                    <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $170.32 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.22x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>31 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>QQQ</td>
+                  <td>
+                    $479.42
+                    <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $479.80 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.19x</span>
+                  </td>
+                  <td>
+                    +0.51% <br /> <small>3 minutes</small>
                   </td>
                 </tr>
               </>
@@ -255,154 +927,1153 @@ const HistoricalDataFlow = ({ darkMode }) => {
             {activeTab === "mediumCaps" && (
               <>
                 <tr>
-                  <td>COHR</td>
+                  <td>MPC</td>
                   <td>
-                    $62.84 <br /> <small>Mar 11th 8:06 AM</small>
+                    $149.77 <br /> <small>Mar 20th 8:14 AM</small>
                   </td>
                   <td>
-                    $64.92 <br /> <small>Mar 11th 11:03 AM</small>
+                    $150.87 <br /> <small>Mar 20th 1:51 PM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">233.49x</span>
+                    <span className="badge bg-success">34124.4x</span>
                   </td>
                   <td>
-                    +3.32% <br /> <small>2 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>D</td>
-                  <td>
-                    $56.54 <br /> <small>Mar 11th 9:16 AM</small>
-                  </td>
-                  <td>
-                    $56.72 <br /> <small>Mar 11th 9:54 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">184.11x</span>
-                  </td>
-                  <td>
-                    +0.32% <br /> <small>38 minutes</small>
+                    +0.73% <br /> <small>5 hours</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>RBLX</td>
+                  <td>ED</td>
                   <td>
-                    $53.61 <br /> <small>Mar 11th 9:31 AM</small>
+                    $107.49 <br /> <small>Mar 20th 9:19 AM</small>
                   </td>
                   <td>
-                    $54.73 <br /> <small>Mar 12th 8:03 AM</small>
+                    $107.51 <br /> <small>Mar 20th 9:32 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">49.69x</span>
+                    <span className="badge bg-success">151.28x</span>
                   </td>
                   <td>
-                    +2.10% <br /> <small>22 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DG</td>
-                  <td>
-                    $82.83 <br /> <small>Mar 11th 8:04 AM</small>
-                  </td>
-                  <td>
-                    $82.87 <br /> <small>Mar 11th 9:31 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">17.52x</span>
-                  </td>
-                  <td>
-                    +0.05% <br /> <small>1 hour</small>
+                    +0.02% <br /> <small>13 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>DEO</td>
+                  <td>BPMC</td>
                   <td>
-                    $112.09 <br /> <small>Mar 11th 8:20 AM</small>
+                    $90.50 <br /> <small>Mar 20th 9:25 AM</small>
                   </td>
                   <td>
-                    $112.16 <br /> <small>Mar 11th 8:54 AM</small>
+                    $90.56 <br /> <small>Mar 20th 10:26 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">16.57x</span>
+                    <span className="badge bg-success">145.64x</span>
                   </td>
                   <td>
-                    +0.06% <br /> <small>33 minutes</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DOCU</td>
-                  <td>
-                    $79.47 <br /> <small>Mar 11th 9:35 AM</small>
-                  </td>
-                  <td>
-                    $80.82 <br /> <small>Mar 11th 11:25 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">16.02x</span>
-                  </td>
-                  <td>
-                    +1.70% <br /> <small>1 hour</small>
+                    +0.06% <br /> <small>1 hour</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>CCK</td>
+                  <td>FTNT</td>
                   <td>
-                    $91.24 <br /> <small>Mar 11th 8:34 AM</small>
+                    $98.19 <br /> <small>Mar 20th 8:02 AM</small>
                   </td>
                   <td>
-                    $91.33 <br /> <small>Mar 11th 9:31 AM</small>
+                    $98.20 <br /> <small>Mar 20th 8:21 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">11.62x</span>
+                    <span className="badge bg-success">62.54x</span>
                   </td>
                   <td>
-                    +0.10% <br /> <small>57 minutes</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MMM</td>
-                  <td>
-                    $147.56 <br /> <small>Mar 11th 8:26 AM</small>
-                  </td>
-                  <td>
-                    $147.58 <br /> <small>Mar 11th 8:34 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">11.07x</span>
-                  </td>
-                  <td>
-                    +0.01% <br /> <small>8 minutes</small>
+                    +0.01% <br /> <small>18 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>IRM</td>
+                  <td>JBL</td>
                   <td>
-                    $84.00 <br /> <small>Mar 11th 9:35 AM</small>
+                    $139.44 <br /> <small>Mar 20th 8:02 AM</small>
                   </td>
                   <td>
-                    $84.18 <br /> <small>Mar 11th 10:44 AM</small>
+                    $143.71 <br /> <small>Mar 21st 8:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">7.91x</span>
+                    <span className="badge bg-success">61.57x</span>
                   </td>
                   <td>
-                    +0.21% <br /> <small>1 hour</small>
+                    +3.06% <br /> <small>1 day</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>ALB</td>
+                  <td>DXCM</td>
                   <td>
-                    $76.33 <br /> <small>Mar 11th 8:04 AM</small>
+                    $73.40 <br /> <small>Mar 20th 8:21 AM</small>
                   </td>
                   <td>
-                    $76.36 <br /> <small>Mar 11th 8:44 AM</small>
+                    $75.42 <br /> <small>Mar 20th 11:16 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">7.85x</span>
+                    <span className="badge bg-success">39.02x</span>
                   </td>
                   <td>
-                    +0.04% <br /> <small>39 minutes</small>
+                    +2.75% <br /> <small>2 hours</small>
                   </td>
+                </tr>
+                <tr>
+                  <td>GKOS</td>
+                  <td>
+                    $100.48 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $101.60 <br /> <small>Mar 20th 10:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">25.99x</span>
+                  </td>
+                  <td>
+                    +1.11% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>XLU</td>
+                  <td>
+                    $78.92 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $79.13 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">19.34x</span>
+                  </td>
+                  <td>
+                    +0.27% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EAT</td>
+                  <td>
+                    $141.46 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $141.91 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">15.56x</span>
+                  </td>
+                  <td>
+                    +0.32% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ARES</td>
+                  <td>
+                    $147.65 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $147.75 <br /> <small>Mar 20th 8:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">15.41x</span>
+                  </td>
+                  <td>
+                    +0.07% <br /> <small>42 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PLTR</td>
+                  <td>
+                    $86.07 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $86.10 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">13.94x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PVH</td>
+                  <td>
+                    $65.18 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    $66.23 <br /> <small>Mar 20th 11:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">11.31x</span>
+                  </td>
+                  <td>
+                    +1.61% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>FIVE</td>
+                  <td>
+                    $75.58 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $76.01 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">10.98x</span>
+                  </td>
+                  <td>
+                    +0.57% <br /> <small>23 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PFSI</td>
+                  <td>
+                    $101.22 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    $101.72 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">9.86x</span>
+                  </td>
+                  <td>
+                    +0.49% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CLS</td>
+                  <td>
+                    $91.99 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    $95.64 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">9.31x</span>
+                  </td>
+                  <td>
+                    +3.97% <br /> <small>23 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ILMN</td>
+                  <td>
+                    $84.91 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $84.92 <br /> <small>Mar 20th 8:26 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">8.29x</span>
+                  </td>
+                  <td>
+                    +0.01% <br /> <small>12 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DECK</td>
+                  <td>
+                    $119.04 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $119.08 <br /> <small>Mar 20th 8:54 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">6.38x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>51 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NVT</td>
+                  <td>
+                    $56.30 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $56.95 <br /> <small>Mar 20th 10:06 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.59x</span>
+                  </td>
+                  <td>
+                    +1.14% <br /> <small>30 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MET</td>
+                  <td>
+                    $83.00 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    $83.03 <br /> <small>Mar 20th 9:10 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.16x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>36 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NTRS</td>
+                  <td>
+                    $99.25 <br /> <small>Mar 20th 8:44 AM</small>
+                  </td>
+                  <td>
+                    $99.26 <br /> <small>Mar 20th 9:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.16x</span>
+                  </td>
+                  <td>
+                    +0.01% <br /> <small>19 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PDD</td>
+                  <td>
+                    $123.33 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $131.03 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.86x</span>
+                  </td>
+                  <td>
+                    +6.24% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SCCO</td>
+                  <td>
+                    $99.54 <br /> <small>Mar 20th 8:21 AM</small>
+                  </td>
+                  <td>
+                    $99.57 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.79x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>12 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TOL</td>
+                  <td>
+                    $107.08 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $108.05 <br /> <small>Mar 20th 2:24 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.25x</span>
+                  </td>
+                  <td>
+                    +0.91% <br /> <small>4 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EBAY</td>
+                  <td>
+                    $67.21 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $67.22 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.97x</span>
+                  </td>
+                  <td>
+                    +0.01% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NVS</td>
+                  <td>
+                    $113.13 <br /> <small>Mar 20th 1:06 PM</small>
+                  </td>
+                  <td>
+                    $113.23 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.74x</span>
+                  </td>
+                  <td>
+                    +0.09% <br /> <small>18 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>KMX</td>
+                  <td>
+                    $70.50 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    $72.26 <br /> <small>Mar 20th 12:05 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.69x</span>
+                  </td>
+                  <td>
+                    +2.49% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MS</td>
+                  <td>
+                    $119.85 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $119.88 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.6x</span>
+                  </td>
+                  <td>
+                    +0.02% <br /> <small>31 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EFA</td>
+                  <td>
+                    $83.73 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $84.02 <br /> <small>Mar 20th 10:15 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.59x</span>
+                  </td>
+                  <td>
+                    +0.34% <br /> <small>43 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>IJR</td>
+                  <td>
+                    $105.84 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $106.66 <br /> <small>Mar 20th 12:16 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.47x</span>
+                  </td>
+                  <td>
+                    +0.77% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HWM</td>
+                  <td>
+                    $131.96 <br /> <small>Mar 20th 8:21 AM</small>
+                  </td>
+                  <td>
+                    $132.03 <br /> <small>Mar 20th 8:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.43x</span>
+                  </td>
+                  <td>
+                    +0.05% <br /> <small>35 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>OC</td>
+                  <td>
+                    $147.38 <br /> <small>Mar 20th 8:54 AM</small>
+                  </td>
+                  <td>
+                    $148.09 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.39x</span>
+                  </td>
+                  <td>
+                    +0.48% <br /> <small>51 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PTCT</td>
+                  <td>
+                    $56.97 <br /> <small>Mar 20th 9:25 AM</small>
+                  </td>
+                  <td>
+                    $57.23 <br /> <small>Mar 20th 9:51 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.25x</span>
+                  </td>
+                  <td>
+                    +0.46% <br /> <small>25 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CAVA</td>
+                  <td>
+                    $81.03 <br /> <small>Mar 20th 8:35 AM</small>
+                  </td>
+                  <td>
+                    $84.66 <br /> <small>Mar 21st 8:10 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.21x</span>
+                  </td>
+                  <td>
+                    +4.49% <br /> <small>23 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HSBC</td>
+                  <td>
+                    $57.46 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    $57.63 <br /> <small>Mar 21st 8:10 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.07x</span>
+                  </td>
+                  <td>
+                    +0.30% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AGX</td>
+                  <td>
+                    $122.03 <br /> <small>Mar 20th 8:56 AM</small>
+                  </td>
+                  <td>
+                    $122.12 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.95x</span>
+                  </td>
+                  <td>
+                    +0.07% <br /> <small>36 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>WLK</td>
+                  <td>
+                    $100.70 <br /> <small>Mar 20th 10:26 AM</small>
+                  </td>
+                  <td>
+                    $101.41 <br /> <small>Mar 20th 3:29 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.94x</span>
+                  </td>
+                  <td>
+                    +0.70% <br /> <small>5 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TKR</td>
+                  <td>
+                    $74.98 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $75.39 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.94x</span>
+                  </td>
+                  <td>
+                    +0.54% <br /> <small>13 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EXE</td>
+                  <td>
+                    $108.50 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    $109.27 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.91x</span>
+                  </td>
+                  <td>
+                    +0.71% <br /> <small>23 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>VNQ</td>
+                  <td>
+                    $91.33 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $91.36 <br /> <small>Mar 20th 8:34 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.9x</span>
+                  </td>
+                  <td>
+                    +0.04% <br /> <small>19 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>BUD</td>
+                  <td>
+                    $62.61 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $62.65 <br /> <small>Mar 20th 10:15 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.87x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>39 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SE</td>
+                  <td>
+                    $126.25 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $126.73 <br /> <small>Mar 20th 11:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.86x</span>
+                  </td>
+                  <td>
+                    +0.38% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Z</td>
+                  <td>
+                    $70.20 <br /> <small>Mar 20th 9:41 AM</small>
+                  </td>
+                  <td>
+                    $70.93 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.8x</span>
+                  </td>
+                  <td>
+                    +1.04% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>WPC</td>
+                  <td>
+                    $61.83 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $61.97 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.8x</span>
+                  </td>
+                  <td>
+                    +0.23% <br /> <small>20 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>VLO</td>
+                  <td>
+                    $133.87 <br /> <small>Mar 20th 9:06 AM</small>
+                  </td>
+                  <td>
+                    $133.88 <br /> <small>Mar 20th 9:25 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.79x</span>
+                  </td>
+                  <td>
+                    +0.01% <br /> <small>19 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>VST</td>
+                  <td>
+                    $129.86 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $129.89 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.56x</span>
+                  </td>
+                  <td>
+                    +0.02% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AFL</td>
+                  <td>
+                    $108.44 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $108.49 <br /> <small>Mar 20th 8:44 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.53x</span>
+                  </td>
+                  <td>
+                    +0.04% <br /> <small>30 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>INTA</td>
+                  <td>
+                    $60.27 <br /> <small>Mar 20th 11:03 AM</small>
+                  </td>
+                  <td>
+                    $61.10 <br /> <small>Mar 20th 12:35 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.42x</span>
+                  </td>
+                  <td>
+                    +1.39% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NET</td>
+                  <td>
+                    $117.55 <br /> <small>Mar 20th 8:45 AM</small>
+                  </td>
+                  <td>
+                    $117.82 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.39x</span>
+                  </td>
+                  <td>
+                    +0.23% <br /> <small>47 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MU</td>
+                  <td>
+                    $102.04 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $102.05 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.32x</span>
+                  </td>
+                  <td>7 minutes</td>
+                </tr>
+                <tr>
+                  <td>CORT</td>
+                  <td>
+                    $52.38 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    $52.39 <br /> <small>Mar 20th 11:26 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.28x</span>
+                  </td>
+                  <td>1 hour</td>
+                </tr>
+                <tr>
+                  <td>LEA</td>
+                  <td>
+                    $135.98 <br /> <small>Mar 20th 2:43 PM</small>
+                  </td>
+                  <td>
+                    $135.72 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.15x</span>
+                  </td>
+                  <td>17 hours</td>
+                </tr>
+                <tr>
+                  <td>EMR</td>
+                  <td>
+                    $110.30 <br /> <small>Mar 20th 9:31 AM</small>
+                  </td>
+                  <td>
+                    $110.45 <br /> <small>Mar 20th 1:42 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.11x</span>
+                  </td>
+                  <td>+0.43%</td>
+                </tr>
+                <tr>
+                  <td>BXP</td>
+                  <td>
+                    $64.80 <br /> <small>Mar 20th 10:02 AM</small>
+                  </td>
+                  <td>
+                    $65.35 <br /> <small>Mar 20th 11:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.09x</span>
+                  </td>
+                  <td>+0.35%</td>
+                </tr>
+                <tr>
+                  <td>PEZ</td>
+                  <td>
+                    $56.23 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $56.48 <br /> <small>Mar 20th 11:51 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.07x</span>
+                  </td>
+                  <td>+0.44%</td>
+                </tr>
+                <tr>
+                  <td>FND</td>
+                  <td>
+                    $123.79 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    $124.46 <br /> <small>Mar 20th 2:41 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.06x</span>
+                  </td>
+                  <td>+0.84%</td>
+                </tr>
+                <tr>
+                  <td>AXSM</td>
+                  <td>
+                    $104.95 <br /> <small>Mar 20th 9:59 AM</small>
+                  </td>
+                  <td>
+                    $104.05 <br /> <small>Mar 20th 10:15 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.82x</span>
+                  </td>
+                  <td>+0.08%</td>
+                </tr>
+                <tr>
+                  <td>TKO</td>
+                  <td>
+                    $104.09 <br /> <small>Mar 20th 9:10 AM</small>
+                  </td>
+                  <td>
+                    $104.01 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.87x</span>
+                  </td>
+                  <td>22 minutes</td>
+                </tr>
+                <tr>
+                  <td>ALK</td>
+                  <td>
+                    $40.71 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $40.80 <br /> <small>Mar 20th 11:36 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.84x</span>
+                  </td>
+                  <td>2 hours</td>
+                </tr>
+                <tr>
+                  <td>BMY</td>
+                  <td>
+                    $50.08 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    $50.44 <br /> <small>Mar 21st 8:20 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.82x</span>
+                  </td>
+                  <td>1 day</td>
+                </tr>
+                <tr>
+                  <td>SN</td>
+                  <td>
+                    $90.93 <br /> <small>Mar 20th 3:41 AM</small>
+                  </td>
+                  <td>
+                    $91.30 <br /> <small>Mar 20th 1:32 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.79x</span>
+                  </td>
+                  <td>+0.58%</td>
+                </tr>
+                <tr>
+                  <td>SABA</td>
+                  <td>
+                    $157.75 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $158.41 <br /> <small>Mar 20th 9:41 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.78x</span>
+                  </td>
+                  <td>+0.34%</td>
+                </tr>
+                <tr>
+                  <td>AST</td>
+                  <td>
+                    $127.32 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $127.46 <br /> <small>Mar 20th 9:40 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.77x</span>
+                  </td>
+                  <td>+0.03%</td>
+                </tr>
+                <tr>
+                  <td>IVW</td>
+                  <td>
+                    $84.82 <br /> <small>Mar 20th 9:21 AM</small>
+                  </td>
+                  <td>
+                    $84.84 <br /> <small>Mar 20th 9:35 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.73x</span>
+                  </td>
+                  <td>+0.02%</td>
+                </tr>
+                <tr>
+                  <td>CBRE</td>
+                  <td>
+                    $104.96 <br /> <small>Mar 20th 9:41 AM</small>
+                  </td>
+                  <td>
+                    $104.58 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.72x</span>
+                  </td>
+                  <td>+0.76%</td>
+                </tr>
+                <tr>
+                  <td>KSH</td>
+                  <td>
+                    $67.69 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $67.71 <br /> <small>Mar 20th 10:36 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.71x</span>
+                  </td>
+                  <td>1 hour</td>
+                </tr>
+                <tr>
+                  <td>MRVI</td>
+                  <td>
+                    $65.72 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $65.80 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.71x</span>
+                  </td>
+                  <td>7 minutes</td>
+                </tr>
+                <tr>
+                  <td>CRVO</td>
+                  <td>
+                    $72.98 <br /> <small>Mar 20th 11:03 AM</small>
+                  </td>
+                  <td>
+                    $72.95 <br /> <small>Mar 20th 11:21 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.66x</span>
+                  </td>
+                  <td>18 minutes</td>
+                </tr>
+                <tr>
+                  <td>BLK</td>
+                  <td>
+                    $83.75 <br /> <small>Mar 20th 9:35 AM</small>
+                  </td>
+                  <td>
+                    $84.30 <br /> <small>Mar 20th 1:41 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.66x</span>
+                  </td>
+                  <td>4 hours</td>
+                </tr>
+                <tr>
+                  <td>XLE</td>
+                  <td>
+                    $92.25 <br /> <small>Mar 20th 1:11 PM</small>
+                  </td>
+                  <td>
+                    $93.26 <br /> <small>Mar 20th 2:05 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.66x</span>
+                  </td>
+                  <td>+0.08%</td>
+                </tr>
+                <tr>
+                  <td>WFRD</td>
+                  <td>
+                    $92.59 <br /> <small>Mar 20th 3:39 PM</small>
+                  </td>
+                  <td>
+                    $92.83 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.61x</span>
+                  </td>
+                  <td>16 hours</td>
+                </tr>
+                <tr>
+                  <td>PIE</td>
+                  <td>
+                    $74.35 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $74.56 <br /> <small>Mar 20th 10:41 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.61x</span>
+                  </td>
+                  <td>+0.28%</td>
+                </tr>
+                <tr>
+                  <td>CRBK</td>
+                  <td>
+                    $59.11 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    $59.24 <br /> <small>Mar 20th 10:05 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.61x</span>
+                  </td>
+                  <td>+0.22%</td>
+                </tr>
+                <tr>
+                  <td>BALL</td>
+                  <td>
+                    $65.96 <br /> <small>Mar 20th 10:15 AM</small>
+                  </td>
+                  <td>
+                    $66.49 <br /> <small>Mar 20th 3:29 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.58x</span>
+                  </td>
+                  <td>5 hours</td>
+                </tr>
+                <tr>
+                  <td>TTE</td>
+                  <td>
+                    $63.95 <br /> <small>Mar 20th 9:41 AM</small>
+                  </td>
+                  <td>
+                    $63.42 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.58x</span>
+                  </td>
+                  <td>4 minutes</td>
+                </tr>
+                <tr>
+                  <td>RMBS</td>
+                  <td>
+                    $56.25 <br /> <small>Mar 20th 2:43 PM</small>
+                  </td>
+                  <td>
+                    $56.36 <br /> <small>Mar 20th 3:16 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.57x</span>
+                  </td>
+                  <td>26 minutes</td>
+                </tr>
+                <tr>
+                  <td>CAMT</td>
+                  <td>
+                    $65.40 <br /> <small>Mar 20th 10:21 AM</small>
+                  </td>
+                  <td>
+                    $65.79 <br /> <small>Mar 20th 1:15 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.53x</span>
+                  </td>
+                  <td>+0.34%</td>
+                </tr>
+                <tr>
+                  <td>HCB</td>
+                  <td>
+                    $43.20 <br /> <small>Mar 20th 12:41 PM</small>
+                  </td>
+                  <td>
+                    $43.73 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.53x</span>
+                  </td>
+                  <td>+0.74%</td>
+                </tr>
+                <tr>
+                  <td>CRH</td>
+                  <td>
+                    $95.14 <br /> <small>Mar 20th 10:21 AM</small>
+                  </td>
+                  <td>
+                    $95.42 <br /> <small>Mar 20th 10:29 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.53x</span>
+                  </td>
+                  <td>+0.28%</td>
+                </tr>
+                <tr>
+                  <td>BSX</td>
+                  <td>
+                    $100.72 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $101.61 <br /> <small>Mar 20th 12:05 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.52x</span>
+                  </td>
+                  <td>+0.88%</td>
+                </tr>
+                <tr>
+                  <td>LRCX</td>
+                  <td>
+                    $97.02 <br /> <small>Mar 20th 10:26 AM</small>
+                  </td>
+                  <td>
+                    $97.51 <br /> <small>Mar 20th 11:26 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.5x</span>
+                  </td>
+                  <td>1 hour</td>
+                </tr>
+                <tr>
+                  <td>ALC</td>
+                  <td>
+                    $82.52 <br /> <small>Mar 20th 12:03 PM</small>
+                  </td>
+                  <td>
+                    $82.86 <br /> <small>Mar 20th 12:11 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.5x</span>
+                  </td>
+                  <td>7 minutes</td>
                 </tr>
               </>
             )}
@@ -410,157 +2081,846 @@ const HistoricalDataFlow = ({ darkMode }) => {
             {activeTab === "smallCaps" && (
               <>
                 <tr>
-                  <td>HCC</td>
+                  <td>LUV</td>
                   <td>
-                    $47.05 <br /> <small>Mar 11th 8:19 AM</small>
+                    $33.59 <br /> <small>Mar 20th 8:02 AM</small>
                   </td>
                   <td>
-                    $47.07 <br /> <small>Mar 11th 9:31 AM</small>
+                    $33.61 <br /> <small>Mar 20th 8:14 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">190.36x</span>
+                    <span className="badge bg-success">235.63x</span>
                   </td>
                   <td>
-                    +0.04% <br /> <small>1 hour</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>CUTR</td>
-                  <td>
-                    $0.12 <br /> <small>Mar 11th 8:04 AM</small>
-                  </td>
-                  <td>
-                    $0.16 <br /> <small>Mar 11th 11:03 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">58.28x</span>
-                  </td>
-                  <td>
-                    +34.24% <br /> <small>2 hours</small>
+                    +0.04% <br /> <small>11 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>HAL</td>
+                  <td>DBX</td>
                   <td>
-                    $24.95 <br /> <small>Mar 11th 9:35 AM</small>
+                    $26.76 <br /> <small>Mar 20th 8:06 AM</small>
                   </td>
                   <td>
-                    $25.03 <br /> <small>Mar 11th 9:44 AM</small>
+                    $26.77 <br /> <small>Mar 20th 8:14 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">29.9x</span>
+                    <span className="badge bg-success">111.95x</span>
                   </td>
                   <td>
-                    +0.32% <br /> <small>8 minutes</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>HLF</td>
-                  <td>
-                    $8.90 <br /> <small>Mar 11th 8:04 AM</small>
-                  </td>
-                  <td>
-                    $8.91 <br /> <small>Mar 11th 8:34 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">25.44x</span>
-                  </td>
-                  <td>
-                    +0.06% <br /> <small>29 minutes</small>
+                    +0.04% <br /> <small>7 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>HSAI</td>
+                  <td>SBSW</td>
                   <td>
-                    $19.88 <br /> <small>Mar 11th 9:35 AM</small>
+                    $4.47 <br /> <small>Mar 20th 8:02 AM</small>
                   </td>
                   <td>
-                    $24.12 <br /> <small>Mar 12th 8:15 AM</small>
+                    $4.48 <br /> <small>Mar 20th 8:14 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">15.71x</span>
+                    <span className="badge bg-success">81.66x</span>
                   </td>
                   <td>
-                    +21.33% <br /> <small>22 hours</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>EPD</td>
-                  <td>
-                    $33.62 <br /> <small>Mar 11th 8:06 AM</small>
-                  </td>
-                  <td>
-                    $33.64 <br /> <small>Mar 11th 9:31 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">14.73x</span>
-                  </td>
-                  <td>
-                    +0.06% <br /> <small>1 hour</small>
+                    +0.11% <br /> <small>11 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>COMP</td>
+                  <td>SPRY</td>
                   <td>
-                    $8.57 <br /> <small>Mar 11th 9:10 AM</small>
+                    $11.64 <br /> <small>Mar 20th 8:02 AM</small>
                   </td>
                   <td>
-                    $8.58 <br /> <small>Mar 11th 9:31 AM</small>
+                    $14.34 <br /> <small>Mar 21st 8:03 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">14.35x</span>
+                    <span className="badge bg-success">51.39x</span>
                   </td>
                   <td>
-                    +0.12% <br /> <small>20 minutes</small>
-                  </td>
-                </tr>
-                <tr>
-                  <td>VNET</td>
-                  <td>
-                    $11.43 <br /> <small>Mar 11th 8:04 AM</small>
-                  </td>
-                  <td>
-                    $11.43 <br /> <small>Mar 11th 8:44 AM</small>
-                  </td>
-                  <td>
-                    <span className="badge bg-success">13.14x</span>
-                  </td>
-                  <td>
-                    +0.04% <br /> <small>39 minutes</small>
+                    +23.20% <br /> <small>1 day</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>ASAN</td>
+                  <td>DAL</td>
                   <td>
-                    $12.18 <br /> <small>Mar 11th 10:56 AM</small>
+                    $47.75 <br /> <small>Mar 20th 8:06 AM</small>
                   </td>
                   <td>
-                    $12.65 <br /> <small>Mar 12th 8:03 AM</small>
+                    $47.76 <br /> <small>Mar 20th 8:14 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">11.99x</span>
+                    <span className="badge bg-success">19.45x</span>
                   </td>
                   <td>
-                    +3.86% <br /> <small>21 hours</small>
+                    +0.02% <br /> <small>7 minutes</small>
                   </td>
                 </tr>
                 <tr>
-                  <td>SFIX</td>
+                  <td>REAL</td>
                   <td>
-                    $4.15 <br /> <small>Mar 11th 8:44 AM</small>
+                    $6.16 <br /> <small>Mar 20th 8:06 AM</small>
                   </td>
                   <td>
-                    $4.21 <br /> <small>Mar 12th 8:03 AM</small>
+                    $6.17 <br /> <small>Mar 20th 8:14 AM</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">10.45x</span>
+                    <span className="badge bg-success">15.61x</span>
                   </td>
                   <td>
-                    +1.45% <br /> <small>23 hours</small>
+                    +0.08% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AU</td>
+                  <td>
+                    $35.53 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $36.49 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">11.39x</span>
+                  </td>
+                  <td>
+                    +2.70% <br /> <small>1 day</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>KTOS</td>
+                  <td>
+                    $32.55 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $32.56 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">10.35x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SSTI</td>
+                  <td>
+                    $18.41 <br /> <small>Mar 20th 12:25 PM</small>
+                  </td>
+                  <td>
+                    $18.49 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">9.22x</span>
+                  </td>
+                  <td>
+                    +0.41% <br /> <small>19 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MIRM</td>
+                  <td>
+                    $47.50 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $47.97 <br /> <small>Mar 20th 3:49 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">6.6x</span>
+                  </td>
+                  <td>
+                    +0.99% <br /> <small>6 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CMC</td>
+                  <td>
+                    $45.42 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $46.67 <br /> <small>Mar 20th 10:15 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">6.03x</span>
+                  </td>
+                  <td>
+                    +2.76% <br /> <small>43 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PII</td>
+                  <td>
+                    $40.23 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $42.48 <br /> <small>Mar 20th 12:03 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">5.75x</span>
+                  </td>
+                  <td>
+                    +5.59% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RIOT</td>
+                  <td>
+                    $7.79 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $7.79 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.51x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NOVA</td>
+                  <td>
+                    $0.48 <br /> <small>Mar 20th 12:11 PM</small>
+                  </td>
+                  <td>
+                    $0.54 <br /> <small>Mar 21st 8:15 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.33x</span>
+                  </td>
+                  <td>
+                    +11.35% <br /> <small>20 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CPS</td>
+                  <td>
+                    $16.74 <br /> <small>Mar 20th 12:11 PM</small>
+                  </td>
+                  <td>
+                    $16.92 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.32x</span>
+                  </td>
+                  <td>
+                    +1.08% <br /> <small>19 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SNDX</td>
+                  <td>
+                    $13.86 <br /> <small>Mar 20th 12:25 PM</small>
+                  </td>
+                  <td>
+                    $14.08 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">4.17x</span>
+                  </td>
+                  <td>
+                    +1.59% <br /> <small>19 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RXRX</td>
+                  <td>
+                    $6.58 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $6.58 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.71x</span>
+                  </td>
+                  <td>
+                    +0.08% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CRSP</td>
+                  <td>
+                    $41.82 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $41.84 <br /> <small>Mar 20th 9:41 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.7x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>8 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CAPR</td>
+                  <td>
+                    $13.89 <br /> <small>Mar 20th 12:11 PM</small>
+                  </td>
+                  <td>
+                    $14.34 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.56x</span>
+                  </td>
+                  <td>
+                    +3.24% <br /> <small>19 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>VNOM</td>
+                  <td>
+                    $45.20 <br /> <small>Mar 20th 9:46 AM</small>
+                  </td>
+                  <td>
+                    $45.32 <br /> <small>Mar 20th 11:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.43x</span>
+                  </td>
+                  <td>
+                    +0.27% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>QDEL</td>
+                  <td>
+                    $34.77 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $35.16 <br /> <small>Mar 20th 4:03 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.33x</span>
+                  </td>
+                  <td>
+                    +1.12% <br /> <small>6 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MT</td>
+                  <td>
+                    $33.06 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $33.07 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3.33x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SDRL</td>
+                  <td>
+                    $25.07 <br /> <small>Mar 20th 12:05 PM</small>
+                  </td>
+                  <td>
+                    $25.10 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">3x</span>
+                  </td>
+                  <td>
+                    +0.12% <br /> <small>19 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>IAC</td>
+                  <td>
+                    $48.44 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $49.20 <br /> <small>Mar 20th 12:11 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.84x</span>
+                  </td>
+                  <td>
+                    +1.58% <br /> <small>2 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MGY</td>
+                  <td>
+                    $25.01 <br /> <small>Mar 20th 11:56 AM</small>
+                  </td>
+                  <td>
+                    $25.36 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.84x</span>
+                  </td>
+                  <td>
+                    +1.40% <br /> <small>20 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>WDC</td>
+                  <td>
+                    $44.60 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $45.23 <br /> <small>Mar 20th 11:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.77x</span>
+                  </td>
+                  <td>
+                    +1.40% <br /> <small>1 hour</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>USB</td>
+                  <td>
+                    $42.43 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $42.54 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.64x</span>
+                  </td>
+                  <td>
+                    +0.26% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>FTI</td>
+                  <td>
+                    $28.61 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $28.99 <br /> <small>Mar 20th 10:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.47x</span>
+                  </td>
+                  <td>
+                    +1.33% <br /> <small>30 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>LUMN</td>
+                  <td>
+                    $4.99 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $5.00 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.41x</span>
+                  </td>
+                  <td>
+                    +0.20% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>BNS</td>
+                  <td>
+                    $48.06 <br /> <small>Mar 20th 12:11 PM</small>
+                  </td>
+                  <td>
+                    $48.09 <br /> <small>Mar 20th 4:54 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.32x</span>
+                  </td>
+                  <td>
+                    +0.06% <br /> <small>4 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HUMA</td>
+                  <td>
+                    $3.29 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $3.30 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.3x</span>
+                  </td>
+                  <td>
+                    +0.30% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>WAY</td>
+                  <td>
+                    $37.43 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $38.32 <br /> <small>Mar 20th 3:16 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.26x</span>
+                  </td>
+                  <td>
+                    +2.38% <br /> <small>5 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AES</td>
+                  <td>
+                    $12.98 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $12.99 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.23x</span>
+                  </td>
+                  <td>
+                    +0.04% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>LQDA</td>
+                  <td>
+                    $15.40 <br /> <small>Mar 20th 1:46 PM</small>
+                  </td>
+                  <td>
+                    $15.46 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.12x</span>
+                  </td>
+                  <td>
+                    +0.39% <br /> <small>18 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DENN</td>
+                  <td>
+                    $3.97 <br /> <small>Mar 20th 3:11 PM</small>
+                  </td>
+                  <td>
+                    $4.01 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.09x</span>
+                  </td>
+                  <td>
+                    +1.13% <br /> <small>16 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ASO</td>
+                  <td>
+                    $47.56 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $47.57 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.06x</span>
+                  </td>
+                  <td>
+                    +0.02% <br /> <small>11 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TOST</td>
+                  <td>
+                    $35.90 <br /> <small>Mar 20th 4:26 PM</small>
+                  </td>
+                  <td>
+                    $35.90 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">2.02x</span>
+                  </td>
+                  <td>
+                    +0.01% <br /> <small>15 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CRI</td>
+                  <td>
+                    $40.87 <br /> <small>Mar 20th 9:51 AM</small>
+                  </td>
+                  <td>
+                    $41.22 <br /> <small>Mar 20th 10:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.98x</span>
+                  </td>
+                  <td>
+                    +0.87% <br /> <small>12 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GENI</td>
+                  <td>
+                    $10.03 <br /> <small>Mar 20th 2:36 PM</small>
+                  </td>
+                  <td>
+                    $10.05 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.98x</span>
+                  </td>
+                  <td>
+                    +0.20% <br /> <small>17 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>VTLE</td>
+                  <td>
+                    $22.42 <br /> <small>Mar 20th 2:41 PM</small>
+                  </td>
+                  <td>
+                    $22.77 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.97x</span>
+                  </td>
+                  <td>
+                    +1.56% <br /> <small>17 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SU</td>
+                  <td>
+                    $37.49 <br /> <small>Mar 20th 12:03 PM</small>
+                  </td>
+                  <td>
+                    $37.71 <br /> <small>Mar 20th 4:11 PM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.94x</span>
+                  </td>
+                  <td>
+                    +0.59% <br /> <small>4 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AAP</td>
+                  <td>
+                    $37.20 <br /> <small>Mar 20th 9:41 AM</small>
+                  </td>
+                  <td>
+                    $37.58 <br /> <small>Mar 20th 9:56 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.91x</span>
+                  </td>
+                  <td>
+                    +1.02% <br /> <small>15 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CAL</td>
+                  <td>
+                    $16.86 <br /> <small>Mar 20th 5:11 PM</small>
+                  </td>
+                  <td>
+                    $16.86 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.91x</span>
+                  </td>
+                  <td>
+                    +0.03% <br /> <small>14 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ACVA</td>
+                  <td>
+                    $15.46 <br /> <small>Mar 20th 1:51 PM</small>
+                  </td>
+                  <td>
+                    $15.69 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.81x</span>
+                  </td>
+                  <td>
+                    +1.49% <br /> <small>18 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SMR</td>
+                  <td>
+                    $18.53 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $18.54 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.8x</span>
+                  </td>
+                  <td>
+                    +0.05% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CNH</td>
+                  <td>
+                    $12.94 <br /> <small>Mar 20th 3:11 PM</small>
+                  </td>
+                  <td>
+                    $12.95 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.73x</span>
+                  </td>
+                  <td>
+                    +0.04% <br /> <small>16 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EOSE</td>
+                  <td>
+                    $4.43 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $4.44 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.7x</span>
+                  </td>
+                  <td>
+                    +0.11% <br /> <small>11 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>BE</td>
+                  <td>
+                    $25.32 <br /> <small>Mar 20th 9:32 AM</small>
+                  </td>
+                  <td>
+                    $25.41 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>
+                    <span className="badge bg-success">1.68x</span>
+                  </td>
+                  <td>
+                    +0.36% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>PARA</td>
+                  <td>
+                    $11.74 <br /> <small>Mar 20th 8:02 AM</small>
+                  </td>
+                  <td>
+                    $11.75 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>1.68x</td>
+                  <td>
+                    +0.04% <br /> <small>3 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DNN</td>
+                  <td>
+                    $1.50 <br /> <small>Mar 20th 1:51 PM</small>
+                  </td>
+                  <td>
+                    $1.51 <br /> <small>Mar 20th 2:41 PM</small>
+                  </td>
+                  <td>1.67x</td>
+                  <td>
+                    +0.66% <br /> <small>49 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ALLY</td>
+                  <td>
+                    $35.80 <br /> <small>Mar 20th 9:51 AM</small>
+                  </td>
+                  <td>
+                    $36.13 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>1.65x</td>
+                  <td>
+                    +0.94% <br /> <small>22 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SEMR</td>
+                  <td>
+                    $10.09 <br /> <small>Mar 20th 3:39 PM</small>
+                  </td>
+                  <td>
+                    $10.14 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>1.58x</td>
+                  <td>
+                    +0.50% <br /> <small>16 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AR</td>
+                  <td>
+                    $41.07 <br /> <small>Mar 20th 9:36 AM</small>
+                  </td>
+                  <td>
+                    $41.26 <br /> <small>Mar 20th 10:03 AM</small>
+                  </td>
+                  <td>1.58x</td>
+                  <td>
+                    +0.45% <br /> <small>27 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TRMD</td>
+                  <td>
+                    $19.96 <br /> <small>Mar 20th 8:06 AM</small>
+                  </td>
+                  <td>
+                    $19.97 <br /> <small>Mar 20th 8:14 AM</small>
+                  </td>
+                  <td>1.56x</td>
+                  <td>
+                    +0.05% <br /> <small>7 minutes</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CRMD</td>
+                  <td>
+                    $10.84 <br /> <small>Mar 20th 3:59 PM</small>
+                  </td>
+                  <td>
+                    $10.85 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>1.53x</td>
+                  <td>
+                    +0.09% <br /> <small>16 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>BP</td>
+                  <td>
+                    $34.71 <br /> <small>Mar 20th 12:31 PM</small>
+                  </td>
+                  <td>
+                    $34.76 <br /> <small>Mar 21st 8:03 AM</small>
+                  </td>
+                  <td>1.52x</td>
+                  <td>
+                    +0.14% <br /> <small>19 hours</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SGRY</td>
+                  <td>
+                    $24.40 <br /> <small>Mar 20th 5:24 PM</small>
+                  </td>
+                  <td>
+                    $24.41 <br /> <small>Mar 20th 5:36 PM</small>
+                  </td>
+                  <td>1.52x</td>
+                  <td>
+                    +0.04% <br /> <small>11 minutes</small>
                   </td>
                 </tr>
               </>
             )}
+
+            
           </tbody>
         </table>
       </div>

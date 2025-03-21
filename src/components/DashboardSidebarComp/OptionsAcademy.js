@@ -46,23 +46,24 @@ const OptionsAcademy = () => {
         <span className="lesson-info">10 lessons • 2 hours 19 minutes</span>
       </h3>
       <div className="row">
-        {optionsCourses.map((course, index) => (
-          <div key={index} className="col-md-3 mb-4">
-            <div className="academy-card">
-              <div className="academy-card-content">
-                <span className="academy-badge">Fundamentals</span>
-                <h5 className="academy-title">{course.title}</h5>
-                <p className="academy-duration">{course.duration}</p>
-              </div>
-              <div className="academy-footer">
-                <a href="#" className="academy-link">
-                  View Video →
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
+  {optionsCourses.map((course, index) => (
+    <div key={index} className={`col-md-3 mb-4 ${index !== 0 ? "blurred" : ""}`}>
+      <div className="academy-card">
+        <div className="academy-card-content">
+          <span className="academy-badge">Fundamentals</span>
+          <h5 className="academy-title">{course.title}</h5>
+          <p className="academy-duration">{course.duration}</p>
+        </div>
+        <div className="academy-footer">
+          <a href="#" className="academy-link">
+            View Video →
+          </a>
+        </div>
       </div>
+    </div>
+  ))}
+</div>
+
 
       {/* course and progress bar */}
       <Course />
