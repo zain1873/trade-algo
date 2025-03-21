@@ -157,10 +157,21 @@ function CourseDetails() {
               <div className="row">
                 {["Reading List", "Notes", "Knowledge"].map((subTitle, subIndex) => (
                   <div className="col-md-4" key={subIndex}>
-                    <div className="courses-details shadow p-2">
+                    {/* <div className="courses-details shadow p-2">
                       <div className="course-videos">
                         <img className="obj_fit" src={image} alt="" />
-                      </div>
+                      </div> */}
+                      <div className="courses-details shadow p-2">
+  <div className="course-videos">
+    {category === "Beginner" && index === 0 ? (
+      <video controls width="100%">
+        <source src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/valourwealth.mp4" type="video/mp4" />
+      </video>
+    ) : (
+      <img className="obj_fit" src={image} alt="" />
+    )}
+  </div>
+
                       <div className="courses-details-body">
                         <h5 className="courses-details-title">{subTitle}</h5>
                         <p className="courses-details-text">
