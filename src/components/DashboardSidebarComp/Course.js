@@ -53,7 +53,15 @@ function Course() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}api/courses/`) // Updated API endpoint
+    const token = localStorage.getItem("token"); // Retrieve token from local storage (or session storage)
+    
+    fetch(`${API_BASE_URL}api/courses/`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch courses");
@@ -63,7 +71,7 @@ function Course() {
       .then((data) => setCourses(data))
       .catch((error) => setError(error.message));
   }, []);
-
+  
   return (
     <div className="container mt-4">
       <h4 className="section-title mb-3">Courses</h4>
