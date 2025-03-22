@@ -3,6 +3,7 @@
 import { useState } from "react";
 import "../styles/coursedetails.css";
 import course from "../assets/images/defaualt-img.webp";
+import { FaBook, FaGraduationCap, FaChartLine } from "react-icons/fa"; // Importing icons
 
 function CourseDetails() {
   const [activeWeek, setActiveWeek] = useState("Beginner"); // Default is Beginner
@@ -62,46 +63,81 @@ function CourseDetails() {
     <div className="container-fluid">
       <div className="row">
         {/* Sidebar */}
-        <nav className="col-md-3 col-lg-2 p-0">
+        <nav className="col-lg-3 p-0 sticky">
           <div className="sidebar-left-course">
-            <h5 className="mb-0 fw-bold">Wealth Academy</h5>
+            <h5 className="mb-0 fw-bold">Valour Academy</h5>
           </div>
           <div className="sidebar-menu">
-            {["Beginner", "Intermediate", "Professional"].map((week) => (
+            {[
+              { label: "Beginner", icon: <FaBook /> },
+              { label: "Intermediate", icon: <FaGraduationCap /> },
+              { label: "Professional", icon: <FaChartLine /> },
+            ].map(({ label, icon }) => (
               <div
-                key={week}
-                className={`sidebar-item ${activeWeek === week ? "active" : ""}`}
-                onClick={() => handleWeekChange(week)}
+                key={label}
+                className={`sidebar-item ${activeWeek === label ? "active" : ""}`}
+                onClick={() => handleWeekChange(label)}
                 style={{ cursor: "pointer" }}
               >
                 <div className="d-flex justify-content-between align-items-center">
-                  <span>{week}</span>
+                  <span>
+                    {icon} {label}
+                  </span>
                   <span className="chevron">›</span>
                 </div>
               </div>
             ))}
+
+
+               {/* Resources Section */}
+          <div className="sidebar-resources mt-4">
+            <h6 className="text-dark">RESOURCES</h6>
+            <div className="sidebar-resources-item sidebar-item">
+              <FaBook color="black" /> <span>
+                <a href="">My Courses</a>
+              </span>
+            </div>
+            <div className="sidebar-resources-item sidebar-item">
+              <FaChartLine color="black" /> <span>
+                <a href="">Market Analysis </a>
+              </span>
+            </div>
+            <div className="sidebar-resources-item sidebar-item">
+              <FaGraduationCap color="black" /> <span>
+                <a href="">Trading Strategies</a>
+              </span>
+            </div>
           </div>
+          </div>
+
+        
         </nav>
 
         {/* Content */}
-        <main className="col-md-9 col-lg-10 ms-sm-auto px-md-4 p-3">
+        <main className="col-lg-9 ms-sm-auto p-0 course-section">
           {activeWeek === "Beginner" && (
             <div className="course-content-section">
-              <h2>Beginner - Introduction to Wealth Management</h2>
+              <div className="course-management-title">
+                <h2>Beginner - Introduction to Wealth Management</h2>
+              </div>
               {renderAccordion("Beginner")}
             </div>
           )}
 
           {activeWeek === "Intermediate" && (
             <div className="content-section">
-              <h2>Intermediate - Risk Management</h2>
+              <div className="course-management-title">
+                <h2>Intermediate - Risk Management</h2>
+              </div>
               {renderAccordion("Intermediate")}
             </div>
           )}
 
           {activeWeek === "Professional" && (
             <div className="content-section">
-              <h2>Professional - Investment Strategies</h2>
+              <div className="course-management-title">
+                <h2>Professional - Investment Strategies</h2>
+              </div>
               {renderAccordion("Professional")}
             </div>
           )}

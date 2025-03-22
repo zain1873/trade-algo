@@ -3,7 +3,7 @@ import "../DashboardSidebarComp/styles/wealthseries.css";
 
 const WealthSeries = ({ darkMode }) => {
   return (
-    <section className={`wealth-series blur ${darkMode ? "dark-mode" : "light-mode"}`}>
+    <section className={`wealth-series ${darkMode ? "dark-mode" : "light-mode"}`}>
       <div className={`container mt-4 wealth-container pt-0 ${darkMode ? "dark-mode" : ""}`}>
         <h2 className="text-center title-wealth mb-5">Wealth Management Series</h2>
 
