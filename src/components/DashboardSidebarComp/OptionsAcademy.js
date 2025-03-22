@@ -152,7 +152,7 @@ const OptionsAcademy = () => {
       </div>
 
       {/* course and progress bar */}
-      <Course />
+      {/* <Course /> */}
       <ProgressBarsDisplay />
     </div>
   );
