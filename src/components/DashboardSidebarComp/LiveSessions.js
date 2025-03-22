@@ -9,5 +9,6 @@ function LiveSessions() {
   )
 }
 
-export default LiveSessions
 
+
+export default LiveSessions;
