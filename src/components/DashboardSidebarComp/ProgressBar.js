@@ -35,16 +35,16 @@ const ProgressBarsDisplay = () => {
       <div className="row justify-content-center p-3">
       
         <div className="col-md-3 text-center">
-          <CircularProgressBar percentage={45} color="#3CD4A0" />
+          <CircularProgressBar percentage={0} color="#3CD4A0" />
           <h4 className='text-white'>progress</h4>
         </div>
         <div className="col-md-3 text-center">
-          <CircularProgressBar percentage={75} color="#9333EA" />
+          <CircularProgressBar percentage={0} color="#9333EA" />
           <h4 className='text-white'>Watched</h4>
 
         </div>
         <div className="col-md-3 text-center">
-          <CircularProgressBar percentage={95} color="#F05252" />
+          <CircularProgressBar percentage={0} color="#F05252" />
           <h4 className='text-white'>Success rate</h4>
 
         </div>
