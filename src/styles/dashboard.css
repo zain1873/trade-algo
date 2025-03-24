@@ -655,18 +655,16 @@ body .dark {
   .col-1.position-fixed {
     width: 56px !important;
 }
+.nav.flex-column {
+  margin: 0;
+  padding: 8px 9px 0px 6px;
+}
 .dashboard_row .offset-1 {
   margin-left: 10.333333% !important;
 }
 
-.nav.flex-column .nav-link {
-  /* margin: 0px 0px; */
-}
-.col-3.position-fixed .nav.flex-column .nav-link {
-  /* margin: 0px 8px; */
-}
 .nav.flex-column span {
-  font-size: 13px;
+  font-size: 12px;
 }
 .left-toggle {
   padding: 6px !important;
