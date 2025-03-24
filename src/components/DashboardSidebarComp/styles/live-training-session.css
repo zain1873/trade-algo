@@ -8,7 +8,9 @@
 }
 .bg-dark .live-session-title {
   color: #ffff !important;
-
+}
+.bg-dark .session-card {
+  background-color: #212529;
 }
 .locked {
   /* filter: blur(3px); */

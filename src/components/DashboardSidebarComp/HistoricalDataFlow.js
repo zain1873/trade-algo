@@ -8,11 +8,10 @@ const HistoricalDataFlow = ({ darkMode }) => {
     <div
       className="container"
       style={{
-        backgroundColor: darkMode ? "#000000" : "#ffffff", // Full black background
+        backgroundColor: darkMode ? "" : "#ffffff", // Full black background
         color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
         padding: "20px",
-        borderRadius: "10px",
-        border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
+        // border: darkMode ? "1px solid #444" : "1px solid #ddd", 
       }}
     >
       <h2>Historic ATS Gainers & Losers</h2>
@@ -66,8 +65,8 @@ const HistoricalDataFlow = ({ darkMode }) => {
           </thead>
           <tbody
             style={{
-              backgroundColor: darkMode ? "#000000" : "#ffffff", // Pure black in dark mode
-              color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+              backgroundColor: darkMode ? "#1c1e20" : "#ffffff", // Pure black in dark mode
+              color: darkMode ? "#ffffff" : "#1c1e20", // White text in dark mode
               border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
             }}
           >

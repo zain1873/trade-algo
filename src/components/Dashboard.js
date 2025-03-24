@@ -6,7 +6,7 @@ import "../styles/dashboard.css";
 import HistoricalDataFlow from './DashboardSidebarComp/HistoricalDataFlow';
 import user_logo from "../assets/images/dashboard_logo.png";
 import valourWealth from "../assets/images/Valour_Wealth.png";
-import valourWealthInverted from "../assets/images/valour-inverted-logo.jpeg";
+import valourWealthInverted from "../assets/images/full-transparent.png";
 import DashboardData from './DashboardSidebarComp/DashboardData';
 import LiveSessions from './DashboardSidebarComp/LiveSessions';
 import TradeProducts from './DashboardSidebarComp/TradeProducts';
@@ -27,8 +27,8 @@ const Dashboard = () => {
   useEffect(() => {
     if (darkMode) {
       document.documentElement.style.setProperty('--text-color', '#ffffff');  // White text
-      document.documentElement.style.setProperty('--background-color', '#000000'); // Full black background
-      document.documentElement.style.setProperty('--sidebar-color', '#000000'); // Full black sidebar
+      document.documentElement.style.setProperty('--background-color', '##1c1e20'); // Full black background
+      document.documentElement.style.setProperty('--sidebar-color', '#1a1d1e'); // Full black sidebar
       document.documentElement.style.setProperty('--card-background', '#000000'); // Full black cards
       document.documentElement.style.setProperty('--input-background', '#222222'); // Darker input fields
       document.documentElement.style.setProperty('--border-color', '#444444'); // Softer borders in dark mode
@@ -130,7 +130,7 @@ const Dashboard = () => {
   
   return (
     <div className={darkMode ? 'bg-dark text-white vh-100' : 'bg-light vh-100'}>
-      <div className="row g-0">
+      <div className="row dashboard_row g-0">
         {/* Sidebar */}
         <div
           className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 border-end transition-width sidebar-mbl`}
@@ -140,7 +140,7 @@ const Dashboard = () => {
           }}
         >
           {/* Sidebar Header */}
-          <div className="d-flex justify-content-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
+          <div className="d-flex justify-content-center justify-content-lg-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
             {!sidebarCollapsed && (
               <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
               <div className={`sidebar_logo ${darkMode ? "dark-mode" : ""}`}>
@@ -163,50 +163,65 @@ const Dashboard = () => {
           </div>
           
           {/* Navigation Menu */}
-          <div className="nav flex-column">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleTabClick(item.id)}
-                className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
-                style={darkMode ? {color: 'white'} : {}} // Add inline style for dark mode
-              >
-                <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
-                {!sidebarCollapsed && (
-                  <div className="d-flex align-items-center justify-content-between flex-grow-1">
-                    <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
-                    {item.isNew && <span className="badge bg-primary ms-2">NEW</span>}
+       <div className="nav flex-column">
+      {menuItems.map((item) => (
+        <div key={item.id} className="position-relative">
+          <button
+            onClick={() => handleTabClick(item.id)}
+            className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
+            style={darkMode ? {color: 'white'} : {}}
+          >
+            <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
+            {!sidebarCollapsed && (
+              <div className="d-flex align-items-center justify-content-between flex-grow-1">
+                <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
+              </div>
+            )}
+          </button>
+
+            {/* Dropdown for Wealth Management Series */}
+            {item.id === "wealth-series" && (
+              <div className="dropdown-container">
+                <div className="dropdown-content-wrap">
+                  <div className="p-2 dropdown-inside">
+                    <a href="">Lite</a>
                   </div>
-                )}
-              </button>
-            ))}
+                  <div className="p-2 dropdown-inside">
+                    <a href="">Premium</a>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
+        ))}
+      </div>
+
 
           {/* Dark Mode Toggle */}
           <div className="position-absolute bottom-0 w-100 border-top">
             <button 
               onClick={() => setDarkMode(!darkMode)} 
               className={`btn btn-link d-flex align-items-center w-100 text-decoration-none night-btn ${darkMode ? 'text-white' : ''}`}
-              style={darkMode ? {color: 'white'} : {}} // Add inline style for dark mode
+              style={darkMode ? {color: 'white'} : {}}
             >
               {darkMode ? 
                 <Sun className="me-2" style={{color: 'white'}} /> : 
                 <Moon className="me-2" />
               }
-              {!sidebarCollapsed && 
-                <span style={darkMode ? {color: 'white'} : {}}>
-                  {darkMode ? 'Light Mode' : 'Dark Mode'}
-                </span>
-              }
+             {!sidebarCollapsed && 
+              <span style={darkMode ? { color: 'white' } : {}}>
+                {darkMode ? 'Light Mode' : 'Dark Mode'} <sup style={{ fontSize: '0.7rem', color: 'red' }}>Beta</sup>
+              </span>
+            }
             </button>
           </div>
         </div>
         
         {/* Main Content Area */}
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
-          <div className="container-fluid py-lg-4 py-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
+          <div className="container-fluid px-0 pt-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
-            <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-3 px-sm-2">
+            <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-lg-3 px-sm-1">
             <div className="col position-relative search-main">
            <input
                 type="text"
@@ -226,7 +241,7 @@ const Dashboard = () => {
             </div>
             
             {/* Content Card */}
-            <div className={darkMode ? '' : 'card bg-light text-dark right-bar pt-0'}>
+            <div className={darkMode ? '' : 'card dashboard_card bg-light text-dark right-bar py-0'}>
               {renderContent()}
             </div>
           </div>

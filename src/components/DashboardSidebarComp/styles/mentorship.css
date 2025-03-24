@@ -6,13 +6,13 @@
   border-color: #444;
 }
 .dark-mode-tab {
-  background-color: #000 !important;
+  background-color: #212529 !important;
   color: #fff !important;
   border-radius: 5px;
   padding: 15px;
 }
 .dark-mode .level-card {
-  background-color: #121212 !important; /* Dark background */
+  background-color: #212529 !important; /* Dark background */
   color: #fff !important; /* Light text */
   border: 1px solid #333 !important; /* Darker border */
 }

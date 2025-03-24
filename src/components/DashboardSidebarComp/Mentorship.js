@@ -62,7 +62,7 @@ const Mentorship = ( {darkMode} ) => {
               </li>
             </ul>
 
-            <div className="tab-content mt-3">
+            <div className="tab-content mt-3 p-0">
               {/* Platinum Tab */}
               {activeSubTab === "platinum" && (
                 <div className="tab-pane fade show active">
