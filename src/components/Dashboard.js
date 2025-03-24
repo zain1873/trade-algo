@@ -27,7 +27,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (darkMode) {
       document.documentElement.style.setProperty('--text-color', '#ffffff');  // White text
-      document.documentElement.style.setProperty('--background-color', '##1c1e20'); // Full black background
+      document.documentElement.style.setProperty('--background-color', '#1c1e20'); // Full black background
       document.documentElement.style.setProperty('--sidebar-color', '#1a1d1e'); // Full black sidebar
       document.documentElement.style.setProperty('--card-background', '#000000'); // Full black cards
       document.documentElement.style.setProperty('--input-background', '#222222'); // Darker input fields
@@ -140,7 +140,7 @@ const Dashboard = () => {
           }}
         >
           {/* Sidebar Header */}
-          <div className="d-flex justify-content-center justify-content-lg-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
+          <div className="d-flex justify-content-between align-items-center border-bottom p-lg-3 p-sm-2 left-toggle">
             {!sidebarCollapsed && (
               <h4 className={`m-0 d-flex align-items-center ${darkMode ? 'text-white' : ''}`}>
               <div className={`sidebar_logo ${darkMode ? "dark-mode" : ""}`}>
@@ -219,7 +219,7 @@ const Dashboard = () => {
         
         {/* Main Content Area */}
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
-          <div className="container-fluid px-0 pt-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
+          <div className="container-fluid pt-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
             <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-lg-3 px-sm-1">
             <div className="col position-relative search-main">

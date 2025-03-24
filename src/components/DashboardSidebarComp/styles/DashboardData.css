@@ -21,8 +21,8 @@
   .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
     position: absolute;
     top: 25%;
     width: 96%;
