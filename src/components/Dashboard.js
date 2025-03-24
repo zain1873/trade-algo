@@ -219,9 +219,9 @@ const Dashboard = () => {
         
         {/* Main Content Area */}
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
-          <div className="container-fluid pt-3" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
+          <div className="container-fluid" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
-            <div className="row mb-lg-4 mb-2 align-items-center dashboard-head px-lg-3 px-sm-1">
+            <div className="row align-items-center dashboard-head">
             <div className="col position-relative search-main">
            <input
                 type="text"
@@ -231,13 +231,18 @@ const Dashboard = () => {
               <i className="fas fa-search search-icon"></i> 
              </div>
 
-              <div className="col-auto user_info">
-                <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
-                <div className='username_data'>
-                  <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Valourwealth Platform</h5>
-                  {/* <p className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Premium Member</p> */}
-                </div>
+             <div className="col-auto user_info position-relative">
+              <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
+              <div className='username_data'>
+                <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Valourwealth Platform</h5>
               </div>
+
+              {/* Dropdown Menu */}
+              <div className="user-dropdown shadow py-0">
+                <div className="dropdown-item">Edit</div>
+                <div className="dropdown-item">Logout</div>
+              </div>
+            </div>
             </div>
             
             {/* Content Card */}

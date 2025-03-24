@@ -5,7 +5,7 @@
     background-size: cover;
     color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 10px;
     /*margin-bottom: 20px;
     */box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -17,8 +17,55 @@
     -ms-border-radius: 0;
     -o-border-radius: 0;
 }
-  
-  .header-content {
+  /* Dropdown container (hidden by default) */
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 4px;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  display: none;
+  /*Initiallyhidden*/z-index: 10;
+  border-radius: 0;
+}
+.user_info {
+  cursor: pointer;
+  padding-bottom: 6px;
+}
+.bg-dark .search_bar {
+  background-color: #1c1e20 !important;
+  border: 1px solid #373c42 !important;
+}
+
+/* Show dropdown on hover */
+.user_info:hover .user-dropdown {
+  display: block;
+}
+.user-dropdown .dropdown-item:hover {
+  color: #fff;
+
+}
+
+.bg-dark .user-dropdown {
+  background-color: #1c1e20;
+  color: #fff;
+}
+/* Style for dropdown items */
+.user-dropdown .dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-dropdown .dropdown-item:hover {
+  background-color: #222;
+}
+
+
+.header-content {
     display: flex;
     justify-content: space-between;
     /* align-items: center; */

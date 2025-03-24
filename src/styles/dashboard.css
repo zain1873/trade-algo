@@ -465,11 +465,19 @@ body .dark {
   text-decoration: none;
 }
 
+.dashboard-head {
+  margin-bottom: 0;
+  padding: 12px 6px;
+}
+
 
 /* Mobile View */
 @media (max-width: 992px) {
   .nav.flex-column .nav-link {
     padding: 10px;
+  }
+  .mbl-toggle {
+    color: #000 !important;
   }
   .nav .flex-column {
     margin: 10px !important;
@@ -506,6 +514,9 @@ body .dark {
   .buttons .primary_btn {
     background-color: #007bff;
     padding: 8px 14px;
+  }
+  .mbl-toggle  {
+    margin-left: 6px;
   }
  
   .header-content {
@@ -603,14 +614,10 @@ body .dark {
   }
   .sidebar-mbl {
     width: 60px;
-    background-color: red;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 6px;
-  }
-  .header-left p {
-    margin: 10px 20px 0px 0px;
   }
   .user_info img {
     height: 30px;
@@ -643,8 +650,8 @@ body .dark {
 }
 .dashboard-head {
   flex-direction: column;
-  padding: 0 10px;
   margin-bottom: 0 !important;
+  padding: 12px 6px !important;
 }
 .nav-tabs .nav-link {
   width: 100%;
