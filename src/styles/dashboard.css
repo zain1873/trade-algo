@@ -466,8 +466,6 @@ body .dark {
 }
 
 
-
-
 /* Mobile View */
 @media (max-width: 992px) {
   .nav.flex-column .nav-link {
@@ -509,6 +507,7 @@ body .dark {
     background-color: #007bff;
     padding: 8px 14px;
   }
+ 
   .header-content {
     flex-direction: column;
   }
@@ -561,6 +560,7 @@ body .dark {
   .nav.flex-column {
     width: 100%;
   }
+ 
 
 } 
 
@@ -585,12 +585,15 @@ body .dark {
   .wealth-card {
     padding: 20px;
   }
+  .left-toggle {
+    justify-content: center !important;
+  }
   .search_bar {
     max-width: 300px !important;
   }
   .user_info {
     text-align: left;
-    margin-top: 14px !important;
+    margin-top: 8px !important;
     width: 100% !important;
   }
   .nav.flex-column .nav-link {
@@ -640,7 +643,8 @@ body .dark {
 }
 .dashboard-head {
   flex-direction: column;
-  margin-left: 12px !important;
+  padding: 0 10px;
+  margin-bottom: 0 !important;
 }
 .nav-tabs .nav-link {
   width: 100%;
@@ -653,7 +657,7 @@ body .dark {
 
 @media (max-width: 425px) {
   .col-1.position-fixed {
-    width: 56px !important;
+    width: 52px !important;
 }
 .nav.flex-column {
   margin: 0;
@@ -682,7 +686,7 @@ body .dark {
   transition: 0.3s ease-in-out;
 }
  .dashboard-head {
-  margin: 0 8px !important;
+  /* margin: 0 8px !important; */
   padding-bottom: 10px !important;
  }
 } 

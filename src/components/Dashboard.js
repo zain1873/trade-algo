@@ -157,7 +157,7 @@ const Dashboard = () => {
               </div>
               </h4>
             )}
-            <button className={`btn btn-link p-0 ${darkMode ? 'text-white' : ''}`} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
+            <button className={`btn mbl-toggle btn-link p-0 ${darkMode ? 'text-white' : ''}`} onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
               <Menu />
             </button>
           </div>
