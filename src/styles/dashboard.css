@@ -653,10 +653,10 @@ body .dark {
 
 @media (max-width: 425px) {
   .col-1.position-fixed {
-    width: 60px !important;
+    width: 56px !important;
 }
 .dashboard_row .offset-1 {
-  margin-left: 11.333333% !important;
+  margin-left: 10.333333% !important;
 }
 
 .nav.flex-column .nav-link {
