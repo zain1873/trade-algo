@@ -16,6 +16,8 @@ import OptionsAcademy from './DashboardSidebarComp/OptionsAcademy';
 import Mentorship from './DashboardSidebarComp/Mentorship';
 import WealthSeries from './DashboardSidebarComp/WealthSeries';
 import Resources from './DashboardSidebarComp/Resources';
+import ProgramLite from './DashboardSidebarComp/programLite';
+
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -120,7 +122,10 @@ const Dashboard = () => {
               return <Mentorship darkMode={darkMode} />;
             case 'resources':
               return <Resources darkMode={darkMode} />;
-            default:
+            case 'lite':
+              return <ProgramLite darkMode={darkMode} />;
+            default:          
+            
               return null;
           }
         })()}
@@ -133,7 +138,7 @@ const Dashboard = () => {
       <div className="row dashboard_row g-0">
         {/* Sidebar */}
         <div
-          className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 border-end transition-width sidebar-mbl`}
+          className={`${sidebarCollapsed ? 'col-1' : 'col-3'} position-fixed h-100 transition-width sidebar-mbl`}
           style={{ 
             backgroundColor: 'var(--background-color)', 
             color: 'var(--text-color)' 
@@ -162,43 +167,75 @@ const Dashboard = () => {
             </button>
           </div>
           
-          {/* Navigation Menu */}
-       <div className="nav flex-column">
-      {menuItems.map((item) => (
-        <div key={item.id} className="position-relative">
-          <button
-            onClick={() => handleTabClick(item.id)}
-            className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
-            style={darkMode ? {color: 'white'} : {}}
-          >
-            <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
-            {!sidebarCollapsed && (
-              <div className="d-flex align-items-center justify-content-between flex-grow-1">
-                <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
-              </div>
-            )}
-          </button>
-
-            {/* Dropdown for Wealth Management Series */}
-            {item.id === "wealth-series" && (
-              <div className="dropdown-container">
-                <div className="dropdown-content-wrap">
-                  <div className="p-2 dropdown-inside">
-                    <a href="">Lite</a>
-                  </div>
-                  <div className="p-2 dropdown-inside">
-                    <a href="">Premium</a>
-                  </div>
-                </div>
-              </div>
-            )}
+   {/* Navigation Menu */}
+<div className="nav flex-column">
+  {menuItems.map((item) => (
+    <div key={item.id} className="position-relative">
+      <button
+        onClick={() => handleTabClick(item.id)}
+        className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
+        style={darkMode ? {color: 'white'} : {}}
+      >
+        <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
+        {!sidebarCollapsed && (
+          <div className="d-flex align-items-center justify-content-between flex-grow-1">
+            <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
           </div>
-        ))}
-      </div>
+        )}
+      </button>
+
+      {/* Dropdown for Wealth Management Series */}
+      {item.id === "wealth-series" && (
+        <div className="dropdown-container">
+          <div className="dropdown-content-wrap">
+            <div className="p-2 dropdown-inside">
+              <a href="">Lite</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">Premium</a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Dropdown for Trading Tools */}
+      {item.id === "trading-tools" && (
+        <div className="dropdown-container">
+          <div className="dropdown-content-wrap">
+            <div className="p-2 dropdown-inside">
+              <a href="">Market Analysis</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">Real-time Charts</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">Technical Indicators</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">AI Predictions</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">Trading Signals</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">Portfolio Management</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">Risk Analysis</a>
+            </div>
+            <div className="p-2 dropdown-inside">
+              <a href="">News & Insights</a>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
 
 
           {/* Dark Mode Toggle */}
-          <div className="position-absolute bottom-0 w-100 border-top">
+          <div className="position-absolute bottom-0 w-100 ">
             <button 
               onClick={() => setDarkMode(!darkMode)} 
               className={`btn btn-link d-flex align-items-center w-100 text-decoration-none night-btn ${darkMode ? 'text-white' : ''}`}
@@ -219,7 +256,7 @@ const Dashboard = () => {
         
         {/* Main Content Area */}
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
-          <div className="container-fluid" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
+          <div className="container-fluid p-0" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
             <div className="row align-items-center dashboard-head">
             <div className="col position-relative search-main">

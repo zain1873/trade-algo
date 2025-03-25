@@ -1,62 +1,129 @@
-import React from "react";
-import "../DashboardSidebarComp/styles/platinum.css";
-import profileImg from "../DashboardSidebarComp/images/thubnail_stream.png";
+import React, { useState } from "react";
+import "../DashboardSidebarComp/styles/mentorship.css";
 
-const Platinum = ({ darkMode }) => {
+const Mentorship = ( {darkMode} ) => {
+  const [activeTab, setActiveTab] = useState("sessions");
+  const [activeSubTab, setActiveSubTab] = useState("platinum");
+
+
+
+  // this data is one on on ementorship data  and transfer to platinum program
+  
   return (
-      <div className={`container mt-4 platinum-container blur ${darkMode ? "dark-mode" : "light-mode"}`}>
-      {/* Profile Section */}
-      <div className="d-flex align-items-center mb-3">
-        <img src={profileImg} alt="IAN" className="profile-img" />
-        <div className="ms-3">
-          <h5 className="mb-0">IAN</h5>
-          <p className="text-muted small">ValourWealth Professional Analyst</p>
-        </div>
-      </div>
+    <div className="container mt-4">
+      {/* Primary Navigation Tabs */}
+      <ul className="nav nav-tabs">
+        <li className="nav-item">
+          <button
+            className={`nav-link ${activeTab === "sessions" ? "active" : ""}`}
+            onClick={() => setActiveTab("sessions")}
+          >
+            Manage My Sessions
+          </button>
+        </li>
+        <li className="nav-item">
+          <button
+            className={`nav-link ${activeTab === "pricing" ? "active" : ""}`}
+            onClick={() => setActiveTab("pricing")}
+          >
+            View All Price Plans
+          </button>
+        </li>
+      </ul>
 
-      {/* Title & Description */}
-      <h3 className="fw-bold">The Platinum Daily Livestreams</h3>
-      <p>
-        Join us and get ready to buckle up and blast off with the one and only
-        IAN at the ValourWealth Platinum Daily livestream event!
-      </p>
+      <div className={`tab-content mt-3 ${darkMode ? "dark-mode-tab" : ""}`}>
+      {/* Sessions Tab */}
+        {activeTab === "sessions" && (
+          <div className="tab-pane fade show active">
+            <h5>Sessions available:</h5>
+            <p>
+              <strong>0</strong> Starter | <strong>0</strong> Intermediate |{" "}
+              <strong>0</strong> Advanced | <strong>9</strong> Platinum |{" "}
+              <strong>16</strong> Emerald
+            </p>
 
-      {/* Live Schedule */}
-      <h5 className="fw-bold">Live Schedule</h5>
-      <div className="table-responsive">
-        <table className="table schedule-table">
-          <thead>
-            <tr>
-              <th>Mon</th>
-              <th>Tue</th>
-              <th>Wed</th>
-              <th>Thu</th>
-              <th>Fri</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>9:30 - 10:30am EST</td>
-              <td>9:30 - 10:30am EST</td>
-              <td>9:30 - 10:30am EST</td>
-              <td>9:30 - 10:30am EST</td>
-              <td>9:30 - 10:30am EST</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            {/* Secondary Navigation Tabs */}
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <button
+                  className={`nav-link ${
+                    activeSubTab === "platinum" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveSubTab("platinum")}
+                >
+                  Platinum
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  className={`nav-link ${
+                    activeSubTab === "emerald" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveSubTab("emerald")}
+                >
+                  Emerald
+                </button>
+              </li>
+            </ul>
 
-      {/* Real-time Trading Alerts */}
-      <div className="trading-alerts p-4 mt-4">
-        <h4 className="fw-bold">Real-time Trading Alerts</h4>
-        <p>
-          Our team of experts delivers real-time, profitable trading
-          opportunities straight to your phone via the Telegram app.
-        </p>
-        <button className="theme_btn">Join Real-time Trading Alerts</button>
+            <div className="tab-content mt-3 p-0">
+              {/* Platinum Tab */}
+              {activeSubTab === "platinum" && (
+                <div className="tab-pane fade show active">
+                <div className={`card level-card ${darkMode ? "dark-mode" : ""}`}>
+                   <div className="card-body p-5">
+                      <h4 className="text-primary">Platinum Level</h4>
+                      <p>
+                        Personalized coaching and equipping users with key
+                        resources for options trading.
+                      </p>
+                      <p>
+                        <strong>Includes:</strong> 12 one-on-one meetings, live
+                        stream access, and exclusive alerts.
+                      </p>
+                      <button className="theme_btn">
+                        Join Telegram Alerts
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Emerald Tab */}
+              {activeSubTab === "emerald" && (
+                <div className="tab-pane fade show active">
+                <div className={`card level-card ${darkMode ? "dark-mode" : ""}`}>
+                <div className="card-body p-5">
+                      <h4 className="text-success">Emerald Level</h4>
+                      <p>
+                        Advanced mentorship with real-time trading analysis and
+                        premium market insights.
+                      </p>
+                      <p>
+                        <strong>Includes:</strong> 16 personalized sessions,
+                        expert guidance, and trading strategies.
+                      </p>
+                      <button className="theme_btn">
+                        Join Telegram Alerts
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Pricing Tab */}
+        {activeTab === "pricing" && (
+          <div className="tab-pane fade show active">
+            <h5>Pricing Plans</h5>
+            <p>Details </p>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Platinum;
+export default Mentorship;
