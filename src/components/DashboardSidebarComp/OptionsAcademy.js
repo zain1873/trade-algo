@@ -159,3 +159,24 @@ const OptionsAcademy = () => {
 };
 
 export default OptionsAcademy;
+
+
+
+
+// ?/////////
+
+
+// const [userData, setUserData] = useState(null);
+// const [error, setError] = useState(null);
+// const accessToken = localStorage.getItem("accessToken");
+
+// // Use environment variable for API base URL
+// const API_BASE_URL = process.env.REACT_APP_API_URL; // e.g. https://valourwealthdjango-production.up.railway.app/
+// // Updated user data endpoint
+// const USER_API_URL = `${API_BASE_URL}api/user/`;
+
+{/* <div className="col-auto user_info">
+                <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
+                <div className='username_data'>
+                  <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>{userData ? userData.username : 'Valourwealth Platform'}</h5>
+                  <p className={`mb-0 ${darkMode ? 'text-white' : ''}`}>Premium Member</p> */}

@@ -88,7 +88,8 @@
   border: 1px solid var(--table-border-color);
 }
 .table_history tr th {
-  background-color: #007bff !important;
+  background-color: var(--theme-color) !important;
+  color: #fff !important;
 }
 
 .table_history th,
