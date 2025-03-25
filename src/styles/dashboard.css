@@ -523,6 +523,9 @@ body .dark {
   .mbl-toggle  {
     margin-left: 6px;
   }
+  .offset-3 {
+    padding: 0 20px !important;
+  }
  
   .header-content {
     flex-direction: column;

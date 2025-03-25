@@ -167,71 +167,71 @@ const Dashboard = () => {
             </button>
           </div>
           
-   {/* Navigation Menu */}
-<div className="nav flex-column">
-  {menuItems.map((item) => (
-    <div key={item.id} className="position-relative">
-      <button
-        onClick={() => handleTabClick(item.id)}
-        className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
-        style={darkMode ? {color: 'white'} : {}}
-      >
-        <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
-        {!sidebarCollapsed && (
-          <div className="d-flex align-items-center justify-content-between flex-grow-1">
-            <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
-          </div>
-        )}
-      </button>
+          {/* Navigation Menu */}
+          <div className="nav flex-column">
+            {menuItems.map((item) => (
+              <div key={item.id} className="position-relative">
+                <button
+                  onClick={() => handleTabClick(item.id)}
+                  className={`nav-link border-0 d-flex align-items-center justify-content-${sidebarCollapsed ? "center" : "start"} ${activeTab === item.id ? "active" : ""} ${darkMode ? 'text-white' : ''}`}
+                  style={darkMode ? {color: 'white'} : {}}
+                >
+                  <span className="me-3" style={darkMode ? {color: 'white'} : {}}>{item.icon}</span>
+                  {!sidebarCollapsed && (
+                    <div className="d-flex align-items-center justify-content-between flex-grow-1">
+                      <span style={darkMode ? {color: 'white'} : {}}>{item.label}</span>
+                    </div>
+                  )}
+                </button>
 
-      {/* Dropdown for Wealth Management Series */}
-      {item.id === "wealth-series" && (
-        <div className="dropdown-container">
-          <div className="dropdown-content-wrap">
-            <div className="p-2 dropdown-inside">
-              <a href="">Lite</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">Premium</a>
-            </div>
-          </div>
-        </div>
-      )}
+                {/* Dropdown for Wealth Management Series */}
+                {item.id === "wealth-series" && (
+                  <div className="dropdown-container">
+                    <div className="dropdown-content-wrap">
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Lite</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Premium</a>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-      {/* Dropdown for Trading Tools */}
-      {item.id === "trading-tools" && (
-        <div className="dropdown-container">
-          <div className="dropdown-content-wrap">
-            <div className="p-2 dropdown-inside">
-              <a href="">Market Analysis</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">Real-time Charts</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">Technical Indicators</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">AI Predictions</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">Trading Signals</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">Portfolio Management</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">Risk Analysis</a>
-            </div>
-            <div className="p-2 dropdown-inside">
-              <a href="">News & Insights</a>
-            </div>
+                {/* Dropdown for Trading Tools */}
+                {item.id === "trading-tools" && (
+                  <div className="dropdown-container">
+                    <div className="dropdown-content-wrap">
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Market Analysis</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Real-time Charts</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Technical Indicators</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">AI Predictions</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Trading Signals</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Portfolio Management</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">Risk Analysis</a>
+                      </div>
+                      <div className="p-2 dropdown-inside">
+                        <a href="">News & Insights</a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        </div>
-      )}
-    </div>
-  ))}
-</div>
 
 
           {/* Dark Mode Toggle */}
@@ -256,7 +256,7 @@ const Dashboard = () => {
         
         {/* Main Content Area */}
         <div className={`${sidebarCollapsed ? 'col-11 offset-1' : 'col-9 offset-3'} transition-margin`}>
-          <div className="container-fluid p-0" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
+          <div className="container-fluid" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)', minHeight: "100vh" }}>
             {/* Header with Search */}
             <div className="row align-items-center dashboard-head">
             <div className="col position-relative search-main">
