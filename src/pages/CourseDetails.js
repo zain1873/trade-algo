@@ -1,150 +1,333 @@
-"use client";
+import React, { useState } from 'react';
+import '../styles/academy.css';
+import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal } from "react-icons/fa"
+import videoImg from '../assets/images/crypto-latest.png'
 
-import { useState } from "react";
-import "../styles/coursedetails.css";
-import course from "../assets/images/defaualt-img.webp";
-import { FaBook, FaGraduationCap, FaChartLine } from "react-icons/fa"; // Importing icons
+const ValourAcademy = () => {
+  const [activeSection, setActiveSection] = useState(null);
+  const [selectedLevel, setSelectedLevel] = useState('beginner'); // Track selected level
 
-function CourseDetails() {
-  const [activeWeek, setActiveWeek] = useState("Beginner"); // Default is Beginner
-
-  const handleWeekChange = (week) => {
-    setActiveWeek(week);
+  const toggleSection = (section) => {
+    setActiveSection(activeSection === section ? null : section);
   };
 
-  const renderAccordion = (category) => (
-    <div className="accordion mt-md-4 mt-3" id={`accordion-${category}`}>
-      {["Resources", "Notes", "Knowledge"].map((title, index) => (
-        <div className="accordion-item" key={index}>
-          <h2 className="accordion-header" id={`heading-${category}-${index}`}>
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target={`#collapse-${category}-${index}`}
-              aria-expanded="true"
-              aria-controls={`collapse-${category}-${index}`}
+  return (
+    <div className="valour-container">
+      {/* Header */}
+      <div className="valour-header">
+        <div className="header-brand">Valour Academy</div>
+        <div className="header-login">
+          <button className="theme_btn">Username</button>
+        </div>
+      </div>
+
+      <div className="valour-main">
+        {/* Sidebar */}
+        <div className="valour-sidebar">
+          <div className="sidebar-section">
+            <div className="sidebar-heading">COURSE LEVELS</div>
+
+            <div 
+              className={`sidebar-item ${selectedLevel === 'beginner' ? 'active' : ''}`}
+              onClick={() => setSelectedLevel('beginner')}
             >
-              {category} - {title}
-            </button>
-          </h2>
-          <div
-            id={`collapse-${category}-${index}`}
-            className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
-            aria-labelledby={`heading-${category}-${index}`}
-            data-bs-parent={`#accordion-${category}`}
-          >
-            <div className="accordion-body">
-              <div className="row">
-                {["Reading List", "Notes", "Knowledge"].map((subTitle, subIndex) => (
-                  <div className="col-md-4" key={subIndex}>
-                    <div className="courses-details shadow p-2">
-                      <div className="course-videos">
-                        <img className="obj_fit" src={course} alt="" />
-                      </div>
-                      <div className="courses-details-body">
-                        <h5 className="courses-details-title">{subTitle}</h5>
-                        <p className="courses-details-text">
-                          Relevant information for {subTitle.toLowerCase()}.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <span>Beginner</span>
+              <i className={`arrow-icon ${selectedLevel === 'beginner' ? 'down' : 'right'}`}></i>
+            </div>
+
+            <div 
+              className={`sidebar-item ${selectedLevel === 'intermediate' ? 'active' : ''}`}
+              onClick={() => setSelectedLevel('intermediate')}
+            >
+              <span>Intermediate</span>
+              <i className={`arrow-icon ${selectedLevel === 'intermediate' ? 'down' : 'right'}`}></i>
+            </div>
+
+            <div 
+              className={`sidebar-item ${selectedLevel === 'professional' ? 'active' : ''}`}
+              onClick={() => setSelectedLevel('professional')}
+            >
+              <span>Professional</span>
+              <i className={`arrow-icon ${selectedLevel === 'professional' ? 'down' : 'right'}`}></i>
             </div>
           </div>
         </div>
-      ))}
-    </div>
-  );
 
-  return (
-    <div className="container-fluid">
-      <div className="row">
-        {/* Sidebar */}
-        <nav className="col-lg-3 p-0 sticky">
-          <div className="sidebar-left-course">
-            <h5 className="mb-0 fw-bold">Valour Academy</h5>
-          </div>
-          <div className="sidebar-menu">
-            {[
-              { label: "Beginner", icon: <FaBook /> },
-              { label: "Intermediate", icon: <FaGraduationCap /> },
-              { label: "Professional", icon: <FaChartLine /> },
-            ].map(({ label, icon }) => (
-              <div
-                key={label}
-                className={`sidebar-item ${activeWeek === label ? "active" : ""}`}
-                onClick={() => handleWeekChange(label)}
-                style={{ cursor: "pointer" }}
-              >
-                <div className="d-flex justify-content-between align-items-center">
-                  <span>
-                    {icon} {label}
-                  </span>
-                  <span className="chevron">›</span>
+        {/* Content Area */}
+        <div className="valour-content p-0">
+          {/* Dynamic Content Based on Selected Level */}
+          {selectedLevel === 'beginner' && (
+            <div className='main_module'>
+              <div className="content-breadcrumb">
+                <span>Beginner</span>
+                <span className="separator">›</span>
+                <span>Module 1</span>
+              </div>
+
+              <h1 className="content-title">Introduction to Wealth Management</h1>
+              <p className="content-description">
+                Master the fundamentals of wealth management and learn how to build a solid financial foundation for long-term success.
+              </p>
+
+              <div className="content-info">
+                <div className="lesson-count">
+                <FaBookReader className="accordion-icon resources"/>
+                  <span>4 Lessons</span>
+                </div>
+                <div className="level-badge">
+                <FaSignal  className="accordion-icon resources" />
+                  <span>Beginner Level</span>
                 </div>
               </div>
-            ))}
+            </div>
+          )}
 
+          {selectedLevel === 'intermediate' && (
+            <div className = 'main_module'>
+              <div className="content-breadcrumb">
+                <span>Intermediate</span>
+                <span className="separator">›</span>
+                <span>Module 1</span>
+              </div>
 
-               {/* Resources Section */}
-          <div className="sidebar-resources mt-4">
-            <h6 className="text-dark">RESOURCES</h6>
-            <div className="sidebar-resources-item sidebar-item">
-              <FaBook color="black" /> <span>
-                <a href="">My Courses</a>
-              </span>
+              <h1 className="content-title">Advanced Wealth Strategies</h1>
+              <p className="content-description">
+                Learn advanced strategies for wealth growth, risk management, and diversified investment techniques.
+              </p>
+
+              <div className="content-info">
+                <div className="lesson-count">
+                <FaBookReader className="accordion-icon resources"/>
+                  <span>6 Lessons</span>
+                </div>
+                <div className="level-badge">
+                <FaSignal  className="accordion-icon resources" />
+                  <span>Intermediate Level</span>
+                </div>
+              </div>
             </div>
-            <div className="sidebar-resources-item sidebar-item">
-              <FaChartLine color="black" /> <span>
-                <a href="">Market Analysis </a>
-              </span>
+          )}
+
+          {selectedLevel === 'professional' && (
+            <div className='main_module'>
+            
+              <div className="content-breadcrumb">
+                <span>Professional</span>
+                <span className="separator">›</span>
+                <span>Module 1</span>
+              </div>
+
+              <h1 className="content-title">Expert Financial Planning</h1>
+              <p className="content-description">
+                Master expert-level financial planning techniques to manage portfolios, taxes, and wealth preservation strategies.
+              </p>
+
+              <div className="content-info">
+                <div className="lesson-count">
+                <FaBookReader className="accordion-icon resources"/>
+                  <span>8 Lessons</span>
+                </div>
+                <div className="level-badge">
+                <FaSignal  className="accordion-icon resources" />
+                  <span>Professional Level</span>
+                </div>
+              </div>
             </div>
-            <div className="sidebar-resources-item sidebar-item">
-              <FaGraduationCap color="black" /> <span>
-                <a href="">Trading Strategies</a>
-              </span>
+          )}
+
+          {/* Accordion Sections */}
+          <div className="accordion-container">
+
+          <div className={`accordion-item ${activeSection === 'resources' ? 'active' : ''}`}>
+            <div 
+              className="accordion-header"
+              onClick={() => toggleSection('resources')}
+            >
+              <div className="accordion-title">
+                <FaBookOpen className="accordion-icon resources" />
+                <span>Resources</span>
+              </div>
+              <i className={`arrow-icon ${activeSection === 'resources' ? 'up' : 'down'}`}></i>
             </div>
+            {activeSection === 'resources' && (
+              <div className="accordion-content">
+              <div className="container">
+                <div className="row">
+                  {/* Video Card 1 */}
+                  <div className="col-lg-4 col-md-6 mb-4">
+                    <div className="video-card">
+                      <div className="video-thumbnail">
+                        <img className='obj_fit' src={videoImg} alt="Video 1" />
+                      </div>
+                      <div className="video-info">
+                        <h5 className="video-title">Introduction to Course</h5>
+                        <p className="video-duration">10 min</p>
+                      </div>
+                    </div>
+                  </div>
+            
+                  {/* Video Card 2 */}
+                  <div className="col-lg-4 col-md-6 mb-4">
+                    <div className="video-card">
+                      <div className="video-thumbnail">
+                        <img className='obj_fit' src= {videoImg} alt="Video 2" />
+                      </div>
+                      <div className="video-info">
+                        <h5 className="video-title">Lesson 1: Basics</h5>
+                        <p className="video-duration">15 min</p>
+                      </div>
+                    </div>
+                  </div>
+            
+                  {/* Video Card 3 */}
+                  <div className="col-lg-4 col-md-6 mb-4">
+                    <div className="video-card">
+                      <div className="video-thumbnail">
+                        <img className='obj_fit' src={videoImg} alt="Video 3" />
+                      </div>
+                      <div className="video-info">
+                        <h5 className="video-title">Advanced Concepts</h5>
+                        <p className="video-duration">20 min</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            )}
           </div>
+
+          <div className={`accordion-item ${activeSection === 'notes' ? 'active' : ''}`}>
+            <div 
+              className="accordion-header"
+              onClick={() => toggleSection('notes')}
+            >
+              <div className="accordion-title">
+                <FaFileAlt className="accordion-icon notes resources" />
+                <span>Notes</span>
+              </div>
+              <i className={`arrow-icon ${activeSection === 'notes' ? 'up' : 'down'}`}></i>
+            </div>
+            {activeSection === 'notes' && (
+                <div className="accordion-content">
+                <div className="container">
+                  <div className="row">
+                    {/* Video Card 1 */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                      <div className="video-card">
+                        <div className="video-thumbnail">
+                          <img className='obj_fit' src={videoImg} alt="Video 1" />
+                        </div>
+                        <div className="video-info">
+                          <h5 className="video-title">Introduction to Course</h5>
+                          <p className="video-duration">10 min</p>
+                        </div>
+                      </div>
+                    </div>
+              
+                    {/* Video Card 2 */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                      <div className="video-card">
+                        <div className="video-thumbnail">
+                          <img className='obj_fit' src= {videoImg} alt="Video 2" />
+                        </div>
+                        <div className="video-info">
+                          <h5 className="video-title">Lesson 1: Basics</h5>
+                          <p className="video-duration">15 min</p>
+                        </div>
+                      </div>
+                    </div>
+              
+                    {/* Video Card 3 */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                      <div className="video-card">
+                        <div className="video-thumbnail">
+                          <img className='obj_fit' src={videoImg} alt="Video 3" />
+                        </div>
+                        <div className="video-info">
+                          <h5 className="video-title">Advanced Concepts</h5>
+                          <p className="video-duration">20 min</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
-        
-        </nav>
-
-        {/* Content */}
-        <main className="col-lg-9 ms-sm-auto p-0 course-section">
-          {activeWeek === "Beginner" && (
-            <div className="course-content-section">
-              <div className="course-management-title">
-                <h2>Beginner - Introduction to Wealth Management</h2>
+          <div className={`accordion-item ${activeSection === 'knowledge' ? 'active' : ''}`}>
+            <div 
+              className="accordion-header"
+              onClick={() => toggleSection('knowledge')}
+            >
+              <div className="accordion-title">
+                <FaLightbulb className="accordion-icon knowledge resources" />
+                <span>Knowledge</span>
               </div>
-              {renderAccordion("Beginner")}
+              <i className={`arrow-icon ${activeSection === 'knowledge' ? 'up' : 'down'}`}></i>
             </div>
-          )}
-
-          {activeWeek === "Intermediate" && (
-            <div className="content-section">
-              <div className="course-management-title">
-                <h2>Intermediate - Risk Management</h2>
+            {activeSection === 'knowledge' && (
+                <div className="accordion-content">
+                <div className="container">
+                  <div className="row">
+                    {/* Video Card 1 */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                      <div className="video-card">
+                        <div className="video-thumbnail">
+                          <img className='obj_fit' src={videoImg} alt="Video 1" />
+                        </div>
+                        <div className="video-info">
+                          <h5 className="video-title">Introduction to Course</h5>
+                          <p className="video-duration">10 min</p>
+                        </div>
+                      </div>
+                    </div>
+              
+                    {/* Video Card 2 */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                      <div className="video-card">
+                        <div className="video-thumbnail">
+                          <img className='obj_fit' src= {videoImg} alt="Video 2" />
+                        </div>
+                        <div className="video-info">
+                          <h5 className="video-title">Lesson 1: Basics</h5>
+                          <p className="video-duration">15 min</p>
+                        </div>
+                      </div>
+                    </div>
+              
+                    {/* Video Card 3 */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                      <div className="video-card">
+                        <div className="video-thumbnail">
+                          <img className='obj_fit' src={videoImg} alt="Video 3" />
+                        </div>
+                        <div className="video-info">
+                          <h5 className="video-title">Advanced Concepts</h5>
+                          <p className="video-duration">20 min</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              {renderAccordion("Intermediate")}
-            </div>
-          )}
+            )}
+          </div>
+          
+          </div>
 
-          {activeWeek === "Professional" && (
-            <div className="content-section">
-              <div className="course-management-title">
-                <h2>Professional - Investment Strategies</h2>
-              </div>
-              {renderAccordion("Professional")}
-            </div>
-          )}
-        </main>
+
+          {/* Navigation Buttons */}
+          <div className="navigation-controls">
+            <button className="prev-btn" disabled>Previous Lesson</button>
+            <button className="next-btn">Next Lesson <i className="arrow-right"></i></button>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default CourseDetails;
+export default ValourAcademy;
