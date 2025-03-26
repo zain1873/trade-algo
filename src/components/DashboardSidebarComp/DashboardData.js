@@ -73,6 +73,7 @@ function DashboardData({ darkMode }) {
             Authorization: `Bearer ${accessToken}`,
           },
         });
+        console.log("User data response:", response.data);
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
