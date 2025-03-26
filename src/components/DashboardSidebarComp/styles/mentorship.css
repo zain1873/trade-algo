@@ -50,6 +50,10 @@
   min-height: 36px;
   padding: 6px 14px;
 }
+.pricing-card a {
+  text-decoration: none;
+  color:#fff;
+}
   
   /* Custom styling for the navigation tabs */
   .nav-tabs {

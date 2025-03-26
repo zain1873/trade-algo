@@ -113,7 +113,9 @@ const Mentorship = ({ darkMode }) => {
                     <p className="pricing-card-price">
                       USD <span>$2,450</span>
                     </p>
-                    <button className="pricing-btn theme_btn">Contact Us</button>
+                    <button className="pricing-btn theme_btn">
+                      <a href="/contact">Contact Us</a>
+                    </button>
                   </div>
                 </div>
 
@@ -127,7 +129,9 @@ const Mentorship = ({ darkMode }) => {
                     <p className="pricing-card-price">
                       USD <span>$7,000</span>
                     </p>
-                    <button className="pricing-btn theme_btn">Contact Us</button>
+                    <button className="pricing-btn theme_btn">
+                    <a href="/contact">Contact Us</a>
+                    </button>
                   </div>
                 </div>
               </div>

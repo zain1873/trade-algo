@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/optionsAcademy.css"; // Import the CSS file
+import "./styles/optionsAcademy.css";
 import ProgressBarsDisplay from "../DashboardSidebarComp/ProgressBar";
 import Course from "../DashboardSidebarComp/Course";
 
