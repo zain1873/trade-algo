@@ -48,8 +48,9 @@ function App() {
         <Route path="/our-analyst" element={<Layout> <OurAnalyst/> </Layout>} />
         <Route path="/our-products" element={<Layout> <Products/> </Layout>} />
         
-        {/* <Route path="/course-detail/:id" element={<CourseDetails />} /> */}
-        <Route path="/course-detail" element={<CourseDetails />} />
+        <Route path="/academy/:courseId" element={<ValourAcademy />} />
+
+        {/* <Route path="/course-detail" element={<CourseDetails />} /> */}
         <Route path="/request-a-demo" element={<Layout> <RequestDemo/> </Layout>} />
 
         <Route path="/dashboard" element={<Dashboard />} />

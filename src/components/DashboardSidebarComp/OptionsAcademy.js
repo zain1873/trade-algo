@@ -79,7 +79,7 @@
 // export default OptionsAcademy;
 
 
-
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./styles/optionsAcademy.css";
 import ProgressBarsDisplay from "../DashboardSidebarComp/ProgressBar";
@@ -149,14 +149,17 @@ const OptionsAcademy = () => {
                   <p className="academy-duration">{course.description?.slice(0, 60) ?? ""}</p>
                 </div>
                 <div className="academy-footer">
-                  <a
+                  <Link to={`/academy/${course.id}`} className="academy-link">
+                      View Details →
+                  </Link>
+                  {/* <a
                     href={`https://valourwealthdjango-production.up.railway.app/courses/${course.id}/levels/`}
                     className="academy-link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     View Details →
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

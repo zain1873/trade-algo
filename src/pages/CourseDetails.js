@@ -352,17 +352,23 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
 import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal } from "react-icons/fa";
 import videoImg from '../assets/images/crypto-latest.png';
 
 const ValourAcademy = () => {
+  const { courseId } = useParams();
   const [activeSection, setActiveSection] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState('beginner');
   const [showPopup, setShowPopup] = useState(false);
-  const [allVideos, setAllVideos] = useState([]);
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [courseData, setCourseData] = useState(null);
 
-  const openPopup = () => setShowPopup(true);
+  const openPopup = (url) => {
+    setVideoUrl(url);
+    setShowPopup(true);
+  };
   const closePopup = () => setShowPopup(false);
 
   const toggleSection = (section) => {
@@ -370,10 +376,10 @@ const ValourAcademy = () => {
   };
 
   useEffect(() => {
-    const fetchCourseWithLevels = async () => {
+    const fetchCourseDetails = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await fetch("https://valourwealthdjango-production.up.railway.app/courses/", {
+        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -381,30 +387,29 @@ const ValourAcademy = () => {
         });
 
         const data = await res.json();
-        const course = data[0];
-        const levelVideos = {};
-
-        for (let level of course.levels) {
-          levelVideos[level.level.toLowerCase()] = level.videos;
-        }
-
-        setAllVideos(levelVideos);
+        setCourseData(data);
       } catch (error) {
         console.error("Error fetching course data:", error);
       }
     };
 
-    fetchCourseWithLevels();
-  }, []);
+    fetchCourseDetails();
+  }, [courseId]);
+
+  const getVideosForLevel = (levelName) => {
+    if (!courseData) return [];
+    const level = courseData.levels.find((lvl) => lvl.level.toLowerCase() === levelName);
+    return level ? level.videos : [];
+  };
 
   const renderVideos = () => {
-    const videos = allVideos[selectedLevel] || [];
+    const videos = getVideosForLevel(selectedLevel);
     return (
       <div className="container">
         <div className="row">
           {videos.map((video) => (
             <div key={video.id} className="col-lg-4 col-md-6 mb-4">
-              <div className="video-card" onClick={openPopup}>
+              <div className="video-card" onClick={() => openPopup(video.public_url)}>
                 <div className="video-thumbnail">
                   <img className='obj_fit' src={videoImg} alt={video.title} />
                 </div>
@@ -440,7 +445,27 @@ const ValourAcademy = () => {
         </div>
 
         <div className="valour-content p-0">
-          {/* Static module UI remains untouched */}
+          {courseData && (
+            <div className='main_module'>
+              <div className="content-breadcrumb">
+                <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)}</span>
+                <span className="separator">›</span>
+                <span>Module 1</span>
+              </div>
+              <h1 className="content-title">{courseData.title}</h1>
+              <p className="content-description">{courseData.description}</p>
+              <div className="content-info">
+                <div className="lesson-count">
+                  <FaBookReader className="accordion-icon resources" />
+                  <span>{getVideosForLevel(selectedLevel).length} Lessons</span>
+                </div>
+                <div className="level-badge">
+                  <FaSignal className="accordion-icon resources" />
+                  <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)} Level</span>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="accordion-container">
             <div className={`accordion-item ${activeSection === 'resources' ? 'active' : ''}`}>
@@ -451,7 +476,9 @@ const ValourAcademy = () => {
                 </div>
                 <i className={`arrow-icon ${activeSection === 'resources' ? 'up' : 'down'}`}></i>
               </div>
-              {activeSection === 'resources' && <div className="accordion-content">{renderVideos()}</div>}
+              {activeSection === 'resources' && (
+                <div className="accordion-content">{renderVideos()}</div>
+              )}
             </div>
           </div>
 
@@ -462,12 +489,12 @@ const ValourAcademy = () => {
         </div>
       </div>
 
-      {showPopup && (
+      {showPopup && videoUrl && (
         <div className="video-popup">
           <div className="video-popup-content">
             <span className="close-popup" onClick={closePopup}>&times;</span>
             <video controls autoPlay width="80%">
-              <source src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/valourwealth.mp4" type="video/mp4" />
+              <source src={videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
