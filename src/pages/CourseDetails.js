@@ -402,16 +402,55 @@ const ValourAcademy = () => {
     return level ? level.videos : [];
   };
 
+  // const renderVideos = () => {
+  //   // const videos = getVideosForLevel(selectedLevel);
+  //   // return (
+  //   //   <div className="container">
+  //   //     <div className="row">
+  //   //       {videos.map((video) => (
+  //   //         <div key={video.id} className="col-lg-4 col-md-6 mb-4">
+  //   //           <div className="video-card" onClick={() => openPopup(video.public_url)}>
+  //   //             <div className="video-thumbnail">
+  //   //               <img className='obj_fit' src={videoImg} alt={video.title} />
+  //   //             </div>
+  //   //             <div className="video-info">
+  //   //               <h5 className="video-title">{video.title}</h5>
+  //   //               <p className="video-duration">{new Date(video.uploaded_at).toLocaleDateString()}</p>
+  //   //             </div>
+  //   //           </div>
+  //   //         </div>
+  //   //       ))}
+  //   //     </div>
+  //   //   </div>
+  //   // );
+    
+  // };
+
   const renderVideos = () => {
-    const videos = getVideosForLevel(selectedLevel);
+    const videos = getVideosForLevel(selectedLevel); // <-- you were missing this
+  
     return (
       <div className="container">
         <div className="row">
           {videos.map((video) => (
             <div key={video.id} className="col-lg-4 col-md-6 mb-4">
-              <div className="video-card" onClick={() => openPopup(video.public_url)}>
-                <div className="video-thumbnail">
-                  <img className='obj_fit' src={videoImg} alt={video.title} />
+              <div className="video-card">
+                <div className="video-thumbnail" style={{ position: "relative" }}>
+                  {!videoUrl || videoUrl !== video.public_url ? (
+                    <>
+                      <img className="obj_fit" src={videoImg} alt={video.title} />
+                      <button
+                        onClick={() => setVideoUrl(video.public_url)}
+                        className="play-button-overlay"
+                      >
+                        ▶
+                      </button>
+                    </>
+                  ) : (
+                    <video controls autoPlay className="w-100 rounded">
+                      <source src={video.public_url} type="video/mp4" />
+                    </video>
+                  )}
                 </div>
                 <div className="video-info">
                   <h5 className="video-title">{video.title}</h5>
@@ -424,7 +463,7 @@ const ValourAcademy = () => {
       </div>
     );
   };
-
+  
   return (
     <div className="valour-container">
       <div className="valour-header">
