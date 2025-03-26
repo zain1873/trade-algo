@@ -681,7 +681,13 @@ const ValourAcademy = () => {
   };
 
   const renderNotes = () => {
-    const filteredNotes = notes.filter(note => note.course_level.level.toLowerCase() === selectedLevel);
+    const filteredNotes = notes.filter(
+      (note) =>
+        note.course_level &&
+        note.course_level.level &&
+        note.course_level.level.toLowerCase() === selectedLevel
+    );
+    
     return (
       <div className="container">
         <div className="row">
