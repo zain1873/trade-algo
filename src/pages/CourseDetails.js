@@ -237,6 +237,8 @@
 
 // export default ValourAcademy;
 
+
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
@@ -363,6 +365,26 @@ const ValourAcademy = () => {
     );
   };
 
+  const renderNotes = () => (
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12 text-white">
+          <p>This section will display course-related notes for the selected level.</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderKnowledge = () => (
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12 text-white">
+          <p>This section will display MCQs or quizzes for the selected level.</p>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="valour-container">
       <div className="valour-header">
@@ -418,11 +440,42 @@ const ValourAcademy = () => {
                 <div className="accordion-content">{renderVideos()}</div>
               )}
             </div>
+
+            <div className={`accordion-item ${activeSection === 'notes' ? 'active' : ''}`}>
+              <div className="accordion-header" onClick={() => toggleSection('notes')}>
+                <div className="accordion-title">
+                  <FaFileAlt className="accordion-icon resources" />
+                  <span>Notes</span>
+                </div>
+                <i className={`arrow-icon ${activeSection === 'notes' ? 'up' : 'down'}`}></i>
+              </div>
+              {activeSection === 'notes' && (
+                <div className="accordion-content">{renderNotes()}</div>
+              )}
+            </div>
+
+            <div className={`accordion-item ${activeSection === 'knowledge' ? 'active' : ''}`}>
+              <div className="accordion-header" onClick={() => toggleSection('knowledge')}>
+                <div className="accordion-title">
+                  <FaLightbulb className="accordion-icon resources" />
+                  <span>Knowledge</span>
+                </div>
+                <i className={`arrow-icon ${activeSection === 'knowledge' ? 'up' : 'down'}`}></i>
+              </div>
+              {activeSection === 'knowledge' && (
+                <div className="accordion-content">{renderKnowledge()}</div>
+              )}
+            </div>
+          </div>
+
+          <div className="navigation-controls">
+            <button className="prev-btn" disabled>Previous Lesson</button>
+            <button className="next-btn">Next Lesson <i className="arrow-right"></i></button>
           </div>
         </div>
       </div>
     </div>
-  );
+  );s
 };
 
 export default ValourAcademy;
