@@ -294,11 +294,11 @@ const Navbar = () => {
               Products
             </a>
           </li>
-          <li>
+          {/* <li>
             <a id="more" href="/more">
               More
             </a>
-          </li>
+          </li> */}
         </ul>
 
         <div className="search-box">

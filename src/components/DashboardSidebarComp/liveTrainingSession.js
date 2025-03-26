@@ -7,7 +7,7 @@ function LiveTrainingSession() {
   const [isLocked, setIsLocked] = useState(true); // Lock state
 
   return (
-    <section className="live-trading-sessions">
+    <section className="live-trading-sessions pt-0">
       <div className="container">
         <div className="row">
           <div className="sec_heading">

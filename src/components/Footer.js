@@ -58,12 +58,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Social Media Icons */}
-      <div className="footer-social">
-        {/* <a href="https://twitter.com/tradealgo_" target="_blank" rel="noopener noreferrer" className="social-icon twitter">
-          Twitter
-        </a> */}
-      </div>
+  
     </footer>
   );
 };

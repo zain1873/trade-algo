@@ -22,6 +22,38 @@
   color: #ddd !important;
 }
 
+.mentorship-banner {
+  background-image: url(../images/mentorship-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+    padding: 20px;
+}
+.mentorship-content {
+  margin-top: 10px;
+}
+.pricing-card {
+  border: 1px solid #ccc;
+  padding: 16px 12px;
+  margin-top: 20px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+.pricing-card:hover {
+  border-color: var(--theme-color);
+}
+.pricing-card .theme_btn {
+  min-height: 36px;
+  padding: 6px 14px;
+}
+.pricing-card a {
+  text-decoration: none;
+  color:#fff;
+}
   
   /* Custom styling for the navigation tabs */
   .nav-tabs {

@@ -7,7 +7,7 @@ const WealthSeries = ({ darkMode }) => {
       <div className={`container mt-4 wealth-container pt-0 ${darkMode ? "dark-mode" : ""}`}>
         <h2 className="text-center title-wealth mb-5">Wealth Management Series</h2>
 
-        <div className="row">
+        <div className="row justify-content-center">
           {/* Diamond Alerts Section */}
           <div className="col-lg-4">
             <div className="wealth-card">
@@ -19,7 +19,7 @@ const WealthSeries = ({ darkMode }) => {
                 opportunities. Our AI-powered analytics ensure maximum profitability 
                 with precise risk management.
               </p>
-              <a className="theme_btn" href="">
+              <a className="theme_btn" href="/contact">
                 Learn More
               </a>
             </div>
@@ -36,7 +36,7 @@ const WealthSeries = ({ darkMode }) => {
                 to top-tier market strategies, this fund is designed for wealth preservation 
                 and expansion.
               </p>
-              <a className="theme_btn" href="">
+              <a className="theme_btn" href="/contact">
                 Learn More
               </a>
             </div>
