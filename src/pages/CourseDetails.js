@@ -681,18 +681,11 @@ const ValourAcademy = () => {
   };
 
   const renderNotes = () => {
-    const filteredNotes = notes.filter(
-      (note) =>
-        note.course_level &&
-        note.course_level.level &&
-        note.course_level.level.toLowerCase() === selectedLevel
-    );
-    
     return (
       <div className="container">
         <div className="row">
-          {filteredNotes.length > 0 ? (
-            filteredNotes.map((note) => (
+          {notes.length > 0 ? (
+            notes.map((note) => (
               <div key={note.id} className="col-md-6 text-white mb-3">
                 <div className="note-card p-3 bg-dark rounded">
                   <h5>{note.title}</h5>
@@ -709,6 +702,7 @@ const ValourAcademy = () => {
       </div>
     );
   };
+  
 
   return (
     <div className="valour-container">
