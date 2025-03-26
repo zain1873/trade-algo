@@ -475,7 +475,7 @@ const ValourAcademy = () => {
         </div>
       </div>
     </div>
-  );s
+  );
 };
 
 export default ValourAcademy;
