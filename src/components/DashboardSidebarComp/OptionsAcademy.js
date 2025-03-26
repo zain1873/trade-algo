@@ -128,7 +128,8 @@ const OptionsAcademy = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const token = localStorage.getItem("access_token"); // Ensure this exists!
+        const token = localStorage.getItem("accessToken");
+
   
         if (!token) {
           throw new Error("No access token found in localStorage");
