@@ -89,10 +89,50 @@ const OptionsAcademy = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const fetchCourses = async () => {
+  //     try {
+  //       const token = localStorage.getItem("access_token"); // adjust this key as per your auth setup
+  
+  //       const res = await fetch("https://valourwealthdjango-production.up.railway.app/courses/", {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
+  
+  //       if (!res.ok) {
+  //         throw new Error(`HTTP error! status: ${res.status}`);
+  //       }
+  
+  //       const data = await res.json();
+  
+  //       // validate that data is an array
+  //       if (!Array.isArray(data)) {
+  //         throw new Error("Invalid data format received.");
+  //       }
+  
+  //       setCourses(data);
+  //     } catch (error) {
+  //       console.error("Failed to fetch courses:", error);
+  //       setCourses([]); // fallback to empty to avoid .map crash
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  
+  //   fetchCourses();
+  // }, []);
+  
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const token = localStorage.getItem("access_token"); // adjust this key as per your auth setup
+        const token = localStorage.getItem("access_token"); // Ensure this exists!
+  
+        if (!token) {
+          throw new Error("No access token found in localStorage");
+        }
   
         const res = await fetch("https://valourwealthdjango-production.up.railway.app/courses/", {
           headers: {
@@ -107,7 +147,6 @@ const OptionsAcademy = () => {
   
         const data = await res.json();
   
-        // validate that data is an array
         if (!Array.isArray(data)) {
           throw new Error("Invalid data format received.");
         }
@@ -115,7 +154,7 @@ const OptionsAcademy = () => {
         setCourses(data);
       } catch (error) {
         console.error("Failed to fetch courses:", error);
-        setCourses([]); // fallback to empty to avoid .map crash
+        setCourses([]);
       } finally {
         setLoading(false);
       }
