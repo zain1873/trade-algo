@@ -602,7 +602,6 @@ const ValourAcademy = () => {
                 </div>
                 <div className="video-info">
                   <h5 className="video-title">{video.title}</h5>
-                  <p className="video-duration">{new Date(video.uploaded_at).toLocaleDateString()}</p>
                 </div>
               </div>
             </div>

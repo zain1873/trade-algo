@@ -144,7 +144,6 @@ const OptionsAcademy = () => {
             <div key={course.id} className={`col-md-3 mb-4 ${index !== 0 ? "blurred" : ""}`}>
               <div className="academy-card">
                 <div className="academy-card-content">
-                  <span className="academy-badge">{course.title}</span>
                   <h5 className="academy-title">{course.title}</h5>
                   <p className="academy-duration">{course.description?.slice(0, 60) ?? ""}</p>
                 </div>
