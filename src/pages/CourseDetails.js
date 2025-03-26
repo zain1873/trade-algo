@@ -591,20 +591,36 @@ const ValourAcademy = () => {
     const fetchNotes = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/notes/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+  
+        // Get level object by matching selectedLevel name
+        const levelObj = courseData?.levels.find(
+          (lvl) => lvl.level.toLowerCase() === selectedLevel
+        );
+  
+        if (!levelObj) return;
+  
+        const res = await fetch(
+          `https://valourwealthdjango-production.up.railway.app/courses/${courseId}/levels/${levelObj.id}/notes/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+  
         const data = await res.json();
         setNotes(data);
       } catch (err) {
         console.error("Failed to fetch notes:", err);
       }
     };
-    fetchNotes();
-  }, [courseId, selectedLevel]);
+  
+    if (courseData) {
+      fetchNotes();
+    }
+  }, [courseId, selectedLevel, courseData]);
+  
 
   const getVideosForLevel = (levelName) => {
     if (!courseData) return [];
