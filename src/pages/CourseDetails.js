@@ -1289,6 +1289,7 @@
 //     </div>
 //   );
 
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
@@ -1398,6 +1399,81 @@ const ValourAcademy = () => {
     const correct = mcqs.filter(q => userAnswers[q.id] === q.correct_answer).length;
     const percent = Math.round((correct / total) * 100);
     setGrade(percent);
+  };
+
+  const renderVideos = () => {
+    const videos = getVideosForLevel(selectedLevel);
+    return (
+      <div className="container">
+        <div className="row">
+          {videos.map((video, index) => {
+            const isUnlocked = index === 0 || videoWatched.includes(videos[index - 1]?.id);
+            return (
+              <div key={video.id} className="col-lg-4 col-md-6 mb-4">
+                <div className="video-card">
+                  <div className="video-thumbnail" style={{ position: "relative" }}>
+                    {!isUnlocked ? (
+                      <>
+                        <img className="obj_fit" src={videoImg} alt="locked" style={{ filter: "blur(2px)" }} />
+                        <div className="locked-overlay"><FaLock size={24} color="white" /></div>
+                      </>
+                    ) : (
+                      !videoUrl || videoUrl !== video.public_url ? (
+                        <>
+                          <img className="obj_fit" src={videoImg} alt={video.title} />
+                          <button
+                            onClick={() => setVideoUrl(video.public_url)}
+                            className="play-button-overlay"
+                          >
+                            ▶
+                          </button>
+                        </>
+                      ) : (
+                        <video
+                          controls
+                          autoPlay
+                          className="w-100 rounded"
+                          controlsList="nodownload"
+                          onContextMenu={(e) => e.preventDefault()}
+                        >
+                          <source src={video.public_url} type="video/mp4" />
+                        </video>
+                      )
+                    )}
+                  </div>
+                  <div className="video-info">
+                    <h5 className="video-title">{video.title}</h5>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const renderNotes = () => {
+    return (
+      <div className="container">
+        <div className="row">
+          {notes.length > 0 ? (
+            notes.map((note) => (
+              <div key={note.id} className="col-md-6 text-white mb-3">
+                <div className="note-card p-3 bg-dark rounded">
+                  <h5>{note.title}</h5>
+                  <p>{note.content}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-12 text-white">
+              <p>No notes found for this level.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
   };
 
   const renderKnowledge = () => (
