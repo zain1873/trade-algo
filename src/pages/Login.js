@@ -220,18 +220,7 @@ function Login() {
           </button>
         </form>
 
-        <p className="or-text">Or login with</p>
-        <div className="social-login">
-          <button className="google">
-            <i className="fab fa-google"></i>
-          </button>
-          <button className="microsoft">
-            <i className="fab fa-microsoft"></i>
-          </button>
-          <button className="apple">
-            <i className="fab fa-apple"></i>
-          </button>
-        </div>
+
 
         <Link to="/" className="back-home">
           Back to Home

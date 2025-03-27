@@ -1522,7 +1522,6 @@ const ValourAcademy = () => {
       <div className="valour-header">
         <div className="header-brand">Valour Academy</div>
         <div className="header-login">
-          <button className="theme_btn">Username</button>
         </div>
       </div>
       <div className="valour-main">
