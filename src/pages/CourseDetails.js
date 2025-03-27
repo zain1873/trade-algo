@@ -924,6 +924,72 @@ const ValourAcademy = () => {
     setGrade(percent);
   };
 
+  const renderVideos = () => {
+    const videos = courseData?.levels.find(l => l.level.toLowerCase() === selectedLevel)?.videos || [];
+    return (
+      <div className="container">
+        <div className="row">
+          {videos.map((video, index) => {
+            const isUnlocked = index === 0 || videoWatched.includes(videos[index - 1]?.id);
+            return (
+              <div key={video.id} className="col-lg-4 col-md-6 mb-4">
+                <div className="video-card">
+                  <div className="video-thumbnail" style={{ position: "relative" }}>
+                    {!isUnlocked ? (
+                      <>
+                        <img className="obj_fit" src={videoImg} alt="locked" style={{ filter: "blur(2px)" }} />
+                        <div className="locked-overlay"><FaLock size={24} color="white" /></div>
+                      </>
+                    ) : (
+                      !videoUrl || videoUrl !== video.public_url ? (
+                        <>
+                          <img className="obj_fit" src={videoImg} alt={video.title} />
+                          <button onClick={() => setVideoUrl(video.public_url)} className="play-button-overlay">▶</button>
+                        </>
+                      ) : (
+                        <video
+                          controls
+                          autoPlay
+                          className="w-100 rounded"
+                          controlsList="nodownload"
+                          onContextMenu={(e) => e.preventDefault()}
+                        >
+                          <source src={video.public_url} type="video/mp4" />
+                        </video>
+                      )
+                    )}
+                  </div>
+                  <div className="video-info">
+                    <h5 className="video-title">{video.title}</h5>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const renderNotes = () => (
+    <div className="container">
+      <div className="row">
+        {notes.length > 0 ? notes.map((note) => (
+          <div key={note.id} className="col-md-6 text-white mb-3">
+            <div className="note-card p-3 bg-dark rounded">
+              <h5>{note.title}</h5>
+              <p>{note.content}</p>
+            </div>
+          </div>
+        )) : (
+          <div className="col-12 text-white">
+            <p>No notes found for this level.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   const renderKnowledge = () => (
     <div className="container">
       <div className="row">
@@ -936,7 +1002,7 @@ const ValourAcademy = () => {
             {mcqs.map((q) => (
               <div key={q.id} className="mb-4 p-3 bg-dark rounded">
                 <h5>{q.question}</h5>
-                {(q.options || []).map((opt, idx) => (
+                {q.options?.map((opt, idx) => (
                   <div key={idx}>
                     <input
                       type="radio"
@@ -967,17 +1033,22 @@ const ValourAcademy = () => {
           <button className="theme_btn">Username</button>
         </div>
       </div>
-
       <div className="valour-main">
         <div className="valour-sidebar">
           <div className="sidebar-section">
             <div className="sidebar-heading">COURSE LEVELS</div>
-            <div className={`sidebar-item ${selectedLevel === 'beginner' ? 'active' : ''}`} onClick={() => setSelectedLevel('beginner')}><span>Beginner</span></div>
-            <div className={`sidebar-item ${selectedLevel === 'intermediate' ? 'active' : ''}`} onClick={() => setSelectedLevel('intermediate')}><span>Intermediate</span></div>
-            <div className={`sidebar-item ${selectedLevel === 'professional' ? 'active' : ''}`} onClick={() => setSelectedLevel('professional')}><span>Professional</span></div>
+            {['beginner', 'intermediate', 'professional'].map(level => (
+              <div
+                key={level}
+                className={`sidebar-item ${selectedLevel === level ? 'active' : ''}`}
+                onClick={() => setSelectedLevel(level)}
+              >
+                <span>{level.charAt(0).toUpperCase() + level.slice(1)}</span>
+                <i className={`arrow-icon ${selectedLevel === level ? 'down' : 'right'}`}></i>
+              </div>
+            ))}
           </div>
         </div>
-
         <div className="valour-content p-0">
           {courseData && (
             <div className='main_module'>
@@ -991,7 +1062,7 @@ const ValourAcademy = () => {
               <div className="content-info">
                 <div className="lesson-count">
                   <FaBookReader className="accordion-icon resources" />
-                  <span>{courseData.levels.find(l => l.level.toLowerCase() === selectedLevel)?.videos.length || 0} Lessons</span>
+                  <span>{getVideosForLevel(selectedLevel).length} Lessons</span>
                 </div>
                 <div className="level-badge">
                   <FaSignal className="accordion-icon resources" />
@@ -1000,19 +1071,27 @@ const ValourAcademy = () => {
               </div>
             </div>
           )}
-
           <div className="accordion-container">
-            <div className={`accordion-item ${activeSection === 'knowledge' ? 'active' : ''}`}>
-              <div className="accordion-header" onClick={() => toggleSection('knowledge')}>
-                <div className="accordion-title">
-                  <FaLightbulb className="accordion-icon resources" />
-                  <span>Knowledge</span>
+            {['resources', 'notes', 'knowledge'].map((section, idx) => (
+              <div key={section} className={`accordion-item ${activeSection === section ? 'active' : ''}`}>
+                <div className="accordion-header" onClick={() => toggleSection(section)}>
+                  <div className="accordion-title">
+                    {section === 'resources' && <FaBookOpen className="accordion-icon resources" />}
+                    {section === 'notes' && <FaFileAlt className="accordion-icon resources" />}
+                    {section === 'knowledge' && <FaLightbulb className="accordion-icon resources" />}
+                    <span>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
+                  </div>
+                  <i className={`arrow-icon ${activeSection === section ? 'up' : 'down'}`}></i>
                 </div>
+                {activeSection === section && (
+                  <div className="accordion-content">
+                    {section === 'resources' && renderVideos()}
+                    {section === 'notes' && renderNotes()}
+                    {section === 'knowledge' && renderKnowledge()}
+                  </div>
+                )}
               </div>
-              {activeSection === 'knowledge' && (
-                <div className="accordion-content">{renderKnowledge()}</div>
-              )}
-            </div>
+            ))}
           </div>
         </div>
       </div>
