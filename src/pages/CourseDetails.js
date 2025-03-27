@@ -296,6 +296,9 @@
 
 // export default ValourAcademy;
 
+
+
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
@@ -406,23 +409,15 @@ const ValourAcademy = () => {
     const percent = Math.round((correct / total) * 100);
     setGrade(percent);
   };
+
   const renderVideos = () => {
     const videos = getVideosForLevel(selectedLevel);
-  
-    const handleVideoEnd = (videoId) => {
-      if (!videoWatched.includes(videoId)) {
-        const updatedWatched = [...videoWatched, videoId];
-        setVideoWatched(updatedWatched);
-        // Optionally, send progress to backend:
-        // saveProgressToBackend(videoId);
-      }
-    };
-  
     return (
       <div className="container">
         <div className="row">
           {videos.map((video, index) => {
             const isUnlocked = index === 0 || videoWatched.includes(videos[index - 1]?.id);
+            const isWatched = videoWatched.includes(video.id);
             return (
               <div key={video.id} className="col-lg-4 col-md-6 mb-4">
                 <div className="video-card">
@@ -437,7 +432,10 @@ const ValourAcademy = () => {
                         <>
                           <img className="obj_fit" src={videoImg} alt={video.title} />
                           <button
-                            onClick={() => setVideoUrl(video.public_url)}
+                            onClick={() => {
+                              setVideoUrl(video.public_url);
+                              markVideoAsWatched(video.id);
+                            }}
                             className="play-button-overlay"
                           >
                             ▶
@@ -450,7 +448,7 @@ const ValourAcademy = () => {
                           className="w-100 rounded"
                           controlsList="nodownload"
                           onContextMenu={(e) => e.preventDefault()}
-                          onEnded={() => handleVideoEnd(video.id)}
+                          onEnded={() => markVideoAsWatched(video.id)}
                         >
                           <source src={video.public_url} type="video/mp4" />
                         </video>
@@ -468,7 +466,6 @@ const ValourAcademy = () => {
       </div>
     );
   };
-  
   const renderNotes = () => {
     return (
       <div className="container">
@@ -603,3 +600,6 @@ const ValourAcademy = () => {
 };
 
 export default ValourAcademy;
+
+
+
