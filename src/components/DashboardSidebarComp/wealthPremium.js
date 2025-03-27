@@ -3,9 +3,7 @@ import WealthSeries from "./WealthSeries";
 
 function wealthPremium() {
   return <div className="container">
-    
     <WealthSeries />
-
   </div>;
 }
 

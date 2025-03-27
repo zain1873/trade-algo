@@ -36,11 +36,12 @@ function EditProfile() {
                   <div className="mb-3 edit-form">
                     <label htmlFor="password" className="form-label">Password</label>
                     <div className="d-flex gap-3 align-items-start">
-                      <div className="input-group">
-                        <input 
+                    <div className="input-group">
+                    <input 
                           type={showPassword ? "text" : "password"} 
                           className="form-input" 
                           id="password" 
+                          style={{ borderRadius: "0px", overflow: "hidden" }}
                         />
                       </div>
                       <button className="theme_btn text-white">Update Password</button>

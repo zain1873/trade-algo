@@ -48,7 +48,6 @@ function App() {
         <Route path="/our-analyst" element={<Layout> <OurAnalyst/> </Layout>} />
         <Route path="/our-products" element={<Layout> <Products/> </Layout>} />
         <Route path="/request-a-demo" element={<Layout> <RequestDemo/> </Layout>} />
-
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy/>} />

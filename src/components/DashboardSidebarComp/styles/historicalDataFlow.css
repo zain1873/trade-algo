@@ -1,5 +1,42 @@
 /* Container styling */
 
+.trend-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; 
+  width: 100%;
+  justify-content: end;
+  margin-top: -60px;
+}
+
+.up-icon {
+  color: #423d3d;
+  font-size: 36px;
+  cursor: pointer;
+  background: var(--theme-color);
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.down-icon {
+  color: #423d3d;
+  font-size: 36px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #ccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+
+
   
   /* Tabs Styling */
   .nav-tabs .nav-link {
