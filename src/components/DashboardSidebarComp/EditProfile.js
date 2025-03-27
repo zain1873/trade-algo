@@ -93,77 +93,85 @@
 
 // export default EditProfile;
 
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function EditProfile() {
+const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
+  ? process.env.REACT_APP_API_URL
+  : process.env.REACT_APP_API_URL + "/";
+
+const USER_API_URL = `${API_BASE_URL}api/user/`;
+
+function EditProfile({ darkMode }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [profileData, setProfileData] = useState({
+  const [userData, setUserData] = useState(null);
+  const [formData, setFormData] = useState({
     username: '',
     password: '',
     first_name: '',
-    last_name: '',
     country: '',
-    state: '',
+    state: ''
   });
-
-  const navigate = useNavigate();
+  const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem("accessToken");
-      const res = await fetch(`https://valourwealthdjango-production.up.railway.app/api/user`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data = await res.json();
-      setProfileData(data);
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(USER_API_URL, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setUserData(response.data);
+        setFormData({
+          username: response.data.username || '',
+          password: '',
+          first_name: response.data.first_name || '',
+          country: response.data.country || '',
+          state: response.data.state || ''
+        });
+      } catch (error) {
+        console.error("Failed to fetch user profile:", error);
+      }
     };
 
-    fetchProfile();
-  }, []);
+    fetchUserData();
+  }, [accessToken]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setProfileData((prev) => ({ ...prev, [id]: value }));
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
   const handleUpdate = async () => {
-    const token = localStorage.getItem("accessToken");
-    const formData = new FormData();
-    for (const key in profileData) {
-      if (profileData[key]) {
-        formData.append(key, profileData[key]);
-      }
-    }
-    const res = await fetch(`https://valourwealthdjango-production.up.railway.app/api/user`, {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    });
-    if (res.ok) {
-      alert("Profile updated successfully");
-    } else {
-      alert("Failed to update profile");
+    try {
+      const payload = { ...formData };
+      if (!payload.password) delete payload.password;
+      const response = await axios.put(USER_API_URL, payload, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      alert("Profile updated successfully.");
+    } catch (error) {
+      console.error("Failed to update profile:", error);
+      alert("Failed to update profile.");
     }
   };
 
   const handleDelete = async () => {
-    const token = localStorage.getItem("accessToken");
-    const res = await fetch(`https://valourwealthdjango-production.up.railway.app/api/user`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (res.ok) {
-      localStorage.clear();
-      navigate("/login");
-    } else {
-      alert("Failed to delete account");
+    try {
+      await axios.delete(USER_API_URL, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      alert("Account deleted.");
+      localStorage.removeItem("accessToken");
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Failed to delete account:", error);
+      alert("Failed to delete account.");
     }
   };
 
@@ -175,66 +183,37 @@ function EditProfile() {
             <div className="card shadow-sm">
               <div className="card-body p-4">
                 <h4 className="mb-4">Profile Settings</h4>
+
                 <div className="mb-5">
-                  <h5 className="text-muted mb-3">Publicly displayed information</h5>
+                  <h5 className="text-muted mb-3">Publicly displayed information (This information will be displayed in chat rooms)</h5>
                   <div className="mb-3 edit-form">
                     <label htmlFor="username" className="form-label">Chat Username</label>
                     <div className="d-flex gap-3 align-items-start">
-                      <input 
-                        type="text" 
-                        className="form-input" 
-                        id="username" 
-                        value={profileData.username}
-                        onChange={handleChange}
-                      />
+                      <input type="text" className="form-input" id="username" value={formData.username} onChange={handleChange} />
                       <button className="theme_btn text-white" onClick={handleUpdate}>Update Username</button>
                     </div>
                   </div>
                 </div>
+
                 <div>
-                  <h5 className="text-muted mb-3">Private Information</h5>
+                  <h5 className="text-muted mb-3">The information will not be publicly displayed</h5>
+
                   <div className="mb-3 edit-form">
                     <label htmlFor="password" className="form-label">Password</label>
                     <div className="d-flex gap-3 align-items-start">
-                      <div className="input-group">
-                        <input 
-                          type={showPassword ? "text" : "password"} 
-                          className="form-input" 
-                          id="password"
-                          value={profileData.password || ''}
-                          onChange={handleChange}
-                        />
-                      </div>
+                      <input type={showPassword ? "text" : "password"} className="form-input" id="password" value={formData.password} onChange={handleChange} />
                       <button className="theme_btn text-white" onClick={handleUpdate}>Update Password</button>
                     </div>
                   </div>
 
                   <div className="mb-3">
-                    <label htmlFor="first_name" className="form-label">First Name</label>
-                    <input 
-                      type="text" 
-                      className="form-input" 
-                      id="first_name" 
-                      value={profileData.first_name || ''}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="last_name" className="form-label">Last Name</label>
-                    <input 
-                      type="text" 
-                      className="form-input" 
-                      id="last_name" 
-                      value={profileData.last_name || ''}
-                      onChange={handleChange}
-                    />
+                    <label htmlFor="first_name" className="form-label">Name</label>
+                    <input type="text" className="form-input" id="first_name" value={formData.first_name} onChange={handleChange} />
                   </div>
 
                   <div className="mb-3">
                     <label htmlFor="country" className="form-label">Country</label>
-                    <select className="form-input" id="country" value={profileData.country} onChange={handleChange}>
-                      <option value="">Select Country</option>
+                    <select className="form-input" id="country" value={formData.country} onChange={handleChange}>
                       <option value="United Kingdom">United Kingdom</option>
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
@@ -244,8 +223,7 @@ function EditProfile() {
 
                   <div className="mb-4">
                     <label htmlFor="state" className="form-label">State</label>
-                    <select className="form-input" id="state" value={profileData.state} onChange={handleChange}>
-                      <option value="">Select State</option>
+                    <select className="form-input" id="state" value={formData.state} onChange={handleChange}>
                       <option value="Greater London">Greater London</option>
                       <option value="Manchester">Manchester</option>
                       <option value="Birmingham">Birmingham</option>
@@ -257,8 +235,8 @@ function EditProfile() {
                     <button className="theme_btn text-white" onClick={handleUpdate}>Update Profile</button>
                     <button className="btn btn-danger" onClick={handleDelete}>DELETE ACCOUNT</button>
                   </div>
-
                 </div>
+
               </div>
             </div>
           </div>

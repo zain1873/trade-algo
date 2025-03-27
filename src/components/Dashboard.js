@@ -60,8 +60,8 @@ const Dashboard = () => {
   const accessToken = localStorage.getItem("accessToken");
 
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
-  ? process.env.REACT_APP_API_URL
-  : process.env.REACT_APP_API_URL + "/";
+    ? process.env.REACT_APP_API_URL
+    : process.env.REACT_APP_API_URL + "/";
 
   const USER_API_URL = `${API_BASE_URL}api/user/`;
   
@@ -102,6 +102,7 @@ const Dashboard = () => {
       document.documentElement.style.setProperty("--border-color", "#dddddd"); // Light borders
     }
 
+    
     if (!accessToken) {
       setError("You need to be logged in to view this data.");
       return;
@@ -114,7 +115,6 @@ const Dashboard = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        console.log("User data response:", response.data);
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -128,9 +128,8 @@ const Dashboard = () => {
     };
 
     fetchUserData();
-
-
   }, [darkMode, accessToken]);
+
 
   // Responsive behavior: auto-collapse sidebar on smaller screens
   useEffect(() => {
@@ -449,7 +448,7 @@ const Dashboard = () => {
                   height="40"
                 />
                 <div className="username_data">
-                  <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>{userData ? userData.username : 'NUll'}</h5>
+                <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>{userData?.username || 'Null'}</h5>
                 </div>
 
                 {/* Dropdown Menu */}
