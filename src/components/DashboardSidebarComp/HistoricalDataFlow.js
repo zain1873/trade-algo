@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
+import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
@@ -43,6 +44,14 @@ const HistoricalDataFlow = ({ darkMode }) => {
             Small Caps
           </button>
         </li>
+
+        {/* trend icons */}
+      <span className="trend-icons">
+      <FaArrowTrendUp className="up-icon" />
+      <FaArrowTrendDown className="down-icon" />
+    </span>
+
+
       </ul>
 
       {/* Table */}
