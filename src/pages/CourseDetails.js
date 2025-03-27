@@ -629,7 +629,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
-import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal } from "react-icons/fa";
+import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal, FaLock } from "react-icons/fa";
 import videoImg from '../assets/images/crypto-latest.png';
 import ProgressBarsDisplay from '../components/DashboardSidebarComp/ProgressBar';
 
@@ -720,6 +720,23 @@ const ValourAcademy = () => {
     if (courseData) fetchMCQs();
   }, [courseId, selectedLevel, courseData]);
 
+  const getVideosForLevel = (levelName) => {
+    if (!courseData) return [];
+    const level = courseData.levels.find((lvl) => lvl.level.toLowerCase() === levelName);
+    return level ? level.videos : [];
+  };
+
+  const handleAnswer = (questionId, answer) => {
+    setUserAnswers((prev) => ({ ...prev, [questionId]: answer }));
+  };
+
+  const submitQuiz = () => {
+    const total = mcqs.length;
+    const correct = mcqs.filter(q => userAnswers[q.id] === q.correct_answer).length;
+    const percent = Math.round((correct / total) * 100);
+    setGrade(percent);
+  };
+
   const renderVideos = () => {
     const videos = courseData?.levels.find(lvl => lvl.level.toLowerCase() === selectedLevel)?.videos || [];
     return (
@@ -761,6 +778,72 @@ const ValourAcademy = () => {
       </div>
     );
   };
+
+
+  const renderNotes = () => {
+    return (
+      <div className="container">
+        <div className="row">
+          {notes.length > 0 ? (
+            notes.map((note) => (
+              <div key={note.id} className="col-md-6 text-white mb-3">
+                <div className="note-card p-3 bg-dark rounded">
+                  <h5>{note.title}</h5>
+                  <p>{note.content}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-12 text-white">
+              <p>No notes found for this level.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const renderKnowledge = () => (
+    <div className="container">
+      <div className="row">
+        {mcqs.length === 0 ? (
+          <div className="col-12 text-white">
+            <p>No quiz available for this level.</p>
+          </div>
+        ) : (
+          <div className="col-12 text-white">
+            {mcqs.map((q) => (
+              <div key={q.id} className="mb-4 p-3 bg-dark rounded">
+                <h5>{q.question}</h5>
+                {[q.option_a, q.option_b, q.option_c, q.option_d].map((opt, idx) => {
+                  const optionKey = ['A', 'B', 'C', 'D'][idx];
+                  return (
+                    <div key={optionKey} className="form-check">
+                      <input
+                        type="radio"
+                        className="form-check-input"
+                        name={`question-${q.id}`}
+                        id={`question-${q.id}-option-${optionKey}`}
+                        value={optionKey}
+                        checked={userAnswers[q.id] === optionKey}
+                        onChange={() => handleAnswer(q.id, optionKey)}
+                      />
+                      <label className="form-check-label" htmlFor={`question-${q.id}-option-${optionKey}`}>{opt}</label>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+            <button className="btn btn-success" onClick={submitQuiz}>Submit Quiz</button>
+            {grade !== null && (
+              <p className="mt-3">You scored: <strong>{grade}%</strong>. {grade >= 50 ? 'You can proceed to the next level!' : 'Please retake the quiz.'}</p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className="valour-container">
       <div className="valour-header">
