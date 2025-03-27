@@ -959,7 +959,65 @@ const ValourAcademy = () => {
     </div>
   );
 
-  return null; // Placeholder - full JSX UI should be placed here
+  return (
+    <div className="valour-container">
+      <div className="valour-header">
+        <div className="header-brand">Valour Academy</div>
+        <div className="header-login">
+          <button className="theme_btn">Username</button>
+        </div>
+      </div>
+
+      <div className="valour-main">
+        <div className="valour-sidebar">
+          <div className="sidebar-section">
+            <div className="sidebar-heading">COURSE LEVELS</div>
+            <div className={`sidebar-item ${selectedLevel === 'beginner' ? 'active' : ''}`} onClick={() => setSelectedLevel('beginner')}><span>Beginner</span></div>
+            <div className={`sidebar-item ${selectedLevel === 'intermediate' ? 'active' : ''}`} onClick={() => setSelectedLevel('intermediate')}><span>Intermediate</span></div>
+            <div className={`sidebar-item ${selectedLevel === 'professional' ? 'active' : ''}`} onClick={() => setSelectedLevel('professional')}><span>Professional</span></div>
+          </div>
+        </div>
+
+        <div className="valour-content p-0">
+          {courseData && (
+            <div className='main_module'>
+              <div className="content-breadcrumb">
+                <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)}</span>
+                <span className="separator">›</span>
+                <span>Module 1</span>
+              </div>
+              <h1 className="content-title">{courseData.title}</h1>
+              <p className="content-description">{courseData.description}</p>
+              <div className="content-info">
+                <div className="lesson-count">
+                  <FaBookReader className="accordion-icon resources" />
+                  <span>{courseData.levels.find(l => l.level.toLowerCase() === selectedLevel)?.videos.length || 0} Lessons</span>
+                </div>
+                <div className="level-badge">
+                  <FaSignal className="accordion-icon resources" />
+                  <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)} Level</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="accordion-container">
+            <div className={`accordion-item ${activeSection === 'knowledge' ? 'active' : ''}`}>
+              <div className="accordion-header" onClick={() => toggleSection('knowledge')}>
+                <div className="accordion-title">
+                  <FaLightbulb className="accordion-icon resources" />
+                  <span>Knowledge</span>
+                </div>
+              </div>
+              {activeSection === 'knowledge' && (
+                <div className="accordion-content">{renderKnowledge()}</div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ValourAcademy;
