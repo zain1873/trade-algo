@@ -1078,6 +1078,7 @@
 
 
 
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
@@ -1091,36 +1092,23 @@ const ValourAcademy = () => {
   const [selectedLevel, setSelectedLevel] = useState('beginner');
   const [videoUrl, setVideoUrl] = useState(null);
   const [courseData, setCourseData] = useState(null);
-  const [progressData, setProgressData] = useState({
-    totalProgress: 0,
-    levelProgress: 0,
-    videoProgress: 0,
-  });
+  const [progressData, setProgressData] = useState({ totalProgress: 0, levelProgress: 0, videoProgress: 0 });
   const [videoWatched, setVideoWatched] = useState([]);
   const [notes, setNotes] = useState([]);
   const [mcqs, setMcqs] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [grade, setGrade] = useState(null);
 
-  const toggleSection = (section) => {
-    setActiveSection(activeSection === section ? null : section);
-  };
+  const toggleSection = (section) => setActiveSection(activeSection === section ? null : section);
 
   useEffect(() => {
     const fetchCourseDetails = async () => {
-      try {
-        const token = localStorage.getItem("accessToken");
-        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setCourseData(data);
-      } catch (error) {
-        console.error("Error fetching course data:", error);
-      }
+      const token = localStorage.getItem("accessToken");
+      const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/`, {
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      setCourseData(data);
     };
     fetchCourseDetails();
   }, [courseId]);
@@ -1129,10 +1117,7 @@ const ValourAcademy = () => {
     const fetchProgress = async () => {
       const token = localStorage.getItem("accessToken");
       const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       });
       const data = await res.json();
       const currentLevel = data.levels.find(lvl => lvl.level.toLowerCase() === selectedLevel);
@@ -1143,55 +1128,35 @@ const ValourAcademy = () => {
       });
       setVideoWatched(currentLevel?.watched_video_ids || []);
     };
-    if (courseId) {
-      fetchProgress();
-    }
+    if (courseId) fetchProgress();
   }, [courseId, selectedLevel]);
 
   useEffect(() => {
     const fetchNotes = async () => {
-      try {
-        const token = localStorage.getItem("accessToken");
-        const levelObj = courseData?.levels.find((lvl) => lvl.level.toLowerCase() === selectedLevel);
-        if (!levelObj) return;
-        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/levels/${levelObj.id}/notes/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setNotes(data);
-      } catch (err) {
-        console.error("Failed to fetch notes:", err);
-      }
+      const token = localStorage.getItem("accessToken");
+      const levelObj = courseData?.levels.find(lvl => lvl.level.toLowerCase() === selectedLevel);
+      if (!levelObj) return;
+      const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/levels/${levelObj.id}/notes/`, {
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      setNotes(data);
     };
-    if (courseData) {
-      fetchNotes();
-    }
+    if (courseData) fetchNotes();
   }, [courseId, selectedLevel, courseData]);
 
   useEffect(() => {
     const fetchMCQs = async () => {
-      try {
-        const token = localStorage.getItem("accessToken");
-        const levelObj = courseData?.levels.find((lvl) => lvl.level.toLowerCase() === selectedLevel);
-        if (!levelObj) return;
-        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/levels/${levelObj.id}/mcqs/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setMcqs(data);
-      } catch (err) {
-        console.error("Failed to fetch MCQs:", err);
-      }
+      const token = localStorage.getItem("accessToken");
+      const levelObj = courseData?.levels.find(lvl => lvl.level.toLowerCase() === selectedLevel);
+      if (!levelObj) return;
+      const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/levels/${levelObj.id}/mcqs/`, {
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      setMcqs(data);
     };
-    if (courseData) {
-      fetchMCQs();
-    }
+    if (courseData) fetchMCQs();
   }, [courseId, selectedLevel, courseData]);
 
   const getVideosForLevel = (levelName) => {
@@ -1216,18 +1181,16 @@ const ValourAcademy = () => {
                         <img className="obj_fit" src={videoImg} alt="locked" style={{ filter: "blur(2px)" }} />
                         <div className="locked-overlay"><FaLock size={24} color="white" /></div>
                       </>
+                    ) : (!videoUrl || videoUrl !== video.public_url ? (
+                      <>
+                        <img className="obj_fit" src={videoImg} alt={video.title} />
+                        <button onClick={() => setVideoUrl(video.public_url)} className="play-button-overlay">▶</button>
+                      </>
                     ) : (
-                      !videoUrl || videoUrl !== video.public_url ? (
-                        <>
-                          <img className="obj_fit" src={videoImg} alt={video.title} />
-                          <button onClick={() => setVideoUrl(video.public_url)} className="play-button-overlay">▶</button>
-                        </>
-                      ) : (
-                        <video controls autoPlay className="w-100 rounded" controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
-                          <source src={video.public_url} type="video/mp4" />
-                        </video>
-                      )
-                    )}
+                      <video controls autoPlay className="w-100 rounded" controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
+                        <source src={video.public_url} type="video/mp4" />
+                      </video>
+                    ))}
                   </div>
                   <div className="video-info">
                     <h5 className="video-title">{video.title}</h5>
@@ -1244,16 +1207,14 @@ const ValourAcademy = () => {
   const renderNotes = () => (
     <div className="container">
       <div className="row">
-        {notes.length > 0 ? (
-          notes.map((note) => (
-            <div key={note.id} className="col-md-6 text-white mb-3">
-              <div className="note-card p-3 bg-dark rounded">
-                <h5>{note.title}</h5>
-                <p>{note.content}</p>
-              </div>
+        {notes.length > 0 ? notes.map((note) => (
+          <div key={note.id} className="col-md-6 text-white mb-3">
+            <div className="note-card p-3 bg-dark rounded">
+              <h5>{note.title}</h5>
+              <p>{note.content}</p>
             </div>
-          ))
-        ) : (
+          </div>
+        )) : (
           <div className="col-12 text-white">
             <p>No notes found for this level.</p>
           </div>
@@ -1263,7 +1224,7 @@ const ValourAcademy = () => {
   );
 
   const handleAnswer = (questionId, answer) => {
-    setUserAnswers({ ...userAnswers, [questionId]: answer });
+    setUserAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
   const submitQuiz = () => {
@@ -1285,15 +1246,18 @@ const ValourAcademy = () => {
             {mcqs.map((q) => (
               <div key={q.id} className="mb-4 p-3 bg-dark rounded">
                 <h5>{q.question}</h5>
-                {(q.options || []).map((opt, idx) => (
-                  <div key={idx}>
+                {q.options.map((opt, idx) => (
+                  <div key={idx} className="form-check">
                     <input
                       type="radio"
+                      className="form-check-input"
                       name={`question-${q.id}`}
+                      id={`question-${q.id}-option-${idx}`}
                       value={opt}
                       checked={userAnswers[q.id] === opt}
                       onChange={() => handleAnswer(q.id, opt)}
-                    /> {opt}
+                    />
+                    <label className="form-check-label" htmlFor={`question-${q.id}-option-${idx}`}>{opt}</label>
                   </div>
                 ))}
               </div>
@@ -1310,86 +1274,66 @@ const ValourAcademy = () => {
 
   return (
     <div className="valour-container">
-      <div className="valour-header">
-        <div className="header-brand">Valour Academy</div>
-        <div className="header-login">
-          <button className="theme_btn">Username</button>
-        </div>
-      </div>
-
-      <div className="valour-main">
-        <div className="valour-sidebar">
-          <div className="sidebar-section">
-            <div className="sidebar-heading">COURSE LEVELS</div>
-            <div className={`sidebar-item ${selectedLevel === 'beginner' ? 'active' : ''}`} onClick={() => setSelectedLevel('beginner')}><span>Beginner</span></div>
-            <div className={`sidebar-item ${selectedLevel === 'intermediate' ? 'active' : ''}`} onClick={() => setSelectedLevel('intermediate')}><span>Intermediate</span></div>
-            <div className={`sidebar-item ${selectedLevel === 'professional' ? 'active' : ''}`} onClick={() => setSelectedLevel('professional')}><span>Professional</span></div>
+      {courseData && (
+        <div className='main_module'>
+          <div className="content-breadcrumb">
+            <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)}</span>
+            <span className="separator">›</span>
+            <span>Module 1</span>
+          </div>
+          <h1 className="content-title">{courseData.title}</h1>
+          <p className="content-description">{courseData.description}</p>
+          <div className="content-info">
+            <div className="lesson-count">
+              <FaBookReader className="accordion-icon resources" />
+              <span>{getVideosForLevel(selectedLevel).length} Lessons</span>
+            </div>
+            <div className="level-badge">
+              <FaSignal className="accordion-icon resources" />
+              <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)} Level</span>
+            </div>
           </div>
         </div>
+      )}
 
-        <div className="valour-content p-0">
-          {courseData && (
-            <div className='main_module'>
-              <div className="content-breadcrumb">
-                <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)}</span>
-                <span className="separator">›</span>
-                <span>Module 1</span>
-              </div>
-              <h1 className="content-title">{courseData.title}</h1>
-              <p className="content-description">{courseData.description}</p>
-              <div className="content-info">
-                <div className="lesson-count">
-                  <FaBookReader className="accordion-icon resources" />
-                  <span>{getVideosForLevel(selectedLevel).length} Lessons</span>
-                </div>
-                <div className="level-badge">
-                  <FaSignal className="accordion-icon resources" />
-                  <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)} Level</span>
-                </div>
-              </div>
+      <div className="accordion-container">
+        <div className={`accordion-item ${activeSection === 'resources' ? 'active' : ''}`}>
+          <div className="accordion-header" onClick={() => toggleSection('resources')}>
+            <div className="accordion-title">
+              <FaBookOpen className="accordion-icon resources" />
+              <span>Resources</span>
             </div>
+            <i className={`arrow-icon ${activeSection === 'resources' ? 'up' : 'down'}`}></i>
+          </div>
+          {activeSection === 'resources' && (
+            <div className="accordion-content">{renderVideos()}</div>
           )}
+        </div>
 
-          <div className="accordion-container">
-            <div className={`accordion-item ${activeSection === 'resources' ? 'active' : ''}`}>
-              <div className="accordion-header" onClick={() => toggleSection('resources')}>
-                <div className="accordion-title">
-                  <FaBookOpen className="accordion-icon resources" />
-                  <span>Resources</span>
-                </div>
-                <i className={`arrow-icon ${activeSection === 'resources' ? 'up' : 'down'}`}></i>
-              </div>
-              {activeSection === 'resources' && (
-                <div className="accordion-content">{renderVideos()}</div>
-              )}
+        <div className={`accordion-item ${activeSection === 'notes' ? 'active' : ''}`}>
+          <div className="accordion-header" onClick={() => toggleSection('notes')}>
+            <div className="accordion-title">
+              <FaFileAlt className="accordion-icon resources" />
+              <span>Notes</span>
             </div>
-
-            <div className={`accordion-item ${activeSection === 'notes' ? 'active' : ''}`}>
-              <div className="accordion-header" onClick={() => toggleSection('notes')}>
-                <div className="accordion-title">
-                  <FaFileAlt className="accordion-icon resources" />
-                  <span>Notes</span>
-                </div>
-                <i className={`arrow-icon ${activeSection === 'notes' ? 'up' : 'down'}`}></i>
-              </div>
-              {activeSection === 'notes' && (
-                <div className="accordion-content">{renderNotes()}</div>
-              )}
-            </div>
-
-            <div className={`accordion-item ${activeSection === 'knowledge' ? 'active' : ''}`}>
-              <div className="accordion-header" onClick={() => toggleSection('knowledge')}>
-                <div className="accordion-title">
-                  <FaLightbulb className="accordion-icon resources" />
-                  <span>Knowledge</span>
-                </div>
-                <i className={`arrow-icon ${activeSection === 'knowledge' ? 'up' : 'down'}`}></i>
-              </div>
-              {activeSection === 'knowledge' && (
-                <div className="accordion-content">{renderKnowledge()}</div>
-              )}
-            </div>
+            <i className={`arrow-icon ${activeSection === 'notes' ? 'up' : 'down'}`}></i>
           </div>
+          {activeSection === 'notes' && (
+            <div className="accordion-content">{renderNotes()}</div>
+          )}
+        </div>
+
+        <div className={`accordion-item ${activeSection === 'knowledge' ? 'active' : ''}`}>
+          <div className="accordion-header" onClick={() => toggleSection('knowledge')}>
+            <div className="accordion-title">
+              <FaLightbulb className="accordion-icon resources" />
+              <span>Knowledge</span>
+            </div>
+            <i className={`arrow-icon ${activeSection === 'knowledge' ? 'up' : 'down'}`}></i>
+          </div>
+          {activeSection === 'knowledge' && (
+            <div className="accordion-content">{renderKnowledge()}</div>
+          )}
         </div>
       </div>
     </div>
