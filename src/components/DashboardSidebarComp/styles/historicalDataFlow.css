@@ -4,9 +4,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px; 
-  width: 100%;
   justify-content: end;
-  margin-top: -60px;
+  margin-left: auto;
 }
 
 .up-icon {
