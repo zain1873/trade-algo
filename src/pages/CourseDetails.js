@@ -1754,7 +1754,9 @@ const ValourAcademy = () => {
     // };
     const markVideoWatched = async (videoId, nextVideoUrl) => {
       const token = localStorage.getItem("accessToken");
+    
       try {
+        // Call API to mark as watched
         await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
           method: "POST",
           headers: {
@@ -1763,15 +1765,15 @@ const ValourAcademy = () => {
           },
         });
     
-        // Optimistically update watched videos
+        // ✅ Optimistically unlock current video
         setVideoWatched((prevWatched) => [...new Set([...prevWatched, videoId])]);
     
-        // Delay fetching progress to allow backend update
+        // ✅ Wait 3 seconds before fetching actual progress
         setTimeout(() => {
-          fetchProgress();
-        }, 2000); // 2 second delay
+          fetchProgress(); // Now backend update should be ready
+        }, 3000);
     
-        // Autoplay next video if exists
+        // ✅ Optional: auto play next video
         if (nextVideoUrl) {
           setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
         }
