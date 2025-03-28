@@ -3093,9 +3093,7 @@
 
 
 
-// FINAL CODE - Fully working with same UI and dynamic API calls for up/down trends
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
@@ -3103,30 +3101,41 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
-  const [isUpTrend, setIsUpTrend] = useState(true);
-  const [data, setData] = useState([]);
+  const [trend, setTrend] = useState("up"); // 'up' or 'down'
+  const [tableData, setTableData] = useState([]);
 
-  const fetchData = async () => {
-    const trendPath = isUpTrend ? "" : "_down";
-    const endpoint = `${API_BASE_URL}api/${activeTab}${trendPath}/`;
-    try {
-      const response = await fetch(endpoint);
-      const jsonData = await response.json();
-      setData(jsonData);
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
-    }
+  const apiPaths = {
+    up: {
+      largeCaps: "api/large_caps/",
+      mediumCaps: "api/medium_caps/",
+      smallCaps: "api/small_caps/",
+    },
+    down: {
+      largeCaps: "api/large_caps_down/",
+      mediumCaps: "api/medium_caps_down/",
+      smallCaps: "api/small_caps_down/",
+    },
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const endpoint = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+      try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        setTableData(data);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
     fetchData();
-  }, [activeTab, isUpTrend]);
+  }, [activeTab, trend]);
 
   return (
     <div
       className="container"
       style={{
-        backgroundColor: darkMode ? "" : "#ffffff",
+        backgroundColor: darkMode ? "#000000" : "#ffffff",
         color: darkMode ? "#ffffff" : "#000000",
         padding: "20px",
       }}
@@ -3137,30 +3146,26 @@ const HistoricalDataFlow = ({ darkMode }) => {
 
       {/* Tabs */}
       <ul className="nav nav-tabs gap-2 mt-4 historic-table">
-        {[
-          { id: "largeCaps", label: "Large Caps" },
-          { id: "mediumCaps", label: "Medium Caps" },
-          { id: "smallCaps", label: "Small Caps" },
-        ].map((tab) => (
-          <li className="nav-item" key={tab.id}>
+        {['largeCaps', 'mediumCaps', 'smallCaps'].map((tab) => (
+          <li className="nav-item" key={tab}>
             <button
-              className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-              onClick={() => setActiveTab(tab.id)}
+              className={`nav-link ${activeTab === tab ? "active" : ""}`}
+              onClick={() => setActiveTab(tab)}
             >
-              {tab.label}
+              {tab.replace("Caps", " Caps").replace(/^\w/, c => c.toUpperCase())}
             </button>
           </li>
         ))}
 
-        {/* Trend icons */}
-        <span className="trend-icons" style={{ cursor: "pointer" }}>
+        {/* Trend toggle icons */}
+        <span className="trend-icons">
           <FaArrowTrendUp
-            className={`up-icon ${isUpTrend ? "active-trend" : ""}`}
-            onClick={() => setIsUpTrend(true)}
+            className={`up-icon ${trend === "up" ? "active-trend" : ""}`}
+            onClick={() => setTrend("up")}
           />
           <FaArrowTrendDown
-            className={`down-icon ${!isUpTrend ? "active-trend" : ""}`}
-            onClick={() => setIsUpTrend(false)}
+            className={`down-icon ${trend === "down" ? "active-trend" : ""}`}
+            onClick={() => setTrend("down")}
           />
         </span>
       </ul>
@@ -3191,31 +3196,33 @@ const HistoricalDataFlow = ({ darkMode }) => {
               border: darkMode ? "1px solid #444" : "1px solid #ddd",
             }}
           >
-            {data.length === 0 ? (
-              <tr>
-                <td colSpan="5" className="text-center">Loading...</td>
-              </tr>
-            ) : (
-              data.map((item, index) => (
-                <tr key={index}>
+            {tableData && tableData.length > 0 ? (
+              tableData.map((item, idx) => (
+                <tr key={idx}>
                   <td>{item.ticker}</td>
                   <td>
-                    ${item.from_price} <br />
-                    <small>{item.from_time}</small>
+                    ${item.from_price}
+                    <br /> <small>{item.from_time}</small>
                   </td>
                   <td>
-                    ${item.to_price} <br />
-                    <small>{item.to_time}</small>
+                    ${item.to_price}
+                    <br /> <small>{item.to_time}</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">{item.irregular_vol}</span>
+                    <span className="badge bg-success">{item.irregular_vol}x</span>
                   </td>
                   <td>
-                    {item.percent_change} <br />
-                    <small>{item.duration}</small>
+                    {item.percent_change}%
+                    <br /> <small>{item.duration}</small>
                   </td>
                 </tr>
               ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="text-center">
+                  Loading data...
+                </td>
+              </tr>
             )}
           </tbody>
         </table>
