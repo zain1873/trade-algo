@@ -2958,14 +2958,16 @@ const HistoricalDataFlow = ({ darkMode }) => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
-      const endpoint = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+      const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+      console.log("🔍 Fetching:", url); // ✅ Debug log
+
       try {
-        const response = await fetch(endpoint);
+        const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
         const data = await response.json();
-        setTableData(data); // expecting a list of objects
+        setTableData(data);
       } catch (err) {
         console.error("Fetch error:", err.message);
         setError("Failed to load data. Please try again later.");
@@ -2976,7 +2978,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
     };
 
     fetchData();
-  }, [activeTab, trend]);
+  }, [activeTab, trend]); // ✅ Reacts to both tab and trend change
 
   return (
     <div
@@ -3003,6 +3005,8 @@ const HistoricalDataFlow = ({ darkMode }) => {
             </button>
           </li>
         ))}
+
+        {/* Trend toggle icons */}
         <span className="trend-icons">
           <FaArrowTrendUp
             className={`up-icon ${trend === "up" ? "active-trend" : ""}`}
@@ -3058,26 +3062,24 @@ const HistoricalDataFlow = ({ darkMode }) => {
                 <tr key={idx}>
                   <td>{item.ticker || "-"}</td>
                   <td>
-                    ${item.from_price || "-"}
+                    ${item.from_price ?? "-"}
                     <br />
-                    <small>{item.from_time || "-"}</small>
+                    <small>{item.from_time ?? "-"}</small>
                   </td>
                   <td>
-                    ${item.to_price || "-"}
+                    ${item.to_price ?? "-"}
                     <br />
-                    <small>{item.to_time || "-"}</small>
+                    <small>{item.to_time ?? "-"}</small>
                   </td>
                   <td>
-                    <span className="badge bg-success">
-                      {item.irregular_vol || "-"}
-                    </span>
+                    <span className="badge bg-success">{item.irregular_vol || "x"}</span>
                   </td>
                   <td>
                     <span className="text-success">
-                      {item.percent_change ? `+${(item.percent_change * 100).toFixed(2)}%` : "0.00%"}
+                      +{item.percent_change ? (item.percent_change * 100).toFixed(2) : "0"}%
                     </span>
                     <br />
-                    <small>{item.duration || "-"}</small>
+                    <small>{item.duration ?? "-"}</small>
                   </td>
                 </tr>
               ))
