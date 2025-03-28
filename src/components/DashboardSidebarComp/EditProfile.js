@@ -137,7 +137,7 @@ function EditProfile() {
   const handleUpdate = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/user/profile/`, {
+      const res = await fetch(`${API_BASE}api/user/profile/`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
