@@ -1204,7 +1204,7 @@ const ValourAcademy = () => {
                   <span>{selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1)} Level</span>
                 </div>
               </div>
-              <ProgressBarsDisplay courseId={courseId} selectedLevel={selectedLevel} />
+              {/* <ProgressBarsDisplay courseId={courseId} selectedLevel={selectedLevel} /> */}
             </div>
           )}
           <div className="accordion-container">
