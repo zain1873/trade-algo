@@ -112,7 +112,7 @@ function EditProfile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/user/profile/`, {
+        const res = await fetch(`${API_BASE}api/user/profile/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
