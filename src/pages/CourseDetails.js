@@ -1250,6 +1250,8 @@ import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
 import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal, FaLock } from "react-icons/fa";
 import videoImg from '../assets/images/crypto-latest.png';
+import ProgressBarsDisplay from './components/ProgressBarsDisplay'; // update path as per your project structure
+
 
 const ValourAcademy = () => {
   const { courseId } = useParams();

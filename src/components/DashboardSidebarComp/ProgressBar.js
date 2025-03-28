@@ -82,11 +82,11 @@
 
 // export default ProgressBarsDisplay;
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../DashboardSidebarComp/styles/progressbar.css';
 
 const CircularProgressBar = ({ percentage, color }) => {
-  const rotation = percentage * 3.6; 
+  const rotation = percentage * 3.6;
 
   return (
     <div className="circular-progress">
@@ -108,44 +108,7 @@ const CircularProgressBar = ({ percentage, color }) => {
   );
 };
 
-const ProgressBarsDisplay = ({ courseId, selectedLevel }) => {
-  const [progressData, setProgressData] = useState({
-    totalProgress: 0,
-    levelProgress: 0,
-    videoProgress: 0,
-  });
-
-  useEffect(() => {
-    const fetchProgress = async () => {
-      const token = localStorage.getItem("accessToken");
-      if (!token || !courseId) return;
-
-      try {
-        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-        const data = await res.json();
-        const currentLevel = data.levels.find(
-          (lvl) => lvl.level.toLowerCase() === selectedLevel?.toLowerCase()
-        );
-
-        setProgressData({
-          totalProgress: data.total_progress || 0,
-          levelProgress: currentLevel?.percent || 0,
-          videoProgress: currentLevel?.percent || 0,
-        });
-      } catch (error) {
-        console.error("Failed to fetch progress:", error);
-      }
-    };
-
-    fetchProgress();
-  }, [courseId, selectedLevel]);
-
+const ProgressBarsDisplay = ({ progressData }) => {
   return (
     <div className="container my-5 p-0">
       <div className="progress_container shadow p-3">
