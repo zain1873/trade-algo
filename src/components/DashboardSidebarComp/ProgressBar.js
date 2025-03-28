@@ -107,8 +107,7 @@ const CircularProgressBar = ({ percentage, color }) => {
   );
 };
 
-const ProgressBarsDisplay = () => {
-  const { courseId } = useParams();
+const ProgressBarsDisplay = ({ courseId }) => {
   const [selectedLevel, setSelectedLevel] = useState("beginner");
   const [progressData, setProgressData] = useState({
     totalProgress: 0,
@@ -119,7 +118,7 @@ const ProgressBarsDisplay = () => {
   useEffect(() => {
     const fetchProgress = async () => {
       const token = localStorage.getItem("accessToken");
-      console.log("🧭 courseId from route:", courseId);
+      console.log("🧭 courseId from prop:", courseId);
       console.log("🔐 token exists:", !!token);
 
       if (!token || !courseId) {
@@ -153,8 +152,7 @@ const ProgressBarsDisplay = () => {
     };
 
     fetchProgress();
-  }, [courseId, selectedLevel]);
-
+  }, [courseId, selectedLevel])
   return (
     <div className="container my-5 p-0">
       <div className="progress_container shadow p-3">

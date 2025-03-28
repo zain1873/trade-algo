@@ -1250,6 +1250,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
 import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal, FaLock } from "react-icons/fa";
 import videoImg from '../assets/images/crypto-latest.png';
+import ProgressBarsDisplay from '../components/DashboardSidebarComp/ProgressBar';
 
 
 
@@ -1266,6 +1267,7 @@ const ValourAcademy = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [grade, setGrade] = useState(null);
 
+  
   const toggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
   };
@@ -1590,6 +1592,7 @@ const ValourAcademy = () => {
               </div>
             </div>
           )}
+          <ProgressBarsDisplay courseId={courseId} /> {/* 👈 pass it as prop */}
           <div className="accordion-container">
             {['resources', 'notes', 'knowledge'].map(section => (
               <div key={section} className={`accordion-item ${activeSection === section ? 'active' : ''}`}>
