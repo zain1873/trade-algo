@@ -108,8 +108,8 @@ const CircularProgressBar = ({ percentage, color }) => {
 };
 
 const ProgressBarsDisplay = () => {
-  const { courseId } = useParams(); // get course ID from URL
-  const [selectedLevel, setSelectedLevel] = useState("beginner"); // default level
+  const { courseId } = useParams();
+  const [selectedLevel, setSelectedLevel] = useState("beginner");
   const [progressData, setProgressData] = useState({
     totalProgress: 0,
     levelProgress: 0,
@@ -119,7 +119,10 @@ const ProgressBarsDisplay = () => {
   useEffect(() => {
     const fetchProgress = async () => {
       const token = localStorage.getItem("accessToken");
-      if (!token || !courseId) return;
+      if (!token || !courseId) {
+        console.warn("Missing token or courseId");
+        return;
+      }
 
       try {
         const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
@@ -129,7 +132,13 @@ const ProgressBarsDisplay = () => {
           },
         });
 
+        if (!res.ok) {
+          console.error("API Error:", res.status);
+          return;
+        }
+
         const data = await res.json();
+        console.log("Progress API response:", data);
 
         const currentLevel = data.levels.find(
           (lvl) => lvl.level.toLowerCase() === selectedLevel.toLowerCase()
@@ -155,7 +164,6 @@ const ProgressBarsDisplay = () => {
           <h2 className='text-white'>QBTS</h2>
         </div>
 
-        {/* Optional level selector */}
         <div className="text-center mb-3">
           {['beginner', 'intermediate', 'professional'].map(level => (
             <button
