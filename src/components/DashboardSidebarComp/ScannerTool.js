@@ -8,7 +8,6 @@ function ScannerTool() {
         <div className="col-lg-12">
           <div className="tool-img blur">
             <img className='obj_fit' src={toolImg} alt="" />
-
           </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
-import React from 'react';
-import defaultImg from "../assets/images/defaualt-img.webp"
+import React from "react";
+import analyst1 from "../assets/images/trading-analyst1.png";
+import analyst2 from "../assets/images/trading-analyst2.png";
+import analyst3 from "../assets/images/trading-analyst3.png";
 
 function Analyst() {
   return (
@@ -11,25 +13,29 @@ function Analyst() {
             <div className="card shadow-lg border-0 rounded-3 p-4 team-card">
               <div className="row align-items-center">
                 {/* Analyst Image */}
-                <div className="col-md-4 text-center">
+                <div className="col-md-4 text-center mb-lg-0 mb-2 analyst-img">
                   <img
-                    src={defaultImg}
-                    alt="Brian Mitchell"  
-                    className="img-fluid rounded-circle"
+                    src={analyst1}
+                    alt=""
+                    className="obj_fit"
                   />
                 </div>
                 {/* Analyst Details */}
                 <div className="col-md-8">
-                  <h4 className="fw-bold profile-name">Brian Jack</h4>
+                  <h4 className="fw-bold profile-name">Ethan Rhodes</h4>
                   <p className="text-muted">
-                    Brian is a thoroughbred trader who started his career trading in the crypto space. After
-                    both bull runs in 2017 and 2021, he jumped into options for stock and began dominating that space
-                    as well. As seasoned as they come, Brian is conservative and stresses risk management to stay
-                    profitable no matter how hard or easy a market we are in. A passionate educator for technical
-                    analysis and as patient as they come to wait for the big home runs.
+                    With over a decade in algorithmic trading, Ethan brings a
+                    unique edge to manual traders by bridging the gap between
+                    quant strategies and everyday setups. He focuses on
+                    structure, edge, and repeatability, and believes that
+                    consistency beats luck every time.
                   </p>
                   <p className="fw-bold">
-                    Areas of Focus: <span className="text-dark">Straight Calls / Puts / Day Trading / Scalping Options</span>
+                    Areas of Focus:{" "}
+                    <span className="text-dark">
+                      Areas of Focus: Quant-Inspired Trading / System Building /
+                      Options Flow / Market Internals
+                    </span>
                   </p>
                 </div>
               </div>
@@ -40,25 +46,30 @@ function Analyst() {
             <div className="card shadow-lg border-0 rounded-3 p-4 team-card">
               <div className="row align-items-center">
                 {/* Analyst Image */}
-                <div className="col-md-4 text-center">
+                <div className="col-md-4 text-center mb-lg-0 mb-2 analyst-img">
                   <img
-                    src={defaultImg}
-                    alt="Brian Mitchell"  
-                    className="img-fluid rounded-circle"
+                    src={analyst2}
+                    alt=""
+                    className="obj_fit"
                   />
                 </div>
                 {/* Analyst Details */}
                 <div className="col-md-8">
-                  <h4 className="fw-bold profile-name">Bronco Anderson</h4>
+                  <h4 className="fw-bold profile-name">Ian M</h4>
                   <p className="text-muted">
-                    Brian is a thoroughbred trader who started his career trading in the crypto space. After
-                    both bull runs in 2017 and 2021, he jumped into options for stock and began dominating that space
-                    as well. As seasoned as they come, Brian is conservative and stresses risk management to stay
-                    profitable no matter how hard or easy a market we are in. A passionate educator for technical
-                    analysis and as patient as they come to wait for the big home runs.
+                    Ian is a disciplined trader who transitioned from a
+                    background in finance to full-time options trading. His
+                    analytical approach and deep understanding of macroeconomic
+                    trends give him an edge in volatile markets. Logan’s calm
+                    demeanor and data-driven strategies make him a go-to mentor
+                    for newer traders.
                   </p>
                   <p className="fw-bold">
-                    Areas of Focus: <span className="text-dark">Straight Calls / Puts / Day Trading / Scalping Options</span>
+                    Areas of Focus:{" "}
+                    <span className="text-dark">
+                      Areas of Focus: Swing Trading / Vertical Spreads / Risk
+                      Management / Earnings Plays
+                    </span>
                   </p>
                 </div>
               </div>
@@ -69,25 +80,28 @@ function Analyst() {
             <div className="card shadow-lg border-0 rounded-3 p-4 team-card">
               <div className="row align-items-center">
                 {/* Analyst Image */}
-                <div className="col-md-4 text-center">
+                <div className="col-md-4 text-center mb-lg-0 mb-2 analyst-img">
                   <img
-                    src={defaultImg}
-                    alt="Brian Mitchell"  
-                    className="img-fluid rounded-circle"
+                    src={analyst3}
+                    alt=""
+                    className="obj_fit"
                   />
                 </div>
                 {/* Analyst Details */}
                 <div className="col-md-8">
-                  <h4 className="fw-bold profile-name">Dane Glisek</h4>
+                  <h4 className="fw-bold profile-name">Jessica Moretti</h4>
                   <p className="text-muted">
-                    Brian is a thoroughbred trader who started his career trading in the crypto space. After
-                    both bull runs in 2017 and 2021, he jumped into options for stock and began dominating that space
-                    as well. As seasoned as they come, Brian is conservative and stresses risk management to stay
-                    profitable no matter how hard or easy a market we are in. A passionate educator for technical
-                    analysis and as patient as they come to wait for the big home runs.
+                    Jessica is a methodical trader with a sharp eye for breakout
+                    opportunities. She combines fundamentals with technical
+                    patterns to identify high-conviction swing trades. Her
+                    patient, disciplined approach has helped countless traders
+                    learn to trade less but earn more.
                   </p>
                   <p className="fw-bold">
-                    Areas of Focus: <span className="text-dark">Straight Calls / Puts / Day Trading / Scalping Options</span>
+                    Areas of Focus:{" "}
+                    <span className="text-dark">
+                    Areas of Focus: Swing Trading / Breakout Setups / Options Chains / Trade Planning
+                    </span>
                   </p>
                 </div>
               </div>

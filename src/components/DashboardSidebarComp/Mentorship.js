@@ -66,7 +66,9 @@ const Mentorship = ({ darkMode }) => {
                       <div className="mentorship-link">
                         <span>Access the telegram channel here:</span>
                         <button className="mentorship-btn">
+                          <a className="text-decoration-none" href="https://t.me/+nO3GSU_Jvts5MGE0" target="blank">
                           Mentorship Telegram Alerts
+                          </a>
                         </button>
                       </div>
                     </div>

@@ -55,6 +55,7 @@
 .description {
   font-size: 1rem;
   opacity: 0.9;
+  min-height: 150px;
 }
 
 .dark-mode {
@@ -83,7 +84,7 @@
   border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 0px 0px 15px rgba(248, 194, 77, 0.3);
-  min-height: 350px;
+  min-height: 370px;
 }
 
 .dark-mode .wealth-card {
