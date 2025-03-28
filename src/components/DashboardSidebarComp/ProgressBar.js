@@ -108,7 +108,7 @@ const CircularProgressBar = ({ percentage, color }) => {
 };
 
 const ProgressBarsDisplay = () => {
-  const { courseId } = useParams(); // <-- make sure route has :courseId
+  const { courseId } = useParams();
   const [selectedLevel, setSelectedLevel] = useState("beginner");
   const [progressData, setProgressData] = useState({
     totalProgress: 0,
@@ -119,12 +119,13 @@ const ProgressBarsDisplay = () => {
   useEffect(() => {
     const fetchProgress = async () => {
       const token = localStorage.getItem("accessToken");
+      console.log("🧭 courseId from route:", courseId);
+      console.log("🔐 token exists:", !!token);
+
       if (!token || !courseId) {
         console.warn("Missing token or courseId");
         return;
       }
-
-      console.log("Fetching progress for course:", courseId);
 
       try {
         const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
@@ -135,7 +136,7 @@ const ProgressBarsDisplay = () => {
         });
 
         const data = await res.json();
-        console.log("Progress API data:", data);
+        console.log("🎯 Progress API data:", data);
 
         const currentLevel = data.levels.find(
           (lvl) => lvl.level.toLowerCase() === selectedLevel.toLowerCase()
