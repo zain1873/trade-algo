@@ -63,7 +63,7 @@ const Dashboard = () => {
     ? process.env.REACT_APP_API_URL
     : process.env.REACT_APP_API_URL + "/";
 
-  const USER_API_URL = `${API_BASE_URL}api/user/`;
+  const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
   
 
   // Apply CSS variables for dark mode

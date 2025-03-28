@@ -131,7 +131,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
   ? process.env.REACT_APP_API_URL
   : process.env.REACT_APP_API_URL + "/";
 
-const USER_API_URL = `${API_BASE_URL}api/user/`;
+const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
 
 function DashboardData({ darkMode }) {
   const [userData, setUserData] = useState(null);
