@@ -63,7 +63,9 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <i className="fab fa-twitter"></i>
+                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                        <i className="fab fa-twitter"></i>
+                      </a>
                     </div>
                   </div>
                   <div className="view-more">
@@ -118,7 +120,9 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <i className="fab fa-twitter"></i>
+                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                        <i className="fab fa-twitter"></i>
+                      </a>
                     </div>
                   </div>
                   <div className="view-more">
@@ -173,7 +177,9 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <i className="fab fa-twitter"></i>
+                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                        <i className="fab fa-twitter"></i>
+                      </a>
                     </div>
                   </div>
                   <div className="view-more">
@@ -226,7 +232,9 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <i className="fab fa-twitter"></i>
+                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                        <i className="fab fa-twitter"></i>
+                      </a>
                     </div>
                   </div>
                   <div className="view-more">
@@ -279,7 +287,9 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <i className="fab fa-twitter"></i>
+                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                        <i className="fab fa-twitter"></i>
+                      </a>
                     </div>
                   </div>
                   <div className="view-more">

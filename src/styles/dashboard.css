@@ -696,6 +696,9 @@ body .dark {
   .col-1.position-fixed {
     width: 52px !important;
 }
+.tool-img {
+  height: 550px;
+}
 .nav.flex-column {
   margin: 0;
   padding: 8px 9px 0px 6px;

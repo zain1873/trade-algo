@@ -52,7 +52,6 @@ function App() {
 
         <Route path="/academy/:courseId" element={<CourseDetails />} />
         <Route path="/request-a-demo" element={<Layout> <RequestDemo/> </Layout>} />
-
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy/>} />

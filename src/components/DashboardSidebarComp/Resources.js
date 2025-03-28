@@ -46,5 +46,4 @@ const Resources = ({ darkMode }) => {
   );
 };
 
-
 export default Resources;

@@ -32,19 +32,23 @@ import OptionsAcademy from "./DashboardSidebarComp/OptionsAcademy";
 import Mentorship from "./DashboardSidebarComp/Mentorship";
 import WealthSeries from "./DashboardSidebarComp/WealthSeries";
 import Resources from "./DashboardSidebarComp/Resources";
-import ChartGrid from "./DashboardSidebarComp/ChartGrid";
-import LiveOption from "./DashboardSidebarComp/LiveOption";
-import OptionChain from "./DashboardSidebarComp/OpenChain";
-import TradeAlerts from "./DashboardSidebarComp/TradeAlerts";
-import ProgramLite from "./DashboardSidebarComp/programLite";
-import WealthPremium from "./DashboardSidebarComp/wealthPremium";
+// import ChartGrid from "./DashboardSidebarComp/ChartGrid";
+// import LiveOption from "./DashboardSidebarComp/LiveOption";
+// import OptionChain from "./DashboardSidebarComp/OpenChain";
+// import TradeAlerts from "./DashboardSidebarComp/TradeAlerts";
+// import ProgramLite from "./DashboardSidebarComp/programLite";
+// import WealthPremium from "./DashboardSidebarComp/wealthPremium";
 
 
 // trading tools
-import ScannerTool from "./DashboardSidebarComp/ScannerTool";
-import SwingTradeAI from "./DashboardSidebarComp/SwingTradeAI";
+// import ScannerTool from "./DashboardSidebarComp/ScannerTool";
+// import SwingTradeAI from "./DashboardSidebarComp/SwingTradeAI";
 import EditProfile from "./DashboardSidebarComp/EditProfile";
 import Logout from "./DashboardSidebarComp/Logout";
+import ForexData from "./DashboardSidebarComp/ForexData";
+import StocksData from "./DashboardSidebarComp/StocksData";
+import CryptoData from "./DashboardSidebarComp/CryptoData";
+import TradingTools from "./DashboardSidebarComp/TradingTools";
 
 
 
@@ -214,17 +218,15 @@ const Dashboard = () => {
             case "Trade-products":
               return <TradeProducts darkMode={darkMode} />;
             case "trading-tools":
-              return <LiveSessions darkMode={darkMode} />;
+              return <TradingTools darkMode={darkMode} />;
             case "emerald":
               return <Emerald darkMode={darkMode} />;
             case "platinum":
               return <Platinum darkMode={darkMode} />;
             case "options-academy":
               return <OptionsAcademy darkMode={darkMode} />;
-
             case "wealth-series":
               return <WealthSeries darkMode={darkMode} />;
-
             case "mentorship":
               return <Mentorship darkMode={darkMode} />;
             case "resources":
@@ -232,24 +234,34 @@ const Dashboard = () => {
 
             //  New Trading Tools Components (Dropdown items)
 
-            case "scanner":
-              return <ScannerTool darkMode={darkMode} />;
-            case "swing-trade-ai":
-              return <SwingTradeAI darkMode={darkMode} />;
-            case "chart-grid":
-              return <ChartGrid darkMode={darkMode} />;
-            case "live-option":
-              return <LiveOption darkMode={darkMode} />;
-            case "option-chain":
-              return <OptionChain darkMode={darkMode} />;
-            case "trade-alerts":
-              return <TradeAlerts darkMode={darkMode} />;
+            // case "scanner":
+            //   return <ScannerTool darkMode={darkMode} />;
+            // case "swing-trade-ai":
+            //   return <SwingTradeAI darkMode={darkMode} />;
+            // case "chart-grid":
+            //   return <ChartGrid darkMode={darkMode} />;
+            // case "live-option":
+            //   return <LiveOption darkMode={darkMode} />;
+            // case "option-chain":
+            //   return <OptionChain darkMode={darkMode} />;
+            // case "trade-alerts":
+            //   return <TradeAlerts darkMode={darkMode} />;
+
+            case "forex":
+              return <ForexData darkMode={darkMode} />;
+
+            case "crypto":
+              return <CryptoData darkMode={darkMode} />;
+
+            case "stocks":
+              return <StocksData darkMode={darkMode} />;
 
             //Wealth management series
-            case "lite":
-              return <ProgramLite darkMode={darkMode} />;
-            case "premium":
-              return <WealthPremium darkMode={darkMode} />;
+
+            // case "lite":
+            //   return <ProgramLite darkMode={darkMode} />;
+            // case "premium":
+            //   return <WealthPremium darkMode={darkMode} />;
 
             //User profile
 
@@ -257,7 +269,6 @@ const Dashboard = () => {
               return <EditProfile darkMode={darkMode} />; // Edit Profile Component
             case "logout":
               return <Logout darkMode={darkMode} />; // Logout Component
-
             default:
               return null;
           }
@@ -332,7 +343,7 @@ const Dashboard = () => {
                     <span style={darkMode ? { color: "white" } : {}}>{item.label}</span>
 
                     {/* 🔽 Add Play Icon for Dropdown Indicator */}
-                    {(item.id === "wealth-series" || item.id === "trading-tools") && (
+                    {(item.id === "trading-tools") && (
                       <i
                         className="fas fa-play ms-2 indicator"
                         style={{
@@ -347,7 +358,7 @@ const Dashboard = () => {
               </button>
 
               {/* Dropdown for Wealth Management Series */}
-              {item.id === "wealth-series" && (
+              {/* {item.id === "wealth-series" && (
                 <div className="dropdown-container shadow wealth-container p-0">
                   <div className="dropdown-content-wrap">
                     <div className="p-2 dropdown-inside" onClick={() => setActiveTab("lite")}>
@@ -358,12 +369,13 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
-              {/* Dropdown for Trading Tools */}
+              {/* Dropdown for   */}
               {item.id === "trading-tools" && (
                 <div className="dropdown-container shadow tools-container p-0">
-                  <div className="dropdown-content-wrap">
+
+                  {/* <div className="dropdown-content-wrap">
                     <div className="p-2 dropdown-inside" onClick={() => setActiveTab("scanner")}>
                       Scanner
                     </div>
@@ -381,6 +393,15 @@ const Dashboard = () => {
                     </div>
                     <div className="p-2 dropdown-inside" onClick={() => setActiveTab("trade-alerts")}>
                       Trade Alerts
+                    </div>
+                  </div> */}
+
+                  <div className="dropdown-content-wrap">
+                  <div className="p-2 dropdown-inside" onClick={() => setActiveTab("forex")}>
+                      Forex
+                    </div>
+                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("crypto")}>
+                      Crypto
                     </div>
                   </div>
                 </div>

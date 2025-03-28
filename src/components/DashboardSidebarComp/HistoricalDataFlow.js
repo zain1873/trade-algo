@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
+
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
 
@@ -16,9 +17,11 @@ const HistoricalDataFlow = ({ darkMode }) => {
         border: darkMode ? "1px solid #444" : "1px solid #ddd", // Smooth borders
       }}
     >
-      <h2>Historic ATS Gainers & Losers</h2>
+     <div className="theme-title">
+       <h2>Historic ATS Gainers & Losers</h2>
+     </div>
 
-      {/* Tabs */}
+      {/*darkflow Tabs */}
       <ul className="nav nav-tabs gap-2 mt-4 historic-table">
         <li className="nav-item">
           <button
@@ -43,15 +46,13 @@ const HistoricalDataFlow = ({ darkMode }) => {
           >
             Small Caps
           </button>
-        </li>
+        </li> 
 
-        {/* trend icons */}
+      {/* trend icons */}
       <span className="trend-icons">
       <FaArrowTrendUp className="up-icon" />
-      <FaArrowTrendDown className="down-icon"/>
-      </span>
-
-
+      <FaArrowTrendDown className="down-icon" />
+    </span>
 
       </ul>
 
@@ -2593,7 +2594,6 @@ const HistoricalDataFlow = ({ darkMode }) => {
               </>
             )}
 
-            
           </tbody>
         </table>
       </div>

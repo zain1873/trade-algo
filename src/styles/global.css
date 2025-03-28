@@ -950,6 +950,16 @@ section:last-child {
   /*Disableinteractionwithblurredcontent*/user-select: none;
   -webkit-filter: blur(4px);
 }
+.analyst-img {
+  height: 350px;
+}
+.analyst-img img {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
 
 
 .main-detail-img {
