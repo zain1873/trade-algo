@@ -1636,6 +1636,8 @@ const ValourAcademy = () => {
   const [mcqs, setMcqs] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [justWatched, setJustWatched] = useState([]);
+  const [currentlyPlayingVideoId, setCurrentlyPlayingVideoId] = useState(null);
+
 
   const [grade, setGrade] = useState(null);
 
