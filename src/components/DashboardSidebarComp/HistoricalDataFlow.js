@@ -3108,7 +3108,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
 
   const fetchData = async () => {
     const trendPath = isUpTrend ? "" : "_down";
-    const endpoint = `${API_BASE_URL}/api/${activeTab}${trendPath}/`;
+    const endpoint = `${API_BASE_URL}api/${activeTab}${trendPath}/`;
     try {
       const response = await fetch(endpoint);
       const jsonData = await response.json();
