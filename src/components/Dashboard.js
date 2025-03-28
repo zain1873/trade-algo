@@ -1,5 +1,6 @@
 // new dashboard
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Menu,
   Search,
@@ -49,11 +50,25 @@ import StocksData from "./DashboardSidebarComp/StocksData";
 import CryptoData from "./DashboardSidebarComp/CryptoData";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
 
+
+
+
+
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+  const accessToken = localStorage.getItem("accessToken");
+
+  const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
+    ? process.env.REACT_APP_API_URL
+    : process.env.REACT_APP_API_URL + "/";
+
+  const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+  
 
   // Apply CSS variables for dark mode
   useEffect(() => {
@@ -90,17 +105,43 @@ const Dashboard = () => {
       ); // White input fields
       document.documentElement.style.setProperty("--border-color", "#dddddd"); // Light borders
     }
-  }, [darkMode]);
+
+    
+    if (!accessToken) {
+      setError("You need to be logged in to view this data.");
+      return;
+    }
+
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(USER_API_URL, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setUserData(response.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        if (error.response && error.response.status === 401) {
+          setError("Session expired or invalid. Please log in again.");
+          localStorage.removeItem("accessToken");
+        } else {
+          setError("Failed to fetch user data. Please try again later.");
+        }
+      }
+    };
+
+    fetchUserData();
+  }, [darkMode, accessToken]);
+
 
   // Responsive behavior: auto-collapse sidebar on smaller screens
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      // Auto-collapse on screens smaller than 992px (Bootstrap's lg breakpoint)
       if (window.innerWidth < 992) {
         setSidebarCollapsed(true);
       } else if (window.innerWidth >= 992) {
-        // Only auto-expand if this is the initial load or resize from small to large
         if (windowWidth < 992) {
           setSidebarCollapsed(false);
         }
@@ -110,6 +151,9 @@ const Dashboard = () => {
     // Set initial state based on window width
     handleResize();
 
+    
+
+
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
@@ -118,6 +162,7 @@ const Dashboard = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [windowWidth]);
+  
 
   // Handle tab click - collapse sidebar after selection on mobile
   const handleTabClick = (tabId) => {
@@ -128,7 +173,6 @@ const Dashboard = () => {
       setSidebarCollapsed(true);
     }
   };
-
   const menuItems = [
     { id: "dashboard", label: "Dashboard", icon: <Home size={20} /> },
     { id: "live-sessions", label: "Live Sessions", icon: <Tv size={20} /> },
@@ -425,9 +469,7 @@ const Dashboard = () => {
                   height="40"
                 />
                 <div className="username_data">
-                  <h5 className={`mb-0 ${darkMode ? "text-white" : ""}`}>
-                    Valourwealth Platform
-                  </h5>
+                <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>{userData?.username || 'Null'}</h5>
                 </div>
 
                 {/* Dropdown Menu */}
