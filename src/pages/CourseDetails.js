@@ -1632,13 +1632,11 @@ const ValourAcademy = () => {
   const [courseData, setCourseData] = useState(null);
   const [progressData, setProgressData] = useState({ totalProgress: 0, levelProgress: 0, videoProgress: 0 });
   const [videoWatched, setVideoWatched] = useState([]);
+  const [justWatched, setJustWatched] = useState([]);
+  const [currentlyPlayingVideoId, setCurrentlyPlayingVideoId] = useState(null);
   const [notes, setNotes] = useState([]);
   const [mcqs, setMcqs] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
-  const [justWatched, setJustWatched] = useState([]);
-  const [currentlyPlayingVideoId, setCurrentlyPlayingVideoId] = useState(null);
-
-
   const [grade, setGrade] = useState(null);
 
   const toggleSection = (section) => {
@@ -1724,10 +1722,8 @@ const ValourAcademy = () => {
 
   const isVideoUnlocked = (index, videoId) => {
     if (index === 0) return true;
-  
     const videos = getVideosForLevel(selectedLevel);
     const previousVideo = videos[index - 1];
-  
     return (
       videoWatched.includes(previousVideo?.id) ||
       videoWatched.includes(videoId) ||
@@ -1735,88 +1731,48 @@ const ValourAcademy = () => {
       currentlyPlayingVideoId === videoId
     );
   };
-  
-  const areAllVideosWatched = () => {
-    const videos = getVideosForLevel(selectedLevel);
-    return videos.length && videos.every((v) => videoWatched.includes(v.id));
-  };
 
-  const canAccessNotes = () => areAllVideosWatched();
-  const canAccessMCQs = () => canAccessNotes();
+  const markVideoWatched = async (videoId, nextVideoUrl) => {
+    const token = localStorage.getItem("accessToken");
+    try {
+      await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      setVideoWatched((prev) => [...new Set([...prev, videoId])]);
+      setJustWatched((prev) => [...new Set([...prev, videoId])]);
+
+      setTimeout(async () => {
+        await fetchProgress();
+        setJustWatched((prev) => prev.filter(id => id !== videoId));
+      }, 3000);
+
+      if (nextVideoUrl) {
+        setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
+      }
+    } catch (error) {
+      console.error("Error marking video watched:", error);
+    }
+  };
 
   const renderVideos = () => {
     const videos = getVideosForLevel(selectedLevel);
-
-    // const markVideoWatched = async (videoId, nextVideoUrl) => {
-    //   const token = localStorage.getItem("accessToken");
-    //   try {
-    //     await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
-    //       method: "POST",
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //     });
-    //     await fetchProgress();
-    //     if (nextVideoUrl) {
-    //       setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
-    //     }
-    //   } catch (error) {
-    //     console.error("Error marking video watched:", error);
-    //   }
-    // };
-    const markVideoWatched = async (videoId, nextVideoUrl) => {
-      const token = localStorage.getItem("accessToken");
-    
-      try {
-        await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-    
-        // Add to watched and justWatched
-        setVideoWatched((prev) => [...new Set([...prev, videoId])]);
-        setJustWatched((prev) => [...new Set([...prev, videoId])]);
-    
-        // Fetch real progress after 3 sec
-        setTimeout(async () => {
-          await fetchProgress();
-          // Remove from justWatched once backend confirms
-          setJustWatched((prev) => prev.filter(id => id !== videoId));
-        }, 3000);
-    
-        if (nextVideoUrl) {
-          setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
-        }
-      } catch (error) {
-        console.error("Error marking video watched:", error);
-      }
-    };
-    
-    
     return (
       <div className="container">
         <div className="row">
           {videos.map((video, index) => {
-            const isUnlocked = isVideoUnlocked(index);
+            const isUnlocked = isVideoUnlocked(index, video.id);
             const nextVideo = videos[index + 1];
             return (
               <div key={video.id} className="col-lg-4 col-md-6 mb-4">
                 <div className="video-card">
                   <div className="video-thumbnail" style={{ position: "relative" }}>
                     {isUnlocked ? (
-                      !videoUrl || videoUrl !== video.public_url ? (
-                        <>
-                          <img className="obj_fit" src={videoImg} alt={video.title} />
-                          <button
-                            onClick={() => setVideoUrl(video.public_url)}
-                            className="play-button-overlay"
-                          >▶</button>
-                        </>
-                      ) : (
+                      videoUrl === video.public_url ? (
                         <video
                           controls
                           autoPlay
@@ -1827,6 +1783,17 @@ const ValourAcademy = () => {
                         >
                           <source src={video.public_url} type="video/mp4" />
                         </video>
+                      ) : (
+                        <>
+                          <img className="obj_fit" src={videoImg} alt={video.title} />
+                          <button
+                            onClick={() => {
+                              setCurrentlyPlayingVideoId(video.id);
+                              setVideoUrl(video.public_url);
+                            }}
+                            className="play-button-overlay"
+                          >▶</button>
+                        </>
                       )
                     ) : (
                       <>
@@ -1847,15 +1814,18 @@ const ValourAcademy = () => {
     );
   };
 
+  const areAllVideosWatched = () => {
+    const videos = getVideosForLevel(selectedLevel);
+    return videos.length && videos.every((v) => videoWatched.includes(v.id));
+  };
+
+  const canAccessNotes = () => areAllVideosWatched();
+  const canAccessMCQs = () => canAccessNotes();
+
   const renderNotes = () => {
     if (!canAccessNotes()) {
-      return (
-        <div className="container text-center text-white">
-          <p><FaLock /> Complete all videos to unlock notes.</p>
-        </div>
-      );
+      return <div className="container text-center text-white"><p><FaLock /> Complete all videos to unlock notes.</p></div>;
     }
-
     return (
       <div className="container">
         <div className="row">
@@ -1874,13 +1844,8 @@ const ValourAcademy = () => {
 
   const renderKnowledge = () => {
     if (!canAccessMCQs()) {
-      return (
-        <div className="container text-center text-white">
-          <p><FaLock /> Please view notes before attempting the quiz.</p>
-        </div>
-      );
+      return <div className="container text-center text-white"><p><FaLock /> Please view notes before attempting the quiz.</p></div>;
     }
-
     return (
       <div className="container">
         <div className="row">
@@ -1911,9 +1876,7 @@ const ValourAcademy = () => {
             const correct = mcqs.filter(q => userAnswers[q.id] === q.correct_answer).length;
             const percent = Math.round((correct / total) * 100);
             setGrade(percent);
-          }}>
-            Submit Quiz
-          </button>
+          }}>Submit Quiz</button>
           {grade !== null && (
             <p className="mt-3">You scored: <strong>{grade}%</strong>. {grade >= 50 ? 'You can proceed to the next level!' : 'Please retake the quiz.'}</p>
           )}
