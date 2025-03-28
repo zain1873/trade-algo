@@ -1632,12 +1632,12 @@ const ValourAcademy = () => {
   const [courseData, setCourseData] = useState(null);
   const [progressData, setProgressData] = useState({ totalProgress: 0, levelProgress: 0, videoProgress: 0 });
   const [videoWatched, setVideoWatched] = useState([]);
-  const [justWatched, setJustWatched] = useState([]);
-  const [currentlyPlayingVideoId, setCurrentlyPlayingVideoId] = useState(null);
   const [notes, setNotes] = useState([]);
   const [mcqs, setMcqs] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [grade, setGrade] = useState(null);
+  const [currentlyPlayingVideoId, setCurrentlyPlayingVideoId] = useState(null);
+  const [manuallyUnlockedVideos, setManuallyUnlockedVideos] = useState([]);
 
   const toggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
@@ -1727,7 +1727,7 @@ const ValourAcademy = () => {
     return (
       videoWatched.includes(previousVideo?.id) ||
       videoWatched.includes(videoId) ||
-      justWatched.includes(videoId) ||
+      manuallyUnlockedVideos.includes(videoId) ||
       currentlyPlayingVideoId === videoId
     );
   };
@@ -1735,6 +1735,7 @@ const ValourAcademy = () => {
   const markVideoWatched = async (videoId, nextVideoUrl) => {
     const token = localStorage.getItem("accessToken");
     try {
+      setManuallyUnlockedVideos((prev) => [...new Set([...prev, videoId])]);
       await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
         method: "POST",
         headers: {
@@ -1742,15 +1743,10 @@ const ValourAcademy = () => {
           "Content-Type": "application/json",
         },
       });
-
-      setVideoWatched((prev) => [...new Set([...prev, videoId])]);
-      setJustWatched((prev) => [...new Set([...prev, videoId])]);
-
       setTimeout(async () => {
         await fetchProgress();
-        setJustWatched((prev) => prev.filter(id => id !== videoId));
+        setManuallyUnlockedVideos((prev) => prev.filter(id => id !== videoId));
       }, 3000);
-
       if (nextVideoUrl) {
         setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
       }
