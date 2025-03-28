@@ -1752,7 +1752,6 @@ const ValourAcademy = () => {
     //     console.error("Error marking video watched:", error);
     //   }
     // };
-
     const markVideoWatched = async (videoId, nextVideoUrl) => {
       const token = localStorage.getItem("accessToken");
       try {
@@ -1764,12 +1763,15 @@ const ValourAcademy = () => {
           },
         });
     
-        // Optimistically update the watched list
+        // Optimistically update watched videos
         setVideoWatched((prevWatched) => [...new Set([...prevWatched, videoId])]);
     
-        // Then re-fetch progress in background
-        fetchProgress();
+        // Delay fetching progress to allow backend update
+        setTimeout(() => {
+          fetchProgress();
+        }, 2000); // 2 second delay
     
+        // Autoplay next video if exists
         if (nextVideoUrl) {
           setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
         }
@@ -1777,6 +1779,7 @@ const ValourAcademy = () => {
         console.error("Error marking video watched:", error);
       }
     };
+    
     
     return (
       <div className="container">
