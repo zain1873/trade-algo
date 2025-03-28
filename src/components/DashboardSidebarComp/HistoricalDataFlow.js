@@ -2940,6 +2940,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [active, setActive] = useState("up");
 
   const apiPaths = {
     up: {
@@ -2978,7 +2979,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
     };
 
     fetchData();
-  }, [activeTab, trend]); // ✅ Reacts to both tab and trend change
+  }, [activeTab, trend]);
 
   return (
     <div
@@ -3007,16 +3008,36 @@ const HistoricalDataFlow = ({ darkMode }) => {
         ))}
 
         {/* Trend toggle icons */}
-        <span className="trend-icons">
+        <div className="trend-icons" style={{ display: "flex", gap: "10px" }}>
           <FaArrowTrendUp
-            className={`up-icon ${trend === "up" ? "active-trend" : ""}`}
-            onClick={() => setTrend("up")}
+            className="up-icon"
+            style={{
+              backgroundColor: active === "up" ? "green" : "grey",
+              color: "black",
+              padding: "10px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setTrend("up");
+              setActive("up");
+            }}
           />
           <FaArrowTrendDown
-            className={`down-icon ${trend === "down" ? "active-trend" : ""}`}
-            onClick={() => setTrend("down")}
+            className="down-icon"
+            style={{
+              backgroundColor: active === "down" ? "red" : "grey",
+              color: active === "down" ? "white" : "black",
+              padding: "10px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setTrend("down");
+              setActive("down");
+            }}
           />
-        </span>
+        </div>
       </ul>
 
       {/* Table */}
