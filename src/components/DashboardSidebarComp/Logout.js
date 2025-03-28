@@ -17,11 +17,11 @@ function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 🧹 Clear tokens
+    // Clear tokens from the local storage for log out the user
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
 
-    // 🔁 Redirect to login or homepage
+    //  Redirect the user to login or homepage
     navigate("/login");
   }, [navigate]);
 
