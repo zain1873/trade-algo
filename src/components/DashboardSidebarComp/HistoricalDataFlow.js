@@ -2757,6 +2757,175 @@
 
 
 
+// import React, { useEffect, useState } from "react";
+// import "../DashboardSidebarComp/styles/historicalDataFlow.css";
+// import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
+
+// const API_BASE_URL = process.env.REACT_APP_API_URL;
+
+// const HistoricalDataFlow = ({ darkMode }) => {
+//   const [activeTab, setActiveTab] = useState("largeCaps");
+//   const [trend, setTrend] = useState("up");
+//   const [tableData, setTableData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   const apiPaths = {
+//     up: {
+//       largeCaps: "api/large_caps/",
+//       mediumCaps: "api/medium_caps/",
+//       smallCaps: "api/small_caps/",
+//     },
+//     down: {
+//       largeCaps: "api/large_caps_down/",
+//       mediumCaps: "api/medium_caps_down/",
+//       smallCaps: "api/small_caps_down/",
+//     },
+//   };
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       setLoading(true);
+//       setError(null);
+//       const endpoint = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+
+//       try {
+//         const response = await fetch(endpoint);
+//         if (!response.ok) {
+//           throw new Error(`HTTP error: ${response.status}`);
+//         }
+//         const data = await response.json();
+//         setTableData(data);
+//       } catch (err) {
+//         console.error("Fetch error:", err.message);
+//         setError("Failed to load data. Please try again later.");
+//         setTableData([]);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, [activeTab, trend]);
+
+//   return (
+//     <div
+//       className="container"
+//       style={{
+//         backgroundColor: darkMode ? "#000000" : "#ffffff",
+//         color: darkMode ? "#ffffff" : "#000000",
+//         padding: "20px",
+//       }}
+//     >
+//       <div className="theme-title">
+//         <h2>Historic ATS Gainers & Losers</h2>
+//       </div>
+
+//       {/* Tabs */}
+//       <ul className="nav nav-tabs gap-2 mt-4 historic-table">
+//         {["largeCaps", "mediumCaps", "smallCaps"].map((tab) => (
+//           <li className="nav-item" key={tab}>
+//             <button
+//               className={`nav-link ${activeTab === tab ? "active" : ""}`}
+//               onClick={() => setActiveTab(tab)}
+//             >
+//               {tab.replace("Caps", " Caps").replace(/^./, (c) => c.toUpperCase())}
+//             </button>
+//           </li>
+//         ))}
+
+//         {/* Trend toggle icons */}
+//         <span className="trend-icons">
+//           <FaArrowTrendUp
+//             className={`up-icon ${trend === "up" ? "active-trend" : ""}`}
+//             onClick={() => setTrend("up")}
+//           />
+//           <FaArrowTrendDown
+//             className={`down-icon ${trend === "down" ? "active-trend" : ""}`}
+//             onClick={() => setTrend("down")}
+//           />
+//         </span>
+//       </ul>
+
+//       {/* Table */}
+//       <div className="table-responsive mt-3">
+//         <table className="table table-bordered table_history">
+//           <thead
+//             className="table-primary"
+//             style={{
+//               backgroundColor: darkMode ? "#000000" : "#ffffff",
+//               color: darkMode ? "#ffffff" : "#000000",
+//               border: darkMode ? "1px solid #444" : "1px solid #ddd",
+//             }}
+//           >
+//             <tr>
+//               <th>TICKER</th>
+//               <th>FROM</th>
+//               <th>TO</th>
+//               <th>IRREGULAR VOL</th>
+//               <th>PERCENT CHANGE</th>
+//             </tr>
+//           </thead>
+//           <tbody
+//             style={{
+//               backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
+//               color: darkMode ? "#ffffff" : "#1c1e20",
+//               border: darkMode ? "1px solid #444" : "1px solid #ddd",
+//             }}
+//           >
+//             {loading ? (
+//               <tr>
+//                 <td colSpan="5" className="text-center">
+//                   Loading data...
+//                 </td>
+//               </tr>
+//             ) : error ? (
+//               <tr>
+//                 <td colSpan="5" className="text-center text-danger">
+//                   {error}
+//                 </td>
+//               </tr>
+//             ) : tableData.length > 0 ? (
+//               tableData.map((item, idx) => (
+//                 <tr key={idx}>
+//                   <td>{item.ticker}</td>
+//                   <td>
+//                     ${item.from_price}
+//                     <br />
+//                     <small>{item.from_time}</small>
+//                   </td>
+//                   <td>
+//                     ${item.to_price}
+//                     <br />
+//                     <small>{item.to_time}</small>
+//                   </td>
+//                   <td>
+//                     <span className="badge bg-success">{item.irregular_vol}x</span>
+//                   </td>
+//                   <td>
+//                     <span className="text-success">+{item.percent_change}%</span>
+//                     <br />
+//                     <small>{item.duration}</small>
+//                   </td>
+//                 </tr>
+//               ))
+//             ) : (
+//               <tr>
+//                 <td colSpan="5" className="text-center">
+//                   No data available.
+//                 </td>
+//               </tr>
+//             )}
+//           </tbody>
+//         </table>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HistoricalDataFlow;
+
+
 import React, { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
@@ -2791,14 +2960,15 @@ const HistoricalDataFlow = ({ darkMode }) => {
 
       try {
         const response = await fetch(endpoint);
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
         const data = await response.json();
-        setTableData(data);
+
+        // Support both formats: {"chunked_data": [...]} or just raw list
+        const formatted = data.chunked_data || data;
+        setTableData(formatted);
       } catch (err) {
         console.error("Fetch error:", err.message);
-        setError("Failed to load data. Please try again later.");
+        setError("Failed to load data. Please try again.");
         setTableData([]);
       } finally {
         setLoading(false);
