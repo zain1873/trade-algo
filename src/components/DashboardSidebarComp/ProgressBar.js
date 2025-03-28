@@ -108,7 +108,7 @@ const CircularProgressBar = ({ percentage, color }) => {
 };
 
 const ProgressBarsDisplay = () => {
-  const { courseId } = useParams();
+  const { courseId } = useParams(); // <-- make sure route has :courseId
   const [selectedLevel, setSelectedLevel] = useState("beginner");
   const [progressData, setProgressData] = useState({
     totalProgress: 0,
@@ -124,6 +124,8 @@ const ProgressBarsDisplay = () => {
         return;
       }
 
+      console.log("Fetching progress for course:", courseId);
+
       try {
         const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
           headers: {
@@ -132,13 +134,8 @@ const ProgressBarsDisplay = () => {
           },
         });
 
-        if (!res.ok) {
-          console.error("API Error:", res.status);
-          return;
-        }
-
         const data = await res.json();
-        console.log("Progress API response:", data);
+        console.log("Progress API data:", data);
 
         const currentLevel = data.levels.find(
           (lvl) => lvl.level.toLowerCase() === selectedLevel.toLowerCase()
@@ -150,7 +147,7 @@ const ProgressBarsDisplay = () => {
           videoProgress: currentLevel?.percent || 0,
         });
       } catch (error) {
-        console.error("Failed to fetch progress:", error);
+        console.error("Error fetching progress:", error);
       }
     };
 
