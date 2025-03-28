@@ -2767,25 +2767,25 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
-  const [trend, setTrend] = useState("up"); // 'up' or 'down'
+  const [trend, setTrend] = useState("up");
   const [tableData, setTableData] = useState([]);
 
   const fetchData = async () => {
-    let url = `${API_BASE_URL}api/`;
+    let endpoint = "";
 
     if (activeTab === "largeCaps") {
-      url += trend === "up" ? "large_caps/" : "large_caps_down/";
+      endpoint = trend === "up" ? "large_caps/" : "large_caps_down/";
     } else if (activeTab === "mediumCaps") {
-      url += trend === "up" ? "medium_caps/" : "medium_caps_down/";
+      endpoint = trend === "up" ? "medium_caps/" : "medium_caps_down/";
     } else if (activeTab === "smallCaps") {
-      url += trend === "up" ? "small_caps/" : "small_caps_down/";
+      endpoint = trend === "up" ? "small_caps/" : "small_caps_down/";
     }
 
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(`${API_BASE_URL}api/${endpoint}`);
       setTableData(response.data.chunked_data || []);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Fetch error:", error);
       setTableData([]);
     }
   };
@@ -2794,25 +2794,29 @@ const HistoricalDataFlow = ({ darkMode }) => {
     fetchData();
   }, [activeTab, trend]);
 
+  const getTabClass = (tab) =>
+    `nav-link ${activeTab === tab ? "active" : ""} ${
+      darkMode ? "dark-tab" : ""
+    }`;
+
   return (
     <div
-      className={`container ${darkMode ? "dark-mode" : ""}`}
+      className="container"
       style={{
         backgroundColor: darkMode ? "#000000" : "#ffffff",
         color: darkMode ? "#ffffff" : "#000000",
         padding: "20px",
         borderRadius: "10px",
-        border: darkMode ? "1px solid #444" : "1px solid #ddd",
+        border: `1px solid ${darkMode ? "#444" : "#ddd"}`,
       }}
     >
       <h2>Historic ATS Gainers & Losers</h2>
 
-      {/* Tabs + Trend Buttons */}
-      <div className="d-flex justify-content-between align-items-center mt-4 flex-wrap">
-        <ul className="nav nav-tabs">
+      <div className="d-flex justify-content-between align-items-center mt-4 mb-2">
+        <ul className="nav nav-tabs gap-2 historic-table">
           <li className="nav-item">
             <button
-              className={`nav-link ${activeTab === "largeCaps" ? "active" : ""}`}
+              className={getTabClass("largeCaps")}
               onClick={() => setActiveTab("largeCaps")}
             >
               Large Caps
@@ -2820,7 +2824,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
           </li>
           <li className="nav-item">
             <button
-              className={`nav-link ${activeTab === "mediumCaps" ? "active" : ""}`}
+              className={getTabClass("mediumCaps")}
               onClick={() => setActiveTab("mediumCaps")}
             >
               Medium Caps
@@ -2828,7 +2832,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
           </li>
           <li className="nav-item">
             <button
-              className={`nav-link ${activeTab === "smallCaps" ? "active" : ""}`}
+              className={getTabClass("smallCaps")}
               onClick={() => setActiveTab("smallCaps")}
             >
               Small Caps
@@ -2836,20 +2840,19 @@ const HistoricalDataFlow = ({ darkMode }) => {
           </li>
         </ul>
 
-        <div className="trend-icons">
+        <span className="trend-icons">
           <FaArrowTrendUp
-            className={trend === "up" ? "active-trend" : ""}
+            className={`up-icon ${trend === "up" ? "active-trend" : ""}`}
             onClick={() => setTrend("up")}
           />
           <FaArrowTrendDown
-            className={trend === "down" ? "active-trend" : ""}
+            className={`down-icon ${trend === "down" ? "active-trend" : ""}`}
             onClick={() => setTrend("down")}
           />
-        </div>
+        </span>
       </div>
 
-      {/* Table Section */}
-      <div className="table-responsive mt-4">
+      <div className="table-responsive mt-3">
         <table className="table table-bordered table_history">
           <thead>
             <tr>

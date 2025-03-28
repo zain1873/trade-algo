@@ -1,96 +1,3 @@
-/* Container styling */
-
-  
-  /* Tabs Styling */
-  /* .nav-tabs .nav-link {
-    color: #666;
-    font-weight: bold;
-  }
-  .nav-tabs .nav-link.active {
-    color: #000;
-  } */
-
-/* 
-  .trend-icons {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px; 
-    width: 100%;
-    justify-content: end;
-    margin-top: -60px;
-  }
-  
-  .up-icon {
-    color: #423d3d;
-    font-size: 36px;
-    cursor: pointer;
-    background: var(--theme-color);
-    border-radius: 10px;
-    padding: 5px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-  }
-  
-  .down-icon {
-    color: #423d3d;
-    font-size: 36px;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 5px;
-    background-color: #ccc;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-  } */
-  
-  /* Table Styling */
-  /* .table {
-    text-align: left;
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-  }
-  .table th {
-    background-color: #007bff;
-    color: white;
-    text-transform: uppercase;
-    padding: 10px;
-  }
-  .table td {
-    padding: 9px;
-    vertical-align: middle;
-  } */
-
-  /* Irregular Volume Badge */
-  /* .badge {
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 12px;
-  }
-  .badge.bg-success {
-    background-color: #d4edda !important;
-    color: #28a745;
-    font-weight: bold;
-  }
-  */
-  /* Default Table Styles */
-/* .table {
-  width: 100%;
-  border-collapse: collapse;
-} */
-
-/* Light Mode */
-/* .table-light {
-  background-color: white;
-  color: black;
-}
-
-.table-light th, .table-light td {
-  border: 1px solid #ddd;
-}
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
@@ -98,95 +5,53 @@
 }
 
 .dark-mode {
-  --background-color: #000000;  /* Full black */
-  /* --text-color: #ffffff;        White text */
-  /* --table-border-color: #444;   Dark border */
-/* } */
-/* 
-.table_history {
-  background-color: #0000 !important;
-  color: #ffff !important;
-  border: 1px solid var(--table-border-color);
-}
-.table_history {
-  background-color: var(--background-color) !important;
-  color: var(--text-color) !important;
-  border: 1px solid var(--table-border-color);
-}
-.table_history tr th {
-  background-color: var(--theme-color) !important;
-  color: #fff !important;
-}
-
-.table_history th,
-.table_history td {
-  background-color: var(--background-color) !important; 
-  color: var(--text-color) !important;
-  border-color: var(--table-border-color) !important; } */
-/* 
-.dark-mode {
   --background-color: #000000;
-  --text-color: #ffffff; 
-  --table-border-color: #444; }
-   /* */
-  /* Responsive Table */
-  /* @media (max-width: 768px) { 
-    .table {
-      font-size: 14px;
-    }
-    .badge {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  } */
-  
+  --text-color: #ffffff;
+  --table-border-color: #444;
+}
 
-  /* Tabs */
-  .nav-tabs {
-    display: flex;
-    gap: 10px;
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-left: 0;
-  }
-  
-  .nav-tabs .nav-item {
-    list-style: none;
-  }
-  
-  .nav-tabs .nav-link {
-    padding: 10px 20px;
-    font-weight: 600;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .nav-tabs .nav-link.active {
-    background-color: green;
-    color: white !important;
-    border-color: green;
-  }
-  
+/* Container styling */
+.container {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--table-border-color);
+}
+
+/* Tabs */
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-link {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  color: black;
+  border-radius: 5px;
+}
+
+.nav-link.active {
+  background-color: green;
+  color: white !important;
+}
+
+.dark-tab {
+  color: white !important;
+}
+
 /* Trend Icons */
 .trend-icons {
-  margin-left: auto;
   display: flex;
   gap: 10px;
-  align-items: center;
 }
 
 .trend-icons svg {
-  font-size: 30px;
-  padding: 6px;
-  border-radius: 8px;
+  font-size: 28px;
   cursor: pointer;
-  background: #e4e4e4;
-  color: #000;
-  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+  padding: 5px;
+  color: gray;
 }
 
 .trend-icons .active-trend {
@@ -194,45 +59,63 @@
   color: white;
 }
 
-
-/* Layout Container for Tabs + Trends (fix spacing/layout) */
-.tabs-trend-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
 /* Table */
-.table_history {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  border: 1px solid var(--table-border-color);
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
 
-.table_history th,
-.table_history td {
-  border: 1px solid var(--table-border-color);
+.table th {
+  text-transform: uppercase;
   padding: 10px;
 }
 
-.table_history thead th {
+.table td {
+  padding: 9px;
+  vertical-align: middle;
+}
+
+/* Table - custom class */
+.table_history {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--table-border-color);
+}
+
+.table_history th {
   background-color: green !important;
   color: white !important;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .tabs-trend-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .trend-icons {
-    justify-content: flex-start;
-  }
+.table_history td,
+.table_history th {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border-color: var(--table-border-color) !important;
 }
 
+/* Volume Badge (optional) */
+.badge {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
 
+.badge.bg-success {
+  background-color: #d4edda !important;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
