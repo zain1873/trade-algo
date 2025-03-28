@@ -5,6 +5,9 @@ import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
+    const [active, setActive] = useState("up");
+
+
 
   return (
     <div
@@ -48,10 +51,33 @@ const HistoricalDataFlow = ({ darkMode }) => {
         </li> 
 
       {/* trend icons */}
-      <span className="trend-icons">
-      <FaArrowTrendUp className="up-icon" />
-      <FaArrowTrendDown className="down-icon" />
-    </span>
+      <div className="trend-icons" style={{ display: "flex", gap: "10px" }}>
+      {/* Up Icon (Default Green) */}
+      <FaArrowTrendUp
+        className="up-icon"
+        style={{
+          backgroundColor: active === "up" ? "green" : "grey",
+          color: "black",
+          padding: "10px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        onClick={() => setActive("up")}
+      />
+
+      {/* Down Icon (Default Grey) */}
+      <FaArrowTrendDown
+        className="down-icon"
+        style={{
+          backgroundColor: active === "down" ? "red" : "grey",
+          color: active === "down" ? "white" : "black",
+          padding: "10px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        onClick={() => setActive("down")}
+      />
+    </div>
 
       </ul>
 
