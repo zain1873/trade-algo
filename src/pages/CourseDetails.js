@@ -1734,6 +1734,25 @@ const ValourAcademy = () => {
   const renderVideos = () => {
     const videos = getVideosForLevel(selectedLevel);
 
+    // const markVideoWatched = async (videoId, nextVideoUrl) => {
+    //   const token = localStorage.getItem("accessToken");
+    //   try {
+    //     await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
+    //       method: "POST",
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //         "Content-Type": "application/json",
+    //       },
+    //     });
+    //     await fetchProgress();
+    //     if (nextVideoUrl) {
+    //       setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
+    //     }
+    //   } catch (error) {
+    //     console.error("Error marking video watched:", error);
+    //   }
+    // };
+
     const markVideoWatched = async (videoId, nextVideoUrl) => {
       const token = localStorage.getItem("accessToken");
       try {
@@ -1744,7 +1763,13 @@ const ValourAcademy = () => {
             "Content-Type": "application/json",
           },
         });
-        await fetchProgress();
+    
+        // Optimistically update the watched list
+        setVideoWatched((prevWatched) => [...new Set([...prevWatched, videoId])]);
+    
+        // Then re-fetch progress in background
+        fetchProgress();
+    
         if (nextVideoUrl) {
           setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
         }
@@ -1752,7 +1777,7 @@ const ValourAcademy = () => {
         console.error("Error marking video watched:", error);
       }
     };
-
+    
     return (
       <div className="container">
         <div className="row">
