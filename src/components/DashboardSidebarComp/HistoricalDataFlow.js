@@ -2604,6 +2604,9 @@
 // export default HistoricalDataFlow;
 
 
+
+
+
 import React, { useState, useEffect } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
@@ -2613,17 +2616,18 @@ const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
-  const [trend, setTrend] = useState("up"); // 'up' or 'down'
+  const [trend, setTrend] = useState("up");
   const [tableData, setTableData] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = async (tab = activeTab, selectedTrend = trend) => {
     let url = `${API_BASE_URL}api/`;
-    if (activeTab === "largeCaps") {
-      url += trend === "up" ? "large_caps/" : "large_caps_down/";
-    } else if (activeTab === "mediumCaps") {
-      url += trend === "up" ? "medium_caps/" : "medium_caps_down/";
-    } else if (activeTab === "smallCaps") {
-      url += trend === "up" ? "small_caps/" : "small_caps_down/";
+
+    if (tab === "largeCaps") {
+      url += selectedTrend === "up" ? "large_caps/" : "large_caps_down/";
+    } else if (tab === "mediumCaps") {
+      url += selectedTrend === "up" ? "medium_caps/" : "medium_caps_down/";
+    } else if (tab === "smallCaps") {
+      url += selectedTrend === "up" ? "small_caps/" : "small_caps_down/";
     }
 
     try {
@@ -2639,6 +2643,14 @@ const HistoricalDataFlow = ({ darkMode }) => {
     fetchData();
   }, [activeTab, trend]);
 
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const handleTrendChange = (selectedTrend) => {
+    setTrend(selectedTrend);
+  };
+
   return (
     <div
       className="container"
@@ -2652,45 +2664,47 @@ const HistoricalDataFlow = ({ darkMode }) => {
     >
       <h2>Historic ATS Gainers & Losers</h2>
 
-      <ul className="nav nav-tabs gap-2 mt-4 historic-table">
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === "largeCaps" ? "active" : ""}`}
-            onClick={() => setActiveTab("largeCaps")}
-          >
-            Large Caps
-          </button>
-        </li>
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === "mediumCaps" ? "active" : ""}`}
-            onClick={() => setActiveTab("mediumCaps")}
-          >
-            Medium Caps
-          </button>
-        </li>
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === "smallCaps" ? "active" : ""}`}
-            onClick={() => setActiveTab("smallCaps")}
-          >
-            Small Caps
-          </button>
-        </li>
+      <div className="d-flex justify-content-between align-items-center">
+        <ul className="nav nav-tabs gap-2 mt-4 historic-table">
+          <li className="nav-item">
+            <button
+              className={`nav-link ${activeTab === "largeCaps" ? "active" : ""}`}
+              onClick={() => handleTabChange("largeCaps")}
+            >
+              Large Caps
+            </button>
+          </li>
+          <li className="nav-item">
+            <button
+              className={`nav-link ${activeTab === "mediumCaps" ? "active" : ""}`}
+              onClick={() => handleTabChange("mediumCaps")}
+            >
+              Medium Caps
+            </button>
+          </li>
+          <li className="nav-item">
+            <button
+              className={`nav-link ${activeTab === "smallCaps" ? "active" : ""}`}
+              onClick={() => handleTabChange("smallCaps")}
+            >
+              Small Caps
+            </button>
+          </li>
+        </ul>
 
-        <span className="trend-icons">
+        <div className="trend-icons d-flex gap-2 mt-4">
           <FaArrowTrendUp
             className={`up-icon ${trend === "up" ? "active-trend" : ""}`}
-            onClick={() => setTrend("up")}
-            style={{ cursor: "pointer" }}
+            onClick={() => handleTrendChange("up")}
+            style={{ cursor: "pointer", fontSize: "24px" }}
           />
           <FaArrowTrendDown
             className={`down-icon ${trend === "down" ? "active-trend" : ""}`}
-            onClick={() => setTrend("down")}
-            style={{ cursor: "pointer" }}
+            onClick={() => handleTrendChange("down")}
+            style={{ cursor: "pointer", fontSize: "24px" }}
           />
-        </span>
-      </ul>
+        </div>
+      </div>
 
       <div className="table-responsive mt-3">
         <table className="table table-bordered table_history">
