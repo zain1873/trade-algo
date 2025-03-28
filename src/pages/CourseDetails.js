@@ -1618,6 +1618,7 @@
 
 // export default ValourAcademy;
 
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/academy.css';
@@ -1636,6 +1637,7 @@ const ValourAcademy = () => {
   const [mcqs, setMcqs] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [grade, setGrade] = useState(null);
+  const [currentlyPlayingVideoId, setCurrentlyPlayingVideoId] = useState(null);
 
   const toggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
@@ -1718,9 +1720,14 @@ const ValourAcademy = () => {
     return level ? level.videos : [];
   };
 
-  const isVideoUnlocked = (index) => {
+  const isVideoUnlocked = (index, videoId) => {
     if (index === 0) return true;
-    return videoWatched.includes(getVideosForLevel(selectedLevel)[index - 1]?.id);
+    const previousVideo = getVideosForLevel(selectedLevel)[index - 1];
+    return (
+      videoWatched.includes(previousVideo?.id) ||
+      videoWatched.includes(videoId) ||
+      currentlyPlayingVideoId === videoId
+    );
   };
 
   const areAllVideosWatched = () => {
@@ -1734,29 +1741,9 @@ const ValourAcademy = () => {
   const renderVideos = () => {
     const videos = getVideosForLevel(selectedLevel);
 
-    // const markVideoWatched = async (videoId, nextVideoUrl) => {
-    //   const token = localStorage.getItem("accessToken");
-    //   try {
-    //     await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
-    //       method: "POST",
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //     });
-    //     await fetchProgress();
-    //     if (nextVideoUrl) {
-    //       setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
-    //     }
-    //   } catch (error) {
-    //     console.error("Error marking video watched:", error);
-    //   }
-    // };
     const markVideoWatched = async (videoId, nextVideoUrl) => {
       const token = localStorage.getItem("accessToken");
-    
       try {
-        // Call API to mark as watched
         await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
           method: "POST",
           headers: {
@@ -1764,16 +1751,15 @@ const ValourAcademy = () => {
             "Content-Type": "application/json",
           },
         });
-    
-        // ✅ Optimistically unlock current video
+
+        // Optimistically mark current as watched
         setVideoWatched((prevWatched) => [...new Set([...prevWatched, videoId])]);
-    
-        // ✅ Wait 3 seconds before fetching actual progress
+
+        // Delay fetch to allow backend to sync
         setTimeout(() => {
-          fetchProgress(); // Now backend update should be ready
+          fetchProgress();
         }, 3000);
-    
-        // ✅ Optional: auto play next video
+
         if (nextVideoUrl) {
           setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
         }
@@ -1781,14 +1767,14 @@ const ValourAcademy = () => {
         console.error("Error marking video watched:", error);
       }
     };
-    
-    
+
     return (
       <div className="container">
         <div className="row">
           {videos.map((video, index) => {
-            const isUnlocked = isVideoUnlocked(index);
+            const isUnlocked = isVideoUnlocked(index, video.id);
             const nextVideo = videos[index + 1];
+
             return (
               <div key={video.id} className="col-lg-4 col-md-6 mb-4">
                 <div className="video-card">
@@ -1798,7 +1784,10 @@ const ValourAcademy = () => {
                         <>
                           <img className="obj_fit" src={videoImg} alt={video.title} />
                           <button
-                            onClick={() => setVideoUrl(video.public_url)}
+                            onClick={() => {
+                              setCurrentlyPlayingVideoId(video.id);
+                              setVideoUrl(video.public_url);
+                            }}
                             className="play-button-overlay"
                           >▶</button>
                         </>
