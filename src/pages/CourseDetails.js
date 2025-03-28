@@ -1635,6 +1635,8 @@ const ValourAcademy = () => {
   const [notes, setNotes] = useState([]);
   const [mcqs, setMcqs] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
+  const [justWatched, setJustWatched] = useState([]);
+
   const [grade, setGrade] = useState(null);
 
   const toggleSection = (section) => {
@@ -1718,11 +1720,20 @@ const ValourAcademy = () => {
     return level ? level.videos : [];
   };
 
-  const isVideoUnlocked = (index) => {
+  const isVideoUnlocked = (index, videoId) => {
     if (index === 0) return true;
-    return videoWatched.includes(getVideosForLevel(selectedLevel)[index - 1]?.id);
+  
+    const videos = getVideosForLevel(selectedLevel);
+    const previousVideo = videos[index - 1];
+  
+    return (
+      videoWatched.includes(previousVideo?.id) ||
+      videoWatched.includes(videoId) ||
+      justWatched.includes(videoId) ||
+      currentlyPlayingVideoId === videoId
+    );
   };
-
+  
   const areAllVideosWatched = () => {
     const videos = getVideosForLevel(selectedLevel);
     return videos.length && videos.every((v) => videoWatched.includes(v.id));
@@ -1756,7 +1767,6 @@ const ValourAcademy = () => {
       const token = localStorage.getItem("accessToken");
     
       try {
-        // Call API to mark as watched
         await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
           method: "POST",
           headers: {
@@ -1765,15 +1775,17 @@ const ValourAcademy = () => {
           },
         });
     
-        // ✅ Optimistically unlock current video
-        setVideoWatched((prevWatched) => [...new Set([...prevWatched, videoId])]);
+        // Add to watched and justWatched
+        setVideoWatched((prev) => [...new Set([...prev, videoId])]);
+        setJustWatched((prev) => [...new Set([...prev, videoId])]);
     
-        // ✅ Wait 3 seconds before fetching actual progress
-        setTimeout(() => {
-          fetchProgress(); // Now backend update should be ready
+        // Fetch real progress after 3 sec
+        setTimeout(async () => {
+          await fetchProgress();
+          // Remove from justWatched once backend confirms
+          setJustWatched((prev) => prev.filter(id => id !== videoId));
         }, 3000);
     
-        // ✅ Optional: auto play next video
         if (nextVideoUrl) {
           setTimeout(() => setVideoUrl(nextVideoUrl), 1000);
         }
