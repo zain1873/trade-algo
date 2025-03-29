@@ -118,8 +118,8 @@ const ProgressBarsDisplay = ({ courseId }) => {
   useEffect(() => {
     const fetchProgress = async () => {
       const token = localStorage.getItem("accessToken");
-      console.log("🧭 courseId from prop:", courseId);
-      console.log("🔐 token exists:", !!token);
+      console.log("courseId from prop:", courseId);
+      console.log("token exists:", !!token);
 
       if (!token || !courseId) {
         console.warn("Missing token or courseId");
@@ -135,7 +135,7 @@ const ProgressBarsDisplay = ({ courseId }) => {
         });
 
         const data = await res.json();
-        console.log("🎯 Progress API data:", data);
+        console.log("Progress API data:", data);
 
         const currentLevel = data.levels.find(
           (lvl) => lvl.level.toLowerCase() === selectedLevel.toLowerCase()
