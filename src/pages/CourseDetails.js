@@ -1592,7 +1592,7 @@ const ValourAcademy = () => {
               </div>
             </div>
           )}
-
+          
           <div className="accordion-container">
             {['resources', 'notes', 'knowledge'].map(section => (
               <div key={section} className={`accordion-item ${activeSection === section ? 'active' : ''}`}>
@@ -1610,6 +1610,7 @@ const ValourAcademy = () => {
                     {section === 'resources' && renderVideos()}
                     {section === 'notes' && renderNotes()}
                     {section === 'knowledge' && renderKnowledge()}
+                    <ProgressBarsDisplay courseId={courseId} /> {/* 👈 pass it as prop */}
                   </div>
                 )}
               </div>
