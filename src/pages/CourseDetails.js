@@ -1608,10 +1608,9 @@ const ValourAcademy = () => {
                 {activeSection === section && (
                   <div className="accordion-content">
                     {section === 'resources' && renderVideos()}
-                    <ProgressBarsDisplay courseId={courseId} /> {/* 👈 pass it as prop */}
                     {section === 'notes' && renderNotes()}
-                    {section === 'knowledge' && renderKnowledge()}
-                    
+                    {section === 'knowledge' && renderKnowledge() }
+                    <ProgressBarsDisplay courseId={courseId} /> {/* 👈 pass it as prop */}
                   </div>
                 )}
                 
