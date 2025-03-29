@@ -1610,9 +1610,10 @@ const ValourAcademy = () => {
                     {section === 'resources' && renderVideos()}
                     {section === 'notes' && renderNotes()}
                     {section === 'knowledge' && renderKnowledge()}
-                    <ProgressBarsDisplay courseId={courseId} /> {/* 👈 pass it as prop */}
+                    
                   </div>
                 )}
+                <ProgressBarsDisplay courseId={courseId} /> {/* 👈 pass it as prop */}
               </div>
             ))}
           </div>
