@@ -3372,13 +3372,13 @@ const HistoricalDataFlow = ({ darkMode }) => {
 
   return (
     <div
-      className="container"
+      className="container "
       style={{
-        backgroundColor: darkMode ? "#000000" : "#ffffff",
+        backgroundColor: darkMode ? "#ccc" : "#ffffff",
         color: darkMode ? "#ffffff" : "#000000",
         padding: "20px",
       }}
-    >
+     >
       <div className="theme-title">
         <h2>Historic ATS Gainers & Losers</h2>
       </div>
