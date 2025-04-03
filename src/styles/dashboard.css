@@ -159,6 +159,9 @@ body .dark {
   font-size: 15px;
   font-weight: 600;
 }
+.edit-profile .theme_btn {
+  width: fit-content;
+}
   
   /* Button Styles */
   .btn-outline-secondary {
