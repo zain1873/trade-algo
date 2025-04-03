@@ -301,7 +301,7 @@ const Dashboard = () => {
       "mentorship",
     ],
   };
-
+  
   const renderContent = (activeTab, userData, darkMode) => {
     const plan = (userData?.subscription_status || "free").toLowerCase();
     const isAdmin = userData?.is_staff || userData?.is_superuser;
@@ -326,7 +326,7 @@ const Dashboard = () => {
           "stocks",
         ]
       : [
-          ...PLAN_ACCESS[plan],
+          ...(PLAN_ACCESS[plan] || PLAN_ACCESS["free"]),
           "edit-profile",
           "logout",
           "forex",
