@@ -301,10 +301,11 @@ const Dashboard = () => {
       "mentorship",
     ],
   };
-  
+
   const renderContent = (activeTab, userData, darkMode) => {
-    const plan = userData?.subscription_status?.toLowerCase();
+    const plan = (userData?.subscription_status || "free").toLowerCase();
     const isAdmin = userData?.is_staff || userData?.is_superuser;
+  
     const allowedTabs = isAdmin
       ? [
           "dashboard",
@@ -324,7 +325,14 @@ const Dashboard = () => {
           "crypto",
           "stocks",
         ]
-      : PLAN_ACCESS[plan] || PLAN_ACCESS["free"];
+      : [
+          ...PLAN_ACCESS[plan],
+          "edit-profile",
+          "logout",
+          "forex",
+          "crypto",
+          "stocks",
+        ];
   
     const isRestricted = !allowedTabs.includes(activeTab);
   
@@ -359,7 +367,7 @@ const Dashboard = () => {
       default: return null;
     }
   };
-   
+  
   
   return (
     <div className={darkMode ? "bg-dark text-white vh-100" : "bg-light vh-100"}>
@@ -590,3 +598,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
