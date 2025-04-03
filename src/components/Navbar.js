@@ -50,7 +50,7 @@ const Navbar = () => {
               <li className="nav-item"><Link className="nav-link" to="/features" onClick={closeNavbar}>Features</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/customer-support" onClick={closeNavbar}>Customer Support</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/our-analyst" onClick={closeNavbar}>Our Analysts</Link></li>
+              {/* <li className="nav-item"><Link className="nav-link" to="/our-analyst" onClick={closeNavbar}>Our Analysts</Link></li> */}
               <li className="nav-item"><Link className="theme_btn d-lg-block d-none mx-2" to="/request-a-demo" onClick={closeNavbar}>Request Demo</Link></li>
               <li className="nav-item"><Link className="theme_btn" to="/login" onClick={closeNavbar}>My Login</Link></li>
             </ul>
