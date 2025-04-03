@@ -43,6 +43,7 @@ import Resources from "./DashboardSidebarComp/Resources";
 // trading tools
 // import ScannerTool from "./DashboardSidebarComp/ScannerTool";
 // import SwingTradeAI from "./DashboardSidebarComp/SwingTradeAI";
+
 import EditProfile from "./DashboardSidebarComp/EditProfile";
 import Logout from "./DashboardSidebarComp/Logout";
 import ForexData from "./DashboardSidebarComp/ForexData";
