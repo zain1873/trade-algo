@@ -281,16 +281,18 @@ const Dashboard = () => {
   const renderContent = () => {
     const allowedTabsForFree = ["dashboard", "darkpool-data", "edit-profile", "logout"];
   
-    const isRestricted =
-      userData?.subscription_status === "free" &&
-      !allowedTabsForFree.includes(activeTab);
+    const isFree = userData?.subscription_status === "free";
+    const isAdmin = userData?.is_staff || userData?.is_superuser;
+    const isRestricted = isFree && !isAdmin && !allowedTabsForFree.includes(activeTab);
   
     return (
       <div className={darkMode ? "dark-mode-content" : "light-mode-content"}>
         {isRestricted ? (
           <div className="text-center py-5">
             <h4 className="text-danger">🔒 Unable to access</h4>
-            <p className="text-muted">This section is available to premium members only.</p>
+            <p className="text-muted">
+              This section is available to premium members or administrators only.
+            </p>
           </div>
         ) : (
           (() => {
@@ -335,7 +337,7 @@ const Dashboard = () => {
       </div>
     );
   };
-  
+   
   return (
     <div className={darkMode ? "bg-dark text-white vh-100" : "bg-light vh-100"}>
       <div className="row dashboard_row g-0">
