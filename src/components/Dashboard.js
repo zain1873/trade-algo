@@ -205,79 +205,137 @@ const Dashboard = () => {
     { id: "mentorship", label: "1 on 1 Mentorship", icon: <Users size={20} /> },
   ];
 
+  // const renderContent = () => {
+  //   return (
+  //     <div className={darkMode ? "dark-mode-content" : "light-mode-content"}>
+  //       {(() => {
+  //         switch (activeTab) {
+  //           case "dashboard":
+  //             return <DashboardData darkMode={darkMode} />;
+  //           case "darkpool-data":
+  //             return <HistoricalDataFlow darkMode={darkMode} />;
+  //           case "live-sessions":
+  //             return <LiveSessions darkMode={darkMode} />;
+  //           case "Trade-products":
+  //             return <TradeProducts darkMode={darkMode} />;
+  //           case "trading-tools":
+  //             return <TradingTools darkMode={darkMode} />;
+  //           case "emerald":
+  //             return <Emerald darkMode={darkMode} />;
+  //           case "platinum":
+  //             return <Platinum darkMode={darkMode} />;
+  //           case "options-academy":
+  //             return <OptionsAcademy darkMode={darkMode} />;
+  //           case "wealth-series":
+  //             return <WealthSeries darkMode={darkMode} />;
+  //           case "mentorship":
+  //             return <Mentorship darkMode={darkMode} />;
+  //           case "resources":
+  //             return <Resources darkMode={darkMode} />;
+
+  //           //  New Trading Tools Components (Dropdown items)
+
+  //           // case "scanner":
+  //           //   return <ScannerTool darkMode={darkMode} />;
+  //           // case "swing-trade-ai":
+  //           //   return <SwingTradeAI darkMode={darkMode} />;
+  //           // case "chart-grid":
+  //           //   return <ChartGrid darkMode={darkMode} />;
+  //           // case "live-option":
+  //           //   return <LiveOption darkMode={darkMode} />;
+  //           // case "option-chain":
+  //           //   return <OptionChain darkMode={darkMode} />;
+  //           // case "trade-alerts":
+  //           //   return <TradeAlerts darkMode={darkMode} />;
+
+  //           case "forex":
+  //             return <ForexData darkMode={darkMode} />;
+
+  //           case "crypto":
+  //             return <CryptoData darkMode={darkMode} />;
+
+  //           case "stocks":
+  //             return <StocksData darkMode={darkMode} />;
+
+  //           //Wealth management series
+
+  //           // case "lite":
+  //           //   return <ProgramLite darkMode={darkMode} />;
+  //           // case "premium":
+  //           //   return <WealthPremium darkMode={darkMode} />;
+
+  //           //User profile
+
+  //           case "edit-profile":
+  //             return <EditProfile darkMode={darkMode} />; // Edit Profile Component
+  //           case "logout":
+  //             return <Logout darkMode={darkMode} />; // Logout Component
+  //           default:
+  //             return null;
+  //         }
+  //       })()}
+  //     </div>
+  //   );
+  // };
+
   const renderContent = () => {
+    const allowedTabsForFree = ["dashboard", "darkpool-data", "edit-profile", "logout"];
+  
+    const isRestricted =
+      userData?.subscription_status === "free" &&
+      !allowedTabsForFree.includes(activeTab);
+  
     return (
       <div className={darkMode ? "dark-mode-content" : "light-mode-content"}>
-        {(() => {
-          switch (activeTab) {
-            case "dashboard":
-              return <DashboardData darkMode={darkMode} />;
-            case "darkpool-data":
-              return <HistoricalDataFlow darkMode={darkMode} />;
-            case "live-sessions":
-              return <LiveSessions darkMode={darkMode} />;
-            case "Trade-products":
-              return <TradeProducts darkMode={darkMode} />;
-            case "trading-tools":
-              return <TradingTools darkMode={darkMode} />;
-            case "emerald":
-              return <Emerald darkMode={darkMode} />;
-            case "platinum":
-              return <Platinum darkMode={darkMode} />;
-            case "options-academy":
-              return <OptionsAcademy darkMode={darkMode} />;
-            case "wealth-series":
-              return <WealthSeries darkMode={darkMode} />;
-            case "mentorship":
-              return <Mentorship darkMode={darkMode} />;
-            case "resources":
-              return <Resources darkMode={darkMode} />;
-
-            //  New Trading Tools Components (Dropdown items)
-
-            // case "scanner":
-            //   return <ScannerTool darkMode={darkMode} />;
-            // case "swing-trade-ai":
-            //   return <SwingTradeAI darkMode={darkMode} />;
-            // case "chart-grid":
-            //   return <ChartGrid darkMode={darkMode} />;
-            // case "live-option":
-            //   return <LiveOption darkMode={darkMode} />;
-            // case "option-chain":
-            //   return <OptionChain darkMode={darkMode} />;
-            // case "trade-alerts":
-            //   return <TradeAlerts darkMode={darkMode} />;
-
-            case "forex":
-              return <ForexData darkMode={darkMode} />;
-
-            case "crypto":
-              return <CryptoData darkMode={darkMode} />;
-
-            case "stocks":
-              return <StocksData darkMode={darkMode} />;
-
-            //Wealth management series
-
-            // case "lite":
-            //   return <ProgramLite darkMode={darkMode} />;
-            // case "premium":
-            //   return <WealthPremium darkMode={darkMode} />;
-
-            //User profile
-
-            case "edit-profile":
-              return <EditProfile darkMode={darkMode} />; // Edit Profile Component
-            case "logout":
-              return <Logout darkMode={darkMode} />; // Logout Component
-            default:
-              return null;
-          }
-        })()}
+        {isRestricted ? (
+          <div className="text-center py-5">
+            <h4 className="text-danger">🔒 Unable to access</h4>
+            <p className="text-muted">This section is available to premium members only.</p>
+          </div>
+        ) : (
+          (() => {
+            switch (activeTab) {
+              case "dashboard":
+                return <DashboardData darkMode={darkMode} />;
+              case "darkpool-data":
+                return <HistoricalDataFlow darkMode={darkMode} />;
+              case "live-sessions":
+                return <LiveSessions darkMode={darkMode} />;
+              case "Trade-products":
+                return <TradeProducts darkMode={darkMode} />;
+              case "trading-tools":
+                return <TradingTools darkMode={darkMode} />;
+              case "emerald":
+                return <Emerald darkMode={darkMode} />;
+              case "platinum":
+                return <Platinum darkMode={darkMode} />;
+              case "options-academy":
+                return <OptionsAcademy darkMode={darkMode} />;
+              case "wealth-series":
+                return <WealthSeries darkMode={darkMode} />;
+              case "mentorship":
+                return <Mentorship darkMode={darkMode} />;
+              case "resources":
+                return <Resources darkMode={darkMode} />;
+              case "forex":
+                return <ForexData darkMode={darkMode} />;
+              case "crypto":
+                return <CryptoData darkMode={darkMode} />;
+              case "stocks":
+                return <StocksData darkMode={darkMode} />;
+              case "edit-profile":
+                return <EditProfile darkMode={darkMode} />;
+              case "logout":
+                return <Logout darkMode={darkMode} />;
+              default:
+                return null;
+            }
+          })()
+        )}
       </div>
     );
   };
-
+  
   return (
     <div className={darkMode ? "bg-dark text-white vh-100" : "bg-light vh-100"}>
       <div className="row dashboard_row g-0">
