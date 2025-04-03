@@ -3374,7 +3374,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
     <div
       className="container "
       style={{
-        backgroundColor: darkMode ? "#ccc" : "#ffffff",
+        backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
         color: darkMode ? "#ffffff" : "#000000",
         padding: "20px",
       }}
