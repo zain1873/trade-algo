@@ -1366,15 +1366,23 @@ const ValourAcademy = () => {
     return false;
   };
 
-  const isVideoUnlocked = (index) => {
-    if (index === 0) return true;
-    return videoWatched.includes(getVideosForLevel(selectedLevel)[index - 1]?.id);
-  };
+  // const isVideoUnlocked = (index) => {
+  //   if (index === 0) return true;
+  //   return videoWatched.includes(getVideosForLevel(selectedLevel)[index - 1]?.id);
+  // };
 
-  const areAllVideosWatched = () => {
-    const videos = getVideosForLevel(selectedLevel);
-    return videos.length && videos.every((v) => videoWatched.includes(v.id));
+  const isVideoUnlocked = (index) => {
+    return true; // All videos are unlocked
   };
+  
+  const areAllVideosWatched = () => {
+    return true; // So notes unlock immediately
+  };
+  
+  // const areAllVideosWatched = () => {
+  //   const videos = getVideosForLevel(selectedLevel);
+  //   return videos.length && videos.every((v) => videoWatched.includes(v.id));
+  // };
 
   const canAccessNotes = () => areAllVideosWatched();
   const canAccessMCQs = () => canAccessNotes();
