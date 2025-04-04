@@ -5,7 +5,7 @@ import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
 const HistoricalDataFlow = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("largeCaps");
-    const [active, setActive] = useState("up");
+  const [active, setActive] = useState("up");
 
 
 
