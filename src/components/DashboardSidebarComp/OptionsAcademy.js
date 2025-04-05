@@ -95,6 +95,7 @@ const OptionsAcademy = () => {
       try {
         const token = localStorage.getItem("accessToken");
 
+
   
         if (!token) {
           throw new Error("No access token found in localStorage");
