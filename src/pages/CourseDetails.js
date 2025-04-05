@@ -1387,9 +1387,91 @@ const ValourAcademy = () => {
   const canAccessNotes = () => areAllVideosWatched();
   const canAccessMCQs = () => canAccessNotes();
 
+  // const renderVideos = () => {
+  //   const videos = getVideosForLevel(selectedLevel);
+
+  //   const markVideoWatched = async (videoId) => {
+  //     const token = localStorage.getItem("accessToken");
+  //     try {
+  //       await fetch(`https://valourwealthdjango-production.up.railway.app/videos/${videoId}/watch/`, {
+  //         method: "POST",
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
+
+  //       const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
+  //       const data = await res.json();
+  //       const currentLevel = data.levels.find(lvl => lvl.level.toLowerCase() === selectedLevel);
+  //       setProgressData({
+  //         totalProgress: data.total_progress,
+  //         levelProgress: currentLevel?.percent || 0,
+  //         videoProgress: currentLevel?.percent || 0,
+  //       });
+  //       setVideoWatched(currentLevel?.watched_video_ids || []);
+
+  //     } catch (error) {
+  //       console.error("Error marking video watched:", error);
+  //     }
+  //   };
+
+  //   return (
+  //     <div className="container">
+  //       <div className="row">
+  //         {videos.map((video, index) => {
+  //           const isUnlocked = isVideoUnlocked(index);
+  //           return (
+  //             <div key={video.id} className="col-lg-4 col-md-6 mb-4">
+  //               <div className="video-card">
+  //                 <div className="video-thumbnail" style={{ position: "relative" }}>
+  //                   {isUnlocked ? (
+  //                     !videoUrl || videoUrl !== video.public_url ? (
+  //                       <>
+  //                         <img className="obj_fit" src={videoImg} alt={video.title} />
+  //                         <button
+  //                           onClick={() => setVideoUrl(video.public_url)}
+  //                           className="play-button-overlay"
+  //                         >▶</button>
+  //                       </>
+  //                     ) : (
+  //                       <video
+  //                         controls
+  //                         autoPlay
+  //                         className="w-100 rounded"
+  //                         controlsList="nodownload"
+  //                         onContextMenu={(e) => e.preventDefault()}
+  //                         onEnded={() => markVideoWatched(video.id)}
+  //                       >
+  //                         <source src={video.public_url} type="video/mp4" />
+  //                       </video>
+  //                     )
+  //                   ) : (
+  //                     <>
+  //                       <img className="obj_fit blur" src={videoImg} alt="Locked" />
+  //                       <div className="locked-overlay"><FaLock /></div>
+  //                     </>
+  //                   )}
+  //                 </div>
+  //                 <div className="video-info">
+  //                   <h5 className="video-title">{video.title}</h5>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           );
+  //         })}
+  //       </div>
+  //     </div>
+  //   );
+  // };
   const renderVideos = () => {
     const videos = getVideosForLevel(selectedLevel);
-
+  
     const markVideoWatched = async (videoId) => {
       const token = localStorage.getItem("accessToken");
       try {
@@ -1400,7 +1482,7 @@ const ValourAcademy = () => {
             "Content-Type": "application/json",
           },
         });
-
+  
         const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -1415,27 +1497,29 @@ const ValourAcademy = () => {
           videoProgress: currentLevel?.percent || 0,
         });
         setVideoWatched(currentLevel?.watched_video_ids || []);
-
+  
       } catch (error) {
         console.error("Error marking video watched:", error);
       }
     };
-
+  
     return (
       <div className="container">
         <div className="row">
           {videos.map((video, index) => {
             const isUnlocked = isVideoUnlocked(index);
+            const currentVideoUrl = video.public_url;
+  
             return (
               <div key={video.id} className="col-lg-4 col-md-6 mb-4">
                 <div className="video-card">
                   <div className="video-thumbnail" style={{ position: "relative" }}>
                     {isUnlocked ? (
-                      !videoUrl || videoUrl !== video.public_url ? (
+                      !videoUrl || videoUrl !== currentVideoUrl ? (
                         <>
                           <img className="obj_fit" src={videoImg} alt={video.title} />
                           <button
-                            onClick={() => setVideoUrl(video.public_url)}
+                            onClick={() => setVideoUrl(currentVideoUrl)}
                             className="play-button-overlay"
                           >▶</button>
                         </>
@@ -1448,7 +1532,8 @@ const ValourAcademy = () => {
                           onContextMenu={(e) => e.preventDefault()}
                           onEnded={() => markVideoWatched(video.id)}
                         >
-                          <source src={video.public_url} type="video/mp4" />
+                          <source src={currentVideoUrl} />
+                          Your browser does not support the video tag.
                         </video>
                       )
                     ) : (
@@ -1469,6 +1554,7 @@ const ValourAcademy = () => {
       </div>
     );
   };
+  
 
   const renderNotes = () => {
     if (!canAccessNotes()) {
