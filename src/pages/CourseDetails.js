@@ -1509,6 +1509,8 @@ const ValourAcademy = () => {
           {videos.map((video, index) => {
             const isUnlocked = isVideoUnlocked(index);
             const currentVideoUrl = video.public_url;
+            console.log("Current video URL:", currentVideoUrl);
+
   
             return (
               <div key={video.id} className="col-lg-4 col-md-6 mb-4">
@@ -1526,7 +1528,7 @@ const ValourAcademy = () => {
                       ) : (
                         <video
                           controls
-                          autoPlay
+                          // autoPlay
                           className="w-100 rounded"
                           controlsList="nodownload"
                           onContextMenu={(e) => e.preventDefault()}
