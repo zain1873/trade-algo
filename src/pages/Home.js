@@ -25,26 +25,26 @@ function Home() {
       <div className="row">
         <div className="col-lg-12 p-0">
           <div className="home-banner">
-          <video
-  className="banner-video w-100 obj_fit"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="auto"
-  disablePictureInPicture
-  controlsList="nodownload nofullscreen noremoteplayback"
-  onContextMenu={(e) => e.preventDefault()} // Right-click block
-  ref={(video) => {
-    if (video) {
-      video.removeAttribute("controls"); // Completely remove controls
-      video.controls = false; // Ensure controls are off
-    }
-  }}
->
-  <source src={backgroundVideo} type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+            <video
+              className="banner-video w-100 obj_fit"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              disablePictureInPicture
+              controlsList="nodownload nofullscreen noremoteplayback"
+              onContextMenu={(e) => e.preventDefault()} // Right-click block
+              ref={(video) => {
+                if (video) {
+                  video.removeAttribute("controls"); // Completely remove controls
+                  video.controls = false; // Ensure controls are off
+                }
+              }}
+            >
+              <source src={backgroundVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
 
             <div className="banner-text" data-aos="fade-up">
@@ -52,7 +52,7 @@ function Home() {
               <h1>TradeGPT</h1>
               <p>
                 The revolutionary A.I. powered trading assistant is here to help
-                you elevate your trading to the next level
+                you elevate your trading to the next leve.
               </p>
               <button className="theme_btn">Try It For Free</button>
 
