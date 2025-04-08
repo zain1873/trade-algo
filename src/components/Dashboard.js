@@ -225,8 +225,9 @@ const Dashboard = () => {
               return <EditProfile darkMode={darkMode} />; // Edit Profile Component
             case "logout":
               return <Logout darkMode={darkMode} />; // Logout Component
-            default:
-              return null;
+
+              default:
+
           }
         })()}
       </div>

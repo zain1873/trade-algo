@@ -17,7 +17,7 @@ import backgroundVideo from "../assets/images/bannergreen.mp4";
 
 function Home() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Initialize AOS
+    AOS.init({ duration: 1000, once: true }); // Initialize AOSs
   }, []);
 
   return (
