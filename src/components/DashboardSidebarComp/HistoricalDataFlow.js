@@ -3315,6 +3315,245 @@
 
 // export default HistoricalDataFlow;
 
+
+// ==================================================================================================
+// import React, { useEffect, useState } from "react";
+// import "../DashboardSidebarComp/styles/historicalDataFlow.css";
+// import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
+
+// const API_BASE_URL = "https://valourwealthdjango-production.up.railway.app/";
+
+// const HistoricalDataFlow = ({ darkMode }) => {
+//   const [activeTab, setActiveTab] = useState("largeCaps");
+//   const [trend, setTrend] = useState("up");
+//   const [tableData, setTableData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [active, setActive] = useState("up");
+
+//   const apiPaths = {
+//     up: {
+//       largeCaps: "api/large_caps/",
+//       mediumCaps: "api/medium_caps/",
+//       smallCaps: "api/small_caps/",
+//     },
+//     down: {
+//       largeCaps: "api/large_caps_down/",
+//       mediumCaps: "api/medium_caps_down/",
+//       smallCaps: "api/small_caps_down/",
+//     },
+//   };
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       setLoading(true);
+//       setError(null);
+//       const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+  
+//       try {
+//         const response = await fetch(url);
+//         if (!response.ok) {
+//           throw new Error(`HTTP error: ${response.status}`);
+//         }
+  
+//         const raw = await response.json();
+  
+//         // NEW: Safely extract and parse trend-specific array
+//         let cleanData = [];
+//         if (Array.isArray(raw) && raw.length > 0) {
+//           const trendKey = trend === "up" ? "trending_up" : "trending_down";
+//           const rawList = raw[0][trendKey];
+//           if (typeof rawList === "string") {
+//             cleanData = JSON.parse(rawList); // parse stringified JSON
+//           } else if (Array.isArray(rawList)) {
+//             cleanData = rawList;
+//           }
+//         }
+  
+//         setTableData(cleanData);
+//       } catch (err) {
+//         console.error("Fetch error:", err.message);
+//         setError("Failed to load data. Please try again later.");
+//         setTableData([]);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+  
+//     fetchData();
+//   }, [activeTab, trend]);
+  
+//   // useEffect(() => {
+//   //   const fetchData = async () => {
+//   //     setLoading(true);
+//   //     setError(null);
+//   //     const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+//   //     console.log("📡 trend:", trend);
+//   //     console.log("📡 activeTab:", activeTab);
+//   //     console.log("📡 Final URL:", url);
+
+//   //     try {
+//   //       const response = await fetch(url);
+//   //       if (!response.ok) {
+//   //         throw new Error(`HTTP error: ${response.status}`);
+//   //       }
+//   //       const data = await response.json();
+//   //       setTableData(data);
+//   //     } catch (err) {
+//   //       console.error("Fetch error:", err.message);
+//   //       setError("Failed to load data. Please try again later.");
+//   //       setTableData([]);
+//   //     } finally {
+//   //       setLoading(false);
+//   //     }
+//   //   };
+
+//   //   fetchData();
+//   // }, [activeTab, trend]);
+
+//   return (
+//     <div
+//       className="container "
+//       style={{
+//         backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
+//         color: darkMode ? "#ffffff" : "#000000",
+//         padding: "20px",
+//       }}
+//      >
+//       <div className="theme-title">
+//         <h2>Historic ATS Gainers & Losers</h2>
+//       </div>
+
+//       {/* Tabs */}
+//       <ul className="nav nav-tabs gap-2 mt-4 historic-table">
+//         {["largeCaps", "mediumCaps", "smallCaps"].map((tab) => (
+//           <li className="nav-item" key={tab}>
+//             <button
+//               className={`nav-link ${activeTab === tab ? "active" : ""}`}
+//               onClick={() => setActiveTab(tab)}
+//             >
+//               {tab.replace("Caps", " Caps").replace(/^./, (c) => c.toUpperCase())}
+//             </button>
+//           </li>
+//         ))}
+
+//         {/* Trend toggle icons */}
+//         <div className="trend-icons" style={{ display: "flex", gap: "10px" }}>
+//           <FaArrowTrendUp
+//             className="up-icon"
+//             style={{
+//               backgroundColor: active === "up" ? "green" : "grey",
+//               color: "black",
+//               padding: "10px",
+//               borderRadius: "5px",
+//               cursor: "pointer",
+//             }}
+//             onClick={() => {
+//               setTrend("up");
+//               setActive("up");
+//             }}
+//           />
+//           <FaArrowTrendDown
+//             className="down-icon"
+//             style={{
+//               backgroundColor: active === "down" ? "red" : "grey",
+//               color: active === "down" ? "white" : "black",
+//               padding: "10px",
+//               borderRadius: "5px",
+//               cursor: "pointer",
+//             }}
+//             onClick={() => {
+//               setTrend("down");
+//               setActive("down");
+//             }}
+//           />
+//         </div>
+//       </ul>
+
+//       {/* Table */}
+//       <div className="table-responsive mt-3">
+//         <table className="table table-bordered table_history">
+//           <thead
+//             className="table-primary"
+//             style={{
+//               backgroundColor: darkMode ? "#000000" : "#ffffff",
+//               color: darkMode ? "#ffffff" : "#000000",
+//               border: darkMode ? "1px solid #444" : "1px solid #ddd",
+//             }}
+//           >
+//             <tr>
+//               <th>TICKER</th>
+//               <th>FROM</th>
+//               <th>TO</th>
+//               <th>IRREGULAR VOL</th>
+//               <th>PERCENT CHANGE</th>
+//             </tr>
+//           </thead>
+//           <tbody
+//             style={{
+//               backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
+//               color: darkMode ? "#ffffff" : "#1c1e20",
+//               border: darkMode ? "1px solid #444" : "1px solid #ddd",
+//             }}
+//           >
+//             {loading ? (
+//               <tr>
+//                 <td colSpan="5" className="text-center">
+//                   Loading data...
+//                 </td>
+//               </tr>
+//             ) : error ? (
+//               <tr>
+//                 <td colSpan="5" className="text-center text-danger">
+//                   {error}
+//                 </td>
+//               </tr>
+//             ) : tableData.length > 0 ? (
+//               tableData.map((item, idx) => (
+//                 <tr key={idx}>
+//                   <td>{item.ticker || "-"}</td>
+//                   <td>
+//                     ${item.from_price ?? "-"}
+//                     <br />
+//                     <small>{item.from_time ?? "-"}</small>
+//                   </td>
+//                   <td>
+//                     ${item.to_price ?? "-"}
+//                     <br />
+//                     <small>{item.to_time ?? "-"}</small>
+//                   </td>
+//                   <td>
+//                     <span className={`badge ${trend === "up" ? "bg-success" : "bg-danger"}`}>
+//                       {item.irregular_vol || "x"}
+//                     </span>
+//                   </td>
+//                   <td>
+//                     <span className="text-success">
+//                       +{item.percent_change ? (item.percent_change * 100).toFixed(2) : "0"}%
+//                     </span>
+//                     <br />
+//                     <small>{item.duration ?? "-"}</small>
+//                   </td>
+//                 </tr>
+//               ))
+//             ) : (
+//               <tr>
+//                 <td colSpan="5" className="text-center">
+//                   No data available.
+//                 </td>
+//               </tr>
+//             )}
+//           </tbody>
+//         </table>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HistoricalDataFlow;
+
+
+
 import React, { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
@@ -3347,27 +3586,32 @@ const HistoricalDataFlow = ({ darkMode }) => {
       setLoading(true);
       setError(null);
       const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
-  
+
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
-  
+
         const raw = await response.json();
-  
-        // NEW: Safely extract and parse trend-specific array
+
+        // Parse trend-specific key only if available
+        const trendKey = trend === "up" ? "trending_up" : "trending_down";
         let cleanData = [];
-        if (Array.isArray(raw) && raw.length > 0) {
-          const trendKey = trend === "up" ? "trending_up" : "trending_down";
-          const rawList = raw[0][trendKey];
-          if (typeof rawList === "string") {
-            cleanData = JSON.parse(rawList); // parse stringified JSON
-          } else if (Array.isArray(rawList)) {
-            cleanData = rawList;
+
+        if (Array.isArray(raw)) {
+          if (raw.length > 0 && raw[0][trendKey]) {
+            const data = raw[0][trendKey];
+            cleanData = typeof data === "string" ? JSON.parse(data) : data;
+          } else if (raw[trendKey]) {
+            const data = raw[trendKey];
+            cleanData = typeof data === "string" ? JSON.parse(data) : data;
           }
+        } else if (typeof raw === "object" && raw[trendKey]) {
+          const data = raw[trendKey];
+          cleanData = typeof data === "string" ? JSON.parse(data) : data;
         }
-  
+
         setTableData(cleanData);
       } catch (err) {
         console.error("Fetch error:", err.message);
@@ -3377,52 +3621,23 @@ const HistoricalDataFlow = ({ darkMode }) => {
         setLoading(false);
       }
     };
-  
+
     fetchData();
   }, [activeTab, trend]);
-  
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoading(true);
-  //     setError(null);
-  //     const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
-  //     console.log("📡 trend:", trend);
-  //     console.log("📡 activeTab:", activeTab);
-  //     console.log("📡 Final URL:", url);
-
-  //     try {
-  //       const response = await fetch(url);
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error: ${response.status}`);
-  //       }
-  //       const data = await response.json();
-  //       setTableData(data);
-  //     } catch (err) {
-  //       console.error("Fetch error:", err.message);
-  //       setError("Failed to load data. Please try again later.");
-  //       setTableData([]);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [activeTab, trend]);
 
   return (
     <div
-      className="container "
+      className="container"
       style={{
         backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
         color: darkMode ? "#ffffff" : "#000000",
         padding: "20px",
       }}
-     >
+    >
       <div className="theme-title">
         <h2>Historic ATS Gainers & Losers</h2>
       </div>
 
-      {/* Tabs */}
       <ul className="nav nav-tabs gap-2 mt-4 historic-table">
         {["largeCaps", "mediumCaps", "smallCaps"].map((tab) => (
           <li className="nav-item" key={tab}>
@@ -3435,7 +3650,6 @@ const HistoricalDataFlow = ({ darkMode }) => {
           </li>
         ))}
 
-        {/* Trend toggle icons */}
         <div className="trend-icons" style={{ display: "flex", gap: "10px" }}>
           <FaArrowTrendUp
             className="up-icon"
@@ -3468,7 +3682,6 @@ const HistoricalDataFlow = ({ darkMode }) => {
         </div>
       </ul>
 
-      {/* Table */}
       <div className="table-responsive mt-3">
         <table className="table table-bordered table_history">
           <thead
@@ -3526,9 +3739,14 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     </span>
                   </td>
                   <td>
-                    <span className="text-success">
-                      +{item.percent_change ? (item.percent_change * 100).toFixed(2) : "0"}%
-                    </span>
+                  <span
+                   className={item.percent_change >= 0 ? "text-success" : "text-danger"}>
+                  {item.percent_change >= 0 ? "+" : ""}
+                  {(item.percent_change * 100).toFixed(2)}%
+                </span>
+<br />
+<small>{item.duration ?? "-"}</small>
+
                     <br />
                     <small>{item.duration ?? "-"}</small>
                   </td>
