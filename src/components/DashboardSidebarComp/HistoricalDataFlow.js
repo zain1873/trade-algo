@@ -3347,17 +3347,28 @@ const HistoricalDataFlow = ({ darkMode }) => {
       setLoading(true);
       setError(null);
       const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
-      console.log("📡 trend:", trend);
-      console.log("📡 activeTab:", activeTab);
-      console.log("📡 Final URL:", url);
-
+  
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
-        const data = await response.json();
-        setTableData(data);
+  
+        const raw = await response.json();
+  
+        // NEW: Safely extract and parse trend-specific array
+        let cleanData = [];
+        if (Array.isArray(raw) && raw.length > 0) {
+          const trendKey = trend === "up" ? "trending_up" : "trending_down";
+          const rawList = raw[0][trendKey];
+          if (typeof rawList === "string") {
+            cleanData = JSON.parse(rawList); // parse stringified JSON
+          } else if (Array.isArray(rawList)) {
+            cleanData = rawList;
+          }
+        }
+  
+        setTableData(cleanData);
       } catch (err) {
         console.error("Fetch error:", err.message);
         setError("Failed to load data. Please try again later.");
@@ -3366,9 +3377,37 @@ const HistoricalDataFlow = ({ darkMode }) => {
         setLoading(false);
       }
     };
-
+  
     fetchData();
   }, [activeTab, trend]);
+  
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoading(true);
+  //     setError(null);
+  //     const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
+  //     console.log("📡 trend:", trend);
+  //     console.log("📡 activeTab:", activeTab);
+  //     console.log("📡 Final URL:", url);
+
+  //     try {
+  //       const response = await fetch(url);
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error: ${response.status}`);
+  //       }
+  //       const data = await response.json();
+  //       setTableData(data);
+  //     } catch (err) {
+  //       console.error("Fetch error:", err.message);
+  //       setError("Failed to load data. Please try again later.");
+  //       setTableData([]);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [activeTab, trend]);
 
   return (
     <div
