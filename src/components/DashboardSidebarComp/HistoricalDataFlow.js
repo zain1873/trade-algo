@@ -3908,6 +3908,17 @@ const HistoricalDataFlow = ({ darkMode }) => {
                 <tr key={idx}>
                   <td>{item.ticker || "-"}</td>
                   <td>
+  {item.from_price ? `$${item.from_price}` : "-"}
+  <br />
+  <small>{item.from_time}</small>
+</td>
+<td>
+  {item.to_price ? `$${item.to_price}` : "-"}
+  <br />
+  <small>{item.to_time}</small>
+</td>
+
+                  {/* <td>
                     ${item.from_price ?? "-"}
                     <br />
                     <small>{item.from_time ?? "-"}</small>
@@ -3916,7 +3927,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     ${item.to_price ?? "-"}
                     <br />
                     <small>{item.to_time ?? "-"}</small>
-                  </td>
+                  </td> */}
                   <td>
                     <span className={`badge ${trend === "up" ? "bg-success" : "bg-danger"}`}>
                       {item.irregular_vol || "x"}
