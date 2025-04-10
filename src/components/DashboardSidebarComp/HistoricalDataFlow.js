@@ -3934,6 +3934,17 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     </span>
                   </td>
                   <td>
+  <span
+    className={item.percent_change >= 0 ? "text-success" : "text-danger"}
+  >
+    {item.percent_change >= 0 ? "+" : ""}
+    {(item.percent_change * 100).toFixed(2)}%
+  </span>
+  <br />
+  <small>{item.duration ?? "-"}</small>
+</td>
+
+                  {/* <td>
                     <span
                       className={
                         item.percent_change >= 0 ? "text-success" : "text-danger"
@@ -3946,7 +3957,7 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     <small>{item.duration ?? "-"}</small>
                     <br />
                     <small>{item.duration ?? "-"}</small>
-                  </td>
+                  </td> */}
                 </tr>
               ))
             ) : (
