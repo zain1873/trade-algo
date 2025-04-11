@@ -3908,26 +3908,38 @@ const HistoricalDataFlow = ({ darkMode }) => {
                 <tr key={idx}>
                   <td>{item.ticker || "-"}</td>
                   <td>
-  {item.from_price ? `$${item.from_price}` : "-"}
-  <br />
-  <small>{item.from_time}</small>
+  {item.from_price && item.from_time ? (
+    <>
+      ${item.from_price} <br />
+      <small>{item.from_time}</small>
+    </>
+  ) : (
+    "-"
+  )}
 </td>
 <td>
-  {item.to_price ? `$${item.to_price}` : "-"}
-  <br />
-  <small>{item.to_time}</small>
+  {item.to_price && item.to_time ? (
+    <>
+      ${item.to_price} <br />
+      <small>{item.to_time}</small>
+    </>
+  ) : (
+    "-"
+  )}
 </td>
 
                   {/* <td>
-                    ${item.from_price ?? "-"}
-                    <br />
-                    <small>{item.from_time ?? "-"}</small>
+                         {item.from_price ? `$${item.from_price}` : "-"}
+                         <br />
+                          <small>{item.from_time}</small>
                   </td>
-                  <td>
-                    ${item.to_price ?? "-"}
-                    <br />
-                    <small>{item.to_time ?? "-"}</small>
-                  </td> */}
+                        <td>
+                         {item.to_price ? `$${item.to_price}` : "-"}
+                          <br />
+                          <small>{item.to_time}</small>
+                        </td> */}
+
+
                   <td>
                     <span className={`badge ${trend === "up" ? "bg-success" : "bg-danger"}`}>
                       {item.irregular_vol || "x"}
@@ -3944,20 +3956,6 @@ const HistoricalDataFlow = ({ darkMode }) => {
   <small>{item.duration ?? "-"}</small>
 </td>
 
-                  {/* <td>
-                    <span
-                      className={
-                        item.percent_change >= 0 ? "text-success" : "text-danger"
-                      }
-                    >
-                      {item.percent_change >= 0 ? "+" : ""}
-                      {(item.percent_change * 100).toFixed(2)}%
-                    </span>
-                    <br />
-                    <small>{item.duration ?? "-"}</small>
-                    <br />
-                    <small>{item.duration ?? "-"}</small>
-                  </td> */}
                 </tr>
               ))
             ) : (
