@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "../DashboardSidebarComp/styles/live-training-session.css";
 import sessionImg from "../DashboardSidebarComp/images/live-trading-session-img.jpg";
-import sessionVideo from "../DashboardSidebarComp/images/live-session-video1.mp4";
+
 
 function LiveTrainingSession() {
   const [isLocked, setIsLocked] = useState(true);
@@ -42,7 +42,8 @@ function LiveTrainingSession() {
                     playsInline
                     poster={sessionImg}
                   >
-                    <source src={sessionVideo} type="video/mp4" />
+                    <source src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/live-session-video1.mp4" type="video/mp4" />
+
                     Your browser does not support the video tag.
                   </video>
                 )}
