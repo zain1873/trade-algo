@@ -3921,10 +3921,17 @@ const HistoricalDataFlow = ({ darkMode }) => {
                     </span>
                   </td>
                   <td>
-                    <span className={item.percent_change >= 0 ? "text-success" : "text-danger"}>
-                      {item.percent_change >= 0 ? "+" : ""}
-                      {(item.percent_change * 100).toFixed(2)}%
+                  <span
+                      className={
+                        parseFloat(item.percent_change) >= 0 ? "text-success" : "text-danger"
+                      }
+                    >
+                      {parseFloat(item.percent_change) >= 0 ? "+" : ""}
+                      {isNaN(parseFloat(item.percent_change))
+                        ? "NaN%"
+                        : `${parseFloat(item.percent_change).toFixed(2)}%`}
                     </span>
+
                     <br />
                     <small>{item.duration ?? "-"}</small>
                   </td>
