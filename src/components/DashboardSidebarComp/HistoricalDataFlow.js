@@ -3753,8 +3753,6 @@
 // export default HistoricalDataFlow;
 
 
-
-
 import React, { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
@@ -3793,10 +3791,8 @@ const HistoricalDataFlow = ({ darkMode }) => {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 
-        const raw = await response.json();
-        const cleanData = Array.isArray(raw) ? raw : [];
-
-        setTableData(cleanData);
+        const data = await response.json();
+        setTableData(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Fetch error:", err.message);
         setError("Failed to load data. Please try again later.");
@@ -3893,76 +3889,50 @@ const HistoricalDataFlow = ({ darkMode }) => {
           >
             {loading ? (
               <tr>
-                <td colSpan="5" className="text-center">
-                  Loading data...
-                </td>
+                <td colSpan="5" className="text-center">Loading data...</td>
               </tr>
             ) : error ? (
               <tr>
-                <td colSpan="5" className="text-center text-danger">
-                  {error}
-                </td>
+                <td colSpan="5" className="text-center text-danger">{error}</td>
               </tr>
             ) : tableData.length > 0 ? (
               tableData.map((item, idx) => (
-                             <tr key={idx}>
+                <tr key={idx}>
                   <td>{item.ticker || "-"}</td>
-                               <td>
-               {item.from_price && item.from_time ? (
-                  <>
-                   ${item.from_price} <br />
-                   <small>{item.from_time}</small>
-                 </>
-               ) : (
-                 "-"
-               )}
-              </td>
-              <td>
-               {item.to_price && item.to_time ? (
-                  <>
-                    ${item.to_price} <br />
-                    <small>{item.to_time}</small>
-                  </>
-                ) : (
-                  "-"
-                )}
-              </td>
-
-                  {/* <td>
-                         {item.from_price ? `$${item.from_price}` : "-"}
-                         <br />
-                          <small>{item.from_time}</small>
+                  <td>
+                    {item.from_price && item.from_time ? (
+                      <>
+                        ${item.from_price} <br />
+                        <small>{item.from_time}</small>
+                      </>
+                    ) : "-"}
                   </td>
-                        <td>
-                         {item.to_price ? `$${item.to_price}` : "-"}
-                          <br />
-                          <small>{item.to_time}</small>
-                        </td> */}
-
-
+                  <td>
+                    {item.to_price && item.to_time ? (
+                      <>
+                        ${item.to_price} <br />
+                        <small>{item.to_time}</small>
+                      </>
+                    ) : "-"}
+                  </td>
                   <td>
                     <span className={`badge ${trend === "up" ? "bg-success" : "bg-danger"}`}>
                       {item.irregular_vol || "x"}
                     </span>
                   </td>
                   <td>
-  <span
-    className={item.percent_change >= 0 ? "text-success" : "text-danger"}
-  >
-    {item.percent_change >= 0 ? "+" : ""}
-    {(item.percent_change * 100).toFixed(2)}%
-  </span>
-  <br />
-  <small>{item.duration ?? "-"}</small>
-</td>
-
+                    <span className={item.percent_change >= 0 ? "text-success" : "text-danger"}>
+                      {item.percent_change >= 0 ? "+" : ""}
+                      {(item.percent_change * 100).toFixed(2)}%
+                    </span>
+                    <br />
+                    <small>{item.duration ?? "-"}</small>
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center">
-                  No data available.
-                </td>
+                <td colSpan="5" className="text-center">No data available.</td>
               </tr>
             )}
           </tbody>
