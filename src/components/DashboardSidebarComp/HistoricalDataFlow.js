@@ -3905,28 +3905,28 @@ const HistoricalDataFlow = ({ darkMode }) => {
               </tr>
             ) : tableData.length > 0 ? (
               tableData.map((item, idx) => (
-                <tr key={idx}>
+                             <tr key={idx}>
                   <td>{item.ticker || "-"}</td>
-                  <td>
-  {item.from_price && item.from_time ? (
-    <>
-      ${item.from_price} <br />
-      <small>{item.from_time}</small>
-    </>
-  ) : (
-    "-"
-  )}
-</td>
-<td>
-  {item.to_price && item.to_time ? (
-    <>
-      ${item.to_price} <br />
-      <small>{item.to_time}</small>
-    </>
-  ) : (
-    "-"
-  )}
-</td>
+                               <td>
+               {item.from_price && item.from_time ? (
+                  <>
+                   ${item.from_price} <br />
+                   <small>{item.from_time}</small>
+                 </>
+               ) : (
+                 "-"
+               )}
+              </td>
+              <td>
+               {item.to_price && item.to_time ? (
+                  <>
+                    ${item.to_price} <br />
+                    <small>{item.to_time}</small>
+                  </>
+                ) : (
+                  "-"
+                )}
+              </td>
 
                   {/* <td>
                          {item.from_price ? `$${item.from_price}` : "-"}
