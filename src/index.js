@@ -6,8 +6,13 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
+
 // Import Font Awesome (optional, in case you use icons in JSX)
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
+// bootstrap icons
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 // Import Global Styles
 import "./styles/global.css"; // Adjust based on your folder structure

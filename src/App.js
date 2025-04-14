@@ -24,6 +24,7 @@ import OurAnalyst from "./pages/OurAnalyst";
 import Products from "./pages/Products";
 import RequestDemo from "./pages/RequestDemo";
 import CourseDetails from "./pages/CourseDetails";
+import PlatinumDashboard from "./pages/PlatinumDashboard";
 
 
 
@@ -53,6 +54,8 @@ function App() {
         <Route path="/Privacy-Policy" element={<PrivacyPolicy/>} />
         <Route path="/course-details" element={<CourseDetails/>} />
         <Route path="/contact" element={<ContactPage/>}></Route>
+        {/* =========Platinum Dashboard======= */}
+        <Route path="/platinum-dashboard" element={<PlatinumDashboard/>}></Route>
       </Routes>
     </Router>
   );
