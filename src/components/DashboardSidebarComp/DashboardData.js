@@ -123,6 +123,7 @@
 import React, { useEffect, useState } from 'react';
 import "../DashboardSidebarComp/styles/DashboardData.css"; 
 import HistoricalDataFlow from './HistoricalDataFlow';
+import OverallProgressBar from './overallprogressbar';
 import ProgressBar from './ProgressBar';
 import LiveTrainingSession from './liveTrainingSession';
 import axios from 'axios';
@@ -189,7 +190,12 @@ function DashboardData({ darkMode }) {
       </div>  
       {error && <p className="error-message">{error}</p>}
       <LiveTrainingSession />
-      <ProgressBar />
+      {/* <ProgressBar />
+       */}
+       
+
+      <OverallProgressBar />
+
       <HistoricalDataFlow darkMode={darkMode} />
     </div>
   );
