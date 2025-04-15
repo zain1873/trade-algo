@@ -157,6 +157,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import countries from "world-countries";
+import "../styles/dashboard.css";
 
 const formattedCountries = countries.map((c) => ({
   label: c.name.common,
