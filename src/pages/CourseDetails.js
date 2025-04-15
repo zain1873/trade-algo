@@ -895,7 +895,12 @@ const ValourAcademy = () => {
                     {isUnlocked ? (
                       !videoUrl || videoUrl !== currentVideoUrl ? (
                         <>
-                          <img className="obj_fit" src={videoImg} alt={video.title} />
+                          {/* <img className="obj_fit" src={videoImg} alt={video.title} /> */}
+                          <img
+                               className="obj_fit"
+                               src={video.thumbnail_url || placeholderImg}
+                               alt={video.title}
+                             />
                           <button
                             onClick={() => setVideoUrl(currentVideoUrl)}
                             className="play-button-overlay"
@@ -916,7 +921,7 @@ const ValourAcademy = () => {
                       )
                     ) : (
                       <>
-                        <img className="obj_fit blur" src={videoImg} alt="Locked" />
+                        <img className="obj_fit blur" src={video.thumbnail_url || videoImg} alt="Locked" />
                         <div className="locked-overlay"><FaLock /></div>
                       </>
                     )}

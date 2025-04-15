@@ -174,7 +174,7 @@ function DashboardData({ darkMode }) {
         <div className="header-content">
           <div className="header-left">
             <h2>
-              Hello! <span className="highlight">{userData?.username || "ValourWealth"}</span>
+              Hello! <span className="highlight">{userData?.username}</span>
             </h2>
             <p>
               Here are the top stocks handpicked by our AI from over 10,000 tickers in the Stock Exchange
