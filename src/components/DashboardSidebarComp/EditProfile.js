@@ -256,9 +256,9 @@ function EditProfile() {
     <section className="edit-profile py-5">
       <div className="container">
         <div className="card shadow-sm p-4">
-          <h4 className="mb-4">Edit Profile</h4>
+          <h4 className="mb-4 edit-form">Edit Profile</h4>
 
-          <div className="mb-3">
+          <div className="mb-3 edit-form">
             <label>Username</label>
             <input
               type="text"
@@ -268,7 +268,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 edit-form">
             <label>First Name</label>
             <input
               type="text"
@@ -278,7 +278,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 edit-form">
             <label>Password</label>
             <input
               type="password"
@@ -289,7 +289,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 edit-form">
             <label>Country</label>
             <Select
               options={formattedCountries}
@@ -301,7 +301,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 edit-form">
             <label>State / Province</label>
             <input
               type="text"
@@ -312,7 +312,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-3 edit-form">
             <label>Profile Photo</label>
             <input
               type="file"
