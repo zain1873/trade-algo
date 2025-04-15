@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-
 const ExclusiveWebinars = () => {
   const [activeTab, setActiveTab] = useState('Upcoming Webinars');
 
-  // Sample data for upcoming webinars
   const webinars = [
     {
       id: 1,
@@ -56,9 +54,43 @@ const ExclusiveWebinars = () => {
     }
   ];
 
-  // Past recordings data (would be used if we switch to Past Recordings tab)
   const pastRecordings = [
-    // Data would go here, similar structure to webinars
+    {
+      id: 101,
+      title: 'Mastering Candlestick Patterns',
+      description: 'Deep dive into interpreting candlestick patterns to predict price movements more effectively.',
+      presenter: 'Rachel Adams',
+      date: 'Mar 10, 2025',
+      time: '11:00 AM EST',
+      registeredCount: 65,
+      duration: '75 minutes',
+      level: 'Intermediate',
+      status: 'recorded'
+    },
+    {
+      id: 102,
+      title: 'Options Trading 101',
+      description: 'A beginner-friendly guide to understanding options trading and building strong foundations.',
+      presenter: 'Chris Lee',
+      date: 'Feb 28, 2025',
+      time: '01:00 PM EST',
+      registeredCount: 84,
+      duration: '90 minutes',
+      level: 'Beginner',
+      status: 'recorded'
+    },
+    {
+      id: 103,
+      title: 'Market Psychology & Discipline',
+      description: 'Explore the psychological side of trading and how to stay disciplined under pressure.',
+      presenter: 'Nina Brooks',
+      date: 'Feb 12, 2025',
+      time: '03:00 PM EST',
+      registeredCount: 72,
+      duration: '60 minutes',
+      level: 'Advanced',
+      status: 'recorded'
+    }
   ];
 
   const handleTabChange = (tab) => {
@@ -100,47 +132,93 @@ const ExclusiveWebinars = () => {
         </div>
 
         <div className="webinars-grid">
-          {webinars.map((webinar) => (
-            <div key={webinar.id} className="webinar-card">
-              <div className="webinar-header">
-                <h4 className="webinar-title">{webinar.title}</h4>
-                <span className="status-badge">{webinar.status}</span>
-              </div>
-              <p className="webinar-description">{webinar.description}</p>
-              
-              <div className="presenter-info">
-                <i className="bi bi-person-video3 presenter-icon"></i>
-                <span className="presenter-name">Presented by {webinar.presenter}</span>
-              </div>
-              
-              <div className="webinar-details">
-                <div className="detail-row">
-                  <div className="detail-item">
-                    <i className="bi bi-calendar"></i>
-                    <span>{webinar.date}</span>
+          {activeTab === 'Upcoming Webinars' &&
+            webinars.map((webinar) => (
+              <div key={webinar.id} className="webinar-card">
+                <div className="webinar-header">
+                  <h4 className="webinar-title">{webinar.title}</h4>
+                  <span className="status-badge">{webinar.status}</span>
+                </div>
+                <p className="webinar-description">{webinar.description}</p>
+                
+                <div className="presenter-info">
+                  <i className="bi bi-person-video3 presenter-icon"></i>
+                  <span className="presenter-name">Presented by {webinar.presenter}</span>
+                </div>
+                
+                <div className="webinar-details">
+                  <div className="detail-row">
+                    <div className="detail-item">
+                      <i className="bi bi-calendar"></i>
+                      <span>{webinar.date}</span>
+                    </div>
+                    <div className="detail-item">
+                      <i className="bi bi-clock"></i>
+                      <span>{webinar.time}</span>
+                    </div>
                   </div>
-                  <div className="detail-item">
-                    <i className="bi bi-clock"></i>
-                    <span>{webinar.time}</span>
+                  <div className="detail-row">
+                    <div className="detail-item">
+                      <i className="bi bi-people"></i>
+                      <span>{webinar.registeredCount} registered</span>
+                    </div>
                   </div>
                 </div>
-                <div className="detail-row">
-                  <div className="detail-item">
-                    <i className="bi bi-people"></i>
-                    <span>{webinar.registeredCount} registered</span>
+                
+                <div className="webinar-footer">
+                  <div className="tags">
+                    <span className="duration-tag">{webinar.duration}</span>
+                    <span className="level-tag">{webinar.level}</span>
+                  </div>
+                  <button className="register-button">Register Now</button>
+                </div>
+              </div>
+            ))
+          }
+
+          {activeTab === 'Past Recordings' &&
+            pastRecordings.map((recording) => (
+              <div key={recording.id} className="webinar-card">
+                <div className="webinar-header">
+                  <h4 className="webinar-title">{recording.title}</h4>
+                  <span className="status-badge">{recording.status}</span>
+                </div>
+                <p className="webinar-description">{recording.description}</p>
+                
+                <div className="presenter-info">
+                  <i className="bi bi-person-video3 presenter-icon"></i>
+                  <span className="presenter-name">Presented by {recording.presenter}</span>
+                </div>
+                
+                <div className="webinar-details">
+                  <div className="detail-row">
+                    <div className="detail-item">
+                      <i className="bi bi-calendar"></i>
+                      <span>{recording.date}</span>
+                    </div>
+                    <div className="detail-item">
+                      <i className="bi bi-clock"></i>
+                      <span>{recording.time}</span>
+                    </div>
+                  </div>
+                  <div className="detail-row">
+                    <div className="detail-item">
+                      <i className="bi bi-people"></i>
+                      <span>{recording.registeredCount} attended</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="webinar-footer">
-                <div className="tags">
-                  <span className="duration-tag">{webinar.duration}</span>
-                  <span className="level-tag">{webinar.level}</span>
+                
+                <div className="webinar-footer">
+                  <div className="tags">
+                    <span className="duration-tag">{recording.duration}</span>
+                    <span className="level-tag">{recording.level}</span>
+                  </div>
+                  <button className="register-button">Watch Recording</button>
                 </div>
-                <button className="register-button">Register Now</button>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>

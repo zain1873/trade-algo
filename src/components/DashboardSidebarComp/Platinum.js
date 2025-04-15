@@ -12,8 +12,8 @@ const Mentorship = ( {darkMode} ) => {
   return (
     <div className="container mt-4">
       {/* Primary Navigation Tabs */}
-      <ul className="nav nav-tabs">
-        <li className="nav-item">
+      <ul className="nav nav-tabs" style={{ border: 'none', alignItems: 'center' }}>
+      <li className="nav-item">
           <button
             className={`nav-link ${activeTab === "sessions" ? "active" : ""}`}
             onClick={() => setActiveTab("sessions")}
@@ -29,6 +29,12 @@ const Mentorship = ( {darkMode} ) => {
             View All Price Plans
           </button>
         </li>
+
+        
+          {/* Premium Login Section */}
+        <div className="premium-login">
+          <a href="/platinum-dashboard" className="theme_btn">Premium Login</a>
+        </div>
       </ul>
 
       <div className={`tab-content mt-3 ${darkMode ? "dark-mode-tab" : ""}`}>
@@ -122,7 +128,11 @@ const Mentorship = ( {darkMode} ) => {
           </div>
         )}
       </div>
+
     </div>
+
+  
+
   );
 };
 

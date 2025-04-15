@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-
 const TradingChallenges = () => {
   const [activeTab, setActiveTab] = useState('Active Challenges');
 
-  // Sample data for challenges
-  const challenges = [
+  // Challenge data categorized
+  const activeChallenges = [
     {
       id: 1,
       title: 'April Performance Challenge',
@@ -38,9 +37,52 @@ const TradingChallenges = () => {
     }
   ];
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
+  const upcomingChallenges = [
+    {
+      id: 3,
+      title: 'May Swing Trading Challenge',
+      description: 'Prepare for a month-long challenge focused on swing trading techniques.',
+      duration: 'May 1, 2025 - May 31, 2025',
+      timeRemaining: 'Starts in 14 days',
+      participants: 'Registration Open',
+      progress: 0,
+      prize: 'Live Session with Senior Analyst',
+      leaderboard: []
+    }
+  ];
+
+  const pastChallenges = [
+    {
+      id: 4,
+      title: 'March Momentum Challenge',
+      description: 'Compete for the highest return from short-term momentum trades during March.',
+      duration: 'March 1, 2025 - March 31, 2025',
+      timeRemaining: 'Completed',
+      participants: '90 members',
+      progress: 100,
+      prize: '1 Month Platinum + Feature in Newsletter',
+      leaderboard: [
+        { rank: 1, name: 'Daniel Z.', avatar: '', performance: '+22.5%' },
+        { rank: 2, name: 'Linda B.', avatar: '', performance: '+19.1%' },
+        { rank: 3, name: 'Chris M.', avatar: '', performance: '+17.3%' }
+      ]
+    }
+  ];
+
+  const getChallenges = () => {
+    switch (activeTab) {
+      case 'Active Challenges':
+        return activeChallenges;
+      case 'Upcoming Challenges':
+        return upcomingChallenges;
+      case 'Past Challenges':
+        return pastChallenges;
+      default:
+        return [];
+    }
   };
+
+  const challenges = getChallenges();
 
   return (
     <div className="trading-challenges-container">
@@ -58,19 +100,19 @@ const TradingChallenges = () => {
         <div className="nav-tabs">
           <button 
             className={`tab-button ${activeTab === 'Active Challenges' ? 'active' : ''}`} 
-            onClick={() => handleTabClick('Active Challenges')}
+            onClick={() => setActiveTab('Active Challenges')}
           >
             Active Challenges
           </button>
           <button 
             className={`tab-button ${activeTab === 'Upcoming Challenges' ? 'active' : ''}`} 
-            onClick={() => handleTabClick('Upcoming Challenges')}
+            onClick={() => setActiveTab('Upcoming Challenges')}
           >
             Upcoming Challenges
           </button>
           <button 
             className={`tab-button ${activeTab === 'Past Challenges' ? 'active' : ''}`} 
-            onClick={() => handleTabClick('Past Challenges')}
+            onClick={() => setActiveTab('Past Challenges')}
           >
             Past Challenges
           </button>
@@ -150,31 +192,33 @@ const TradingChallenges = () => {
               </div>
             </div>
 
-            <div className="challenge-leaderboard">
-              <div className="leaderboard-header">
-                <h4 className="leaderboard-title">Current Leaderboard</h4>
-                <div className="info-icon">
-                  <i className="bi bi-info-circle"></i>
+            {challenge.leaderboard && challenge.leaderboard.length > 0 && (
+              <div className="challenge-leaderboard">
+                <div className="leaderboard-header">
+                  <h4 className="leaderboard-title">Current Leaderboard</h4>
+                  <div className="info-icon">
+                    <i className="bi bi-info-circle"></i>
+                  </div>
+                </div>
+
+                <div className="leaderboard-entries">
+                  {challenge.leaderboard.map((entry) => (
+                    <div key={entry.rank} className="leaderboard-entry">
+                      <div className="entry-rank">{entry.rank}</div>
+                      <div className="entry-avatar"></div>
+                      <div className="entry-name">{entry.name}</div>
+                      <div className="entry-performance">{entry.performance}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="view-full-leaderboard">
+                  <a href="#" className="leaderboard-link">
+                    View Full Leaderboard <i className="bi bi-chevron-right"></i>
+                  </a>
                 </div>
               </div>
-
-              <div className="leaderboard-entries">
-                {challenge.leaderboard.map((entry) => (
-                  <div key={entry.rank} className="leaderboard-entry">
-                    <div className="entry-rank">{entry.rank}</div>
-                    <div className="entry-avatar"></div>
-                    <div className="entry-name">{entry.name}</div>
-                    <div className="entry-performance">{entry.performance}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="view-full-leaderboard">
-                <a href="#" className="leaderboard-link">
-                  View Full Leaderboard <i className="bi bi-chevron-right"></i>
-                </a>
-              </div>
-            </div>
+            )}
           </div>
         ))}
       </div>

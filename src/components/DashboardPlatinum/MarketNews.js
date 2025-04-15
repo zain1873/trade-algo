@@ -122,12 +122,12 @@ const MarketNews = () => {
           >
             Market News
           </button>
-          <button 
+          {/* <button 
             className={`tab-button ${activeTab === 'Premium Analysis' ? 'active' : ''}`}
             onClick={() => handleTabChange('Premium Analysis')}
           >
             Premium Analysis
-          </button>
+          </button> */}
         </div>
 
         <div className="news-grid">
