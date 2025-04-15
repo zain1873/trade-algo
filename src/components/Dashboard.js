@@ -56,7 +56,7 @@ import TradingTools from "./DashboardSidebarComp/TradingTools";
 
 
 const Dashboard = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

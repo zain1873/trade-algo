@@ -937,7 +937,6 @@ const ValourAcademy = () => {
       </div>
     );
   };
-  
 
   const renderNotes = () => {
     if (!canAccessNotes()) {
@@ -947,16 +946,18 @@ const ValourAcademy = () => {
         </div>
       );
     }
-
+  
     return (
       <div className="container">
         <div className="row">
-          {notes.length > 0 ? (
-            notes.map((note) => (
+          {notes.length ? (
+            notes.map(note => (
               <div key={note.id} className="col-md-6 text-white mb-3">
                 <div className="note-card p-3 bg-dark rounded">
                   <h5>{note.title}</h5>
-                  <p>{note.content}</p>
+                  <p style={{ whiteSpace: 'pre-line', marginBottom: 0 }}>
+                    {note.content}
+                  </p>
                 </div>
               </div>
             ))
@@ -969,6 +970,38 @@ const ValourAcademy = () => {
       </div>
     );
   };
+  
+
+  // const renderNotes = () => {
+  //   if (!canAccessNotes()) {
+  //     return (
+  //       <div className="container text-center text-white">
+  //         <p><FaLock /> Complete all videos to unlock notes.</p>
+  //       </div>
+  //     );
+  //   }
+
+  //   return (
+  //     <div className="container">
+  //       <div className="row">
+  //         {notes.length > 0 ? (
+  //           notes.map((note) => (
+  //             <div key={note.id} className="col-md-6 text-white mb-3">
+  //               <div className="note-card p-3 bg-dark rounded">
+  //                 <h5>{note.title}</h5>
+  //                 <p>{note.content}</p>
+  //               </div>
+  //             </div>
+  //           ))
+  //         ) : (
+  //           <div className="col-12 text-white">
+  //             <p>No notes found for this level.</p>
+  //           </div>
+  //         )}
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const renderKnowledge = () => {
     if (!canAccessMCQs()) {
