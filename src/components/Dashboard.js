@@ -123,10 +123,13 @@ const Dashboard = () => {
           },
         });
         setUserData(response.data);
-          // grab profile picture (may be null)
-       if (response.data?.profile_photo) {
-            setPhotoURL(response.data.profile_photo);
-       }
+        // ---------- fix relative profile_photo ----------
+if (response.data?.profile_photo) {
+  const raw = response.data.profile_photo;        // "/profile_photos/xyz.png"
+  const API_ROOT = API_BASE_URL.replace(/api\/?$/, ""); // "https://valourwealthdjango-production.up.railway.app/"
+  const fullURL = raw.startsWith("http") ? raw : `${API_ROOT}${raw}`;
+  setPhotoURL(fullURL);                           // <‑‑ you already created this state earlier
+}
       } catch (error) {
         console.error("Error fetching user data:", error);
         if (error.response && error.response.status === 401) {
