@@ -55,6 +55,7 @@ import TradingTools from "./DashboardSidebarComp/TradingTools";
 
 
 
+
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -63,6 +64,7 @@ const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
   const accessToken = localStorage.getItem("accessToken");
+  const [photoURL, setPhotoURL] = useState(null); 
 
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
     ? process.env.REACT_APP_API_URL
@@ -121,6 +123,10 @@ const Dashboard = () => {
           },
         });
         setUserData(response.data);
+          // grab profile picture (may be null)
+       if (response.data?.profile_photo) {
+            setPhotoURL(response.data.profile_photo);
+       }
       } catch (error) {
         console.error("Error fetching user data:", error);
         if (error.response && error.response.status === 401) {
@@ -628,8 +634,9 @@ const Dashboard = () => {
               </div>
 
               <div className="col-auto user_info position-relative">
-                <img
-                  src={user_logo}
+  
+                  <img
+                 src={photoURL || user_logo} 
                   alt="Profile"
                   className="rounded-circle"
                   width="40"
