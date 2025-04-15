@@ -162,6 +162,13 @@ body .dark {
 .edit-profile .theme_btn {
   width: fit-content;
 }
+.bg-dark .edit-profile {
+  color: #fff !important;
+}
+.bg-dark .edit-profile lable {
+  color: #fff !important;
+
+}
   
   /* Button Styles */
   .btn-outline-secondary {
