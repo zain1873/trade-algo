@@ -898,7 +898,7 @@ const ValourAcademy = () => {
                           {/* <img className="obj_fit" src={videoImg} alt={video.title} /> */}
                           <img
                                className="obj_fit"
-                               src={video.thumbnail_url || placeholderImg}
+                               src={video.thumbnail_url || videoImg}
                                alt={video.title}
                              />
                           <button
