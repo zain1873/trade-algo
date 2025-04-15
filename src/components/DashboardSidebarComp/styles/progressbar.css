@@ -19,9 +19,12 @@
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
 }
-  .progress_container {
-    background: linear-gradient(to right, #002C43, #001A30);
-  }
+  
+.progress_container {
+  background: linear-gradient(90deg, #002c43, #a72169);
+}
+  /* background: linear-gradient(to right, #002C43, #001A30); */
+
   
   .outer-circle {
     width: 150px;
