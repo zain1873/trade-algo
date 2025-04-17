@@ -48,7 +48,7 @@ function EditProfile() {
                     </div>
                   </div>
                   
-                  <div className="mb-3">
+                  <div className="mb-3 edit-form">
                     <label htmlFor="name" className="form-label">Name</label>
                     <input 
                       type="text" 
@@ -58,7 +58,7 @@ function EditProfile() {
                     />
                   </div>
                   
-                  <div className="mb-3">
+                  <div className="mb-3 edit-form">
                     <label htmlFor="country" className="form-label">Country</label>
                     <select className="form-input" id="country" defaultValue="United Kingdom">
                       <option value="United Kingdom">United Kingdom</option>
@@ -69,7 +69,7 @@ function EditProfile() {
                     </select>
                   </div>
                   
-                  <div className="mb-4">
+                  <div className="mb-4 edit-form">
                     <label htmlFor="state" className="form-label">State</label>
                     <select className="form-input" id="state" defaultValue="Greater London">
                       <option value="Greater London">Greater London</option>

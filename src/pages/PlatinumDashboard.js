@@ -6,6 +6,7 @@ import MarketNews from '../components/DashboardPlatinum/MarketNews';
 import Wabinars from '../components/DashboardPlatinum/Wabinars';
 import TradingChallenges from '../components/DashboardPlatinum/TradingChallenge';
 import ScheduleCall from '../components/DashboardPlatinum/ScheduleCall';
+import PortfolioHeatmap from '../components/DashboardPlatinum/PortfolioHeatmap';
 
 const PlatinumDashboard = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
@@ -46,10 +47,11 @@ const PlatinumDashboard = () => {
                 { key: 'briefing', label: 'Weekly Briefing' },
                 { key: 'webinars', label: 'Webinars' },
                 { key: 'challenges', label: 'Trading Challenges' },
+                { key: 'portfolio-heatmap', label: 'Portfolio Heatmap' },
                 // { key: 'coaching', label: 'Private Coaching' },
                 // { key: 'voting', label: 'Feature Voting' },
                 { key: 'leaderboard', label: 'Leaderboard' },
-                { key: 'schedule-call', label: 'schedule calls' },
+                { key: 'schedule-call', label: 'Private Coaching' },
                 { key: 'news', label: 'News' },
 
               ].map(({ key, label }) => (
@@ -125,7 +127,7 @@ const PlatinumDashboard = () => {
                       </svg>
                     </div>
 
-                    <div className="market-data">
+                    <div className="market-data"> 
                       {[
                         { pair: 'EUR/USD', bid: '1.0850', ask: '1.0852', trend: 'up' },
                         { pair: 'GBP/USD', bid: '1.2450', ask: '1.2452', trend: 'down' },
@@ -192,6 +194,7 @@ const PlatinumDashboard = () => {
         {activeSection === 'news' && <MarketNews/>}
         {activeSection === 'schedule-call' && <ScheduleCall/>}
         {activeSection === 'webinars' && <Wabinars/>}
+        {activeSection === 'portfolio-heatmap' && <PortfolioHeatmap/>}
 
       </div>
     </div>

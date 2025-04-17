@@ -144,3 +144,7 @@
   height: 50px;
   width: 225px;
 }
+
+.bg-dark .edit-form .form-label {
+  color: #fff !important;
+}
