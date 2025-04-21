@@ -426,277 +426,48 @@
 
 // export default TradeJournal;
 
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-
-// const TradeJournal = () => {
-//   const [showJournalForm, setShowJournalForm] = useState(false);
-//   const [journalEntries, setJournalEntries] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   const [formData, setFormData] = useState({
-//     symbol: "",
-//     tradeType: "long",
-//     entryDate: "",
-//     entryPrice: "",
-//     exitDate: "",
-//     exitPrice: "",
-//     positionSize: "",
-//     riskRewardRatio: "",
-//     stopLoss: "",
-//     takeProfit: "",
-//     entryReason: "",
-//     exitReason: "",
-//     emotionalState: "",
-//     marketConditions: "",
-//     whatWentWell: "",
-//     whatWentWrong: "",
-//     lessonsLearned: "",
-//     additionalNotes: "",
-//   });
-
-//   const accessToken = localStorage.getItem("accessToken");
-//   const API_BASE_URL = process.env.REACT_APP_API_URL;
-
-//   const JOURNAL_API = `${API_BASE_URL}api/trade-journal/`;
-
-//   useEffect(() => {
-//     const fetchEntries = async () => {
-//       try {
-//         const res = await axios.get(JOURNAL_API, {
-//           headers: {
-//             Authorization: `Bearer ${accessToken}`,
-//           },
-//         });
-//         setJournalEntries(res.data);
-//       } catch (err) {
-//         console.error("Error loading journal entries", err);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchEntries();
-//   }, []);
-
-//   const handleOpenForm = () => {
-//     setShowJournalForm(true);
-//   };
-
-//   const handleCloseForm = () => {
-//     setShowJournalForm(false);
-//     setFormData({
-//       symbol: "",
-//       tradeType: "long",
-//       entryDate: "",
-//       entryPrice: "",
-//       exitDate: "",
-//       exitPrice: "",
-//       positionSize: "",
-//       riskRewardRatio: "",
-//       stopLoss: "",
-//       takeProfit: "",
-//       entryReason: "",
-//       exitReason: "",
-//       emotionalState: "",
-//       marketConditions: "",
-//       whatWentWell: "",
-//       whatWentWrong: "",
-//       lessonsLearned: "",
-//       additionalNotes: "",
-//     });
-//   };
-
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-
-// const TradeJournal = () => {
-//   const [showJournalForm, setShowJournalForm] = useState(false);
-//   const [journalEntries, setJournalEntries] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   const [formData, setFormData] = useState({
-//     symbol: "",
-//     tradeType: "long",
-//     entryDate: "",
-//     entryPrice: "",
-//     exitDate: "",
-//     exitPrice: "",
-//     positionSize: "",
-//     riskRewardRatio: "",
-//     stopLoss: "",
-//     takeProfit: "",
-//     entryReason: "",
-//     exitReason: "",
-//     emotionalState: "",
-//     marketConditions: "",
-//     whatWentWell: "",
-//     whatWentWrong: "",
-//     lessonsLearned: "",
-//     additionalNotes: "",
-//   });
-
-//   const accessToken = localStorage.getItem("accessToken");
-//   const API_BASE_URL = process.env.REACT_APP_API_URL;
-
-//   const JOURNAL_API = `${API_BASE_URL}api/trade-journal/`;
-
-//   useEffect(() => {
-//     const fetchEntries = async () => {
-//       try {
-//         const res = await axios.get(JOURNAL_API, {
-//           headers: {
-//             Authorization: `Bearer ${accessToken}`,
-//           },
-//         });
-//         setJournalEntries(res.data);
-//       } catch (err) {
-//         console.error("Error loading journal entries", err);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchEntries();
-//   }, []);
-
-//   const handleOpenForm = () => {
-//     setShowJournalForm(true);
-//   };
-
-//   const handleCloseForm = () => {
-//     setShowJournalForm(false);
-//     setFormData({
-//       symbol: "",
-//       tradeType: "long",
-//       entryDate: "",
-//       entryPrice: "",
-//       exitDate: "",
-//       exitPrice: "",
-//       positionSize: "",
-//       riskRewardRatio: "",
-//       stopLoss: "",
-//       takeProfit: "",
-//       entryReason: "",
-//       exitReason: "",
-//       emotionalState: "",
-//       marketConditions: "",
-//       whatWentWell: "",
-//       whatWentWrong: "",
-//       lessonsLearned: "",
-//       additionalNotes: "",
-//     });
-//   };
-
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     const entryPrice = parseFloat(formData.entryPrice);
-//     const exitPrice = parseFloat(formData.exitPrice);
-//     const positionSize = parseFloat(formData.positionSize);
-
-//     let profitLoss = 0;
-//     let profitLossPercentage = 0;
-
-//     if (formData.tradeType === "long") {
-//       profitLoss = (exitPrice - entryPrice) * positionSize;
-//       profitLossPercentage = ((exitPrice - entryPrice) / entryPrice) * 100;
-//     } else {
-//       profitLoss = (entryPrice - exitPrice) * positionSize;
-//       profitLossPercentage = ((entryPrice - exitPrice) / entryPrice) * 100;
-//     }
-
-//     const payload = {
-//       ...formData,
-//       entryPrice,
-//       exitPrice,
-//       positionSize,
-//       stopLoss: parseFloat(formData.stopLoss || 0),
-//       takeProfit: parseFloat(formData.takeProfit || 0),
-//     };
-
-//     try {
-//       const res = await axios.post(JOURNAL_API, payload, {
-//         headers: {
-//           Authorization: `Bearer ${accessToken}`,
-//         },
-//       });
-
-//       setJournalEntries((prev) => [res.data, ...prev]);
-//       handleCloseForm();
-//     } catch (error) {
-//       console.error("Error saving entry:", error);
-//       alert("Failed to save journal entry.");
-//     }
-//   };
-
-// export default TradeJournal;
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const TradeJournal = () => {
   const [showJournalForm, setShowJournalForm] = useState(false);
   const [journalEntries, setJournalEntries] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   const [formData, setFormData] = useState({
     symbol: "",
-    trade_type: "long",
-    entry_date: "",
-    entry_price: "",
-    exit_date: "",
-    exit_price: "",
-    position_size: "",
-    risk_reward_ratio: "",
-    stop_loss: "",
-    take_profit: "",
-    entry_reason: "",
-    exit_reason: "",
-    emotional_state: "",
-    market_conditions: "",
-    what_went_well: "",
-    what_went_wrong: "",
-    lessons_learned: "",
-    additional_notes: "",
+    tradeType: "long",
+    entryDate: "",
+    entryPrice: "",
+    exitDate: "",
+    exitPrice: "",
+    positionSize: "",
+    riskRewardRatio: "",
+    stopLoss: "",
+    takeProfit: "",
+    entryReason: "",
+    exitReason: "",
+    emotionalState: "",
+    marketConditions: "",
+    whatWentWell: "",
+    whatWentWrong: "",
+    lessonsLearned: "",
+    additionalNotes: "",
   });
 
+  const API_BASE = process.env.REACT_APP_API_URL;
+  const API_URL = `${API_BASE}api/trade-journal/`;
   const accessToken = localStorage.getItem("accessToken");
-  const API_BASE_URL = process.env.REACT_APP_API_URL;
-  const JOURNAL_API = `${API_BASE_URL}api/trade-journal/`;
 
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const res = await axios.get(JOURNAL_API, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
+        const res = await axios.get(API_URL, {
+          headers: { Authorization: `Bearer ${accessToken}` },
         });
         setJournalEntries(res.data);
       } catch (err) {
-        console.error("Error loading journal entries", err);
-      } finally {
-        setLoading(false);
+        console.error("Error fetching journal entries:", err);
       }
     };
-
     fetchEntries();
   }, []);
 
@@ -706,66 +477,84 @@ const TradeJournal = () => {
     setShowJournalForm(false);
     setFormData({
       symbol: "",
-      trade_type: "long",
-      entry_date: "",
-      entry_price: "",
-      exit_date: "",
-      exit_price: "",
-      position_size: "",
-      risk_reward_ratio: "",
-      stop_loss: "",
-      take_profit: "",
-      entry_reason: "",
-      exit_reason: "",
-      emotional_state: "",
-      market_conditions: "",
-      what_went_well: "",
-      what_went_wrong: "",
-      lessons_learned: "",
-      additional_notes: "",
+      tradeType: "long",
+      entryDate: "",
+      entryPrice: "",
+      exitDate: "",
+      exitPrice: "",
+      positionSize: "",
+      riskRewardRatio: "",
+      stopLoss: "",
+      takeProfit: "",
+      entryReason: "",
+      exitReason: "",
+      emotionalState: "",
+      marketConditions: "",
+      whatWentWell: "",
+      whatWentWrong: "",
+      lessonsLearned: "",
+      additionalNotes: "",
     });
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const payload = {
-      ...formData,
-      entry_price: parseFloat(formData.entry_price),
-      exit_price: parseFloat(formData.exit_price),
-      position_size: parseFloat(formData.position_size),
-      stop_loss: formData.stop_loss ? parseFloat(formData.stop_loss) : null,
-      take_profit: formData.take_profit
-        ? parseFloat(formData.take_profit)
-        : null,
+      symbol: formData.symbol,
+      trade_type: formData.tradeType,
+      entry_date: formData.entryDate,
+      entry_price: parseFloat(formData.entryPrice),
+      exit_date: formData.exitDate,
+      exit_price: parseFloat(formData.exitPrice),
+      position_size: parseInt(formData.positionSize),
+      risk_reward_ratio: formData.riskRewardRatio,
+      stop_loss: formData.stopLoss ? parseFloat(formData.stopLoss) : null,
+      take_profit: formData.takeProfit ? parseFloat(formData.takeProfit) : null,
+      entry_reason: formData.entryReason,
+      exit_reason: formData.exitReason,
+      emotional_state: formData.emotionalState,
+      market_conditions: formData.marketConditions,
+      what_went_well: formData.whatWentWell,
+      what_went_wrong: formData.whatWentWrong,
+      lessons_learned: formData.lessonsLearned,
+      additional_notes: formData.additionalNotes,
     };
 
     try {
-      const res = await axios.post(JOURNAL_API, payload, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+      const res = await axios.post(API_URL, payload, {
+        headers: { Authorization: `Bearer ${accessToken}` },
       });
-
       setJournalEntries((prev) => [res.data, ...prev]);
       handleCloseForm();
-    } catch (error) {
-      console.error("❌ Error saving entry:", error.response?.data || error);
-      alert("Failed to save journal entry.");
+    } catch (err) {
+      console.error("Failed to save journal entry:", err.response?.data || err);
+      alert("Failed to save journal entry. Check required fields.");
     }
   };
 
-  const sortedEntries = [...journalEntries].sort(
-    (a, b) => new Date(b.created_at) - new Date(a.created_at)
-  );
+  const calculateProfitLoss = (entry) => {
+    const entryPrice = parseFloat(entry.entry_price);
+    const exitPrice = parseFloat(entry.exit_price);
+    const positionSize = parseInt(entry.position_size);
+    let profitLoss = 0;
+    let profitLossPercentage = 0;
+    if (entry.trade_type === "long") {
+      profitLoss = (exitPrice - entryPrice) * positionSize;
+      profitLossPercentage = ((exitPrice - entryPrice) / entryPrice) * 100;
+    } else {
+      profitLoss = (entryPrice - exitPrice) * positionSize;
+      profitLossPercentage = ((entryPrice - exitPrice) / entryPrice) * 100;
+    }
+    return {
+      profitLoss: profitLoss.toFixed(2),
+      profitLossPercentage: profitLossPercentage.toFixed(2),
+    };
+  };
 
   return (
     <div className="trade-journal-container">
@@ -780,7 +569,7 @@ const TradeJournal = () => {
         </button>
       </div>
 
-      {showJournalForm && (
+      {showJournalForm ? (
         <div className="journal-form-overlay">
           <div className="journal-form-container">
             <div className="form-header">
@@ -789,150 +578,10 @@ const TradeJournal = () => {
                 <i className="bi bi-x-lg"></i>
               </button>
             </div>
-
             <form className="trade-form" onSubmit={handleSubmit}>
-              <div className="form-section">
-                <h3>Trade Details</h3>
-                <div className="form-row">
-                  <input
-                    name="symbol"
-                    placeholder="Symbol"
-                    value={formData.symbol}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <select
-                    name="trade_type"
-                    value={formData.trade_type}
-                    onChange={handleInputChange}
-                  >
-                    <option value="long">Long</option>
-                    <option value="short">Short</option>
-                  </select>
-                </div>
-                <div className="form-row">
-                  <input
-                    type="date"
-                    name="entry_date"
-                    value={formData.entry_date}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="entry_price"
-                    placeholder="Entry Price"
-                    value={formData.entry_price}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="form-row">
-                  <input
-                    type="date"
-                    name="exit_date"
-                    value={formData.exit_date}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="exit_price"
-                    placeholder="Exit Price"
-                    value={formData.exit_price}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="form-row">
-                  <input
-                    name="position_size"
-                    placeholder="Position Size"
-                    value={formData.position_size}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <input
-                    name="risk_reward_ratio"
-                    placeholder="Risk/Reward Ratio"
-                    value={formData.risk_reward_ratio}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="form-row">
-                  <input
-                    name="stop_loss"
-                    placeholder="Stop Loss"
-                    value={formData.stop_loss}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    name="take_profit"
-                    placeholder="Take Profit"
-                    value={formData.take_profit}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-
-              <div className="form-section">
-                <h3>Trade Analysis</h3>
-                <textarea
-                  name="entry_reason"
-                  placeholder="Entry Reason"
-                  value={formData.entry_reason}
-                  onChange={handleInputChange}
-                  required
-                />
-                <textarea
-                  name="exit_reason"
-                  placeholder="Exit Reason"
-                  value={formData.exit_reason}
-                  onChange={handleInputChange}
-                  required
-                />
-                <textarea
-                  name="emotional_state"
-                  placeholder="Emotional State"
-                  value={formData.emotional_state}
-                  onChange={handleInputChange}
-                />
-                <textarea
-                  name="market_conditions"
-                  placeholder="Market Conditions"
-                  value={formData.market_conditions}
-                  onChange={handleInputChange}
-                />
-              </div>
-
-              <div className="form-section">
-                <h3>Lessons & Reflections</h3>
-                <textarea
-                  name="what_went_well"
-                  placeholder="What Went Well"
-                  value={formData.what_went_well}
-                  onChange={handleInputChange}
-                />
-                <textarea
-                  name="what_went_wrong"
-                  placeholder="What Went Wrong"
-                  value={formData.what_went_wrong}
-                  onChange={handleInputChange}
-                />
-                <textarea
-                  name="lessons_learned"
-                  placeholder="Lessons Learned"
-                  value={formData.lessons_learned}
-                  onChange={handleInputChange}
-                  required
-                />
-                <textarea
-                  name="additional_notes"
-                  placeholder="Additional Notes"
-                  value={formData.additional_notes}
-                  onChange={handleInputChange}
-                />
-              </div>
+              {/* Keep your exact JSX for the form here */}
+              {/* You can copy your previously shared layout directly */}
+              {/* Replace all inputs' name values to match the keys used in setFormData */}
 
               <div className="form-actions">
                 <button
@@ -949,40 +598,73 @@ const TradeJournal = () => {
             </form>
           </div>
         </div>
-      )}
-
-      {loading ? (
-        <p>Loading entries...</p>
-      ) : journalEntries.length === 0 ? (
-        <div className="no-entries">
-          <h2>No journal entries yet</h2>
-          <p>Start by clicking the "Add New Trade" button above.</p>
-        </div>
       ) : (
-        <div className="entries-list">
-          {sortedEntries.map((entry) => (
-            <div key={entry.id} className="journal-entry-card">
-              <div className="entry-header">
-                <div className="entry-symbol">{entry.symbol}</div>
-                <div className={`entry-type ${entry.trade_type}`}>
-                  {entry.trade_type.toUpperCase()}
-                </div>
-                <div className="entry-result">
-                  Entry: {entry.entry_price} | Exit: {entry.exit_price}
-                </div>
-              </div>
-              <div className="entry-details">
-                <div>
-                  Date: {new Date(entry.created_at).toLocaleDateString()}
-                </div>
-                <div>Position: {entry.position_size}</div>
-              </div>
-              <div className="entry-lesson">
-                <strong>Lesson:</strong> {entry.lessons_learned?.slice(0, 100)}
-                {entry.lessons_learned?.length > 100 ? "..." : ""}
-              </div>
+        <div className="journal-entries-container">
+          {journalEntries.length === 0 ? (
+            <div className="no-entries">
+              <i className="bi bi-journal-text"></i>
+              <h2>No journal entries yet</h2>
+              <p>
+                Start tracking your trades by clicking the "Add New Trade"
+                button above.
+              </p>
             </div>
-          ))}
+          ) : (
+            <div className="entries-list">
+              {journalEntries.map((entry) => {
+                const { profitLoss, profitLossPercentage } =
+                  calculateProfitLoss(entry);
+                return (
+                  <div key={entry.id} className="journal-entry-card">
+                    <div className="entry-header">
+                      <div className="entry-symbol">{entry.symbol}</div>
+                      <div className={`entry-type ${entry.trade_type}`}>
+                        {entry.trade_type === "long" ? "LONG" : "SHORT"}
+                      </div>
+                      <div
+                        className={`entry-result ${
+                          profitLoss >= 0 ? "profit" : "loss"
+                        }`}
+                      >
+                        {profitLoss >= 0 ? "+" : ""}
+                        {profitLoss} ({profitLossPercentage}%)
+                      </div>
+                    </div>
+                    <div className="entry-details">
+                      <div className="detail-item">
+                        <span className="detail-label">Entry:</span>
+                        <span className="detail-value">
+                          {entry.entry_price} on{" "}
+                          {new Date(entry.entry_date).toLocaleDateString()}
+                        </span>
+                      </div>
+                      <div className="detail-item">
+                        <span className="detail-label">Exit:</span>
+                        <span className="detail-value">
+                          {entry.exit_price} on{" "}
+                          {new Date(entry.exit_date).toLocaleDateString()}
+                        </span>
+                      </div>
+                      <div className="detail-item">
+                        <span className="detail-label">Size:</span>
+                        <span className="detail-value">
+                          {entry.position_size}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="entry-lesson">
+                      <strong>Lesson:</strong>{" "}
+                      {entry.lessons_learned.slice(0, 100)}
+                      {entry.lessons_learned.length > 100 ? "..." : ""}
+                    </div>
+                    <button className="view-details-button">
+                      View Details
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>
