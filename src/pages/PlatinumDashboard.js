@@ -498,7 +498,7 @@ const PlatinumDashboard = () => {
                   <div className="card-body">
                     <h5 className="card-title mb-4">Chat with Analysts</h5>
                     <div className="chat-container">
-                      {messages.map((msg) => {
+                      {/* {messages.map((msg) => {
                         const isCurrentUser =
                           msg.sender_name === userData?.username;
                         const isAdmin = !isCurrentUser;
@@ -550,6 +550,66 @@ const PlatinumDashboard = () => {
                                 alt="me"
                               />
                             )}
+                          </div>
+                        );
+                      })} */}
+                      {messages.map((msg) => {
+                        const isCurrentUser =
+                          msg.sender_name === userData?.username;
+                        const isAdmin = !isCurrentUser;
+
+                        return (
+                          <div
+                            key={msg.id}
+                            className={`chat-message d-flex flex-column ${
+                              isCurrentUser
+                                ? "align-items-end"
+                                : "align-items-start"
+                            } mb-3`}
+                          >
+                            <div className="d-flex align-items-end">
+                              {!isCurrentUser && (
+                                <img
+                                  src={
+                                    adminProfilePhotoUrl || "/default-admin.png"
+                                  }
+                                  className="chat-avatar me-2"
+                                  alt="admin"
+                                />
+                              )}
+
+                              <div className={`message-bubble text-white`}>
+                                <div className="sender-name text-white fw-bold mb-1">
+                                  {isCurrentUser
+                                    ? "You"
+                                    : msg.sender_name || "Admin"}
+                                </div>
+                                <div className="message-text">
+                                  {msg.content}
+                                </div>
+                                <div className="message-time text-end mt-1 small">
+                                  {new Date(msg.timestamp).toLocaleTimeString(
+                                    [],
+                                    {
+                                      hour: "2-digit",
+                                      minute: "2-digit",
+                                      hour12: true,
+                                    }
+                                  )}
+                                </div>
+                              </div>
+
+                              {isCurrentUser && (
+                                <img
+                                  src={
+                                    userData?.profile_photo ||
+                                    "/default-user.png"
+                                  }
+                                  className="chat-avatar ms-2"
+                                  alt="me"
+                                />
+                              )}
+                            </div>
                           </div>
                         );
                       })}

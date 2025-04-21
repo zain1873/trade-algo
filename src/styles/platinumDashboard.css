@@ -188,6 +188,38 @@
     border: 1px solid #363a42;
   }
   
+
+
+
+  .chat-message {
+    width: 100%;
+  }
+  
+  .chat-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .message-bubble {
+    background-color: #2b2f3a;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 70%;
+    word-break: break-word;
+  }
+  
+  .sender-name {
+    font-size: 0.8rem;
+    color: white;
+  }
+  
+  .message-time {
+    font-size: 0.7rem;
+    color: #ccc;
+  }
+  
   /* Notification Icons */
   .nav-icon {
     color: #a7a9ac;
