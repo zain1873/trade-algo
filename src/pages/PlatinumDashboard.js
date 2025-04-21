@@ -493,66 +493,12 @@ const PlatinumDashboard = () => {
                   </div>
                 </div>
               </div> */}
-              <div className="col-lg-5 mb-4">
+              {/* <div className="col-lg-5 mb-4">
                 <div className="card chat-card">
                   <div className="card-body">
                     <h5 className="card-title mb-4">Chat with Analysts</h5>
                     <div className="chat-container">
-                      {/* {messages.map((msg) => {
-                        const isCurrentUser =
-                          msg.sender_name === userData?.username;
-                        const isAdmin = !isCurrentUser;
 
-                        return (
-                          <div
-                            key={msg.id}
-                            className={`chat-message d-flex ${
-                              isCurrentUser
-                                ? "justify-content-end"
-                                : "justify-content-start"
-                            } mb-3`}
-                          >
-                            {!isCurrentUser && (
-                              <img
-                                src={
-                                  adminProfilePhotoUrl || "/default-admin.png"
-                                }
-                                className="chat-avatar me-2"
-                                alt="admin"
-                              />
-                            )}
-
-                            <div className="message-bubble">
-                              <div className="sender-name text-muted small mb-1 fw-bold">
-                                {isCurrentUser ? "You" : msg.sender_name}
-                              </div>
-                              <div className="message-text text-white">
-                                {msg.content}
-                              </div>
-                              <div className="message-time small text-end mt-1">
-                                {new Date(msg.timestamp).toLocaleTimeString(
-                                  [],
-                                  {
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                    hour12: true,
-                                  }
-                                )}
-                              </div>
-                            </div>
-
-                            {isCurrentUser && (
-                              <img
-                                src={
-                                  userData?.profile_photo || "/default-user.png"
-                                }
-                                className="chat-avatar ms-2"
-                                alt="me"
-                              />
-                            )}
-                          </div>
-                        );
-                      })} */}
                       {messages.map((msg) => {
                         const isCurrentUser =
                           msg.sender_name === userData?.username;
@@ -633,6 +579,97 @@ const PlatinumDashboard = () => {
                           <i className="bi bi-send-fill"></i>
                         </button>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+              <div
+                className="card chat-card d-flex flex-column"
+                style={{ height: "500px" }}
+              >
+                <div className="card-body d-flex flex-column p-3">
+                  <h5 className="card-title mb-3">Chat with Analysts</h5>
+
+                  <div className="chat-messages flex-grow-1 overflow-auto mb-3 pe-2">
+                    {messages.map((msg) => {
+                      const isCurrentUser =
+                        msg.sender_name === userData?.username;
+
+                      return (
+                        <div
+                          key={msg.id}
+                          className={`chat-message d-flex flex-column ${
+                            isCurrentUser
+                              ? "align-items-end"
+                              : "align-items-start"
+                          } mb-2`}
+                        >
+                          <div className="d-flex align-items-end">
+                            {!isCurrentUser && (
+                              <img
+                                src={
+                                  adminProfilePhotoUrl || "/default-admin.png"
+                                }
+                                className="chat-avatar me-2"
+                                alt="admin"
+                              />
+                            )}
+
+                            <div className="message-bubble text-white">
+                              <div className="sender-name text-white fw-bold mb-1">
+                                {isCurrentUser
+                                  ? "You"
+                                  : msg.sender_name || "Admin"}
+                              </div>
+                              <div className="message-text">{msg.content}</div>
+                              <div className="message-time text-end mt-1 small">
+                                {new Date(msg.timestamp).toLocaleTimeString(
+                                  [],
+                                  {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    hour12: true,
+                                  }
+                                )}
+                              </div>
+                            </div>
+
+                            {isCurrentUser && (
+                              <img
+                                src={
+                                  userData?.profile_photo || "/default-user.png"
+                                }
+                                className="chat-avatar ms-2"
+                                alt="me"
+                              />
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="chat-input-container">
+                    <div className="d-flex">
+                      <input
+                        type="text"
+                        className="form-control me-2"
+                        placeholder="Type your message..."
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            sendMessage();
+                          }
+                        }}
+                      />
+                      <button
+                        className="send-button btn btn-primary"
+                        onClick={sendMessage}
+                      >
+                        <i className="bi bi-send-fill"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
