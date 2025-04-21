@@ -39,7 +39,6 @@ import Resources from "./DashboardSidebarComp/Resources";
 // import ProgramLite from "./DashboardSidebarComp/programLite";
 // import WealthPremium from "./DashboardSidebarComp/wealthPremium";
 
-
 // trading tools
 // import ScannerTool from "./DashboardSidebarComp/ScannerTool";
 // import SwingTradeAI from "./DashboardSidebarComp/SwingTradeAI";
@@ -51,11 +50,6 @@ import StocksData from "./DashboardSidebarComp/StocksData";
 import CryptoData from "./DashboardSidebarComp/CryptoData";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
 
-
-
-
-
-
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -64,14 +58,13 @@ const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
   const accessToken = localStorage.getItem("accessToken");
-  const [photoURL, setPhotoURL] = useState(null); 
+  const [photoURL, setPhotoURL] = useState(null);
 
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
     ? process.env.REACT_APP_API_URL
     : process.env.REACT_APP_API_URL + "/";
 
   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
-  
 
   // Apply CSS variables for dark mode
   useEffect(() => {
@@ -109,7 +102,6 @@ const Dashboard = () => {
       document.documentElement.style.setProperty("--border-color", "#dddddd"); // Light borders
     }
 
-    
     if (!accessToken) {
       setError("You need to be logged in to view this data.");
       return;
@@ -123,10 +115,10 @@ const Dashboard = () => {
           },
         });
         setUserData(response.data);
-          // grab profile picture (may be null)
-       if (response.data?.profile_photo) {
-            setPhotoURL(response.data.profile_photo);
-       }
+        // grab profile picture (may be null)
+        if (response.data?.profile_photo_url) {
+          setPhotoURL(response.data.profile_photo_url);
+        }
       } catch (error) {
         console.error("Error fetching user data:", error);
         if (error.response && error.response.status === 401) {
@@ -140,7 +132,6 @@ const Dashboard = () => {
 
     fetchUserData();
   }, [darkMode, accessToken]);
-
 
   // Responsive behavior: auto-collapse sidebar on smaller screens
   useEffect(() => {
@@ -158,9 +149,6 @@ const Dashboard = () => {
     // Set initial state based on window width
     handleResize();
 
-    
-
-
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
@@ -169,7 +157,6 @@ const Dashboard = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [windowWidth]);
-  
 
   // Handle tab click - collapse sidebar after selection on mobile
   const handleTabClick = (tabId) => {
@@ -254,20 +241,21 @@ const Dashboard = () => {
         "logout",
       ],
     };
-  
+
     const subscription = userData?.subscription_status || "free";
     const isAdmin = userData?.is_staff || userData?.is_superuser;
     const currentAllowedTabs = allowedTabs[subscription] || [];
-  
+
     const isRestricted = !isAdmin && !currentAllowedTabs.includes(activeTab);
-  
+
     return (
       <div className={darkMode ? "dark-mode-content" : "light-mode-content"}>
         {isRestricted ? (
           <div className="text-center py-5">
             <h4 className="text-danger">🔒 Unable to access</h4>
             <p className="text-muted">
-              This section is available only to eligible members based on your current plan.
+              This section is available only to eligible members based on your
+              current plan.
             </p>
           </div>
         ) : (
@@ -313,7 +301,6 @@ const Dashboard = () => {
       </div>
     );
   };
-
 
   // const renderContent = () => {
   //   return (
@@ -388,15 +375,13 @@ const Dashboard = () => {
   //   );
   // };
 
-  
-
   // const renderContent = () => {
   //   const allowedTabsForFree = ["dashboard", "darkpool-data", "edit-profile", "logout"];
-  
+
   //   const isFree = userData?.subscription_status === "free";
   //   const isAdmin = userData?.is_staff || userData?.is_superuser;
   //   const isRestricted = isFree && !isAdmin && !allowedTabsForFree.includes(activeTab);
-  
+
   //   return (
   //     <div className={darkMode ? "dark-mode-content" : "light-mode-content"}>
   //       {isRestricted ? (
@@ -449,7 +434,7 @@ const Dashboard = () => {
   //     </div>
   //   );
   // };
-   
+
   return (
     <div className={darkMode ? "bg-dark text-white vh-100" : "bg-light vh-100"}>
       <div className="row dashboard_row g-0">
@@ -497,41 +482,46 @@ const Dashboard = () => {
 
           {/* Navigation Menu */}
           <div className="nav flex-column">
-          {menuItems.map((item) => (
-            <div key={item.id} className="position-relative">
-              <button
-                onClick={() => handleTabClick(item.id)}
-                className={`nav-link border-0 d-flex align-items-center justify-content-${
-                  sidebarCollapsed ? "center" : "start"
-                } ${activeTab === item.id ? "active" : ""} ${
-                  darkMode ? "text-white" : ""
-                }`}
-                style={darkMode ? { color: "white" } : {}}
-              >
-                <span className="me-2" style={darkMode ? { color: "white" } : {}}>
-                  {item.icon}
-                </span>
-                {!sidebarCollapsed && (
-                  <div className="d-flex align-items-center justify-content-between flex-grow-1">
-                    <span style={darkMode ? { color: "white" } : {}}>{item.label}</span>
+            {menuItems.map((item) => (
+              <div key={item.id} className="position-relative">
+                <button
+                  onClick={() => handleTabClick(item.id)}
+                  className={`nav-link border-0 d-flex align-items-center justify-content-${
+                    sidebarCollapsed ? "center" : "start"
+                  } ${activeTab === item.id ? "active" : ""} ${
+                    darkMode ? "text-white" : ""
+                  }`}
+                  style={darkMode ? { color: "white" } : {}}
+                >
+                  <span
+                    className="me-2"
+                    style={darkMode ? { color: "white" } : {}}
+                  >
+                    {item.icon}
+                  </span>
+                  {!sidebarCollapsed && (
+                    <div className="d-flex align-items-center justify-content-between flex-grow-1">
+                      <span style={darkMode ? { color: "white" } : {}}>
+                        {item.label}
+                      </span>
 
-                    {/* 🔽 Add Play Icon for Dropdown Indicator */}
-                    {(item.id === "trading-tools") && (
-                      <i
-                        className="fas fa-play ms-2 indicator"
-                        style={{
-                          fontSize: "10px",
-                          transform: "rotate(360deg)",
-                          color: "#000",
-                        }}
-                      ></i>
-                    )}
-                  </div>
-                )}
-              </button>
+                      {/* 🔽 Add Play Icon for Dropdown Indicator */}
+                      {item.id === "trading-tools" && (
+                        <i
+                          className="fas fa-play ms-2 indicator"
+                          style={{
+                            fontSize: "10px",
+                            transform: "rotate(360deg)",
+                            color: "#000",
+                          }}
+                        ></i>
+                      )}
+                    </div>
+                  )}
+                </button>
 
-              {/* Dropdown for Wealth Management Series */}
-              {/* {item.id === "wealth-series" && (
+                {/* Dropdown for Wealth Management Series */}
+                {/* {item.id === "wealth-series" && (
                 <div className="dropdown-container shadow wealth-container p-0">
                   <div className="dropdown-content-wrap">
                     <div className="p-2 dropdown-inside" onClick={() => setActiveTab("lite")}>
@@ -544,11 +534,10 @@ const Dashboard = () => {
                 </div>
               )} */}
 
-              {/* Dropdown for   */}
-              {item.id === "trading-tools" && (
-                <div className="dropdown-container shadow tools-container p-0">
-
-                  {/* <div className="dropdown-content-wrap">
+                {/* Dropdown for   */}
+                {item.id === "trading-tools" && (
+                  <div className="dropdown-container shadow tools-container p-0">
+                    {/* <div className="dropdown-content-wrap">
                     <div className="p-2 dropdown-inside" onClick={() => setActiveTab("scanner")}>
                       Scanner
                     </div>
@@ -569,20 +558,25 @@ const Dashboard = () => {
                     </div>
                   </div> */}
 
-                  <div className="dropdown-content-wrap">
-                  <div className="p-2 dropdown-inside" onClick={() => setActiveTab("forex")}>
-                      Forex
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("crypto")}>
-                      Crypto
+                    <div className="dropdown-content-wrap">
+                      <div
+                        className="p-2 dropdown-inside"
+                        onClick={() => setActiveTab("forex")}
+                      >
+                        Forex
+                      </div>
+                      <div
+                        className="p-2 dropdown-inside"
+                        onClick={() => setActiveTab("crypto")}
+                      >
+                        Crypto
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
+                )}
+              </div>
+            ))}
+          </div>
 
           {/* Dark Mode Toggle */}
           <div className="position-absolute bottom-0 w-100 ">
@@ -634,16 +628,17 @@ const Dashboard = () => {
               </div>
 
               <div className="col-auto user_info position-relative">
-  
-                  <img
-                 src={photoURL || user_logo} 
+                <img
+                  src={photoURL || user_logo}
                   alt="Profile"
                   className="rounded-circle"
                   width="40"
                   height="40"
                 />
                 <div className="username_data">
-                <h5 className={`mb-0 ${darkMode ? 'text-white' : ''}`}>{userData?.username || 'Null'}</h5>
+                  <h5 className={`mb-0 ${darkMode ? "text-white" : ""}`}>
+                    {userData?.username || "Null"}
+                  </h5>
                 </div>
 
                 {/* Dropdown Menu */}
@@ -677,7 +672,6 @@ const Dashboard = () => {
       </div>
     </div>
   );
-
 };
 
 export default Dashboard;

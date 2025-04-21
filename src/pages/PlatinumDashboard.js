@@ -292,7 +292,9 @@ const PlatinumDashboard = () => {
           <>
             <div className="row header-section mb-4">
               <div className="col-md-8">
-                <h1>Good Afternoon, Platinum Member</h1>
+                <h1>
+                  Good Afternoon, {userData?.username?.charAt(0).toUpperCase()}
+                </h1>
                 <p className="text-white">
                   Welcome to your exclusive platinum dashboard. Access premium
                   features, connect with analysts, and elevate your trading
@@ -313,7 +315,9 @@ const PlatinumDashboard = () => {
               </div>
               <div className="col-md-4 d-flex justify-content-end align-items-start">
                 <div className="large-profile-avatar">
-                  <span>P</span>
+                  <span>
+                    {userData?.username?.charAt(0).toUpperCase() || "U"}
+                  </span>
                 </div>
               </div>
             </div>
