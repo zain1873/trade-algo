@@ -24,6 +24,7 @@ const PlatinumDashboard = () => {
       collapseRef.current.classList.remove("show");
     }
   };
+  const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
 
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -61,6 +62,23 @@ const PlatinumDashboard = () => {
 
     fetchUser();
   }, [accessToken]);
+
+  useEffect(() => {
+    const fetchAdminPhoto = async () => {
+      try {
+        const res = await axios.get(`${API_BASE_URL}api/user/admin-profile/`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setAdminProfilePhotoUrl(res.data.profile_photo);
+      } catch (error) {
+        console.warn("Admin profile photo not found");
+      }
+    };
+
+    fetchAdminPhoto();
+  }, []);
 
   const fetchMessages = async () => {
     try {
