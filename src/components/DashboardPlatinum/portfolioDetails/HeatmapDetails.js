@@ -1,47 +1,105 @@
-import React, { useState } from 'react';
-import CorrectionLink from '../portfolioDetails/CorrectionLink';
-import DiversificationLevel from '../DisverificationLevel';
-import AISuggestions from '../AiSuggestion';
+import React, { useState } from "react";
+import CorrectionLink from "../portfolioDetails/CorrectionLink";
+import DiversificationLevel from "../DisverificationLevel";
+import AISuggestions from "../AiSuggestion";
 
 const PortfolioAnalysis = () => {
-  const [activeTab, setActiveTab] = useState('sector-exposure');
+  const [activeTab, setActiveTab] = useState("sector-exposure");
 
   const sectorData = [
-    { id: 1, name: 'Technology', allocation: 35, value: 85987.62, risk: 'High Risk', riskColor: 'high-risk' },
-    { id: 2, name: 'Healthcare', allocation: 20, value: 49135.78, risk: 'Medium Risk', riskColor: 'medium-risk' },
-    { id: 3, name: 'Financials', allocation: 15, value: 36851.84, risk: 'Medium Risk', riskColor: 'medium-risk' },
-    { id: 4, name: 'Consumer Discretionary', allocation: 10, value: 24567.89, risk: 'High Risk', riskColor: 'high-risk' },
-    { id: 5, name: 'Industrials', allocation: 8, value: 19654.31, risk: 'Low Risk', riskColor: 'low-risk' },
-    { id: 6, name: 'Energy', allocation: 5, value: 12283.95, risk: 'High Risk', riskColor: 'high-risk' },
-    { id: 7, name: 'Materials', allocation: 4, value: 9827.16, risk: 'Medium Risk', riskColor: 'medium-risk' },
-    { id: 8, name: 'Utilities', allocation: 3, value: 7370.37, risk: 'Low Risk', riskColor: 'low-risk' }
+    {
+      id: 1,
+      name: "Technology",
+      allocation: 35,
+      value: 85987.62,
+      risk: "High Risk",
+      riskColor: "high-risk",
+    },
+    {
+      id: 2,
+      name: "Healthcare",
+      allocation: 20,
+      value: 49135.78,
+      risk: "Medium Risk",
+      riskColor: "medium-risk",
+    },
+    {
+      id: 3,
+      name: "Financials",
+      allocation: 15,
+      value: 36851.84,
+      risk: "Medium Risk",
+      riskColor: "medium-risk",
+    },
+    {
+      id: 4,
+      name: "Consumer Discretionary",
+      allocation: 10,
+      value: 24567.89,
+      risk: "High Risk",
+      riskColor: "high-risk",
+    },
+    {
+      id: 5,
+      name: "Industrials",
+      allocation: 8,
+      value: 19654.31,
+      risk: "Low Risk",
+      riskColor: "low-risk",
+    },
+    {
+      id: 6,
+      name: "Energy",
+      allocation: 5,
+      value: 12283.95,
+      risk: "High Risk",
+      riskColor: "high-risk",
+    },
+    {
+      id: 7,
+      name: "Materials",
+      allocation: 4,
+      value: 9827.16,
+      risk: "Medium Risk",
+      riskColor: "medium-risk",
+    },
+    {
+      id: 8,
+      name: "Utilities",
+      allocation: 3,
+      value: 7370.37,
+      risk: "Low Risk",
+      riskColor: "low-risk",
+    },
   ];
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
     }).format(value);
   };
 
   const renderSectorCards = () => (
     <div className="row g-3">
-      {sectorData.map(sector => (
+      {sectorData.map((sector) => (
         <div key={sector.id} className="col-md-6 col-lg-3">
           <div className="sector-card">
             <div className="d-flex justify-content-between mb-2">
               <h5 className="sector-name">{sector.name}</h5>
-              <span className={`risk-badge ${sector.riskColor}`}>{sector.risk}</span>
+              <span className={`risk-badge ${sector.riskColor}`}>
+                {sector.risk}
+              </span>
             </div>
             <div className="allocation-label">Allocation</div>
             <div className="progress allocation-progress">
-              <div 
-                className={`progress-bar ${sector.riskColor}-bg`} 
-                role="progressbar" 
+              <div
+                className={`progress-bar ${sector.riskColor}-bg`}
+                role="progressbar"
                 style={{ width: `${sector.allocation}%` }}
-                aria-valuenow={sector.allocation} 
-                aria-valuemin="0" 
+                aria-valuenow={sector.allocation}
+                aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
             </div>
@@ -55,7 +113,7 @@ const PortfolioAnalysis = () => {
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'sector-exposure':
+      case "sector-exposure":
         return (
           <>
             <div className="d-flex align-items-center mb-3">
@@ -73,17 +131,20 @@ const PortfolioAnalysis = () => {
                 <h5 className="risk-title">Risk Analysis</h5>
               </div>
               <p className="risk-text">
-                Your portfolio shows a high concentration in the Technology sector (35%), which increases your vulnerability to sector-specific downturns. Consider rebalancing to reduce sector-specific risk.
+                Your portfolio shows a high concentration in the Technology
+                sector (35%), which increases your vulnerability to
+                sector-specific downturns. Consider rebalancing to reduce
+                sector-specific risk.
               </p>
             </div>
           </>
         );
-      case 'correlation-risk':
+      case "correlation-risk":
         return <CorrectionLink />;
-      case 'diversification-level':
-        return <DiversificationLevel/>;
-      case 'ai-suggestions':
-        return <AISuggestions/>;
+      case "diversification-level":
+        return <DiversificationLevel />;
+      case "ai-suggestions":
+        return <AISuggestions />;
       default:
         return null;
     }
@@ -95,7 +156,9 @@ const PortfolioAnalysis = () => {
         <div className="d-flex justify-content-between align-items-center mb-3">
           <div>
             <h1 className="analysis-title">Portfolio Analysis</h1>
-            <p className="last-updated">Last updated: April 12, 2025 at 10:30 AM</p>
+            <p className="last-updated">
+              Last updated: April 12, 2025 at 10:30 AM
+            </p>
           </div>
           <div className="action-buttons">
             <button className="btn btn-refresh me-2">
@@ -107,45 +170,45 @@ const PortfolioAnalysis = () => {
           </div>
         </div>
 
-        <ul className="nav analysis-tabs">
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'sector-exposure' ? 'active' : ''}`}
-              onClick={() => setActiveTab('sector-exposure')}
+        <div className="tabs-container">
+          <div className="nav-tabs">
+            <button
+              className={`tab-button ${
+                activeTab === "sector-exposure" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("sector-exposure")}
             >
               Sector Exposure
             </button>
-          </li>
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'correlation-risk' ? 'active' : ''}`}
-              onClick={() => setActiveTab('correlation-risk')}
+            <button
+              className={`tab-button ${
+                activeTab === "correlation-risk" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("correlation-risk")}
             >
               Correlation Risk
             </button>
-          </li>
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'diversification-level' ? 'active' : ''}`}
-              onClick={() => setActiveTab('diversification-level')}
+            <button
+              className={`tab-button ${
+                activeTab === "diversification-level" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("diversification-level")}
             >
               Diversification Level
             </button>
-          </li>
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'ai-suggestions' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ai-suggestions')}
+            <button
+              className={`tab-button ${
+                activeTab === "ai-suggestions" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("ai-suggestions")}
             >
               AI Suggestions
             </button>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
-      <div className="content-section">
-        {renderTabContent()}
-      </div>
+      <div className="content-section">{renderTabContent()}</div>
     </div>
   );
 };
