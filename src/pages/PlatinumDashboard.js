@@ -38,6 +38,7 @@ const PlatinumDashboard = () => {
 
       if (res.data.length > 0) {
         const convo = res.data[0]; // 1-on-1 with admin
+        console.log("Loaded conversation:", convo);
         setConversationId(convo.id);
         setMessages(convo.messages);
       }
