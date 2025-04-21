@@ -26,6 +26,46 @@ const PlatinumDashboard = () => {
   };
 
   const [userData, setUserData] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [conversationId, setConversationId] = useState(null);
+
+  const fetchMessages = async () => {
+    try {
+      const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
+      if (res.data.length > 0) {
+        const convo = res.data[0]; // 1-on-1 with admin
+        setConversationId(convo.id);
+        setMessages(convo.messages);
+      }
+    } catch (err) {
+      console.error("Failed to fetch messages", err);
+    }
+  };
+
+  const sendMessage = async () => {
+    if (!input.trim() || !conversationId) return;
+
+    try {
+      await axios.post(
+        `${API_BASE_URL}api/chat/send/`,
+        {
+          conversation: conversationId,
+          content: input,
+        },
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
+      setInput("");
+      fetchMessages(); // refresh
+    } catch (err) {
+      console.error("Failed to send message", err);
+    }
+  };
 
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
@@ -394,7 +434,7 @@ const PlatinumDashboard = () => {
                 </div>
               </div>
 
-              <div className="col-lg-5 mb-4">
+              {/* <div className="col-lg-5 mb-4">
                 <div className="card chat-card">
                   <div className="card-body">
                     <h5 className="card-title mb-4">Chat with Analysts</h5>
@@ -418,6 +458,42 @@ const PlatinumDashboard = () => {
                           placeholder="Type your message..."
                         />
                         <button className="send-button">
+                          <i className="bi bi-send-fill"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+              <div className="col-lg-5 mb-4">
+                <div className="card chat-card">
+                  <div className="card-body">
+                    <h5 className="card-title mb-4">Chat with Analysts</h5>
+                    <div className="chat-container">
+                      {messages.map((msg) => (
+                        <div className="chat-message" key={msg.id}>
+                          <div className="analyst-avatar">
+                            <span></span>
+                          </div>
+                          <div className="message-bubble">
+                            <div className="message-text text-white">
+                              {msg.content}
+                            </div>
+                            <div className="message-time">
+                              {new Date(msg.timestamp).toLocaleTimeString()}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      <div className="chat-input-container mt-2">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Type your message..."
+                          value={input}
+                          onChange={(e) => setInput(e.target.value)}
+                        />
+                        <button className="send-button" onClick={sendMessage}>
                           <i className="bi bi-send-fill"></i>
                         </button>
                       </div>
