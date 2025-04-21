@@ -579,10 +579,139 @@ const TradeJournal = () => {
               </button>
             </div>
             <form className="trade-form" onSubmit={handleSubmit}>
-              {/* Keep your exact JSX for the form here */}
-              {/* You can copy your previously shared layout directly */}
-              {/* Replace all inputs' name values to match the keys used in setFormData */}
-
+              <div className="form-group">
+                <label>Symbol</label>
+                <input
+                  name="symbol"
+                  value={formData.symbol}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Trade Type</label>
+                <select
+                  name="tradeType"
+                  value={formData.tradeType}
+                  onChange={handleInputChange}
+                >
+                  <option value="long">Long</option>
+                  <option value="short">Short</option>
+                </select>
+                <label>Entry Date</label>
+                <input
+                  type="date"
+                  name="entryDate"
+                  value={formData.entryDate}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Entry Price</label>
+                <input
+                  type="number"
+                  step="0.0001"
+                  name="entryPrice"
+                  value={formData.entryPrice}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Exit Date</label>
+                <input
+                  type="date"
+                  name="exitDate"
+                  value={formData.exitDate}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Exit Price</label>
+                <input
+                  type="number"
+                  step="0.0001"
+                  name="exitPrice"
+                  value={formData.exitPrice}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Position Size</label>
+                <input
+                  type="number"
+                  name="positionSize"
+                  value={formData.positionSize}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Risk/Reward Ratio</label>
+                <input
+                  name="riskRewardRatio"
+                  value={formData.riskRewardRatio}
+                  onChange={handleInputChange}
+                />
+                <label>Stop Loss</label>
+                <input
+                  type="number"
+                  name="stopLoss"
+                  step="0.0001"
+                  value={formData.stopLoss}
+                  onChange={handleInputChange}
+                />
+                <label>Take Profit</label>
+                <input
+                  type="number"
+                  name="takeProfit"
+                  step="0.0001"
+                  value={formData.takeProfit}
+                  onChange={handleInputChange}
+                />
+                <label>Entry Reason</label>
+                <textarea
+                  name="entryReason"
+                  value={formData.entryReason}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Exit Reason</label>
+                <textarea
+                  name="exitReason"
+                  value={formData.exitReason}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Emotional State</label>
+                <textarea
+                  name="emotionalState"
+                  value={formData.emotionalState}
+                  onChange={handleInputChange}
+                />
+                <label>Market Conditions</label>
+                <textarea
+                  name="marketConditions"
+                  value={formData.marketConditions}
+                  onChange={handleInputChange}
+                />
+                <label>What Went Well</label>
+                <textarea
+                  name="whatWentWell"
+                  value={formData.whatWentWell}
+                  onChange={handleInputChange}
+                />
+                <label>What Went Wrong</label>
+                <textarea
+                  name="whatWentWrong"
+                  value={formData.whatWentWrong}
+                  onChange={handleInputChange}
+                />
+                <label>Lessons Learned</label>
+                <textarea
+                  name="lessonsLearned"
+                  value={formData.lessonsLearned}
+                  onChange={handleInputChange}
+                  required
+                />
+                <label>Additional Notes</label>
+                <textarea
+                  name="additionalNotes"
+                  value={formData.additionalNotes}
+                  onChange={handleInputChange}
+                />
+              </div>
               <div className="form-actions">
                 <button
                   type="button"
@@ -619,7 +748,7 @@ const TradeJournal = () => {
                     <div className="entry-header">
                       <div className="entry-symbol">{entry.symbol}</div>
                       <div className={`entry-type ${entry.trade_type}`}>
-                        {entry.trade_type === "long" ? "LONG" : "SHORT"}
+                        {entry.trade_type.toUpperCase()}
                       </div>
                       <div
                         className={`entry-result ${
