@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
 
-const Mentorship = ( {darkMode} ) => {
+const Mentorship = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("sessions");
   const [activeSubTab, setActiveSubTab] = useState("platinum");
 
-
-
   // this data is one on on ementorship data  and transfer to platinum program
-  
+
   return (
     <div className="container mt-4">
       {/* Primary Navigation Tabs */}
@@ -29,10 +27,16 @@ const Mentorship = ( {darkMode} ) => {
             View All Price Plans
           </button>
         </li>
+        {/* Premium Login Section */}
+        <div className="premium-login">
+          <a href="/platinum-dashboard" className="theme_btn">
+            Premium Login
+          </a>
+        </div>
       </ul>
 
       <div className={`tab-content mt-3 ${darkMode ? "dark-mode-tab" : ""}`}>
-      {/* Sessions Tab */}
+        {/* Sessions Tab */}
         {activeTab === "sessions" && (
           <div className="tab-pane fade show active">
             <h5>Sessions available:</h5>
@@ -70,8 +74,10 @@ const Mentorship = ( {darkMode} ) => {
               {/* Platinum Tab */}
               {activeSubTab === "platinum" && (
                 <div className="tab-pane fade show active">
-                <div className={`card level-card ${darkMode ? "dark-mode" : ""}`}>
-                   <div className="card-body p-5">
+                  <div
+                    className={`card level-card ${darkMode ? "dark-mode" : ""}`}
+                  >
+                    <div className="card-body p-5">
                       <h4 className="text-primary">Platinum Level</h4>
                       <p>
                         Personalized coaching and equipping users with key
@@ -92,8 +98,10 @@ const Mentorship = ( {darkMode} ) => {
               {/* Emerald Tab */}
               {activeSubTab === "emerald" && (
                 <div className="tab-pane fade show active">
-                <div className={`card level-card ${darkMode ? "dark-mode" : ""}`}>
-                <div className="card-body p-5">
+                  <div
+                    className={`card level-card ${darkMode ? "dark-mode" : ""}`}
+                  >
+                    <div className="card-body p-5">
                       <h4 className="text-success">Emerald Level</h4>
                       <p>
                         Advanced mentorship with real-time trading analysis and
