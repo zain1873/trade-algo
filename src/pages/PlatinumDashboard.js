@@ -30,43 +30,12 @@ const PlatinumDashboard = () => {
   const [input, setInput] = useState("");
   const [conversationId, setConversationId] = useState(null);
 
-  const fetchMessages = async () => {
-    try {
-      const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
-
-      if (res.data.length > 0) {
-        const convo = res.data[0]; // 1-on-1 with admin
-        console.log("Loaded conversation:", convo);
-        setConversationId(convo.id);
-        setMessages(convo.messages);
-      }
-    } catch (err) {
-      console.error("Failed to fetch messages", err);
-    }
-  };
-
-  const sendMessage = async () => {
-    if (!input.trim() || !conversationId) return;
-
-    try {
-      await axios.post(
-        `${API_BASE_URL}api/chat/send/`,
-        {
-          conversation: conversationId,
-          content: input,
-        },
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      );
-      setInput("");
-      fetchMessages(); // refresh
-    } catch (err) {
-      console.error("Failed to send message", err);
-    }
-  };
+  // Fetch on load and poll
+  useEffect(() => {
+    fetchMessages();
+    const interval = setInterval(fetchMessages, 5000); // auto-refresh
+    return () => clearInterval(interval);
+  }, []);
 
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
@@ -92,6 +61,46 @@ const PlatinumDashboard = () => {
 
     fetchUser();
   }, [accessToken]);
+
+  const fetchMessages = async () => {
+    try {
+      const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
+      if (res.data.length > 0) {
+        const convo = res.data[0];
+        setConversationId(convo.id);
+        setMessages(convo.messages);
+      }
+    } catch (err) {
+      console.error("❌ Error fetching messages", err);
+    }
+  };
+
+  // Send message
+  const sendMessage = async () => {
+    if (!input.trim() || !conversationId) return;
+
+    try {
+      await axios.post(
+        `${API_BASE_URL}api/chat/send/`,
+        {
+          conversation: conversationId,
+          content: input,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      setInput("");
+      fetchMessages(); // Refresh messages
+    } catch (err) {
+      console.error("❌ Error sending message", err.response?.data || err);
+    }
+  };
 
   return (
     <div className="platinum-dashboard">
