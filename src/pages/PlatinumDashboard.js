@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect } from "react";
 import React, { useState, useRef } from "react";
 import "../styles/platinumDashboard.css";
 import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
@@ -22,6 +24,33 @@ const PlatinumDashboard = () => {
       collapseRef.current.classList.remove("show");
     }
   };
+
+  const [userData, setUserData] = useState(null);
+
+  const accessToken = localStorage.getItem("accessToken");
+  const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
+    ? process.env.REACT_APP_API_URL
+    : process.env.REACT_APP_API_URL + "/";
+  const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (!accessToken) return;
+
+      try {
+        const res = await axios.get(USER_API_URL, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setUserData(res.data);
+      } catch (err) {
+        console.error("Failed to fetch user", err);
+      }
+    };
+
+    fetchUser();
+  }, [accessToken]);
 
   return (
     <div className="platinum-dashboard">
@@ -81,7 +110,7 @@ const PlatinumDashboard = () => {
                 </li>
               ))}
 
-            {/* ✅ Premium Features Dropdown */}
+              {/* ✅ Premium Features Dropdown */}
               <ul className="navbar-nav">
                 <li className="nav-item dropdown premium-dropdown">
                   <a
@@ -101,54 +130,93 @@ const PlatinumDashboard = () => {
                     <li className="dropdown-header">Platinum Exclusives</li>
 
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("briefing")}>
-                        <i className="bi bi-file-earmark-text me-2"></i> Weekly Briefing
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("briefing")}
+                      >
+                        <i className="bi bi-file-earmark-text me-2"></i> Weekly
+                        Briefing
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("webinars")}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("webinars")}
+                      >
                         <i className="bi bi-easel me-2"></i> Webinars
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("news")}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("news")}
+                      >
                         <i className="bi bi-newspaper me-2"></i> News
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("leaderboard")}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("leaderboard")}
+                      >
                         <i className="bi bi-trophy me-2"></i> Leaderboard
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("challenges")}>
-                        <i className="bi bi-bar-chart-line me-2"></i> Trading Challenges
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("challenges")}
+                      >
+                        <i className="bi bi-bar-chart-line me-2"></i> Trading
+                        Challenges
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("schedule-call")}>
-                        <i className="bi bi-person-workspace me-2"></i> Private Coaching
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("schedule-call")}
+                      >
+                        <i className="bi bi-person-workspace me-2"></i> Private
+                        Coaching
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("feature-voting")}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("feature-voting")}
+                      >
                         <i className="bi bi-stars me-2"></i> Feature Voting
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("membership-nft")}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("membership-nft")}
+                      >
                         <i className="bi bi-gem me-2"></i> Membership NFT
                       </a>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#" onClick={() => handleNavClick("journal-page")}>
-                      <i className="bi bi-bar-chart-line me-2"></i>  Trade Journal
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("journal-page")}
+                      >
+                        <i className="bi bi-bar-chart-line me-2"></i> Trade
+                        Journal
                       </a>
                     </li>
                   </ul>
                 </li>
               </ul>
-
             </ul>
 
             <div className="d-flex align-items-center position-relative profile-wrapper">
@@ -177,16 +245,40 @@ const PlatinumDashboard = () => {
                     dropdown.classList.toggle("show");
                   }}
                 >
-                  <span>P</span>
+                  <span>
+                    {userData?.username?.charAt(0).toUpperCase() || "U"}
+                  </span>
+
+                  {/* <span>P</span> */}
                 </div>
                 <div className="profile-dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-item"
+                    onClick={() => setActiveSection("edit-profile")}
+                  >
+                    Edit Profile
+                  </a>
+                  <a
+                    href="#"
+                    className="dropdown-item text-danger"
+                    onClick={() => {
+                      localStorage.removeItem("accessToken");
+                      window.location.href = "/dashboard"; // 👈 goes back to regular dashboard
+                    }}
+                  >
+                    Logout
+                  </a>
+                </div>
+
+                {/* <div className="profile-dropdown">
                   <a href="#" className="dropdown-item">
                     Edit Profile
                   </a>
                   <a href="#" className="dropdown-item text-danger">
                     Logout
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -278,9 +370,7 @@ const PlatinumDashboard = () => {
                               className={`bi bi-arrow-${
                                 trend === "up" ? "up" : "down"
                               }-right ${
-                                trend === "up"
-                                  ? "text-success"
-                                  : "text-danger"
+                                trend === "up" ? "text-success" : "text-danger"
                               } me-2`}
                             ></i>
                             <span>{pair}</span>
