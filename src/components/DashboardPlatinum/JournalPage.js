@@ -457,7 +457,7 @@ const TradeJournal = () => {
 
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL;
-  const JOURNAL_API = `${API_BASE_URL}/api/trade-journal/`;
+  const JOURNAL_API = `${API_BASE_URL}api/trade-journal/`;
 
   useEffect(() => {
     const fetchEntries = async () => {
