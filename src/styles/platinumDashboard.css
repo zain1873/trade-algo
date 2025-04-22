@@ -477,6 +477,9 @@
 .level-card {
   margin-bottom: 0 !important;
 }
+.nav-platinum-tab {
+  background-color: transparent !important;
+}
 .tab-platinum {
   background-color: #1c1e20 !important;
 }
