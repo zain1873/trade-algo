@@ -211,7 +211,7 @@ const Mentorship = ({ darkMode }) => {
               <strong>16</strong> Emerald
             </p>
 
-            <ul className="nav nav-tabs">
+            <ul className="nav nav-tabs nav-platinum-tab">
               <li className="nav-item">
                 <button
                   className={`nav-link ${
