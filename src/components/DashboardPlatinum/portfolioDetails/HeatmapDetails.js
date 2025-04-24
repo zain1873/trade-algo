@@ -91,7 +91,7 @@ const PortfolioAnalysis = () => {
 
   return (
     <div className="portfolio-analysis-container">
-      <div className="header-section">
+      <div className="header-section p-2">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <div>
             <h1 className="analysis-title">Portfolio Analysis</h1>
@@ -107,40 +107,35 @@ const PortfolioAnalysis = () => {
           </div>
         </div>
 
-        <ul className="nav analysis-tabs">
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'sector-exposure' ? 'active' : ''}`}
-              onClick={() => setActiveTab('sector-exposure')}
-            >
-              Sector Exposure
-            </button>
-          </li>
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'correlation-risk' ? 'active' : ''}`}
-              onClick={() => setActiveTab('correlation-risk')}
-            >
-              Correlation Risk
-            </button>
-          </li>
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'diversification-level' ? 'active' : ''}`}
-              onClick={() => setActiveTab('diversification-level')}
-            >
-              Diversification Level
-            </button>
-          </li>
-          <li className="nav-item">
-            <button 
-              className={`nav-link ${activeTab === 'ai-suggestions' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ai-suggestions')}
-            >
-              AI Suggestions
-            </button>
-          </li>
-        </ul>
+      <div className="tabs-container">
+        <div className="nav-tabs">
+          <button 
+            className={`tab-button ${activeTab === 'sector-exposure' ? 'active' : ''}`}
+            onClick={() => setActiveTab('sector-exposure')}
+          >
+            Sector Exposure
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'correlation-risk' ? 'active' : ''}`}
+            onClick={() => setActiveTab('correlation-risk')}
+          >
+            Correlation Risk
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'diversification-level' ? 'active' : ''}`}
+            onClick={() => setActiveTab('diversification-level')}
+          >
+            Diversification Level
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'ai-suggestions' ? 'active' : ''}`}
+            onClick={() => setActiveTab('ai-suggestions')}
+          >
+            AI Suggestions
+          </button>
+        </div>
+      </div>
+
       </div>
 
       <div className="content-section">

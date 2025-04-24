@@ -17,6 +17,23 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
+  /* Optional: Tweak specific components */
+  .bg-dark .resources-section {
+    background-color: #1c1e20;
+  }
+
+  .bg-dark .resources-details  {
+    background-color: #1c1e20;
+  }
+  .bg-dark .session-description {
+    color: #ccc;
+  }
+  .bg-dark .live-schedule {
+    background-color: #1c1e20;
+    border: 1px solid #2f2e2e;
+
+
+  }
   
   .resources-details {
     background: #fff;

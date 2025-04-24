@@ -287,9 +287,8 @@ body .dark {
   .nav-tabs .nav-item .active {
     background-color: var(--theme-color) !important;
     color: #fff !important;
-    border-radius: 0;
+    border-radius:25px !important;
 }
-
 
 
 /* Dark Mode */
@@ -359,6 +358,24 @@ body .dark {
 
 .sidebar.open {
   transform: translateX(0);
+}
+
+.historic-table {
+  background-color: transparent !important;
+}
+.tabs-simple {
+  background-color: transparent !important;
+}
+.historic-table .nav-tabs .nav-item .active {
+  border-radius: 10px;
+}
+.edit-form input {
+  background-color: #1c1c1c;
+  color: #fff !important;
+}
+.edit-form select {
+  background-color: #1c1c1c;
+  color: #fff !important;
 }
 
 

@@ -50,3 +50,260 @@
   .card6 .product-btn { background-color: white; color: black; }
   .card7 .product-btn { background-color: black; color: white; }
   
+
+
+
+  /* FinanceCards.css */
+
+.finance-dashboard {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.card {
+  background-color: #1a1a1a !important;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.card:hover {
+  /* transform: translateY(-5px); */
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); */
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.card-action {
+  margin-top: 1.5rem;
+}
+
+.card-action a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.card-action a:hover {
+  color: #ccc;
+}
+
+.feature-list {
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.feature-item i {
+  margin-right: 0.75rem;
+  font-size: 1rem;
+}
+
+.feature-item span {
+  font-size: 0.9rem;
+}
+
+/* Emerald Card */
+.emerald-card {
+  border-left: 3px solid #2ecc71;
+}
+
+.emerald-icon {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, rgba(46, 204, 113, 0.1) 50%, rgba(46, 204, 113, 0.05) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+.emerald-icon:before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(46, 204, 113, 0.3);
+  transform: rotate(45deg);
+}
+
+.emerald-icon:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #2ecc71;
+  transform: rotate(45deg);
+}
+
+.text-emerald {
+  color: #2ecc71 !important;
+}
+
+/* Platinum Card */
+.platinum-card {
+  border-left: 3px solid #7f8c8d;
+}
+
+.platinum-icon {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(127, 140, 141, 0.3) 0%, rgba(127, 140, 141, 0.2) 50%, rgba(127, 140, 141, 0.1) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.platinum-icon:before {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(127, 140, 141, 0.2);
+  border-radius: 50%;
+}
+
+.platinum-icon:after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(127, 140, 141, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Trading Academy */
+.trading-academy-image {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.academy-level-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.level-icon {
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  position: relative;
+  color: #aaa;
+}
+
+.level-icon:before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #2c2c2c;
+}
+
+.level-icon.beginner:before {
+  background-color: #3498db;
+}
+
+.level-icon.intermediate:before {
+  background-color: #f39c12;
+}
+
+.level-icon.advanced:before {
+  background-color: #e74c3c;
+}
+
+/* Mentorship */
+.mentorship-image {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mentor-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mentor-icons i {
+  background-color: #2c2c2c;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.connection-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #3a3a3a;
+  margin: 0 10px;
+  position: relative;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.finance-dashboard .card-icon {
+    margin: auto;
+    width: 100%;
+    height: 26%;
+}
+
+.finance-dashboard .emerald-icon, .platinum-icon  {
+  margin: auto;
+}
+
+

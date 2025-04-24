@@ -12,7 +12,7 @@ const Mentorship = ( {darkMode} ) => {
   return (
     <div className="container mt-4">
       {/* Primary Navigation Tabs */}
-      <ul className="nav nav-tabs" style={{ border: 'none', alignItems: 'center' }}>
+      <ul className="nav nav-tab  tabs-simples" style={{ border: 'none', alignItems: 'center' }}>
       <li className="nav-item">
           <button
             className={`nav-link ${activeTab === "sessions" ? "active" : ""}`}
@@ -49,7 +49,7 @@ const Mentorship = ( {darkMode} ) => {
             </p>
 
             {/* Secondary Navigation Tabs */}
-            <ul className="nav nav-tabs">
+            <ul className="nav nav-tabs  tabs-simple">
               <li className="nav-item">
                 <button
                   className={`nav-link ${

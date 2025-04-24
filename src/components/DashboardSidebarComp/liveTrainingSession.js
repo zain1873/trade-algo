@@ -20,7 +20,7 @@ function LiveTrainingSession() {
       <div className="container">
         <div className="row">
           <div className="sec_heading">
-            <h2 className="live-session-title">Live Trading Sessions</h2>
+            <h2 className="live-session-title">Past Live Streams</h2>
           </div>
 
           {/* Video Card */}

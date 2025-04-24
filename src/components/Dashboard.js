@@ -131,7 +131,7 @@ const Dashboard = () => {
 
   const menuItems = [
     { id: "dashboard", label: "Dashboard", icon: <Home size={20} /> },
-    { id: "live-sessions", label: "Live Sessions", icon: <Tv size={20} /> },
+    { id: "live-sessions", label: "Past Sessions", icon: <Tv size={20} /> },
     {
       id: "darkpool-data",
       label: "Darkpool Data",
@@ -412,7 +412,7 @@ const Dashboard = () => {
                 <input
                   type="text"
                   className={`search_bar ${darkMode ? "dark-mode" : ""}`}
-                  placeholder="Search Tickers..."
+                  placeholder="Trade GPT Search Tickers"
                 />
                 <i className="fas fa-search search-icon"></i>
               </div>

@@ -126,7 +126,7 @@ const ExclusiveWebinars = () => {
               className={`tab-button ${activeTab === 'Past Recordings' ? 'active' : ''}`} 
               onClick={() => handleTabChange('Past Recordings')}
             >
-              Past Recordings
+              Past Webinars
             </button>
           </div>
         </div>
