@@ -1,52 +1,776 @@
 .product-card {
-    padding: 20px;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    min-height: 220px;
-    display: flex;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.product-btn {
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 12px;
+  width: 100%;
+  border: none;
+}
+
+/* 🔹 Different Background Styles */
+.card1 {
+  background: linear-gradient(135deg, #00aaff, #00ddff);
+}
+.card2 {
+  background: linear-gradient(135deg, #330000, #ff6600);
+}
+.card3 {
+  background: linear-gradient(135deg, #00ffaa, #33ffcc);
+}
+.card4 {
+  background: linear-gradient(135deg, #ffffff, #ddddff);
+  color: #333;
+}
+.card5 {
+  background: linear-gradient(135deg, #000000, #333333);
+}
+.card6 {
+  background: linear-gradient(135deg, #000033, #000066);
+}
+.card7 {
+  background: linear-gradient(135deg, #dddddd, #ffffff);
+  color: #333;
+}
+
+/* Button Styles */
+.card1 .product-btn {
+  background-color: white;
+  color: black;
+}
+.card2 .product-btn,
+.card5 .product-btn {
+  background-color: #ffcc99;
+  color: black;
+}
+.card3 .product-btn {
+  background-color: #009966;
+  color: white;
+}
+.card4 .product-btn {
+  background-color: #0088ff;
+  color: white;
+}
+.card6 .product-btn {
+  background-color: white;
+  color: black;
+}
+.card7 .product-btn {
+  background-color: black;
+  color: white;
+}
+
+/* FinanceCards.css */
+
+.finance-dashboard {
+  /* background-color: #0d0d0d; */
+  color: #fff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+/* When inside a dark background container */
+.bg-dark .product-p {
+  color: #fff !important; /* white text for dark background */
+}
+
+.product-p {
+  color: #000 !important;
+}
+
+.card:hover {
+  /* transform: translateY(-5px); */
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); */
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.card-action {
+  margin-top: 1.5rem;
+}
+
+.card-action a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.card-action a:hover {
+  color: #ccc;
+}
+
+.feature-list {
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.feature-item i {
+  margin-right: 0.75rem;
+  font-size: 1rem;
+}
+
+.feature-item span {
+  font-size: 0.9rem;
+}
+
+/* Emerald Card */
+.emerald-card {
+  border-left: 3px solid #2ecc71;
+}
+
+.emerald-icon {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 204, 113, 0.2) 0%,
+    rgba(46, 204, 113, 0.1) 50%,
+    rgba(46, 204, 113, 0.05) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+.emerald-icon:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(46, 204, 113, 0.3);
+  transform: rotate(45deg);
+}
+
+.emerald-icon:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #2ecc71;
+  transform: rotate(45deg);
+}
+
+.text-emerald {
+  color: #2ecc71 !important;
+}
+
+/* Platinum Card */
+.platinum-card {
+  border-left: 3px solid #7f8c8d;
+}
+
+.platinum-icon {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle,
+    rgba(127, 140, 141, 0.3) 0%,
+    rgba(127, 140, 141, 0.2) 50%,
+    rgba(127, 140, 141, 0.1) 100%
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.platinum-icon:before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(127, 140, 141, 0.2);
+  border-radius: 50%;
+}
+
+.platinum-icon:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(127, 140, 141, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Trading Academy */
+.trading-academy-image {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.academy-level-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.level-icon {
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  position: relative;
+  color: #aaa;
+}
+
+.level-icon:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #2c2c2c;
+}
+
+.level-icon.beginner:before {
+  background-color: #3498db;
+}
+
+.level-icon.intermediate:before {
+  background-color: #f39c12;
+}
+
+.level-icon.advanced:before {
+  background-color: #e74c3c;
+}
+
+/* Mentorship */
+.mentorship-image {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mentor-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mentor-icons i {
+  background-color: #2c2c2c;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.connection-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #3a3a3a;
+  margin: 0 10px;
+  position: relative;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.finance-dashboard .card-icon {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  height: 80px;
+}
+
+.finance-dashboard .emerald-icon,
+.platinum-icon {
+  margin: auto;
+}
+
+/* Live chat css */
+
+/* Trading Platform Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a1a;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Video section styling */
+.video-section {
+  background: linear-gradient(135deg, #191a3e 0%, #3a1d62 100%);
+  position: relative;
+  flex: 2;
+  overflow: hidden;
+}
+
+.video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  color: white;
+}
+
+.live-btn {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.live-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+.live-dot {
+  color: #00ff00;
+  font-size: 10px;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.analyst-info {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.session-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.session-time {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  opacity: 0.9;
+}
+
+.video-controls {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  backdrop-filter: blur(5px);
+}
+
+.control-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Chat section styling */
+.chat-section {
+  background-color: #13131f;
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 2rem;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #4dabf7;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 0.25rem rgba(73, 166, 247, 0.25);
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.btn-join {
+  background: linear-gradient(45deg, #2b8ff8 0%, #49a6f7 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-join:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(73, 166, 247, 0.3);
+}
+
+.btn-vimeo {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-vimeo:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.terms-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.terms-link {
+  color: #49a6f7;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.terms-link:hover {
+  color: #2b8ff8;
+  text-decoration: underline;
+}
+
+/* Analyst profile section */
+.analyst-profile {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #49a6f7;
+}
+
+.verified-badge {
+  color: #49a6f7;
+  margin-left: 0.5rem;
+}
+
+.analyst-name {
+  font-weight: 500;
+}
+
+.analyst-title {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.session-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.session-info:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.session-heading {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.session-description {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+}
+
+.schedule-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.schedule-day {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.schedule-time {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .app-container {
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
   }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
+
+  .video-overlay {
+    padding: 1rem;
   }
-  
-  .product-title {
-    font-weight: bold;
-    font-size: 1.2rem;
+
+  .session-title {
+    font-size: 1.25rem;
   }
-  
-  .product-description {
-    font-size: 0.9rem;
-    opacity: 0.8;
+}
+
+/* Financial Cards Custom Styling */
+.financial-card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #e9ecef;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.financial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #f8f9fa;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #adb5bd;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-features {
+  margin-bottom: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.feature-icon {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.feature-text {
+  font-size: 0.9rem;
+  color: #ced4da;
+}
+
+.card-cta-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.card-cta {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.card-cta:hover {
+  opacity: 0.8;
+}
+
+.card-cta span {
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.card-cta:hover span {
+  transform: translateX(3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .card-icon-wrapper {
+    width: 60px;
+    height: 60px;
   }
-  
-  .product-btn {
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 8px 12px;
-    width: 100%;
-    border: none;
+
+  .card-icon {
+    width: 24px;
+    height: 24px;
   }
-  
-  /* 🔹 Different Background Styles */
-  .card1 { background: linear-gradient(135deg, #00aaff, #00ddff); }
-  .card2 { background: linear-gradient(135deg, #330000, #ff6600); }
-  .card3 { background: linear-gradient(135deg, #00ffaa, #33ffcc); }
-  .card4 { background: linear-gradient(135deg, #ffffff, #ddddff); color: #333; }
-  .card5 { background: linear-gradient(135deg, #000000, #333333); }
-  .card6 { background: linear-gradient(135deg, #000033, #000066); }
-  .card7 { background: linear-gradient(135deg, #dddddd, #ffffff); color: #333; }
-  
-  /* Button Styles */
-  .card1 .product-btn { background-color: white; color: black; }
-  .card2 .product-btn, .card5 .product-btn { background-color: #ffcc99; color: black; }
-  .card3 .product-btn { background-color: #009966; color: white; }
-  .card4 .product-btn { background-color: #0088ff; color: white; }
-  .card6 .product-btn { background-color: white; color: black; }
-  .card7 .product-btn { background-color: black; color: white; }
-  
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Add Bootstrap 5 dark theme compatibility */
+.bg-dark {
+  background-color: #121212 !important;
+}
+
+.text-light {
+  color: #f8f9fa !important;
+}
