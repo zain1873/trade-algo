@@ -26,7 +26,7 @@ const TradingPlatform = () => {
 
           {/* Analyst Info */}
           <div className="position-absolute top-0 end-0 m-3 text-white">
-            <div>Lan Man</div>
+            <div>Dane Glisek</div>
             <div>TradeAlgo Analyst</div>
           </div>
 
