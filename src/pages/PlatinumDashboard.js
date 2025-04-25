@@ -332,14 +332,11 @@ const PlatinumDashboard = () => {
 
       {/* Main Content */}
       <div className="container-fluid p-4">
-        {/* Dashboard Section */}
         {activeSection === "dashboard" && (
           <>
             <div className="row header-section mb-4">
               <div className="col-md-8">
-                <h1>
-                  Good Afternoon, {userData?.username?.charAt(0).toUpperCase()}
-                </h1>
+                <h1>Good Afternoon, Platinum Member</h1>
                 <p className="text-white">
                   Welcome to your exclusive platinum dashboard. Access premium
                   features, connect with analysts, and elevate your trading
@@ -360,206 +357,218 @@ const PlatinumDashboard = () => {
               </div>
               <div className="col-md-4 d-flex justify-content-end align-items-start">
                 <div className="large-profile-avatar">
-                  <span>
-                    {userData?.username?.charAt(0).toUpperCase() || "U"}
-                  </span>
+                  <span>P</span>
                 </div>
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-lg-7 mb-4">
-                <div className="card insight-card platinum-card">
-                  <div className="card-body">
-                    <h5 className="card-title mb-4 text-start">
-                      Market Insights
-                    </h5>
-                    <div className="chart-placeholder mb-4">
-                      <svg viewBox="0 0 600 120" className="w-100">
-                        <path
-                          d="M0,60 C100,40 200,80 300,60 C400,40 500,70 600,60"
-                          fill="none"
-                          stroke="#2a3042"
-                          strokeWidth="2"
-                          strokeDasharray="5,5"
-                        />
-                      </svg>
-                    </div>
-
-                    <div className="market-data">
-                      {[
-                        {
-                          pair: "EUR/USD",
-                          bid: "1.0850",
-                          ask: "1.0852",
-                          trend: "up",
-                        },
-                        {
-                          pair: "GBP/USD",
-                          bid: "1.2450",
-                          ask: "1.2452",
-                          trend: "down",
-                        },
-                        {
-                          pair: "USD/JPY",
-                          bid: "135.50",
-                          ask: "135.52",
-                          trend: "up",
-                        },
-                        {
-                          pair: "BTC/USD",
-                          bid: "63,245.00",
-                          ask: "63,250.00",
-                          trend: "up",
-                        },
-                      ].map(({ pair, bid, ask, trend }) => (
-                        <div className="market-row" key={pair}>
-                          <div className="market-cell currency">
-                            <i
-                              className={`bi bi-arrow-${
-                                trend === "up" ? "up" : "down"
-                              }-right ${
-                                trend === "up" ? "text-success" : "text-danger"
-                              } me-2`}
-                            ></i>
-                            <span>{pair}</span>
-                          </div>
-                          <div className="market-cell">
-                            <div className="price-label">Bid</div>
-                            <div className="price-value">{bid}</div>
-                          </div>
-                          <div className="market-cell">
-                            <div className="price-label">Ask</div>
-                            <div className="price-value">{ask}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+            {/* Dashboard Tabs */}
+            <div className="tabs-container mb-4">
+              <div className="nav-tabs">
+                <button
+                  className={`tab-button ${
+                    activeDashboardTab === "market" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveDashboardTab("market")}
+                >
+                  Dashboard
+                </button>
+                <button
+                  className={`tab-button ${
+                    activeDashboardTab === "schedule-Calls" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveDashboardTab("schedule-Calls")}
+                >
+                  Schedule Calls
+                </button>
+                <button
+                  className={`tab-button ${
+                    activeDashboardTab === "webinars" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveDashboardTab("webinars")}
+                >
+                  Webinars
+                </button>
+                <button
+                  className={`tab-button ${
+                    activeDashboardTab === "leaderboard" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveDashboardTab("leaderboard")}
+                >
+                  Leaderboard
+                </button>
               </div>
+            </div>
 
-              {/* <div className="col-lg-5 mb-4">
-                <div className="card chat-card">
-                  <div className="card-body">
-                    <h5 className="card-title mb-4">Chat with Analysts</h5>
-                    <div className="chat-container">
-                      <div className="chat-message">
-                        <div className="analyst-avatar">
-                          <span></span>
-                        </div>
-                        <div className="message-bubble">
-                          <div className="message-text text-white">
-                            Hello! How can I help with your trading strategy
-                            today?
-                          </div>
-                          <div className="message-time">10:30 AM</div>
-                        </div>
+            {/* Dashboard Tab Content */}
+            {activeDashboardTab === "market" && (
+              <div className="row">
+                <div className="col-lg-7 mb-4">
+                  <div className="card insight-card platinum-card">
+                    <div className="card-body">
+                      <h5 className="card-title mb-4 text-start">
+                        Market Insights
+                      </h5>
+                      <div className="chart-placeholder mb-4">
+                        <svg viewBox="0 0 600 120" className="w-100">
+                          <path
+                            d="M0,60 C100,40 200,80 300,60 C400,40 500,70 600,60"
+                            fill="none"
+                            stroke="#2a3042"
+                            strokeWidth="2"
+                            strokeDasharray="5,5"
+                          />
+                        </svg>
                       </div>
-                      <div className="chat-input-container">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Type your message..."
-                        />
-                        <button className="send-button">
-                          <i className="bi bi-send-fill"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-              <div className="col-lg-5 mb-4">
-                <div className="card chat-card">
-                  <div className="card-body">
-                    <h5 className="card-title mb-4">Chat with Analysts</h5>
-                    <div className="chat-container">
-                      {messages.map((msg) => {
-                        const isCurrentUser =
-                          msg.sender_name === userData?.username;
-                        const isAdmin = !isCurrentUser;
-
-                        return (
-                          <div
-                            key={msg.id}
-                            className={`chat-message d-flex flex-column ${
-                              isCurrentUser
-                                ? "align-items-end"
-                                : "align-items-start"
-                            } mb-3`}
-                          >
-                            <div className="d-flex align-items-end">
-                              {!isCurrentUser && (
-                                <img
-                                  src={
-                                    adminProfilePhotoUrl || "/default-admin.png"
-                                  }
-                                  className="chat-avatar me-2"
-                                  alt="admin"
-                                />
-                              )}
-
-                              <div className={`message-bubble text-white`}>
-                                <div className="sender-name text-white fw-bold mb-1">
-                                  {isCurrentUser
-                                    ? "You"
-                                    : msg.sender_name || "Admin"}
-                                </div>
-                                <div className="message-text">
-                                  {msg.content}
-                                </div>
-                                <div className="message-time text-end mt-1 small">
-                                  {new Date(msg.timestamp).toLocaleTimeString(
-                                    [],
-                                    {
-                                      hour: "2-digit",
-                                      minute: "2-digit",
-                                      hour12: true,
-                                    }
-                                  )}
-                                </div>
-                              </div>
-
-                              {isCurrentUser && (
-                                <img
-                                  src={
-                                    userData?.profile_photo ||
-                                    "/default-user.png"
-                                  }
-                                  className="chat-avatar ms-2"
-                                  alt="me"
-                                />
-                              )}
+                      <div className="market-data">
+                        {[
+                          {
+                            pair: "EUR/USD",
+                            bid: "1.0850",
+                            ask: "1.0852",
+                            trend: "up",
+                          },
+                          {
+                            pair: "GBP/USD",
+                            bid: "1.2450",
+                            ask: "1.2452",
+                            trend: "down",
+                          },
+                          {
+                            pair: "USD/JPY",
+                            bid: "135.50",
+                            ask: "135.52",
+                            trend: "up",
+                          },
+                          {
+                            pair: "BTC/USD",
+                            bid: "63,245.00",
+                            ask: "63,250.00",
+                            trend: "up",
+                          },
+                        ].map(({ pair, bid, ask, trend }) => (
+                          <div className="market-row" key={pair}>
+                            <div className="market-cell currency">
+                              <i
+                                className={`bi bi-arrow-${
+                                  trend === "up" ? "up" : "down"
+                                }-right ${
+                                  trend === "up"
+                                    ? "text-success"
+                                    : "text-danger"
+                                } me-2`}
+                              ></i>
+                              <span>{pair}</span>
+                            </div>
+                            <div className="market-cell">
+                              <div className="price-label">Bid</div>
+                              <div className="price-value">{bid}</div>
+                            </div>
+                            <div className="market-cell">
+                              <div className="price-label">Ask</div>
+                              <div className="price-value">{ask}</div>
                             </div>
                           </div>
-                        );
-                      })}
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-5 mb-4">
+                  <div className="card chat-card">
+                    <div className="card-body">
+                      <h5 className="card-title mb-4">Chat with Analysts</h5>
+                      <div className="chat-container">
+                        {messages.map((msg) => {
+                          const isCurrentUser =
+                            msg.sender_name === userData?.username;
+                          const isAdmin = !isCurrentUser;
 
-                      <div className="chat-input-container mt-2">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Type your message..."
-                          value={input}
-                          onChange={(e) => setInput(e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                              e.preventDefault();
-                              sendMessage();
-                            }
-                          }}
-                        />
+                          return (
+                            <div
+                              key={msg.id}
+                              className={`chat-message d-flex flex-column ${
+                                isCurrentUser
+                                  ? "align-items-end"
+                                  : "align-items-start"
+                              } mb-3`}
+                            >
+                              <div className="d-flex align-items-end">
+                                {!isCurrentUser && (
+                                  <img
+                                    src={
+                                      adminProfilePhotoUrl ||
+                                      "/default-admin.png"
+                                    }
+                                    className="chat-avatar me-2"
+                                    alt="admin"
+                                  />
+                                )}
 
-                        <button className="send-button" onClick={sendMessage}>
-                          <i className="bi bi-send-fill"></i>
-                        </button>
+                                <div className={`message-bubble text-white`}>
+                                  <div className="sender-name text-white fw-bold mb-1">
+                                    {isCurrentUser
+                                      ? "You"
+                                      : msg.sender_name || "Admin"}
+                                  </div>
+                                  <div className="message-text">
+                                    {msg.content}
+                                  </div>
+                                  <div className="message-time text-end mt-1 small">
+                                    {new Date(msg.timestamp).toLocaleTimeString(
+                                      [],
+                                      {
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                        hour12: true,
+                                      }
+                                    )}
+                                  </div>
+                                </div>
+
+                                {isCurrentUser && (
+                                  <img
+                                    src={
+                                      userData?.profile_photo ||
+                                      "/default-user.png"
+                                    }
+                                    className="chat-avatar ms-2"
+                                    alt="me"
+                                  />
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+
+                        <div className="chat-input-container mt-2">
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Type your message..."
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                sendMessage();
+                              }
+                            }}
+                          />
+
+                          <button className="send-button" onClick={sendMessage}>
+                            <i className="bi bi-send-fill"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
+            {activeDashboardTab === "schedule-Calls" && <ScheduleCall />}
+            {activeDashboardTab === "webinars" && <Wabinars />}
+            {activeDashboardTab === "leaderboard" && <Leaderboard />}
           </>
         )}
 
