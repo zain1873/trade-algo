@@ -293,7 +293,9 @@
 .mentorship-title {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 10px;
+}
+.mentorship-title p{
+  font-size: 16px;
 }
 
 .mentorship-subtitle {
@@ -507,5 +509,165 @@
   
   .plan-price {
     font-size: 24px;
+  }
+}
+
+
+
+
+/* Main container styling */
+.sessions-container {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Button container at the top */
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.manage-btn {
+  background-color: #6c757d;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.price-btn {
+  border: 1px solid #fff;
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+/* Sessions panel styling */
+.sessions-panel {
+  background-color: #212529;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sessions-header h5 {
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.sessions-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.session-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+.session-name {
+  font-size: 16px;
+}
+
+/* Mentorship panel styling */
+.mentorship-panel {
+  background-color: #212529;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.mentorship-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-container {
+  background-color: #6c757d;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-icon {
+  font-size: 24px;
+}
+
+.mentorship-title p {
+  color: #adb5bd;
+  margin-bottom: 0;
+}
+
+.mentorship-title h3 {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+hr {
+  background-color: #343a40;
+  opacity: 0.5;
+  margin: 15px 0;
+}
+
+.mentorship-content p {
+  color: #e9ecef;
+  line-height: 1.6;
+}
+
+.telegram-access {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.telegram-access p {
+  margin-bottom: 0;
+}
+
+.telegram-btn {
+  background-color: #343a40 !important;
+  border: none;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.telegram-icon {
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sessions-badges {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .telegram-access {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

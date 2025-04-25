@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SessionManagement from './SessionManagement';
+import "../DashboardSidebarComp/styles/platinum.css";
 
 const ScheduleCall = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -162,6 +164,8 @@ const ScheduleCall = () => {
           </div>
         </div>
       </div>
+
+      <SessionManagement/>
     </div>
   );
 };

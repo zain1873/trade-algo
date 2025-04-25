@@ -58,7 +58,6 @@ const MentorshipPlans = () => {
     <div className="mentorship-container">
       <div className="mentorship-header text-center mb-4">
         <h2 className="mentorship-title">Choose Your Plan</h2>
-        <p className="mentorship-subtitle">Options trading pro-led personalized coaching.</p>
       </div>
 
       <div className="row plan-cards-container">
