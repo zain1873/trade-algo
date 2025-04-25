@@ -27,7 +27,7 @@ function FeatureVoting() {
       </div>
 
       <div className="form-container">
-        <div className="card">
+        <div className="">
           <div className="card-body">
             <h2 className="form-title text-white">Submit a Feature Request</h2>
             <form onSubmit={handleSubmit}>
