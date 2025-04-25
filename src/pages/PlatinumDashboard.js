@@ -657,7 +657,7 @@ const PlatinumDashboard = () => {
         const res = await axios.get(`${API_BASE_URL}api/user/profile/`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
-        setAdminProfilePhotoUrl(res.data.profile_photo);
+        setAdminProfilePhotoUrl(res.data.profile_photo_url);
       } catch (error) {
         console.warn("Admin profile photo not found");
       }
@@ -1126,7 +1126,7 @@ const PlatinumDashboard = () => {
                                 {isCurrentUser && (
                                   <img
                                     src={
-                                      userData?.profile_photo ||
+                                      userData?.profile_photo_url ||
                                       "/default-user.png"
                                     }
                                     className="chat-avatar ms-2"
