@@ -81,10 +81,11 @@ historical css Container styling .trend-icons {
   font-weight: bold;
   border-radius: 12px;
   padding: 6px 12px;
-  display: inline-block;
-  width: 100%; /* Ensure full width if needed */
-  text-align: center; /* Center the content */
-  box-sizing: border-box; /* Prevent overflow */
+  display: inline-block; /* ← This is key: don't stretch */
+  width: auto !important; /* ← Don't fill the full td width */
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .badge.bg-danger {
@@ -93,10 +94,11 @@ historical css Container styling .trend-icons {
   font-weight: bold;
   border-radius: 12px;
   padding: 6px 12px;
-  display: inline-block;
-  width: 100%; /* Ensure full width if needed */
-  text-align: center; /* Center the content */
-  box-sizing: border-box; /* Prevent overflow */
+  display: inline-block; /* ← This is key: don't stretch */
+  width: auto !important; /* ← Don't fill the full td width */
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 auto; /* Optional: center within td */
 }
 
 /* Default Table Styles */
