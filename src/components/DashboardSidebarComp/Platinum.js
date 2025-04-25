@@ -1,16 +1,42 @@
-// import React, { useState } from "react";
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
 // import "../DashboardSidebarComp/styles/mentorship.css";
+// import PlatinumCard from "../DashboardSidebarComp/platinumCard";
 
 // const Mentorship = ({ darkMode }) => {
 //   const [activeTab, setActiveTab] = useState("sessions");
 //   const [activeSubTab, setActiveSubTab] = useState("platinum");
+//   const [userData, setUserData] = useState(null);
 
-//   // this data is one on on ementorship data  and transfer to platinum program
+//   const accessToken = localStorage.getItem("accessToken");
+//   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
+//     ? process.env.REACT_APP_API_URL
+//     : process.env.REACT_APP_API_URL + "/";
+//   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       if (!accessToken) return;
+
+//       try {
+//         const res = await axios.get(USER_API_URL, {
+//           headers: {
+//             Authorization: `Bearer ${accessToken}`,
+//           },
+//         });
+//         setUserData(res.data);
+//       } catch (err) {
+//         console.error("Error fetching user:", err);
+//       }
+//     };
+
+//     fetchUser();
+//   }, [accessToken]);
 
 //   return (
 //     <div className="container mt-4">
 //       {/* Primary Navigation Tabs */}
-//       <ul className="nav nav-tabs">
+//       <ul className="nav nav-tabs nav-platinum-tab">
 //         <li className="nav-item">
 //           <button
 //             className={`nav-link ${activeTab === "sessions" ? "active" : ""}`}
@@ -27,16 +53,18 @@
 //             View All Price Plans
 //           </button>
 //         </li>
-//         {/* Premium Login Section */}
-//         <div className="premium-login">
-//           <a href="/platinum-dashboard" className="theme_btn">
-//             Premium Login
-//           </a>
-//         </div>
+
+//         {/* Only show this button if user is platinum */}
+//         {userData?.subscription_status === "platinum" && (
+//           <div className="premium-login">
+//             <a href="/platinum-dashboard" className="theme_btn">
+//               Premium Login
+//             </a>
+//           </div>
+//         )}
 //       </ul>
 
 //       <div className={`tab-content mt-3 ${darkMode ? "dark-mode-tab" : ""}`}>
-//         {/* Sessions Tab */}
 //         {activeTab === "sessions" && (
 //           <div className="tab-pane fade show active">
 //             <h5>Sessions available:</h5>
@@ -46,8 +74,7 @@
 //               <strong>16</strong> Emerald
 //             </p>
 
-//             {/* Secondary Navigation Tabs */}
-//             <ul className="nav nav-tabs">
+//             <ul className="nav nav-tabs nav-platinum-tab">
 //               <li className="nav-item">
 //                 <button
 //                   className={`nav-link ${
@@ -70,8 +97,7 @@
 //               </li>
 //             </ul>
 
-//             <div className="tab-content mt-3 p-0">
-//               {/* Platinum Tab */}
+//             <div className="tab-content mt-3 tab-platinum p-0">
 //               {activeSubTab === "platinum" && (
 //                 <div className="tab-pane fade show active">
 //                   <div
@@ -95,7 +121,6 @@
 //                 </div>
 //               )}
 
-//               {/* Emerald Tab */}
 //               {activeSubTab === "emerald" && (
 //                 <div className="tab-pane fade show active">
 //                   <div
@@ -122,7 +147,6 @@
 //           </div>
 //         )}
 
-//         {/* Pricing Tab */}
 //         {activeTab === "pricing" && (
 //           <div className="tab-pane fade show active">
 //             <h5>Pricing Plans</h5>
@@ -139,6 +163,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../DashboardSidebarComp/styles/mentorship.css";
+import PlatinumCard from "../components/DashboardSidebarComp/PlatinumCard";
 
 const Mentorship = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("sessions");
@@ -291,6 +316,13 @@ const Mentorship = ({ darkMode }) => {
           </div>
         )}
       </div>
+
+      {/* ✅ Show PlatinumCard if NOT a platinum user */}
+      {userData && userData.subscription_status !== "platinum" && (
+        <div className="mt-5">
+          <PlatinumCard />
+        </div>
+      )}
     </div>
   );
 };
