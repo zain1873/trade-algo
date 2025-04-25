@@ -163,7 +163,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../DashboardSidebarComp/styles/mentorship.css";
-import PlatinumCard from "../components/DashboardSidebarComp/PlatinumCard";
+import PlatinumCard from "../DashboardSidebarComp/platinumCard";
 
 const Mentorship = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("sessions");
