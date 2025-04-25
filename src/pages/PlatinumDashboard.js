@@ -604,6 +604,7 @@ import PortfolioHeatmap from "../components/DashboardPlatinum/PortfolioHeatmap";
 import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
 import PlatinumMembershipNFT from "../components/DashboardPlatinum/MembershipNft";
 import JournalPage from "../components/DashboardPlatinum/JournalPage";
+import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 
 const PlatinumDashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -614,6 +615,7 @@ const PlatinumDashboard = () => {
   const [input, setInput] = useState("");
   const [conversationId, setConversationId] = useState(null);
   const [activeDashboardTab, setActiveDashboardTab] = useState("dashboard");
+  const [showEditProfile, setShowEditProfile] = useState(false);
 
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
@@ -652,7 +654,7 @@ const PlatinumDashboard = () => {
   useEffect(() => {
     const fetchAdminPhoto = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}api/user/admin-profile/`, {
+        const res = await axios.get(`${API_BASE_URL}api/user/profile/`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setAdminProfilePhotoUrl(res.data.profile_photo);
@@ -696,6 +698,20 @@ const PlatinumDashboard = () => {
   return (
     <div className="platinum-dashboard">
       {/* Top Navbar */}
+
+      {showEditProfile && (
+        <div className="edit-profile-modal">
+          <EditProfile />
+          <div className="text-center mt-3">
+            <button
+              className="btn btn-danger"
+              onClick={() => setShowEditProfile(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       <nav className="navbar navbar-platinum navbar-expand-lg navbar-dark">
         <div className="container-fluid">
@@ -752,7 +768,7 @@ const PlatinumDashboard = () => {
                 </li>
               ))}
 
-              {/* ✅ Premium Features Dropdown */}
+              {/*  Premium Features Dropdown */}
               <ul className="navbar-nav">
                 <li className="nav-item dropdown premium-dropdown">
                   <a
@@ -890,9 +906,17 @@ const PlatinumDashboard = () => {
                   <span>P</span>
                 </div>
                 <div className="profile-dropdown">
-                  <a href="#" className="dropdown-item">
+                  <a
+                    href="#"
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowEditProfile(true);
+                    }}
+                  >
                     Edit Profile
                   </a>
+
                   <a href="#" className="dropdown-item text-danger">
                     Logout
                   </a>
