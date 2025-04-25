@@ -67,3 +67,4 @@ const PlatinumCard = () => {
 };
 
 export default PlatinumCard;
+

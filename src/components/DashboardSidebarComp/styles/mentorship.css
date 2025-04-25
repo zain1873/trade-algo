@@ -334,7 +334,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
   margin-bottom: 20px;
 }
 
@@ -348,7 +347,6 @@
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  text-align: center;
   color: #ffffff !important;
 }
 .bg-dark .plan-title {
@@ -359,7 +357,6 @@
   font-size: 14px;
   color: #adb5bd;
   margin-bottom: 20px;
-  text-align: center;
 }
 
 /* Plan Price */
@@ -367,7 +364,6 @@
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
-  text-align: center;
   color: #ffffff !important;
 }
 .bg-dark .plan-price {
