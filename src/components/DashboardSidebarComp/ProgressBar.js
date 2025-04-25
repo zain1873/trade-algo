@@ -2,8 +2,8 @@
 // import '../DashboardSidebarComp/styles/progressbar.css';
 
 // const CircularProgressBar = ({ percentage, color }) => {
-//   const rotation = percentage * 3.6; 
-  
+//   const rotation = percentage * 3.6;
+
 //   return (
 //     <div className="circular-progress">
 //       <div className="outer-circle">
@@ -13,12 +13,12 @@
 //           </div>
 //         </div>
 //       </div>
-      
-//       <div 
-//         className="progress-circle" 
-//         style={{ 
+
+//       <div
+//         className="progress-circle"
+//         style={{
 //           '--percentage': percentage,
-//           '--color': color 
+//           '--color': color
 //         }}
 //       ></div>
 //     </div>
@@ -33,7 +33,7 @@
 // //             <h2 className='text-white'>QBTS</h2>
 // //         </div>
 // //       <div className="row justify-content-center p-3">
-      
+
 // //         <div className="col-md-3 text-center">
 // //           <CircularProgressBar percentage={0} color="#3CD4A0" />
 // //           <h4 className='text-white'>progress</h4>
@@ -82,9 +82,9 @@
 
 // export default ProgressBarsDisplay;
 
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import '../DashboardSidebarComp/styles/progressbar.css';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "../DashboardSidebarComp/styles/progressbar.css";
 
 const CircularProgressBar = ({ percentage, color }) => {
   return (
@@ -92,15 +92,16 @@ const CircularProgressBar = ({ percentage, color }) => {
       <div className="outer-circle">
         <div className="inner-circle">
           <div className="percentage">
-            {percentage}<span className="percent-symbol">%</span>
+            {percentage}
+            <span className="percent-symbol">%</span>
           </div>
         </div>
       </div>
-      <div 
-        className="progress-circle" 
-        style={{ 
-          '--percentage': percentage,
-          '--color': color 
+      <div
+        className="progress-circle"
+        style={{
+          "--percentage": percentage,
+          "--color": color,
         }}
       ></div>
     </div>
@@ -127,12 +128,15 @@ const ProgressBarsDisplay = ({ courseId }) => {
       }
 
       try {
-        const res = await fetch(`https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          `https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const data = await res.json();
         console.log("Progress API data:", data);
@@ -152,19 +156,21 @@ const ProgressBarsDisplay = ({ courseId }) => {
     };
 
     fetchProgress();
-  }, [courseId, selectedLevel])
+  }, [courseId, selectedLevel]);
   return (
     <div className="container my-5 p-0">
       <div className="progress_container shadow p-3">
         <div className="sec_heading">
-          <h2 className='text-white'>QBTS</h2>
+          <h2 className="text-white">Your Progress</h2>
         </div>
 
         <div className="text-center mb-3">
-          {['beginner', 'intermediate', 'professional'].map(level => (
+          {["beginner", "intermediate", "professional"].map((level) => (
             <button
               key={level}
-              className={`btn mx-2 ${selectedLevel === level ? 'btn-primary' : 'btn-outline-light'}`}
+              className={`btn mx-2 ${
+                selectedLevel === level ? "btn-primary" : "btn-outline-light"
+              }`}
               onClick={() => setSelectedLevel(level)}
             >
               {level.charAt(0).toUpperCase() + level.slice(1)}
@@ -174,16 +180,25 @@ const ProgressBarsDisplay = ({ courseId }) => {
 
         <div className="row justify-content-center p-3">
           <div className="col-md-3 text-center">
-            <CircularProgressBar percentage={progressData.videoProgress} color="#3CD4A0" />
-            <h4 className='text-white'>Video Progress</h4>
+            <CircularProgressBar
+              percentage={progressData.videoProgress}
+              color="#3CD4A0"
+            />
+            <h4 className="text-white">Video Progress</h4>
           </div>
           <div className="col-md-3 text-center">
-            <CircularProgressBar percentage={progressData.levelProgress} color="#9333EA" />
-            <h4 className='text-white'>Level Progress</h4>
+            <CircularProgressBar
+              percentage={progressData.levelProgress}
+              color="#9333EA"
+            />
+            <h4 className="text-white">Level Progress</h4>
           </div>
           <div className="col-md-3 text-center">
-            <CircularProgressBar percentage={progressData.totalProgress} color="#F05252" />
-            <h4 className='text-white'>Total Course Progress</h4>
+            <CircularProgressBar
+              percentage={progressData.totalProgress}
+              color="#F05252"
+            />
+            <h4 className="text-white">Total Course Progress</h4>
           </div>
         </div>
       </div>
