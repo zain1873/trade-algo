@@ -79,6 +79,24 @@ historical css Container styling .trend-icons {
   background-color: #d4edda !important;
   color: #28a745;
   font-weight: bold;
+  border-radius: 12px;
+  padding: 6px 12px;
+  display: inline-block;
+  width: 100%; /* Ensure full width if needed */
+  text-align: center; /* Center the content */
+  box-sizing: border-box; /* Prevent overflow */
+}
+
+.badge.bg-danger {
+  background-color: #dc3545 !important; /* Bootstrap red */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 6px 12px;
+  display: inline-block;
+  width: 100%; /* Ensure full width if needed */
+  text-align: center; /* Center the content */
+  box-sizing: border-box; /* Prevent overflow */
 }
 
 /* Default Table Styles */
