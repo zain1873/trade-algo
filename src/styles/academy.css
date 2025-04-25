@@ -240,7 +240,7 @@
   }
   .main_module {
     position: relative;
-    background-image: url(../components/DashboardSidebarComp/images/dashboard-main-new.jpg);
+    background-image: url(../components/DashboardSidebarComp/images/dashboard-main-new.jpg); /* fallback image */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -248,9 +248,28 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 20px;
     border-bottom: 1px solid #363636;
-}
+    overflow: hidden; /* important */
+  }
+  
+  .dashboard-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .main_module .module-info {
+    position: absolute;
+    left: 20px;
+    z-index: 2;
+    color: white; /* Ensures text is visible over video */
+  }
+  
 
 /* Overlay Effect */
 .main_module::after {

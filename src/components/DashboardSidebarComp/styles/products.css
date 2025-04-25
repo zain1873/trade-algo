@@ -56,18 +56,26 @@
   /* FinanceCards.css */
 
 .finance-dashboard {
-  background-color: #0d0d0d;
+  /* background-color: #0d0d0d; */
   color: #fff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .card {
-  background-color: #1a1a1a !important;
+  
   border: none;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   padding: 1.5rem;
+}
+/* When inside a dark background container */
+.bg-dark .product-p {
+  color: #fff !important; /* white text for dark background */
+}
+
+.product-p {
+  color: #000 !important; 
 }
 
 .card:hover {
@@ -299,7 +307,8 @@
 .finance-dashboard .card-icon {
     margin: auto;
     width: 100%;
-    height: 26%;
+    padding: 10px;
+    height: 80px;
 }
 
 .finance-dashboard .emerald-icon, .platinum-icon  {

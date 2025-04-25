@@ -30,7 +30,7 @@ const ProgressBarsDisplay = () => {
     <div className="container my-5 p-0">
     <div className="progress_container shadow p-3">
         <div className="sec_heading ">
-            <h2 className='text-white'>QBTS</h2>
+            <h2 className='text-white'>Your Progress</h2>
         </div>
       <div className="row justify-content-center p-3">
       

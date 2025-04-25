@@ -2014,6 +2014,7 @@
 }
 .allocation-card {
   border: none !important;
+  background-color: transparent !important;
 }
 
 .portfolio-title {
@@ -2110,6 +2111,7 @@
 .summary-card {
   border: none !important;
   outline: 1px solid;
+  background-color: transparent !important;
 
 }
 .summary-card .card-body {

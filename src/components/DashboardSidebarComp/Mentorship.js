@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
+import MentorshipPlans from "./MentorshipCards";
 
 const Mentorship = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("sessions");
@@ -141,7 +142,11 @@ const Mentorship = ({ darkMode }) => {
           </div>
         )}
       </div>
+
+      <MentorshipPlans/>
     </div>
+
+
   );
 };
 

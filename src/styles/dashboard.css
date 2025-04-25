@@ -216,7 +216,7 @@ body .dark {
 
   }
   .nav.flex-column .nav-link  {
-    padding: 13px;
+    padding: 12px;
     border-radius: 50px;
     width: 100%;
 }
@@ -452,16 +452,16 @@ body .dark {
 }
 .dark-mode .inverted-logo {
   display: block !important;
-  background: #212529;
+  background: #1c1e20;
 }
 .dashboard_row .col-3 {
-  width: 22% !important;
+  width: 18% !important;
 }
 .dashboard_row .col-9 {
-  width: 78% !important;
+  width: 84% !important;
 }
 .dashboard_row .offset-3 {
-  margin-left: 22%;
+  margin-left: 17%;
 }
 
 .dropdown-container {
@@ -522,6 +522,10 @@ body .dark {
  
   .mbl-toggle {
     color: #000 !important;
+    width: auto;
+    justify-content: end;
+    display: flex !important;
+;
   }
   .nav .flex-column {
     margin: 10px !important;
@@ -537,7 +541,6 @@ body .dark {
   }
   .header-content {
     top: 0% !important;
-    margin-top: 30px;
   }
   .night-btn {
     justify-content: center;

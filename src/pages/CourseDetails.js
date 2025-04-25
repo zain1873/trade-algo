@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/academy.css';
 import { FaBookOpen, FaFileAlt, FaLightbulb, FaBookReader, FaSignal } from "react-icons/fa"
 import videoImg from '../assets/images/crypto-latest.png'
+import bannerVideo from "../assets/images/bannergreen.mp4"
 
 const ValourAcademy = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -55,9 +56,23 @@ const ValourAcademy = () => {
 
         {/* Content Area */}
         <div className="valour-content p-0">
-          {/* Dynamic Content Based on Selected Level */}
           {selectedLevel === 'beginner' && (
             <div className='main_module'>
+              <video
+                    className="dashboard-bg-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
+                    <source src={bannerVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+              </video>
+              <div class="module-info">
               <div className="content-breadcrumb">
                 <span>Beginner</span>
                 <span className="separator">›</span>
@@ -78,6 +93,7 @@ const ValourAcademy = () => {
                 <FaSignal  className="accordion-icon resources" />
                   <span>Beginner Level</span>
                 </div>
+              </div>
               </div>
             </div>
           )}

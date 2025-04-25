@@ -120,3 +120,396 @@
     }
   }
   
+
+
+
+  /* Platinum Card Component Styling */
+.platinum-prize-card {
+  color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+
+}
+
+.price-platinum-main  {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  color: #0000 !important;
+}
+.price-platinum-main .title {
+  color: #000;
+  font-weight: 700;
+}
+
+.feature-text {
+  color: #000 !important; /* black */
+}
+.price-period {
+  color: #000 !important; /* black */
+}
+.price {
+  color: #000 !important; /* black */
+}
+
+.bg-dark .price{
+  color: #fff !important; /* Light text */
+}
+
+
+
+.bg-dark .feature-text {
+  color: #ffff !important; /* black */
+}
+.bg-dark .price-period {
+  color: #ffff !important; /* black */
+}
+
+.bg-dark .price {
+  color: #fff !important; /* black */
+}
+
+.bg-dark .price-platinum-main .title {
+  color: #fff !important;
+  font-weight: 700;
+}
+
+/* Card Header */
+.card-header {
+  margin-bottom: 24px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.shield-icon {
+  margin-bottom: 10px;
+}
+
+.shield-icon i {
+  font-size: 24px;
+  color: #a9a9b0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.description {
+  color: #a9a9b0;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+/* Price Section */
+.price-section {
+  margin-bottom: 24px;
+}
+
+.price {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 0;
+  color: #ffffff;
+}
+
+.price-period {
+  color: #a9a9b0;
+  font-size: 16px;
+}
+
+/* Features List */
+.features-list {
+  margin-bottom: 24px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.feature-icon {
+  color: #4c6ef5;
+  font-size: 18px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* CTA Button */
+.btn-unlock-cta {
+  width: 100%;
+  background-color: #64647e !important;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 15px !important;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-unlock-cta:hover {
+  background-color: #5a5a78;
+  color: #ffffff !important;
+}
+
+.btn-unlock i {
+  font-size: 18px;
+}
+
+
+/* mentorship cards */
+/* MentorshipPlans.css */
+
+.bg-dark .mentorship-container {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff !important;
+  position: relative;
+  padding: 30px 0 80px;
+  background-color: #1c1e20 !important; /* Dark background */
+}
+.mentorship-container  {
+  background-color: #fff !important;
+  color: #000 !important;
+} 
+
+
+/* Header Styles */
+.mentorship-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.mentorship-subtitle {
+  font-size: 16px;
+  color: #adb5bd; /* Light grey text */
+  margin-bottom: 30px;
+}
+
+/* Plan Cards Container */
+.plan-cards-container {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+/* Plan Card Styles */
+.plan-card {
+  background-color: #1a1a1a; /* Dark card background */
+  border: 1px solid #2a2a2a; /* Subtle border */
+  border-radius: 10px;
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Plan Icon */
+.plan-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.plan-icon i {
+  font-size: 20px;
+  color: #adb5bd;
+}
+
+/* Plan Title and Sessions */
+.plan-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #ffffff !important;
+}
+.bg-dark .plan-title {
+  color: #ffffff !important;
+}
+
+.plan-sessions {
+  font-size: 14px;
+  color: #adb5bd;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Plan Price */
+.plan-price {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff !important;
+}
+.bg-dark .plan-price {
+  color: #ffffff !important;
+}
+
+/* Plan Features */
+.plan-features {
+  margin-bottom: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.feature-indented {
+  padding-left: 20px;
+}
+
+.feature-icon {
+  color: #4c6ef5; /* Blue check icon */
+  font-size: 16px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.feature-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Plan Action Button */
+.plan-action {
+  margin-top: auto;
+}
+
+.action-button {
+  width: 100%;
+  background-color: #2a2a2a;
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #3a3a3a;
+  color: #ffffff;
+}
+
+.button-icon {
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+/* Expert Mentorship Badge */
+.mentorship-badge {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.badge-inner {
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #2a2a2a;
+  position: relative;
+}
+
+.badge-inner:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 1px solid #2a2a2a;
+  opacity: 0.5;
+}
+
+.badge-icon {
+  font-size: 24px;
+  color: #adb5bd;
+  margin-bottom: 5px;
+}
+
+.badge-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.badge-subtext {
+  font-size: 8px;
+  color: #adb5bd;
+  letter-spacing: 1px;
+}
+
+.mentorhip-btn {
+  border: 1px solid #fff !important;
+  color: #fff !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .plan-cards-container {
+    flex-direction: column;
+  }
+  
+  .col-md-4 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mentorship-title {
+    font-size: 28px;
+  }
+  
+  .plan-card {
+    padding: 20px;
+  }
+  
+  .plan-price {
+    font-size: 24px;
+  }
+}

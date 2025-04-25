@@ -6,14 +6,14 @@ const Products = () => {
     <div className="finance-dashboard container-fluid p-4">
       <div className="row g-4">
         <div class="dashboard-title text-center">
-          <h2 className='text-center fw-bold'>ValourWealth Products</h2>
+          <h2 className='text-center fw-bold product-p'>ValourWealth Products</h2>
           <p
           style={{
             width: "530px",
             textAlign: "center",
             margin: "auto",
           }}
-          className="text-gray-400 text-base sm:text-lg"
+          className="text-gray-400 text-base sm:text-lg product-p"
         >
           Discover our comprehensive suite of premium financial products and services
           designed to elevate your trading and investment experience.
@@ -25,7 +25,7 @@ const Products = () => {
           <div className="card bg-dark text-white h-100">
             <div className="card-body">
               <div className="card-icon mb-4">
-                <i className="bi bi-file-text"></i>
+                <i style={{color: "blue"}} className="bi bi-file-text"></i>
               </div>
               <h3 className="card-title">Resources</h3>
               <p className="card-text">Access a comprehensive library of educational materials, guides, and research reports.</p>
@@ -85,7 +85,7 @@ const Products = () => {
           <div className="card bg-dark text-white h-100">
             <div className="card-body">
               <div className="card-icon mb-4">
-                <i className="bi bi-bank"></i>
+                <i style={{color: "gold"}} className="bi bi-bank"></i>
               </div>
               <h3 className="card-title">Wealth Management Series</h3>
               <p className="card-text">Comprehensive wealth management solutions for high-net-worth individuals seeking long-term growth.</p>
@@ -224,7 +224,7 @@ const Products = () => {
                 </div>
               </div>
               <h3 className="card-title">1 on 1 Mentorship</h3>
-              <p className="card-text">Personalized mentorship with experienced traders tailored to your specific goals and needs.</p>
+              <p className="card-text">Personalized mentorship with experienced traders tailored to your specific goals.</p>
               
               <div className="feature-list">
                 <div className="feature-item">
