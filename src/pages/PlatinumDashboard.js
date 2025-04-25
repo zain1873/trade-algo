@@ -283,29 +283,6 @@ const PlatinumDashboard = () => {
                         Journal
                       </a>
                     </li>
-                    {[
-                      "briefing",
-                      "webinars",
-                      "news",
-                      "leaderboard",
-                      "challenges",
-                      "schedule-call",
-                      "feature-voting",
-                      "membership-nft",
-                      "journal-page",
-                    ].map((key) => (
-                      <li key={key}>
-                        <a
-                          className="dropdown-item"
-                          href="#"
-                          onClick={() => handleNavClick(key)}
-                        >
-                          {key
-                            .replace(/-/g, " ")
-                            .replace(/\b\w/g, (l) => l.toUpperCase())}
-                        </a>
-                      </li>
-                    ))}
                   </ul>
                 </li>
               </ul>
@@ -337,40 +314,16 @@ const PlatinumDashboard = () => {
                     dropdown.classList.toggle("show");
                   }}
                 >
-                  <span>
-                    {userData?.username?.charAt(0).toUpperCase() || "U"}
-                  </span>
-
-                  {/* <span>P</span> */}
+                  <span>P</span>
                 </div>
                 <div className="profile-dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-item"
-                    onClick={() => setActiveSection("edit-profile")}
-                  >
-                    Edit Profile
-                  </a>
-                  <a
-                    href="#"
-                    className="dropdown-item text-danger"
-                    onClick={() => {
-                      localStorage.removeItem("accessToken");
-                      window.location.href = "/dashboard"; // 👈 goes back to regular dashboard
-                    }}
-                  >
-                    Logout
-                  </a>
-                </div>
-
-                {/* <div className="profile-dropdown">
                   <a href="#" className="dropdown-item">
                     Edit Profile
                   </a>
                   <a href="#" className="dropdown-item text-danger">
                     Logout
                   </a>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
