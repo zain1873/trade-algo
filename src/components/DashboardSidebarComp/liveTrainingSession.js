@@ -80,7 +80,6 @@
 import React, { useState, useRef } from "react";
 import "../DashboardSidebarComp/styles/live-training-session.css";
 import sessionImg from "../DashboardSidebarComp/images/live-trading-session-img.jpg";
-import sessionVideo from "../DashboardSidebarComp/images/live-session-video1.mp4";
 import LiveSessionChat from "./LiveSessionChat";
 
 function LiveTrainingSession() {
