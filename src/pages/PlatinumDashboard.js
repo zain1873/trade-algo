@@ -123,6 +123,7 @@ const PlatinumDashboard = () => {
   return (
     <div className="platinum-dashboard">
       {/* Top Navbar */}
+
       <nav className="navbar navbar-platinum navbar-expand-lg navbar-dark">
         <div className="container-fluid">
           <a className="navbar-brand fw-bold" href="#">
@@ -282,6 +283,29 @@ const PlatinumDashboard = () => {
                         Journal
                       </a>
                     </li>
+                    {[
+                      "briefing",
+                      "webinars",
+                      "news",
+                      "leaderboard",
+                      "challenges",
+                      "schedule-call",
+                      "feature-voting",
+                      "membership-nft",
+                      "journal-page",
+                    ].map((key) => (
+                      <li key={key}>
+                        <a
+                          className="dropdown-item"
+                          href="#"
+                          onClick={() => handleNavClick(key)}
+                        >
+                          {key
+                            .replace(/-/g, " ")
+                            .replace(/\b\w/g, (l) => l.toUpperCase())}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </li>
               </ul>
