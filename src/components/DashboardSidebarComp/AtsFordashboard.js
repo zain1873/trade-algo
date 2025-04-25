@@ -147,7 +147,7 @@ const AtsFlow = ({ darkMode }) => {
                 </td>
               </tr>
             ) : tableData.length > 0 ? (
-              tableData.map((item, idx) => (
+              tableData.slice(0, 5).map((item, idx) => (
                 <tr key={idx}>
                   <td>{item.ticker || "-"}</td>
                   <td>
