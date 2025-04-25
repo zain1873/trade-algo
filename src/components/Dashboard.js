@@ -207,7 +207,7 @@ const Dashboard = () => {
         "wealth-series",
         "options-academy",
         "mentorship",
-        "trade-products",
+        "Trade-products",
         "edit-profile",
         "logout",
       ],
@@ -221,7 +221,7 @@ const Dashboard = () => {
         "platinum",
         "options-academy",
         "mentorship",
-        "trade-products",
+        "Trade-products",
         "edit-profile",
         "logout",
       ],
@@ -236,7 +236,7 @@ const Dashboard = () => {
         "platinum",
         "options-academy",
         "mentorship",
-        "trade-products",
+        "Trade-products",
         "edit-profile",
         "logout",
       ],
@@ -267,7 +267,7 @@ const Dashboard = () => {
                 return <HistoricalDataFlow darkMode={darkMode} />;
               case "live-sessions":
                 return <LiveSessions darkMode={darkMode} />;
-              case "trade-products":
+              case "Trade-products":
                 return <TradeProducts darkMode={darkMode} />;
               case "trading-tools":
                 return <TradingTools darkMode={darkMode} />;
@@ -278,7 +278,7 @@ const Dashboard = () => {
               case "options-academy":
                 return <OptionsAcademy darkMode={darkMode} />;
               case "wealth-series":
-                return <TradeProducts darkMode={darkMode} />;
+                return <WealthSeries darkMode={darkMode} />;
               case "mentorship":
                 return <Mentorship darkMode={darkMode} />;
               case "resources":
