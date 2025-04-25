@@ -163,7 +163,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../DashboardSidebarComp/styles/mentorship.css";
-import PlatinumCard from "../DashboardSidebarComp/platinumCard";
+import PlatinumCard from "../components/DashboardSidebarComp/PlatinumCard";
 
 const Mentorship = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("sessions");
@@ -195,9 +195,18 @@ const Mentorship = ({ darkMode }) => {
     fetchUser();
   }, [accessToken]);
 
+  // ⛔ if user is NOT platinum, just show PlatinumCard
+  if (userData && userData.subscription_status !== "platinum") {
+    return (
+      <div className="container mt-5">
+        <PlatinumCard />
+      </div>
+    );
+  }
+
   return (
     <div className="container mt-4">
-      {/* Primary Navigation Tabs */}
+      {/* Tabs */}
       <ul className="nav nav-tabs nav-platinum-tab">
         <li className="nav-item">
           <button
@@ -216,14 +225,11 @@ const Mentorship = ({ darkMode }) => {
           </button>
         </li>
 
-        {/* Only show this button if user is platinum */}
-        {userData?.subscription_status === "platinum" && (
-          <div className="premium-login">
-            <a href="/platinum-dashboard" className="theme_btn">
-              Premium Login
-            </a>
-          </div>
-        )}
+        <div className="premium-login">
+          <a href="/platinum-dashboard" className="theme_btn">
+            Premium Login
+          </a>
+        </div>
       </ul>
 
       <div className={`tab-content mt-3 ${darkMode ? "dark-mode-tab" : ""}`}>
@@ -316,13 +322,6 @@ const Mentorship = ({ darkMode }) => {
           </div>
         )}
       </div>
-
-      {/* ✅ Show PlatinumCard if NOT a platinum user */}
-      {userData && userData.subscription_status !== "platinum" && (
-        <div className="mt-5">
-          <PlatinumCard />
-        </div>
-      )}
     </div>
   );
 };
