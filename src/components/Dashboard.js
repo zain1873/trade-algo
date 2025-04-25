@@ -278,7 +278,7 @@ const Dashboard = () => {
               case "options-academy":
                 return <OptionsAcademy darkMode={darkMode} />;
               case "wealth-series":
-                return <WealthSeries darkMode={darkMode} />;
+                return <TradeProducts darkMode={darkMode} />;
               case "mentorship":
                 return <Mentorship darkMode={darkMode} />;
               case "resources":
@@ -400,8 +400,8 @@ const Dashboard = () => {
   //               return <HistoricalDataFlow darkMode={darkMode} />;
   //             case "live-sessions":
   //               return <LiveSessions darkMode={darkMode} />;
-  //             case "Trade-products":
-  //               return <TradeProducts darkMode={darkMode} />;
+  // case "Trade-products":
+  //   return <TradeProducts darkMode={darkMode} />;
   //             case "trading-tools":
   //               return <TradingTools darkMode={darkMode} />;
   //             case "emerald":
@@ -505,7 +505,7 @@ const Dashboard = () => {
                         {item.label}
                       </span>
 
-                      {/* 🔽 Add Play Icon for Dropdown Indicator */}
+                      {/*  Add Play Icon for Dropdown Indicator */}
                       {item.id === "trading-tools" && (
                         <i
                           className="fas fa-play ms-2 indicator"
@@ -521,24 +521,18 @@ const Dashboard = () => {
                 </button>
 
                 {/* Dropdown for Wealth Management Series */}
-                {item.id === "wealth-series" && (
-                  <div className="dropdown-container shadow wealth-container p-0">
-                    <div className="dropdown-content-wrap">
-                      <div
-                        className="p-2 dropdown-inside"
-                        onClick={() => setActiveTab("lite")}
-                      >
-                        <li>Lite</li>
-                      </div>
-                      <div
-                        className="p-2 dropdown-inside"
-                        onClick={() => setActiveTab("premium")}
-                      >
-                        <li>Premium</li>
-                      </div>
+                {/* {item.id === "wealth-series" && (
+                <div className="dropdown-container shadow wealth-container p-0">
+                  <div className="dropdown-content-wrap">
+                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("lite")}>
+                    <li>Lite</li>
+                    </div>
+                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("premium")}>
+                    <li>Premium</li>
                     </div>
                   </div>
-                )}
+                </div>
+              )} */}
 
                 {/* Dropdown for   */}
                 {item.id === "trading-tools" && (
