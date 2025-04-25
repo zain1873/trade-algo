@@ -25,7 +25,7 @@ const TraderLeaderboard = () => {
       id: 3,
       name: 'James Wilson',
       type: 'Stocks Trader',
-      performance: '+35.2%',
+      performance: '+35.2%',  
       rank: 3,
       status: 'Platinum'
     },
@@ -83,25 +83,25 @@ const TraderLeaderboard = () => {
         </div>
 
         <div className="tab-container">
-          <div className="tabs">
+          <div className="">
             <button 
               className={`tab-button ${activeTab === 'Performance' ? 'active' : ''}`} 
               onClick={() => handleTabClick('Performance')}
             >
               Performance
             </button>
-            <button 
+            {/* <button 
               className={`tab-button ${activeTab === 'Consistency' ? 'active' : ''}`} 
               onClick={() => handleTabClick('Consistency')}
             >
               Consistency
-            </button>
-            <button 
+            </button> */}
+            {/* <button 
               className={`tab-button ${activeTab === 'Historical' ? 'active' : ''}`} 
               onClick={() => handleTabClick('Historical')}
             >
               Historical
-            </button>
+            </button> */}
           </div>
         </div>
 
