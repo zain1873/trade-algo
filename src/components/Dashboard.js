@@ -521,18 +521,24 @@ const Dashboard = () => {
                 </button>
 
                 {/* Dropdown for Wealth Management Series */}
-                {/* {item.id === "wealth-series" && (
-                <div className="dropdown-container shadow wealth-container p-0">
-                  <div className="dropdown-content-wrap">
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("lite")}>
-                    <li>Lite</li>
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("premium")}>
-                    <li>Premium</li>
+                {item.id === "wealth-series" && (
+                  <div className="dropdown-container shadow wealth-container p-0">
+                    <div className="dropdown-content-wrap">
+                      <div
+                        className="p-2 dropdown-inside"
+                        onClick={() => setActiveTab("lite")}
+                      >
+                        <li>Lite</li>
+                      </div>
+                      <div
+                        className="p-2 dropdown-inside"
+                        onClick={() => setActiveTab("premium")}
+                      >
+                        <li>Premium</li>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )} */}
+                )}
 
                 {/* Dropdown for   */}
                 {item.id === "trading-tools" && (
