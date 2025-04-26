@@ -75,7 +75,7 @@ const SessionManagement = () => {
             }`}
           >
             {sessions.upcoming.map((session) => (
-              <div key={session.id} className="session-card">
+              <div key={session.id} className="psession-card">
                 <div className="session-header">
                   <div className="session-avatar">
                     <img src="/api/placeholder/50/50" alt="Avatar" />
@@ -112,7 +112,7 @@ const SessionManagement = () => {
             className={`tab-pane ${activeTab === "past" ? "show active" : ""}`}
           >
             {sessions.past.map((session) => (
-              <div key={session.id} className="session-card">
+              <div key={session.id} className="psession-card">
                 <div className="session-header">
                   <div className="session-avatar">
                     <img src="/api/placeholder/50/50" alt="Avatar" />
