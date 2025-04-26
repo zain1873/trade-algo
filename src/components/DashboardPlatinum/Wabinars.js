@@ -227,7 +227,6 @@
 
 // export default ExclusiveWebinars;
 
-// ✅ Updated ExclusiveWebinars.jsx — integrated with backend, no UI changes
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -310,8 +309,63 @@ const ExclusiveWebinars = () => {
             </button>
             <button
               className={`tab-button ${
-                activeTab === "Past Recordings" ? "active" : ""
-              }`}
+                activeTab === "Past Recordings" &&
+                recordings.map((rec) => (
+                  <div key={rec.id} className="webinar-card">
+                    <div className="webinar-header">
+                      <h4 className="webinar-title">{rec.title}</h4>
+                      <span className="status-badge">{rec.status}</span>
+                    </div>
+                    <p className="webinar-description">{rec.description}</p>
+
+                    <div className="presenter-info">
+                      <i className="bi bi-person-video3 presenter-icon"></i>
+                      <span className="presenter-name">
+                        Presented by {rec.presenter}
+                      </span>
+                    </div>
+
+                    <div className="webinar-details">
+                      <div className="detail-row">
+                        <div className="detail-item">
+                          <i className="bi bi-calendar"></i>
+                          <span>{rec.date}</span>
+                        </div>
+                        <div className="detail-item">
+                          <i className="bi bi-clock"></i>
+                          <span>{rec.time}</span>
+                        </div>
+                      </div>
+                      <div className="detail-row">
+                        <div className="detail-item">
+                          <i className="bi bi-people"></i>
+                          <span>{rec.registered_count} attended</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="webinar-footer">
+                      <div className="tags">
+                        <span className="duration-tag">{rec.duration}</span>
+                        <span className="level-tag">{rec.level}</span>
+                      </div>
+                      <button
+                        className="register-button"
+                        onClick={() => {
+                          if (rec.recording_link) {
+                            window.open(rec.recording_link, "_blank");
+                          } else {
+                            alert("Recording link not available");
+                          }
+                        }}
+                      >
+                        Watch Recording
+                      </button>
+                    </div>
+                  </div>
+                ))
+              }
+              `}
               onClick={() => handleTabChange("Past Recordings")}
             >
               Past Recordings
