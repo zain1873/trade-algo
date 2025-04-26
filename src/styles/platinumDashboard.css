@@ -369,41 +369,7 @@
   margin-left: 10px;
 }
 
-/* Navbar Styles */
-.chat-card {
-  background-color: #101012 !important;
-  min-height: 500px;
-  overflow: auto;
-}
-
-.chat-message {
-  width: 100%;
-}
-
-.chat-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.message-bubble {
-  background-color: #2b2f3a;
-  padding: 10px 14px;
-  border-radius: 12px;
-  max-width: 70%;
-  word-break: break-word;
-}
-
-.sender-name {
-  font-size: 0.8rem;
-  color: white;
-}
-
-.message-time {
-  font-size: 0.7rem;
-  color: #ccc;
-}
+/* Chat Section */
 
 /* ================================================================================================================================================================ */
 /* Chat Section */
@@ -522,6 +488,147 @@
   }
 }
 /* ============================================================================================================================================ */
+
+/* Navbar Styles */
+.chat-card {
+  background-color: #101012 !important;
+  min-height: 500px;
+  overflow: auto;
+}
+
+.chat-message {
+  width: 100%;
+}
+
+.chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.message-bubble {
+  background-color: #2b2f3a;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-break: break-word;
+}
+
+.sender-name {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+/* .chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  justify-content: space-between;
+}
+
+.chat-message {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.analyst-avatar {
+  width: 38px;
+  height: 38px;
+  background-color: #adb5bd;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.message-bubble {
+  background-color: #282d36;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  max-width: 80%;
+}
+
+.message-text {
+  margin-bottom: 0.25rem;
+}
+
+.message-time {
+  color: #787b82;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.chat-input-container {
+  display: flex;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.chat-input-container input {
+  background-color: #282d36;
+  border: none;
+  color: #e9ecef;
+  border-radius: 20px;
+  padding: 0.75rem 1rem;
+}
+
+.chat-input-container input::placeholder {
+  color: #787b82;
+}
+
+.chat-input-container input:focus {
+  background-color: #282d36;
+  color: #e9ecef;
+  box-shadow: none;
+  border: 1px solid #3a3f48;
+}
+
+.send-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  color: #fff;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .market-row {
+    padding: 0.75rem 0;
+  }
+
+  .chat-container {
+    height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .large-profile-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-tabs .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
 
 /* weekly brefing last week */
 
@@ -2037,6 +2144,7 @@
 }
 .allocation-card {
   border: none !important;
+  background-color: transparent !important;
 }
 
 .portfolio-title {
@@ -2133,6 +2241,7 @@
 .summary-card {
   border: none !important;
   outline: 1px solid;
+  background-color: transparent !important;
 }
 .summary-card .card-body {
   background: #101012;
@@ -3084,7 +3193,7 @@
     Arial, sans-serif;
 }
 .feature-voting-container .card-body {
-  background-color: #222222;
+  /* background-color: #222222; */
 }
 .form-container .card {
   border: none;
