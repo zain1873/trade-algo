@@ -464,7 +464,14 @@ const ExclusiveWebinars = () => {
                     <span className="duration-tag">{rec.duration}</span>
                     <span className="level-tag">{rec.level}</span>
                   </div>
-                  <button className="register-button">Watch Recording</button>
+                  <a
+                    href={rec.recording_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="register-button"
+                  >
+                    Watch Recording
+                  </a>
                 </div>
               </div>
             ))}
