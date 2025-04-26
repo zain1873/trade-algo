@@ -4887,6 +4887,16 @@ h4 {
   background-color: #0056b3;
 }
 
+.session-card {
+  align-items: center;
+  /* background: #fff; */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #0000001a;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
 .analyst-section {
   margin-top: 20px;
 }
