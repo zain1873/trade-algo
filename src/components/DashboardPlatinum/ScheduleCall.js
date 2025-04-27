@@ -481,10 +481,18 @@ const ScheduleCall = () => {
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
+  const timeSlots = [
+    { id: 1, label: "09:00 AM", value: "09:00:00" },
+    { id: 2, label: "10:00 AM", value: "10:00:00" },
+    { id: 3, label: "11:00 AM", value: "11:00:00" },
+    { id: 4, label: "02:00 PM", value: "14:00:00" },
+    { id: 5, label: "03:00 PM", value: "15:00:00" },
+    { id: 6, label: "04:00 PM", value: "16:00:00" },
+  ];
+
   const generateCalendar = () => {
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-
     const prevMonthDays = [];
     for (let i = 0; i < firstDayOfMonth; i++) {
       const day =
@@ -497,7 +505,6 @@ const ScheduleCall = () => {
         </div>
       );
     }
-
     const currentMonthDays = [];
     for (let i = 1; i <= daysInMonth; i++) {
       const isSelected = selectedDate === i;
@@ -513,12 +520,10 @@ const ScheduleCall = () => {
         </div>
       );
     }
-
-    const nextMonthDays = [];
     const totalCells = 42;
     const remainingCells =
       totalCells - (prevMonthDays.length + currentMonthDays.length);
-
+    const nextMonthDays = [];
     for (let i = 1; i <= remainingCells; i++) {
       nextMonthDays.push(
         <div key={`next-${i}`} className="calendar-day next-month">
@@ -526,27 +531,8 @@ const ScheduleCall = () => {
         </div>
       );
     }
-
     return [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
   };
-
-  // const timeSlots = [
-  //   { id: 1, time: "09:00 AM" },
-  //   { id: 2, time: "10:00 AM" },
-  //   { id: 3, time: "11:00 AM" },
-  //   { id: 4, time: "02:00 PM" },
-  //   { id: 5, time: "03:00 PM" },
-  //   { id: 6, time: "04:00 PM" },
-  // ];
-
-  const timeSlots = [
-    { id: 1, label: "09:00 AM", value: "09:00:00" },
-    { id: 2, label: "10:00 AM", value: "10:00:00" },
-    { id: 3, label: "11:00 AM", value: "11:00:00" },
-    { id: 4, label: "02:00 PM", value: "14:00:00" },
-    { id: 5, label: "03:00 PM", value: "15:00:00" },
-    { id: 6, label: "04:00 PM", value: "16:00:00" },
-  ];
 
   const getMonth = () => {
     const months = [
@@ -607,6 +593,7 @@ const ScheduleCall = () => {
     const selectedFullDate = `${currentYear}-${String(
       currentMonth + 1
     ).padStart(2, "0")}-${String(selectedDate).padStart(2, "0")}`;
+
     try {
       await axios.post(
         `${API_URL}api/sessions/`,
@@ -620,10 +607,12 @@ const ScheduleCall = () => {
         }
       );
       alert("Call Scheduled Successfully!");
-      fetchCallCredits(); // Refresh credits
+      fetchCallCredits();
     } catch (err) {
-      console.error("Error scheduling call", err);
-      alert("Error scheduling call");
+      console.error("Error scheduling call:", err?.response?.data);
+      alert(
+        "Error: " + (err?.response?.data?.detail || "Error scheduling call")
+      );
     }
   };
 
@@ -700,37 +689,6 @@ const ScheduleCall = () => {
                   ) : null
                 )}
               </div>
-
-              {/* <div className="time-slots">
-                {timeSlots.map((slot, index) =>
-                  index % 2 === 0 ? (
-                    <div key={slot.id} className="time-slot-row">
-                      <div
-                        className={`time-slot ${
-                          selectedTimeSlot === slot.time ? "selected" : ""
-                        }`}
-                        onClick={() => handleTimeSlotSelect(slot.time)}
-                      >
-                        {slot.time}
-                      </div>
-                      {timeSlots[index + 1] && (
-                        <div
-                          className={`time-slot ${
-                            selectedTimeSlot === timeSlots[index + 1].time
-                              ? "selected"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            handleTimeSlotSelect(timeSlots[index + 1].time)
-                          }
-                        >
-                          {timeSlots[index + 1].time}
-                        </div>
-                      )}
-                    </div>
-                  ) : null
-                )}
-              </div> */}
             </div>
 
             <div className="analyst-section">
