@@ -653,18 +653,44 @@ const ValourAcademy = () => {
   useEffect(() => {
     const fetchCourseDetails = async () => {
       const token = localStorage.getItem("accessToken");
-      const res = await fetch(
-        `https://valourwealthdjango-production.up.railway.app/courses/${courseId}/`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
+      try {
+        const res = await fetch(
+          `https://valourwealthdjango-production.up.railway.app/courses/${courseId}/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!res.ok) {
+          // If backend returns error, throw it manually
+          const text = await res.text(); // because JSON parsing will crash
+          throw new Error(`Server error ${res.status}: ${text}`);
         }
-      );
-      const data = await res.json();
-      setCourseData(data);
+
+        const data = await res.json();
+        setCourseData(data);
+      } catch (error) {
+        console.error("Error fetching course details:", error.message);
+      }
     };
+
+    // const fetchCourseDetails = async () => {
+    //   const token = localStorage.getItem("accessToken");
+    //   const res = await fetch(
+    //     `https://valourwealthdjango-production.up.railway.app/courses/${courseId}/`,
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${token}`,
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+    //   const data = await res.json();
+    //   setCourseData(data);
+    // };
     fetchCourseDetails();
   }, [courseId]);
 
