@@ -530,13 +530,22 @@ const ScheduleCall = () => {
     return [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
   };
 
+  // const timeSlots = [
+  //   { id: 1, time: "09:00 AM" },
+  //   { id: 2, time: "10:00 AM" },
+  //   { id: 3, time: "11:00 AM" },
+  //   { id: 4, time: "02:00 PM" },
+  //   { id: 5, time: "03:00 PM" },
+  //   { id: 6, time: "04:00 PM" },
+  // ];
+
   const timeSlots = [
-    { id: 1, time: "09:00 AM" },
-    { id: 2, time: "10:00 AM" },
-    { id: 3, time: "11:00 AM" },
-    { id: 4, time: "02:00 PM" },
-    { id: 5, time: "03:00 PM" },
-    { id: 6, time: "04:00 PM" },
+    { id: 1, label: "09:00 AM", value: "09:00:00" },
+    { id: 2, label: "10:00 AM", value: "10:00:00" },
+    { id: 3, label: "11:00 AM", value: "11:00:00" },
+    { id: 4, label: "02:00 PM", value: "14:00:00" },
+    { id: 5, label: "03:00 PM", value: "15:00:00" },
+    { id: 6, label: "04:00 PM", value: "16:00:00" },
   ];
 
   const getMonth = () => {
@@ -667,6 +676,37 @@ const ScheduleCall = () => {
                     <div key={slot.id} className="time-slot-row">
                       <div
                         className={`time-slot ${
+                          selectedTimeSlot === slot.value ? "selected" : ""
+                        }`}
+                        onClick={() => handleTimeSlotSelect(slot.value)}
+                      >
+                        {slot.label}
+                      </div>
+                      {timeSlots[index + 1] && (
+                        <div
+                          className={`time-slot ${
+                            selectedTimeSlot === timeSlots[index + 1].value
+                              ? "selected"
+                              : ""
+                          }`}
+                          onClick={() =>
+                            handleTimeSlotSelect(timeSlots[index + 1].value)
+                          }
+                        >
+                          {timeSlots[index + 1].label}
+                        </div>
+                      )}
+                    </div>
+                  ) : null
+                )}
+              </div>
+
+              {/* <div className="time-slots">
+                {timeSlots.map((slot, index) =>
+                  index % 2 === 0 ? (
+                    <div key={slot.id} className="time-slot-row">
+                      <div
+                        className={`time-slot ${
                           selectedTimeSlot === slot.time ? "selected" : ""
                         }`}
                         onClick={() => handleTimeSlotSelect(slot.time)}
@@ -690,7 +730,7 @@ const ScheduleCall = () => {
                     </div>
                   ) : null
                 )}
-              </div>
+              </div> */}
             </div>
 
             <div className="analyst-section">
