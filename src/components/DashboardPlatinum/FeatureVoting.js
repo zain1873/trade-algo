@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import FeatureVotingTabs from './FeatureVotingTabs';
+import React, { useState } from "react";
+import FeatureVotingTabs from "./FeatureVotingTabs";
 
 function FeatureVoting() {
-  const [featureTitle, setFeatureTitle] = useState('');
-  const [featureDescription, setFeatureDescription] = useState('');
+  const [featureTitle, setFeatureTitle] = useState("");
+  const [featureDescription, setFeatureDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log({ featureTitle, featureDescription });
     // Reset form
-    setFeatureTitle('');
-    setFeatureDescription('');
+    setFeatureTitle("");
+    setFeatureDescription("");
   };
 
   return (
@@ -22,17 +22,21 @@ function FeatureVoting() {
         </div>
         <div className="title-container">
           <h1>Early Access & Voting</h1>
-          <p>Shape the future of our platform with your exclusive voting power</p>
+          <p>
+            Shape the future of our platform with your exclusive voting power
+          </p>
         </div>
       </div>
 
       <div className="form-container">
-        <div className="card">
+        <div className="card p-0">
           <div className="card-body">
             <h2 className="form-title text-white">Submit a Feature Request</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label htmlFor="featureTitle" className="form-label">Feature Title</label>
+                <label htmlFor="featureTitle" className="form-label">
+                  Feature Title
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -44,7 +48,9 @@ function FeatureVoting() {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="featureDescription" className="form-label">Feature Description</label>
+                <label htmlFor="featureDescription" className="form-label">
+                  Feature Description
+                </label>
                 <textarea
                   className="form-control"
                   id="featureDescription"
@@ -56,7 +62,10 @@ function FeatureVoting() {
                 ></textarea>
               </div>
               <div className="d-grid">
-                <button type="submit" className="btn submit-btn-feature text-white">
+                <button
+                  type="submit"
+                  className="btn submit-btn-feature text-white"
+                >
                   <i className="bi bi-lightbulb me-2"></i>
                   Submit Feature Request
                 </button>
@@ -66,7 +75,7 @@ function FeatureVoting() {
         </div>
       </div>
 
-      <FeatureVotingTabs/>
+      <FeatureVotingTabs />
     </div>
   );
 }

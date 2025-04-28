@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import analystImg from "../DashboardSidebarComp/images/dane-img.png";
+import analystImg from "../DashboardSidebarComp/images/pic.jpeg";
 
 const TradingPlatform = () => {
   const [name, setName] = useState("");
