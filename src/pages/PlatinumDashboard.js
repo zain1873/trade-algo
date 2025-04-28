@@ -614,7 +614,7 @@ const PlatinumDashboard = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [conversationId, setConversationId] = useState(null);
-  const [activeDashboardTab, setActiveDashboardTab] = useState("dashboard");
+  const [activeDashboardTab, setActiveDashboardTab] = useState("market");
   const [showEditProfile, setShowEditProfile] = useState(false);
 
   const accessToken = localStorage.getItem("accessToken");
@@ -733,17 +733,14 @@ const PlatinumDashboard = () => {
           >
             <ul className="navbar-nav me-auto">
               {/* Always keep Dashboard */}
-              <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activeSection === "dashboard" ? "active" : ""
-                  }`}
-                  href="#"
-                  onClick={() => handleNavClick("dashboard")}
-                >
-                  Dashboard
-                </a>
-              </li>
+              <button
+                className={`tab-button ${
+                  activeDashboardTab === "market" ? "active" : ""
+                }`}
+                onClick={() => setActiveDashboardTab("market")}
+              >
+                Dashboard
+              </button>
 
               {/* New Items */}
               {[
