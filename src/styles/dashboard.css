@@ -530,9 +530,8 @@ body .dark {
   }
   .mbl-toggle {
     justify-content: end;
-    margin-left: auto;
-    width: 100%;
-    display: flex;
+    width: 100% !important;
+    display: flex !important;
   }
 }
 
