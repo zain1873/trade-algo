@@ -278,8 +278,8 @@ function PortfolioComponent() {
       </div>
 
       {/* Future: PortfolioDetails + HeatmapDetails can be uncommented */}
-      {/* <PortfolioDetails />
-      <HeatmapDetails /> */}
+      <PortfolioDetails />
+      <HeatmapDetails />
     </div>
   );
 }
