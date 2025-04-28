@@ -1,6 +1,6 @@
-import React from 'react';
-import PortfolioDetails from './portfolioDetails/PortfolioDetail';
-import HeatmapDetails from './portfolioDetails/HeatmapDetails';
+import React from "react";
+import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
+import HeatmapDetails from "./portfolioDetails/HeatmapDetails";
 
 function PortfolioComponent() {
   return (
@@ -12,26 +12,26 @@ function PortfolioComponent() {
           </div>
         </div>
 
-
         <div>
-        <h2 class="portfolio-title">Portfolio</h2>
-        <p class="portfolio-subtitle">Track and manage your investments with exclusive platinum tools</p>
+          <h2 class="portfolio-title">Portfolio</h2>
+          <p class="portfolio-subtitle">
+            Track and manage your investments with exclusive platinum tools
+          </p>
         </div>
-      
       </div>
-      
+
       <div className="dashboard-container">
         <div className="row">
           {/* Portfolio Summary Section */}
           <div className="col-lg-8 pe-lg-2">
-            <div className="card summary-card">
+            <div className="card summary-card p-0">
               <div className="card-body">
                 <h5 className="card-title">Portfolio Summary</h5>
                 <div className="total-value-section">
                   <div>
                     <div className="small">Total Portfolio Value</div>
                     <div className="total-value">
-                      $245,678.90 
+                      $245,678.90
                       <span className="value-change">
                         <i className="bi bi-arrow-up"></i> +$3,245.67 (+1.34%)
                       </span>
@@ -46,7 +46,7 @@ function PortfolioComponent() {
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="asset-categories">
                   <div className="asset-card stocks">
                     <div className="asset-header">
@@ -77,7 +77,7 @@ function PortfolioComponent() {
                     <div className="asset-value">$24,567.89</div>
                   </div>
                 </div>
-                
+
                 <div className="chart-container">
                   {/* This would be your actual chart component */}
                   <div className="chart-line"></div>
@@ -85,20 +85,20 @@ function PortfolioComponent() {
               </div>
             </div>
           </div>
-          
+
           {/* Asset Allocation Section */}
           <div className="col-lg-4 ps-lg-2">
-            <div className="card allocation-card">
+            <div className="card allocation-card p-0">
               <div className="card-body">
                 <h5 className="card-title">Asset Allocation</h5>
-                
+
                 <div className="pie-chart-container">
                   {/* This would be your actual pie chart component */}
                   <div className="pie-chart">
                     <div className="pie-chart-inner"></div>
                   </div>
                 </div>
-                
+
                 <div className="allocation-breakdown">
                   <div className="allocation-item">
                     <div>Stocks</div>
@@ -123,12 +123,8 @@ function PortfolioComponent() {
         </div>
       </div>
 
-
-      <PortfolioDetails/>
+      <PortfolioDetails />
       <HeatmapDetails />
-
-
-      
     </div>
   );
 }
