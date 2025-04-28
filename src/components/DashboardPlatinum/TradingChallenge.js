@@ -227,15 +227,15 @@
 // };
 
 // export default TradingChallenges;
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment"; // install if not installed
+import moment from "moment";
 
 const TradingChallenges = () => {
   const [activeTab, setActiveTab] = useState("Active Challenges");
   const [challenges, setChallenges] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [leaderboards, setLeaderboards] = useState({}); // challengeId -> leaderboard array
 
   useEffect(() => {
     fetchChallenges();
@@ -260,9 +260,29 @@ const TradingChallenges = () => {
     }
   };
 
+  const fetchLeaderboard = async (challengeId) => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      const response = await axios.get(
+        `https://valourwealthdjango-production.up.railway.app/api/challenges/${challengeId}/leaderboard/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setLeaderboards((prev) => ({
+        ...prev,
+        [challengeId]: response.data.slice(0, 3), // Only Top 3 entries
+      }));
+    } catch (error) {
+      console.error("Error fetching leaderboard:", error);
+    }
+  };
+
   const joinChallenge = async (challengeId) => {
     try {
-      const token = localStorage.getItem("accessTtoken");
+      const token = localStorage.getItem("accessToken");
       await axios.post(
         `https://valourwealthdjango-production.up.railway.app/api/challenges/${challengeId}/join/`,
         {},
@@ -279,8 +299,8 @@ const TradingChallenges = () => {
     }
   };
 
-  const viewLeaderboard = (challengeId) => {
-    window.location.href = `/leaderboard/${challengeId}`; // You can change routing accordingly
+  const viewFullLeaderboard = (challengeId) => {
+    window.location.href = `/leaderboard/${challengeId}`; // or React Router navigation
   };
 
   const getFilteredChallenges = () => {
@@ -341,7 +361,15 @@ const TradingChallenges = () => {
 
       <div className="challenges-list">
         {getFilteredChallenges().map((challenge) => (
-          <div key={challenge.id} className="challenge-card">
+          <div
+            key={challenge.id}
+            className="challenge-card"
+            onMouseEnter={() => {
+              if (!leaderboards[challenge.id]) {
+                fetchLeaderboard(challenge.id); // Fetch leaderboard on hover if not already loaded
+              }
+            }}
+          >
             <div className="challenge-main">
               <div className="challenge-header">
                 <div className="challenge-icon">
@@ -406,12 +434,58 @@ const TradingChallenges = () => {
                 </button>
                 <button
                   className="action-button filled"
-                  onClick={() => viewLeaderboard(challenge.id)}
+                  onClick={() => viewFullLeaderboard(challenge.id)}
                 >
-                  View Leaderboard
+                  View Full Leaderboard
                 </button>
               </div>
             </div>
+
+            {/* Current Leaderboard */}
+            {leaderboards[challenge.id] &&
+              leaderboards[challenge.id].length > 0 && (
+                <div className="challenge-leaderboard">
+                  <div className="leaderboard-header">
+                    <h4 className="leaderboard-title">Current Leaderboard</h4>
+                    <div className="info-icon">
+                      <i className="bi bi-info-circle"></i>
+                    </div>
+                  </div>
+
+                  <div className="leaderboard-entries">
+                    {leaderboards[challenge.id].map((entry, index) => (
+                      <div key={index} className="leaderboard-entry">
+                        <div className="entry-rank">{index + 1}</div>
+                        <div className="entry-avatar">
+                          {entry.profile_photo_url ? (
+                            <img
+                              src={entry.profile_photo_url}
+                              alt="Profile"
+                              className="avatar-img"
+                            />
+                          ) : (
+                            <div className="avatar-placeholder"></div>
+                          )}
+                        </div>
+                        <div className="entry-name">{entry.username}</div>
+                        <div className="entry-performance">
+                          {parseFloat(entry.performance).toFixed(2)}%
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="view-full-leaderboard">
+                    <button
+                      onClick={() => viewFullLeaderboard(challenge.id)}
+                      className="leaderboard-link"
+                    >
+                      View Full Leaderboard{" "}
+                      <i className="bi bi-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              )}
           </div>
         ))}
       </div>
