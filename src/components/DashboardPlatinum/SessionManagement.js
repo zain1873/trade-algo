@@ -348,12 +348,14 @@ const SessionManagement = () => {
 
   const fetchSessions = async () => {
     try {
-      const resUpcoming = await axios.get(`${API_URL}api/sessions/upcoming/`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
-      const resPast = await axios.get(`${API_URL}api/sessions/past/`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
+      const [resUpcoming, resPast] = await Promise.all([
+        axios.get(`${API_URL}api/sessions/upcoming/`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }),
+        axios.get(`${API_URL}api/sessions/past/`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }),
+      ]);
       setUpcomingSessions(resUpcoming.data);
       setPastSessions(resPast.data);
     } catch (error) {
@@ -375,7 +377,7 @@ const SessionManagement = () => {
         }
       );
       alert("Session Cancelled Successfully");
-      fetchSessions(); // Refresh sessions after cancel
+      fetchSessions(); // Refresh after cancel
     } catch (error) {
       console.error("Error cancelling session:", error);
     }
