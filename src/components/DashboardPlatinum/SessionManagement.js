@@ -526,6 +526,7 @@ const SessionManagement = () => {
   const [upcomingSessions, setUpcomingSessions] = useState([]);
   const [pastSessions, setPastSessions] = useState([]);
   const [selectedSession, setSelectedSession] = useState(null);
+  const [profilePhotoUrl, setProfilePhotoUrl] = useState(null);
   const [notes, setNotes] = useState("");
   const [showNotesModal, setShowNotesModal] = useState(false);
   const accessToken = localStorage.getItem("accessToken");
@@ -547,9 +548,20 @@ const SessionManagement = () => {
       console.error("Error fetching sessions:", error);
     }
   };
+  const fetchUserProfile = async () => {
+    try {
+      const res = await axios.get(`${API_URL}api/user/profile/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      setProfilePhotoUrl(res.data.profile_photo_url);
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+    }
+  };
 
   useEffect(() => {
     fetchSessions();
+    fetchUserProfile();
   }, []);
 
   const handleCancel = async (id) => {
@@ -608,7 +620,7 @@ const SessionManagement = () => {
       <div className="session-header">
         <div className="session-avatar">
           <img
-            src="/default-avatar.png" // Later replace with real analyst or user photo
+            src={profilePhotoUrl || "/api/placeholder/50/50"} // Use real photo or fallback
             alt="Avatar"
             style={{
               borderRadius: "50%",
