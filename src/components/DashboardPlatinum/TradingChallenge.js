@@ -498,16 +498,6 @@ const TradingChallenges = () => {
                       <i className="bi bi-chevron-right"></i>
                     </button>
                   </div>
-
-                  <div className="view-full-leaderboard">
-                    <button
-                      onClick={() => viewFullLeaderboard(challenge.id)}
-                      className="leaderboard-link"
-                    >
-                      View Full Leaderboard{" "}
-                      <i className="bi bi-chevron-right"></i>
-                    </button>
-                  </div>
                 </div>
               )}
           </div>
