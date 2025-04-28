@@ -86,6 +86,7 @@ historical css Container styling .trend-icons {
 .badge.bg-danger {
   background-color: #dc3545 !important; /* Bootstrap red */
   color: white !important;
+  width: fit-content;
   font-weight: bold;
   border-radius: 12px;
   display: inline-block; /* ← This is key: don't stretch */
