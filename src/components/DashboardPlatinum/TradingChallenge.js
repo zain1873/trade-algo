@@ -230,13 +230,12 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment";
+import moment from "moment"; // install if not installed
 
 const TradingChallenges = () => {
   const [activeTab, setActiveTab] = useState("Active Challenges");
   const [challenges, setChallenges] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [leaderboards, setLeaderboards] = useState({}); // challengeId -> leaderboard array
 
   useEffect(() => {
     fetchChallenges();
@@ -255,26 +254,6 @@ const TradingChallenges = () => {
     } catch (error) {
       console.error("Error fetching challenges:", error);
       setLoading(false);
-    }
-  };
-
-  const fetchLeaderboard = async (challengeId) => {
-    try {
-      const token = localStorage.getItem("access_token");
-      const response = await axios.get(
-        `/api/challenges/${challengeId}/leaderboard/`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setLeaderboards((prev) => ({
-        ...prev,
-        [challengeId]: response.data.slice(0, 3), // Only Top 3 entries
-      }));
-    } catch (error) {
-      console.error("Error fetching leaderboard:", error);
     }
   };
 
@@ -297,8 +276,8 @@ const TradingChallenges = () => {
     }
   };
 
-  const viewFullLeaderboard = (challengeId) => {
-    window.location.href = `/leaderboard/${challengeId}`; // or React Router navigation
+  const viewLeaderboard = (challengeId) => {
+    window.location.href = `/leaderboard/${challengeId}`; // You can change routing accordingly
   };
 
   const getFilteredChallenges = () => {
@@ -359,15 +338,7 @@ const TradingChallenges = () => {
 
       <div className="challenges-list">
         {getFilteredChallenges().map((challenge) => (
-          <div
-            key={challenge.id}
-            className="challenge-card"
-            onMouseEnter={() => {
-              if (!leaderboards[challenge.id]) {
-                fetchLeaderboard(challenge.id); // Fetch leaderboard on hover if not already loaded
-              }
-            }}
-          >
+          <div key={challenge.id} className="challenge-card">
             <div className="challenge-main">
               <div className="challenge-header">
                 <div className="challenge-icon">
@@ -432,58 +403,12 @@ const TradingChallenges = () => {
                 </button>
                 <button
                   className="action-button filled"
-                  onClick={() => viewFullLeaderboard(challenge.id)}
+                  onClick={() => viewLeaderboard(challenge.id)}
                 >
-                  View Full Leaderboard
+                  View Leaderboard
                 </button>
               </div>
             </div>
-
-            {/* Current Leaderboard */}
-            {leaderboards[challenge.id] &&
-              leaderboards[challenge.id].length > 0 && (
-                <div className="challenge-leaderboard">
-                  <div className="leaderboard-header">
-                    <h4 className="leaderboard-title">Current Leaderboard</h4>
-                    <div className="info-icon">
-                      <i className="bi bi-info-circle"></i>
-                    </div>
-                  </div>
-
-                  <div className="leaderboard-entries">
-                    {leaderboards[challenge.id].map((entry, index) => (
-                      <div key={index} className="leaderboard-entry">
-                        <div className="entry-rank">{index + 1}</div>
-                        <div className="entry-avatar">
-                          {entry.profile_photo_url ? (
-                            <img
-                              src={entry.profile_photo_url}
-                              alt="Profile"
-                              className="avatar-img"
-                            />
-                          ) : (
-                            <div className="avatar-placeholder"></div>
-                          )}
-                        </div>
-                        <div className="entry-name">{entry.username}</div>
-                        <div className="entry-performance">
-                          {parseFloat(entry.performance).toFixed(2)}%
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="view-full-leaderboard">
-                    <button
-                      onClick={() => viewFullLeaderboard(challenge.id)}
-                      className="leaderboard-link"
-                    >
-                      View Full Leaderboard{" "}
-                      <i className="bi bi-chevron-right"></i>
-                    </button>
-                  </div>
-                </div>
-              )}
           </div>
         ))}
       </div>
