@@ -343,6 +343,7 @@ const SessionManagement = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
   const [upcomingSessions, setUpcomingSessions] = useState([]);
   const [pastSessions, setPastSessions] = useState([]);
+  const [profilePhotoUrl, setProfilePhotoUrl] = useState(null); // <-- New state for user profile photo
   const accessToken = localStorage.getItem("accessToken");
   const API_URL = process.env.REACT_APP_API_URL;
 
@@ -363,8 +364,20 @@ const SessionManagement = () => {
     }
   };
 
+  const fetchUserProfile = async () => {
+    try {
+      const res = await axios.get(`${API_URL}api/user/profile/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      setProfilePhotoUrl(res.data.profile_photo_url);
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+    }
+  };
+
   useEffect(() => {
     fetchSessions();
+    fetchUserProfile();
   }, []);
 
   const handleCancel = async (id) => {
@@ -391,6 +404,69 @@ const SessionManagement = () => {
     }
   };
 
+  const renderSessionCard = (session) => (
+    <div key={session.id} className="psession-card mb-4">
+      <div className="session-header">
+        <div className="session-avatar">
+          <img
+            src={profilePhotoUrl || "/api/placeholder/50/50"} // Use real photo or fallback
+            alt="Avatar"
+            style={{
+              borderRadius: "50%",
+              width: "50px",
+              height: "50px",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+        <div className="session-status">{session.status}</div>
+      </div>
+      <div className="session-title">1-on-1 Session</div>
+      <div className="session-host">with {session.analyst_name}</div>
+      <div className="session-details">
+        <div className="detail-item">
+          <i className="bi bi-calendar"></i> {session.date}
+        </div>
+        <div className="detail-item">
+          <i className="bi bi-clock"></i> {session.time_slot}
+        </div>
+        <div className="detail-item">
+          <i className="bi bi-hourglass"></i> 1 Hour
+        </div>
+      </div>
+      <div className="session-actions">
+        {session.status !== "Cancelled" && (
+          <button
+            className="btn btn-link text-danger"
+            onClick={() => handleCancel(session.id)}
+          >
+            Cancel Session
+          </button>
+        )}
+        {session.notes_pdf && (
+          <a
+            href={session.notes_pdf}
+            className="btn btn-outline-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Notes
+          </a>
+        )}
+        {session.recording_link && (
+          <a
+            href={session.recording_link}
+            className="btn btn-outline-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Recording
+          </a>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className="session-management">
       <div className="container-fluid">
@@ -414,108 +490,22 @@ const SessionManagement = () => {
         </div>
 
         <div className="tab-content-platinum mt-4">
-          {/* Upcoming Sessions */}
           {activeTab === "upcoming" && (
             <div className="tab-pane show active">
               {upcomingSessions.length === 0 ? (
                 <p>No upcoming sessions found.</p>
               ) : (
-                upcomingSessions.map((session) => (
-                  <div key={session.id} className="psession-card mb-4">
-                    <div className="session-header">
-                      <div className="session-avatar">
-                        <img src="/api/placeholder/50/50" alt="Avatar" />
-                      </div>
-                      <div className="session-status">{session.status}</div>
-                    </div>
-                    <div className="session-title">1-on-1 Session</div>
-                    <div className="session-host">
-                      with {session.analyst_name}
-                    </div>
-                    <div className="session-details">
-                      <div className="detail-item">
-                        <i className="bi bi-calendar"></i> {session.date}
-                      </div>
-                      <div className="detail-item">
-                        <i className="bi bi-clock"></i> {session.time_slot}
-                      </div>
-                      <div className="detail-item">
-                        <i className="bi bi-hourglass"></i> 1 Hour
-                      </div>
-                    </div>
-                    <div className="session-actions">
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => handleJoin(session)}
-                      >
-                        Join Session
-                      </button>
-                      <button
-                        className="btn btn-link text-danger"
-                        onClick={() => handleCancel(session.id)}
-                      >
-                        Cancel Session
-                      </button>
-                    </div>
-                  </div>
-                ))
+                upcomingSessions.map(renderSessionCard)
               )}
             </div>
           )}
 
-          {/* Past Sessions */}
           {activeTab === "past" && (
             <div className="tab-pane show active">
               {pastSessions.length === 0 ? (
                 <p>No past sessions found.</p>
               ) : (
-                pastSessions.map((session) => (
-                  <div key={session.id} className="psession-card mb-4">
-                    <div className="session-header">
-                      <div className="session-avatar">
-                        <img src="/api/placeholder/50/50" alt="Avatar" />
-                      </div>
-                      <div className="session-status">{session.status}</div>
-                    </div>
-                    <div className="session-title">1-on-1 Session</div>
-                    <div className="session-host">
-                      with {session.analyst_name}
-                    </div>
-                    <div className="session-details">
-                      <div className="detail-item">
-                        <i className="bi bi-calendar"></i> {session.date}
-                      </div>
-                      <div className="detail-item">
-                        <i className="bi bi-clock"></i> {session.time_slot}
-                      </div>
-                      <div className="detail-item">
-                        <i className="bi bi-hourglass"></i> 1 Hour
-                      </div>
-                    </div>
-                    <div className="session-actions">
-                      {session.notes_pdf && (
-                        <a
-                          href={session.notes_pdf}
-                          className="btn btn-outline-primary"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Notes
-                        </a>
-                      )}
-                      {session.recording_link && (
-                        <a
-                          href={session.recording_link}
-                          className="btn btn-outline-secondary"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Download Recording
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))
+                pastSessions.map(renderSessionCard)
               )}
             </div>
           )}

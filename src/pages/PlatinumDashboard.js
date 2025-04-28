@@ -1,4 +1,4 @@
-// import axios from "axios";
+// im>ort axios from "axios";
 // import { useEffect } from "react";
 // import React, { useState, useRef } from "react";
 // import "../styles/platinumDashboard.css";
@@ -903,8 +903,33 @@ const PlatinumDashboard = () => {
                     dropdown.classList.toggle("show");
                   }}
                 >
-                  <span>P</span>
+                  {userData?.profile_photo_url ? (
+                    <img
+                      src={userData.profile_photo_url}
+                      alt="Profile"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  ) : (
+                    <span>P</span>
+                  )}
                 </div>
+
+                {/* <div
+                  className="profile-avatar"
+                  id="profileAvatar"
+                  onClick={() => {
+                    const dropdown =
+                      document.querySelector(".profile-dropdown");
+                    dropdown.classList.toggle("show");
+                  }}
+                >
+                  <span>P</span>
+                </div> */}
                 <div className="profile-dropdown">
                   <a
                     href="#"
@@ -954,7 +979,20 @@ const PlatinumDashboard = () => {
               </div>
               <div className="col-md-4 d-flex justify-content-end align-items-start">
                 <div className="large-profile-avatar">
-                  <span>P</span>
+                  {userData?.profile_photo_url ? (
+                    <img
+                      src={userData.profile_photo_url}
+                      alt="Profile"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  ) : (
+                    <span>P</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -1090,7 +1128,7 @@ const PlatinumDashboard = () => {
                                   : "align-items-start"
                               } mb-3`}
                             >
-                              <div className="d-flex align-items-end">
+                              {/* <div className="d-flex align-items-end">
                                 {!isCurrentUser && (
                                   <img
                                     src={
@@ -1131,6 +1169,65 @@ const PlatinumDashboard = () => {
                                     }
                                     className="chat-avatar ms-2"
                                     alt="me"
+                                  />
+                                )}
+                              </div> */}
+                              <div className="d-flex align-items-end">
+                                {/* Admin (other user) avatar on left */}
+                                {!isCurrentUser && (
+                                  <img
+                                    src={
+                                      adminProfilePhotoUrl ||
+                                      "/default-admin.png"
+                                    }
+                                    className="chat-avatar me-2"
+                                    alt="Admin"
+                                    style={{
+                                      width: "40px",
+                                      height: "40px",
+                                      borderRadius: "50%",
+                                      objectFit: "cover",
+                                    }}
+                                  />
+                                )}
+
+                                {/* Message bubble */}
+                                <div className={`message-bubble text-white`}>
+                                  <div className="sender-name text-white fw-bold mb-1">
+                                    {isCurrentUser
+                                      ? "You"
+                                      : msg.sender_name || "Admin"}
+                                  </div>
+                                  <div className="message-text">
+                                    {msg.content}
+                                  </div>
+                                  <div className="message-time text-end mt-1 small">
+                                    {new Date(msg.timestamp).toLocaleTimeString(
+                                      [],
+                                      {
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                        hour12: true,
+                                      }
+                                    )}
+                                  </div>
+                                </div>
+
+                                {/* Current user (you) avatar on right */}
+                                {isCurrentUser && (
+                                  <img
+                                    src={
+                                      userData?.profile_photo_url ||
+                                      "/default-user.png"
+                                    }
+                                    className="chat-avatar ms-2"
+                                    alt="Me"
+                                    style={{
+                                      width: "40px",
+                                      height: "40px",
+                                      borderRadius: "50%",
+                                      objectFit: "cover",
+                                    }}
                                   />
                                 )}
                               </div>
