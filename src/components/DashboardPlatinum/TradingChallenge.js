@@ -243,12 +243,15 @@ const TradingChallenges = () => {
 
   const fetchChallenges = async () => {
     try {
-      const token = localStorage.getItem("access_token");
-      const response = await axios.get("/api/challenges/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const token = localStorage.getItem("accessToken");
+      const response = await axios.get(
+        "https://valourwealthdjango-production.up.railway.app/api/challenges/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setChallenges(response.data);
       setLoading(false);
     } catch (error) {
@@ -259,9 +262,9 @@ const TradingChallenges = () => {
 
   const joinChallenge = async (challengeId) => {
     try {
-      const token = localStorage.getItem("access_token");
+      const token = localStorage.getItem("accessTtoken");
       await axios.post(
-        `/api/challenges/${challengeId}/join/`,
+        `https://valourwealthdjango-production.up.railway.app/api/challenges/${challengeId}/join/`,
         {},
         {
           headers: {
