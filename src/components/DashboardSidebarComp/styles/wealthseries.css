@@ -7,7 +7,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-
 }
 
 .wealth-series .wealth-container {
@@ -38,7 +37,6 @@
 }
 .wealth-card .theme_btn:hover {
   background-color: #f7d625 !important;
-  
 }
 
 .wealth-title {

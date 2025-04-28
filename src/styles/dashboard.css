@@ -528,6 +528,13 @@ body .dark {
   .col-3.sidebar-mbl .nav.flex-column .nav-link {
     width: 100% !important;
   }
+
+  .mbl-toggle {
+    justify-content: end;
+    margin-left: auto;
+    width: 100%;
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
@@ -679,6 +686,10 @@ body .dark {
   }
   .dashboard_row .offset-1 {
     margin-left: 10.333333% !important;
+  }
+
+  .card-container {
+    padding: 0 !important;
   }
 }
 
