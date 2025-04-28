@@ -519,11 +519,15 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../styles/sessionManagementModal.css";
 
 const SessionManagement = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
   const [upcomingSessions, setUpcomingSessions] = useState([]);
   const [pastSessions, setPastSessions] = useState([]);
+  const [selectedSession, setSelectedSession] = useState(null);
+  const [notes, setNotes] = useState("");
+  const [showNotesModal, setShowNotesModal] = useState(false);
   const accessToken = localStorage.getItem("accessToken");
   const API_URL = process.env.REACT_APP_API_URL;
 
@@ -558,7 +562,7 @@ const SessionManagement = () => {
         }
       );
       alert("✅ Session Cancelled Successfully!");
-      fetchSessions(); // 🔥 Refresh sessions after cancel
+      fetchSessions();
     } catch (error) {
       console.error("Error cancelling session:", error);
       alert("❌ Error cancelling session. Please try again.");
@@ -573,12 +577,38 @@ const SessionManagement = () => {
     }
   };
 
+  const openNotesModal = (session) => {
+    setSelectedSession(session);
+    setNotes(session.notes || "");
+    setShowNotesModal(true);
+  };
+
+  const saveNotes = async () => {
+    if (!selectedSession) return;
+
+    try {
+      await axios.patch(
+        `${API_URL}api/sessions/${selectedSession.id}/`,
+        { notes },
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
+      alert("✅ Notes saved successfully!");
+      setShowNotesModal(false);
+      fetchSessions();
+    } catch (error) {
+      console.error("Error saving notes:", error);
+      alert("❌ Error saving notes. Please try again.");
+    }
+  };
+
   const renderSessionCard = (session, isPast = false) => (
     <div key={session.id} className="psession-card mb-4">
       <div className="session-header">
         <div className="session-avatar">
           <img
-            src="/api/placeholder/50/50" // 👈 You can later replace with user's profile photo if needed
+            src="/default-avatar.png" // Later replace with real analyst or user photo
             alt="Avatar"
             style={{
               borderRadius: "50%",
@@ -623,16 +653,17 @@ const SessionManagement = () => {
 
         {isPast && (
           <>
-            {session.notes_pdf && (
-              <a
-                href={session.notes_pdf}
-                className="btn btn-outline-primary me-2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Notes
-              </a>
+            {session.notes && (
+              <div className="text-white mb-2">
+                <strong>Notes:</strong> {session.notes}
+              </div>
             )}
+            <button
+              className="btn btn-outline-primary me-2"
+              onClick={() => openNotesModal(session)}
+            >
+              {session.notes ? "View/Edit Notes" : "Add Notes"}
+            </button>
             {session.recording_link && (
               <a
                 href={session.recording_link}
@@ -692,6 +723,32 @@ const SessionManagement = () => {
             </div>
           )}
         </div>
+
+        {/* Notes Modal */}
+        {showNotesModal && (
+          <div className="modal-backdrop">
+            <div className="notes-modal">
+              <h4>{selectedSession.notes ? "Edit Notes" : "Add Notes"}</h4>
+              <textarea
+                className="form-control my-3"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                rows="6"
+              />
+              <div className="text-end">
+                <button
+                  className="btn btn-secondary me-2"
+                  onClick={() => setShowNotesModal(false)}
+                >
+                  Cancel
+                </button>
+                <button className="btn btn-primary" onClick={saveNotes}>
+                  Save Notes
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
