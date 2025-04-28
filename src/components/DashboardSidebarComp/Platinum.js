@@ -160,16 +160,73 @@
 
 // export default Mentorship;
 
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import "../DashboardSidebarComp/styles/mentorship.css";
+// import PlatinumCard from "../DashboardSidebarComp/platinumCard";
+
+// const Mentorship = ({ darkMode }) => {
+//   const [activeTab, setActiveTab] = useState("sessions");
+//   const [activeSubTab, setActiveSubTab] = useState("platinum");
+//   const [userData, setUserData] = useState(null);
+
+//   const accessToken = localStorage.getItem("accessToken");
+//   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
+//     ? process.env.REACT_APP_API_URL
+//     : process.env.REACT_APP_API_URL + "/";
+//   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       if (!accessToken) return;
+
+//       try {
+//         const res = await axios.get(USER_API_URL, {
+//           headers: {
+//             Authorization: `Bearer ${accessToken}`,
+//           },
+//         });
+//         setUserData(res.data);
+//       } catch (err) {
+//         console.error("Error fetching user:", err);
+//       }
+//     };
+
+//     fetchUser();
+//   }, [accessToken]);
+
+//   // ⛔ if user is NOT platinum, just show PlatinumCard
+//   if (userData && userData.subscription_status !== "platinum") {
+//     return (
+//       <div className="container mt-5">
+//         <PlatinumCard />
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="container mt-4">
+//       {/* Tabs */}
+//       <ul className="nav nav-tabs nav-platinum-tab">
+//         <div className="premium-login">
+//           <a href="/platinum-dashboard" className="theme_btn">
+//             Premium Login
+//           </a>
+//         </div>
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default Mentorship;
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import PlatinumCard from "../DashboardSidebarComp/platinumCard";
 
 const Mentorship = ({ darkMode }) => {
-  const [activeTab, setActiveTab] = useState("sessions");
-  const [activeSubTab, setActiveSubTab] = useState("platinum");
   const [userData, setUserData] = useState(null);
-
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
     ? process.env.REACT_APP_API_URL
@@ -195,7 +252,14 @@ const Mentorship = ({ darkMode }) => {
     fetchUser();
   }, [accessToken]);
 
-  // ⛔ if user is NOT platinum, just show PlatinumCard
+  // ✅ If user is platinum, redirect automatically
+  useEffect(() => {
+    if (userData?.subscription_status === "platinum") {
+      window.location.href = "/platinum-dashboard";
+    }
+  }, [userData]);
+
+  // ⛔ If user is NOT platinum, show PlatinumCard
   if (userData && userData.subscription_status !== "platinum") {
     return (
       <div className="container mt-5">
@@ -204,27 +268,12 @@ const Mentorship = ({ darkMode }) => {
     );
   }
 
-  return (
-    <div className="container mt-4">
-      {/* Tabs */}
-      <ul className="nav nav-tabs nav-platinum-tab">
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === "sessions" ? "active" : ""}`}
-            onClick={() => setActiveTab("sessions")}
-          >
-            Manage My Sessions
-          </button>
-        </li>
+  //  While loading user data, show nothing or a loader
+  if (!userData) {
+    return <div className="text-center mt-5">Loading...</div>;
+  }
 
-        <div className="premium-login">
-          <a href="/platinum-dashboard" className="theme_btn">
-            Premium Login
-          </a>
-        </div>
-      </ul>
-    </div>
-  );
+  return null;
 };
 
 export default Mentorship;
