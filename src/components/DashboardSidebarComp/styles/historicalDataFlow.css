@@ -84,7 +84,7 @@
   width: fit-content;
 }
 .historic-table {
-  background-color: none !important;
+  background: none !important;
 }
 
 .historic-table .nav-item .nav-link {
