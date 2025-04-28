@@ -134,6 +134,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
+import HeatmapDetails from "./portfolioDetails/HeatmapDetails";
 function PortfolioComponent() {
   const [portfolio, setPortfolio] = useState(null);
   const [loading, setLoading] = useState(true);
