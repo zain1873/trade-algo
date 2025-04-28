@@ -6,6 +6,9 @@ body .dark {
   height: 100vh;
   overflow-x: hidden;
 }
+.chat-btns {
+  max-height: 50px !important;
+}
 
 /* Sidebar Transition */
 .transition-width {
