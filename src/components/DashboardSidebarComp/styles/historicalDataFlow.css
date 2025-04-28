@@ -81,6 +81,14 @@
   background-color: #d4edda !important;
   color: #28a745;
   font-weight: bold;
+  width: fit-content;
+}
+.historic-table {
+  background-color: none;
+}
+
+.historic-table .nav-item .nav-link {
+  border-radius: 26px !important;
 }
 
 /* Default Table Styles */

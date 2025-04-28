@@ -271,7 +271,7 @@ const Mentorship = ({ darkMode }) => {
                   <div
                     className={`card level-card ${darkMode ? "dark-mode" : ""}`}
                   >
-                    <div className="card-body p-5">
+                    <div className="card-body">
                       <h4 className="text-primary">Platinum Level</h4>
                       <p>
                         Personalized coaching and equipping users with key
@@ -294,7 +294,7 @@ const Mentorship = ({ darkMode }) => {
                   <div
                     className={`card level-card ${darkMode ? "dark-mode" : ""}`}
                   >
-                    <div className="card-body p-5">
+                    <div className="card-body">
                       <h4 className="text-success">Emerald Level</h4>
                       <p>
                         Advanced mentorship with real-time trading analysis and
