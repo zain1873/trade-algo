@@ -453,26 +453,50 @@ const TradingChallenges = () => {
                   </div>
 
                   <div className="leaderboard-entries">
-                    {leaderboards[challenge.id].map((entry, index) => (
-                      <div key={index} className="leaderboard-entry">
-                        <div className="entry-rank">{index + 1}</div>
-                        <div className="entry-avatar">
-                          {entry.profile_photo_url ? (
-                            <img
-                              src={entry.profile_photo_url}
-                              alt="Profile"
-                              className="avatar-img"
-                            />
-                          ) : (
-                            <div className="avatar-placeholder"></div>
-                          )}
+                    {leaderboards[challenge.id] &&
+                      leaderboards[challenge.id].length > 0 &&
+                      leaderboards[challenge.id].map((entry, index) => (
+                        <div key={index} className="leaderboard-entry">
+                          <div className="entry-rank">{index + 1}</div>
+                          <div className="entry-avatar">
+                            {entry.profile_photo_url ? (
+                              <img
+                                src={entry.profile_photo_url}
+                                alt="Profile"
+                                style={{
+                                  width: "30px",
+                                  height: "30px",
+                                  borderRadius: "50%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                            ) : (
+                              <div
+                                style={{
+                                  width: "30px",
+                                  height: "30px",
+                                  borderRadius: "50%",
+                                  backgroundColor: "#6c757d",
+                                }}
+                              ></div>
+                            )}
+                          </div>
+                          <div className="entry-name">{entry.username}</div>
+                          <div className="entry-performance">
+                            {parseFloat(entry.performance).toFixed(2)}%
+                          </div>
                         </div>
-                        <div className="entry-name">{entry.username}</div>
-                        <div className="entry-performance">
-                          {parseFloat(entry.performance).toFixed(2)}%
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                  </div>
+
+                  <div className="view-full-leaderboard">
+                    <button
+                      onClick={() => viewFullLeaderboard(challenge.id)}
+                      className="leaderboard-link"
+                    >
+                      View Full Leaderboard{" "}
+                      <i className="bi bi-chevron-right"></i>
+                    </button>
                   </div>
 
                   <div className="view-full-leaderboard">
