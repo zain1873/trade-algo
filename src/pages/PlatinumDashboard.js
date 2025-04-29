@@ -1042,6 +1042,7 @@ const PlatinumDashboard = () => {
     setShowNotificationsPopup(false);
     setShowProfileDropdown(false);
   };
+
   useEffect(() => {
     const fetchCallCredits = async () => {
       if (!accessToken) return;
@@ -1052,10 +1053,11 @@ const PlatinumDashboard = () => {
         if (res.data.length > 0) {
           setCallCredits(res.data[0].hours_remaining);
         }
-      } catch (err) {
-        console.error("Failed to fetch call credits", err);
+      } catch (error) {
+        console.error("Failed to fetch call credits", error);
       }
     };
+
     fetchCallCredits();
   }, [accessToken]);
 
@@ -1294,6 +1296,7 @@ const PlatinumDashboard = () => {
                   <div className="call-credits me-3 mb-2">
                     <i className="bi bi-clock me-1"></i>
                     <span>
+                      <i className="bi bi-clock me-1"></i>
                       Call Credits:{" "}
                       {callCredits !== null
                         ? `${callCredits} hours remaining`
