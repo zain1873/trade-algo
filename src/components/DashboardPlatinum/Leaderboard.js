@@ -218,7 +218,30 @@ const TraderLeaderboard = () => {
             <div key={index} className="trader-row">
               <div className="trader-info">
                 <div className="rank-circle">{index + 1}</div>
-                <div className="avatar-circle"></div>
+                <div className="avatar-circle">
+                  {trader.profile_photo_url ? (
+                    <img
+                      src={trader.profile_photo_url}
+                      alt="Profile"
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        backgroundColor: "#6c757d",
+                      }}
+                    ></div>
+                  )}
+                </div>
+
                 <div className="trader-details">
                   <div className="trader-name">{trader.username}</div>
                   <div className="trader-type">Platinum Trader</div>
