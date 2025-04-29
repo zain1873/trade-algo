@@ -1181,6 +1181,25 @@ const PlatinumDashboard = () => {
                             </div>
                           );
                         })}
+                        <div className="chat-input-container mt-2">
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Type your message..."
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                sendMessage();
+                              }
+                            }}
+                          />
+
+                          <button className="send-button" onClick={sendMessage}>
+                            <i className="bi bi-send-fill"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
