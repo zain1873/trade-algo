@@ -1114,7 +1114,9 @@ const PlatinumDashboard = () => {
                         {messages.map((msg) => {
                           const isCurrentUser =
                             msg.sender_name === userData?.username;
-                          const isAdmin = !isCurrentUser;
+                          const profilePhoto = isCurrentUser
+                            ? userData?.profile_photo_url
+                            : msg.sender_profile_photo_url; // 🛠️ yeh field backend se bhejna zaruri hai
 
                           return (
                             <div
@@ -1125,60 +1127,13 @@ const PlatinumDashboard = () => {
                                   : "align-items-start"
                               } mb-3`}
                             >
-                              {/* <div className="d-flex align-items-end">
-                                {!isCurrentUser && (
-                                  <img
-                                    src={
-                                      adminProfilePhotoUrl ||
-                                      "/default-admin.png"
-                                    }
-                                    className="chat-avatar me-2"
-                                    alt="admin"
-                                  />
-                                )}
-
-                                <div className={`message-bubble text-white`}>
-                                  <div className="sender-name text-white fw-bold mb-1">
-                                    {isCurrentUser
-                                      ? "You"
-                                      : msg.sender_name || "Admin"}
-                                  </div>
-                                  <div className="message-text">
-                                    {msg.content}
-                                  </div>
-                                  <div className="message-time text-end mt-1 small">
-                                    {new Date(msg.timestamp).toLocaleTimeString(
-                                      [],
-                                      {
-                                        hour: "2-digit",
-                                        minute: "2-digit",
-                                        hour12: true,
-                                      }
-                                    )}
-                                  </div>
-                                </div>
-
-                                {isCurrentUser && (
-                                  <img
-                                    src={
-                                      userData?.profile_photo_url ||
-                                      "/default-user.png"
-                                    }
-                                    className="chat-avatar ms-2"
-                                    alt="me"
-                                  />
-                                )}
-                              </div> */}
                               <div className="d-flex align-items-end">
-                                {/* Admin (other user) avatar on left */}
+                                {/* Other User Avatar (Left) */}
                                 {!isCurrentUser && (
                                   <img
-                                    src={
-                                      adminProfilePhotoUrl ||
-                                      "/default-admin.png"
-                                    }
+                                    src={profilePhoto || "/default-user.png"}
                                     className="chat-avatar me-2"
-                                    alt="Admin"
+                                    alt="Sender"
                                     style={{
                                       width: "40px",
                                       height: "40px",
@@ -1188,12 +1143,10 @@ const PlatinumDashboard = () => {
                                   />
                                 )}
 
-                                {/* Message bubble */}
-                                <div className={`message-bubble text-white`}>
+                                {/* Message Bubble */}
+                                <div className="message-bubble text-white">
                                   <div className="sender-name text-white fw-bold mb-1">
-                                    {isCurrentUser
-                                      ? "You"
-                                      : msg.sender_name || "Admin"}
+                                    {isCurrentUser ? "You" : msg.sender_name}
                                   </div>
                                   <div className="message-text">
                                     {msg.content}
@@ -1210,13 +1163,10 @@ const PlatinumDashboard = () => {
                                   </div>
                                 </div>
 
-                                {/* Current user (you) avatar on right */}
+                                {/* Current User Avatar (Right) */}
                                 {isCurrentUser && (
                                   <img
-                                    src={
-                                      userData?.profile_photo_url ||
-                                      "/default-user.png"
-                                    }
+                                    src={profilePhoto || "/default-user.png"}
                                     className="chat-avatar ms-2"
                                     alt="Me"
                                     style={{
@@ -1231,26 +1181,6 @@ const PlatinumDashboard = () => {
                             </div>
                           );
                         })}
-
-                        <div className="chat-input-container mt-2">
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Type your message..."
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter") {
-                                e.preventDefault();
-                                sendMessage();
-                              }
-                            }}
-                          />
-
-                          <button className="send-button" onClick={sendMessage}>
-                            <i className="bi bi-send-fill"></i>
-                          </button>
-                        </div>
                       </div>
                     </div>
                   </div>
