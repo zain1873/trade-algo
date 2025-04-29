@@ -617,6 +617,11 @@ const PlatinumDashboard = () => {
   const [activeDashboardTab, setActiveDashboardTab] = useState("market");
   const [showEditProfile, setShowEditProfile] = useState(false);
 
+  const [unreadMessages, setUnreadMessages] = useState(0);
+  const [unreadNotifications, setUnreadNotifications] = useState(0);
+  const [showMessagesPopup, setShowMessagesPopup] = useState(false);
+  const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
+
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
     ? process.env.REACT_APP_API_URL
@@ -694,6 +699,24 @@ const PlatinumDashboard = () => {
       console.error("\u274C Error sending message", err.response?.data || err);
     }
   };
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const res = await axios.get(`${API_BASE_URL}api/chat/unread-count/`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+        setUnreadMessages(res.data.unread_messages);
+        setUnreadNotifications(res.data.unread_notifications);
+      } catch (err) {
+        console.error("Count fetch error", err);
+      }
+    };
+
+    fetchCounts();
+    const interval = setInterval(fetchCounts, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="platinum-dashboard">
@@ -876,19 +899,33 @@ const PlatinumDashboard = () => {
 
             <div className="d-flex align-items-center position-relative profile-wrapper">
               {/* Notifications */}
-              <div className="position-relative me-3">
+              <div
+                className="position-relative me-3"
+                onClick={() =>
+                  setShowNotificationsPopup(!showNotificationsPopup)
+                }
+              >
                 <i className="bi bi-bell fs-5 text-light"></i>
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  3
-                </span>
+                {unreadNotifications > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                    {unreadNotifications}
+                  </span>
+                )}
               </div>
+
               {/* Messages */}
-              <div className="position-relative me-3">
+              <div
+                className="position-relative me-3"
+                onClick={() => setShowMessagesPopup(!showMessagesPopup)}
+              >
                 <i className="bi bi-chat fs-5 text-light"></i>
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                  5
-                </span>
+                {unreadMessages > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                    {unreadMessages}
+                  </span>
+                )}
               </div>
+
               {/* Avatar and Custom Dropdown */}
               <div className="position-relative profile-wrapper">
                 <div
