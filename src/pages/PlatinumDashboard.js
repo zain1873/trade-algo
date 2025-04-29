@@ -1016,6 +1016,7 @@ const PlatinumDashboard = () => {
   const [showMessagesPopup, setShowMessagesPopup] = useState(false);
   const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [callCredits, setCallCredits] = useState(null);
 
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
@@ -1041,6 +1042,22 @@ const PlatinumDashboard = () => {
     setShowNotificationsPopup(false);
     setShowProfileDropdown(false);
   };
+  useEffect(() => {
+    const fetchCallCredits = async () => {
+      if (!accessToken) return;
+      try {
+        const res = await axios.get(`${API_BASE_URL}api/callcredits/`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+        if (res.data.length > 0) {
+          setCallCredits(res.data[0].hours_remaining);
+        }
+      } catch (err) {
+        console.error("Failed to fetch call credits", err);
+      }
+    };
+    fetchCallCredits();
+  }, [accessToken]);
 
   const handleAvatarClick = () => {
     setShowProfileDropdown(!showProfileDropdown);
@@ -1247,6 +1264,20 @@ const PlatinumDashboard = () => {
         </div>
       </nav>
 
+      {showEditProfile && (
+        <div className="edit-profile-modal">
+          <EditProfile />
+          <div className="text-center mt-3">
+            <button
+              className="btn btn-danger"
+              onClick={() => setShowEditProfile(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Main Content */}
       <div className="container-fluid p-4">
         {activeSection === "dashboard" && (
@@ -1260,12 +1291,17 @@ const PlatinumDashboard = () => {
                   experience.
                 </p>
                 <div className="d-flex flex-wrap align-items-center mt-3">
-                  <span className="badge platinum-badge me-3 mb-2">
-                    Platinum Status
-                  </span>
                   <div className="call-credits me-3 mb-2">
                     <i className="bi bi-clock me-1"></i>
-                    <span>Call Credits: 10 hours remaining</span>
+                    <div className="call-credits me-3 mb-2">
+                      <i className="bi bi-clock me-1"></i>
+                      <span>
+                        Call Credits:{" "}
+                        {callCredits !== null
+                          ? `${callCredits} hours remaining`
+                          : "Loading..."}
+                      </span>
+                    </div>
                   </div>
                   <a href="#" className="benefits-link mb-2">
                     View Benefits <i className="bi bi-chevron-right"></i>
