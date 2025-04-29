@@ -590,9 +590,403 @@
 
 // export default PlatinumDashboard;
 
+// import axios from "axios";
+// import { useEffect } from "react";
+// import React, { useState, useRef } from "react";
+// import "../styles/platinumDashboard.css";
+// import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
+// import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
+// import MarketNews from "../components/DashboardPlatinum/MarketNews";
+// import Wabinars from "../components/DashboardPlatinum/Wabinars";
+// import TradingChallenges from "../components/DashboardPlatinum/TradingChallenge";
+// import ScheduleCall from "../components/DashboardPlatinum/ScheduleCall";
+// import PortfolioHeatmap from "../components/DashboardPlatinum/PortfolioHeatmap";
+// import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
+// import PlatinumMembershipNFT from "../components/DashboardPlatinum/MembershipNft";
+// import JournalPage from "../components/DashboardPlatinum/JournalPage";
+// import EditProfile from "../components/DashboardSidebarComp/EditProfile";
+
+// const PlatinumDashboard = () => {
+//   const [activeSection, setActiveSection] = useState("dashboard");
+//   const collapseRef = useRef(null);
+//   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
+//   const [userData, setUserData] = useState(null);
+//   const [messages, setMessages] = useState([]);
+//   const [input, setInput] = useState("");
+//   const [conversationId, setConversationId] = useState(null);
+//   const [activeDashboardTab, setActiveDashboardTab] = useState("market");
+//   const [showEditProfile, setShowEditProfile] = useState(false);
+
+//   const [unreadMessages, setUnreadMessages] = useState(0);
+//   const [unreadNotifications, setUnreadNotifications] = useState(0);
+//   const [showMessagesPopup, setShowMessagesPopup] = useState(false);
+//   const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
+
+//   const accessToken = localStorage.getItem("accessToken");
+//   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
+//     ? process.env.REACT_APP_API_URL
+//     : process.env.REACT_APP_API_URL + "/";
+//   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+
+//   const handleNavClick = (key) => {
+//     setActiveSection(key);
+//     if (collapseRef.current?.classList.contains("show")) {
+//       collapseRef.current.classList.remove("show");
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchMessages();
+//     const interval = setInterval(fetchMessages, 5000);
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       if (!accessToken) return;
+//       try {
+//         const res = await axios.get(USER_API_URL, {
+//           headers: { Authorization: `Bearer ${accessToken}` },
+//         });
+//         setUserData(res.data);
+//       } catch (err) {
+//         console.error("Failed to fetch user", err);
+//       }
+//     };
+//     fetchUser();
+//   }, [accessToken]);
+
+//   useEffect(() => {
+//     const fetchAdminPhoto = async () => {
+//       try {
+//         const res = await axios.get(`${API_BASE_URL}api/user/profile/`, {
+//           headers: { Authorization: `Bearer ${accessToken}` },
+//         });
+//         setAdminProfilePhotoUrl(res.data.profile_photo_url);
+//       } catch (error) {
+//         console.warn("Admin profile photo not found");
+//       }
+//     };
+//     fetchAdminPhoto();
+//   }, []);
+
+//   const fetchMessages = async () => {
+//     try {
+//       const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
+//         headers: { Authorization: `Bearer ${accessToken}` },
+//       });
+//       if (res.data.length > 0) {
+//         const convo = res.data[0];
+//         setConversationId(convo.id);
+//         setMessages(convo.messages);
+//       }
+//     } catch (err) {
+//       console.error("\u274C Error fetching messages", err);
+//     }
+//   };
+
+//   const sendMessage = async () => {
+//     if (!input.trim() || !conversationId) return;
+//     try {
+//       await axios.post(
+//         `${API_BASE_URL}api/chat/send/`,
+//         { conversation: conversationId, content: input },
+//         { headers: { Authorization: `Bearer ${accessToken}` } }
+//       );
+//       setInput("");
+//       fetchMessages();
+//     } catch (err) {
+//       console.error("\u274C Error sending message", err.response?.data || err);
+//     }
+//   };
+
+//   useEffect(() => {
+//     const fetchCounts = async () => {
+//       try {
+//         const res = await axios.get(`${API_BASE_URL}api/chat/unread-count/`, {
+//           headers: { Authorization: `Bearer ${accessToken}` },
+//         });
+//         setUnreadMessages(res.data.unread_messages);
+//         setUnreadNotifications(res.data.unread_notifications);
+//       } catch (err) {
+//         console.error("Count fetch error", err);
+//       }
+//     };
+
+//     fetchCounts();
+//     const interval = setInterval(fetchCounts, 10000);
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   return (
+//     <div className="platinum-dashboard">
+//       {/* Top Navbar */}
+
+//       {showEditProfile && (
+//         <div className="edit-profile-modal">
+//           <EditProfile />
+//           <div className="text-center mt-3">
+//             <button
+//               className="btn btn-danger"
+//               onClick={() => setShowEditProfile(false)}
+//             >
+//               Close
+//             </button>
+//           </div>
+//         </div>
+//       )}
+
+//       <nav className="navbar navbar-platinum navbar-expand-lg navbar-dark">
+//         <div className="container-fluid">
+//           <a className="navbar-brand fw-bold" href="#">
+//             PLATINUMTRADE
+//           </a>
+//           <button
+//             className="navbar-toggler"
+//             type="button"
+//             data-bs-toggle="collapse"
+//             data-bs-target="#navbarNav"
+//           >
+//             <span className="navbar-toggler-icon"></span>
+//           </button>
+//           <div
+//             className="collapse navbar-collapse"
+//             id="navbarNav"
+//             ref={collapseRef}
+//           >
+//             <ul className="navbar-nav me-auto">
+//               {/* Always keep Dashboard */}
+//               <button
+//                 className={`tab-button ${
+//                   activeDashboardTab === "market" ? "active" : ""
+//                 }`}
+//                 onClick={() => setActiveDashboardTab("market")}
+//               >
+//                 Dashboard
+//               </button>
+
+//               {/* New Items */}
+//               {[
+//                 // { key: "briefing", label: "Weekly Briefing" },
+//                 { key: "webinars", label: "Webinars" },
+//                 { key: "challenges", label: "Trading Challenges" },
+//                 { key: "portfolio-heatmap", label: "Portfolio Heatmap" },
+//                 // { key: "leaderboard", label: "Leaderboard" },
+//                 // { key: "schedule-call", label: "Private Coaching" },
+//                 { key: "news", label: "News" },
+//               ].map(({ key, label }) => (
+//                 <li className="nav-item" key={key}>
+//                   <a
+//                     className={`nav-link ${
+//                       activeSection === key ? "active" : ""
+//                     }`}
+//                     href="#"
+//                     onClick={() => handleNavClick(key)}
+//                   >
+//                     {label}
+//                   </a>
+//                 </li>
+//               ))}
+
+//               {/*  Premium Features Dropdown */}
+//               <ul className="navbar-nav">
+//                 <li className="nav-item dropdown premium-dropdown">
+//                   <a
+//                     className="nav-link dropdown-toggle text-white fw-bold"
+//                     href="#"
+//                     id="premiumDropdown"
+//                     role="button"
+//                     data-bs-toggle="dropdown"
+//                     aria-expanded="false"
+//                   >
+//                     Premium Features
+//                   </a>
+//                   <ul
+//                     className="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+//                     aria-labelledby="premiumDropdown"
+//                   >
+//                     <li className="dropdown-header">Platinum Exclusives</li>
+
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("briefing")}
+//                       >
+//                         <i className="bi bi-file-earmark-text me-2"></i> Weekly
+//                         Briefing
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("webinars")}
+//                       >
+//                         <i className="bi bi-easel me-2"></i> Webinars
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("news")}
+//                       >
+//                         <i className="bi bi-newspaper me-2"></i> News
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("leaderboard")}
+//                       >
+//                         <i className="bi bi-trophy me-2"></i> Leaderboard
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("challenges")}
+//                       >
+//                         <i className="bi bi-bar-chart-line me-2"></i> Trading
+//                         Challenges
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("schedule-call")}
+//                       >
+//                         <i className="bi bi-person-workspace me-2"></i> Private
+//                         Coaching
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("feature-voting")}
+//                       >
+//                         <i className="bi bi-stars me-2"></i> Feature Voting
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("membership-nft")}
+//                       >
+//                         <i className="bi bi-gem me-2"></i> Membership NFT
+//                       </a>
+//                     </li>
+//                     <li>
+//                       <a
+//                         className="dropdown-item"
+//                         href="#"
+//                         onClick={() => handleNavClick("journal-page")}
+//                       >
+//                         <i className="bi bi-bar-chart-line me-2"></i> Trade
+//                         Journal
+//                       </a>
+//                     </li>
+//                   </ul>
+//                 </li>
+//               </ul>
+//             </ul>
+
+//             <div className="d-flex align-items-center position-relative profile-wrapper">
+//               {/* Notifications */}
+//               <div
+//                 className="position-relative me-3"
+//                 onClick={() =>
+//                   setShowNotificationsPopup(!showNotificationsPopup)
+//                 }
+//               >
+//                 <i className="bi bi-bell fs-5 text-light"></i>
+//                 {unreadNotifications > 0 && (
+//                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+//                     {unreadNotifications}
+//                   </span>
+//                 )}
+//               </div>
+
+//               {/* Messages */}
+//               <div
+//                 className="position-relative me-3"
+//                 onClick={() => setShowMessagesPopup(!showMessagesPopup)}
+//               >
+//                 <i className="bi bi-chat fs-5 text-light"></i>
+//                 {unreadMessages > 0 && (
+//                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+//                     {unreadMessages}
+//                   </span>
+//                 )}
+//               </div>
+
+//               {/* Avatar and Custom Dropdown */}
+//               <div className="position-relative profile-wrapper">
+//                 <div
+//                   className="profile-avatar"
+//                   id="profileAvatar"
+//                   onClick={() => {
+//                     const dropdown =
+//                       document.querySelector(".profile-dropdown");
+//                     dropdown.classList.toggle("show");
+//                   }}
+//                 >
+//                   {userData?.profile_photo_url ? (
+//                     <img
+//                       src={userData.profile_photo_url}
+//                       alt="Profile"
+//                       style={{
+//                         width: "100%",
+//                         height: "100%",
+//                         objectFit: "cover",
+//                         borderRadius: "50%",
+//                       }}
+//                     />
+//                   ) : (
+//                     <span>P</span>
+//                   )}
+//                 </div>
+
+//                 {/* <div
+//                   className="profile-avatar"
+//                   id="profileAvatar"
+//                   onClick={() => {
+//                     const dropdown =
+//                       document.querySelector(".profile-dropdown");
+//                     dropdown.classList.toggle("show");
+//                   }}
+//                 >
+//                   <span>P</span>
+//                 </div> */}
+//                 <div className="profile-dropdown">
+//                   <a
+//                     href="#"
+//                     className="dropdown-item"
+//                     onClick={(e) => {
+//                       e.preventDefault();
+//                       setShowEditProfile(true);
+//                     }}
+//                   >
+//                     Edit Profile
+//                   </a>
+
+//                   <a href="#" className="dropdown-item text-danger">
+//                     Logout
+//                   </a>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </nav>
 import axios from "axios";
-import { useEffect } from "react";
-import React, { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../styles/platinumDashboard.css";
 import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
@@ -621,6 +1015,7 @@ const PlatinumDashboard = () => {
   const [unreadNotifications, setUnreadNotifications] = useState(0);
   const [showMessagesPopup, setShowMessagesPopup] = useState(false);
   const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
@@ -633,6 +1028,24 @@ const PlatinumDashboard = () => {
     if (collapseRef.current?.classList.contains("show")) {
       collapseRef.current.classList.remove("show");
     }
+  };
+
+  const handleNotificationsClick = () => {
+    setShowNotificationsPopup(!showNotificationsPopup);
+    setShowMessagesPopup(false);
+    setShowProfileDropdown(false);
+  };
+
+  const handleMessagesClick = () => {
+    setShowMessagesPopup(!showMessagesPopup);
+    setShowNotificationsPopup(false);
+    setShowProfileDropdown(false);
+  };
+
+  const handleAvatarClick = () => {
+    setShowProfileDropdown(!showProfileDropdown);
+    setShowNotificationsPopup(false);
+    setShowMessagesPopup(false);
   };
 
   useEffect(() => {
@@ -720,21 +1133,7 @@ const PlatinumDashboard = () => {
 
   return (
     <div className="platinum-dashboard">
-      {/* Top Navbar */}
-
-      {showEditProfile && (
-        <div className="edit-profile-modal">
-          <EditProfile />
-          <div className="text-center mt-3">
-            <button
-              className="btn btn-danger"
-              onClick={() => setShowEditProfile(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Your Full Existing Navbar Code */}
 
       <nav className="navbar navbar-platinum navbar-expand-lg navbar-dark">
         <div className="container-fluid">
@@ -749,161 +1148,23 @@ const PlatinumDashboard = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div
             className="collapse navbar-collapse"
             id="navbarNav"
             ref={collapseRef}
           >
+            {/* YOUR LEFT NAVIGATION TABS */}
             <ul className="navbar-nav me-auto">
-              {/* Always keep Dashboard */}
-              <button
-                className={`tab-button ${
-                  activeDashboardTab === "market" ? "active" : ""
-                }`}
-                onClick={() => setActiveDashboardTab("market")}
-              >
-                Dashboard
-              </button>
-
-              {/* New Items */}
-              {[
-                // { key: "briefing", label: "Weekly Briefing" },
-                { key: "webinars", label: "Webinars" },
-                { key: "challenges", label: "Trading Challenges" },
-                { key: "portfolio-heatmap", label: "Portfolio Heatmap" },
-                // { key: "leaderboard", label: "Leaderboard" },
-                // { key: "schedule-call", label: "Private Coaching" },
-                { key: "news", label: "News" },
-              ].map(({ key, label }) => (
-                <li className="nav-item" key={key}>
-                  <a
-                    className={`nav-link ${
-                      activeSection === key ? "active" : ""
-                    }`}
-                    href="#"
-                    onClick={() => handleNavClick(key)}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-
-              {/*  Premium Features Dropdown */}
-              <ul className="navbar-nav">
-                <li className="nav-item dropdown premium-dropdown">
-                  <a
-                    className="nav-link dropdown-toggle text-white fw-bold"
-                    href="#"
-                    id="premiumDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Premium Features
-                  </a>
-                  <ul
-                    className="dropdown-menu dropdown-menu-dark dropdown-menu-end"
-                    aria-labelledby="premiumDropdown"
-                  >
-                    <li className="dropdown-header">Platinum Exclusives</li>
-
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("briefing")}
-                      >
-                        <i className="bi bi-file-earmark-text me-2"></i> Weekly
-                        Briefing
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("webinars")}
-                      >
-                        <i className="bi bi-easel me-2"></i> Webinars
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("news")}
-                      >
-                        <i className="bi bi-newspaper me-2"></i> News
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("leaderboard")}
-                      >
-                        <i className="bi bi-trophy me-2"></i> Leaderboard
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("challenges")}
-                      >
-                        <i className="bi bi-bar-chart-line me-2"></i> Trading
-                        Challenges
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("schedule-call")}
-                      >
-                        <i className="bi bi-person-workspace me-2"></i> Private
-                        Coaching
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("feature-voting")}
-                      >
-                        <i className="bi bi-stars me-2"></i> Feature Voting
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("membership-nft")}
-                      >
-                        <i className="bi bi-gem me-2"></i> Membership NFT
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                        onClick={() => handleNavClick("journal-page")}
-                      >
-                        <i className="bi bi-bar-chart-line me-2"></i> Trade
-                        Journal
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              {/* Active dashboard tabs here */}
+              {/* (No Change Required) */}
             </ul>
 
-            <div className="d-flex align-items-center position-relative profile-wrapper">
-              {/* Notifications */}
+            <div className="d-flex align-items-center position-relative">
+              {/* Notifications Bell */}
               <div
                 className="position-relative me-3"
-                onClick={() =>
-                  setShowNotificationsPopup(!showNotificationsPopup)
-                }
+                onClick={handleNotificationsClick}
               >
                 <i className="bi bi-bell fs-5 text-light"></i>
                 {unreadNotifications > 0 && (
@@ -911,12 +1172,19 @@ const PlatinumDashboard = () => {
                     {unreadNotifications}
                   </span>
                 )}
+                {showNotificationsPopup && (
+                  <div className="popup-box">
+                    {" "}
+                    {/* Notification Popup */}
+                    <div>No new notifications</div>
+                  </div>
+                )}
               </div>
 
-              {/* Messages */}
+              {/* Messages Chat */}
               <div
                 className="position-relative me-3"
-                onClick={() => setShowMessagesPopup(!showMessagesPopup)}
+                onClick={handleMessagesClick}
               >
                 <i className="bi bi-chat fs-5 text-light"></i>
                 {unreadMessages > 0 && (
@@ -924,18 +1192,21 @@ const PlatinumDashboard = () => {
                     {unreadMessages}
                   </span>
                 )}
+                {showMessagesPopup && (
+                  <div className="popup-box">
+                    {" "}
+                    {/* Messages Popup */}
+                    <div>No new messages</div>
+                  </div>
+                )}
               </div>
 
-              {/* Avatar and Custom Dropdown */}
+              {/* Profile Avatar */}
               <div className="position-relative profile-wrapper">
                 <div
                   className="profile-avatar"
                   id="profileAvatar"
-                  onClick={() => {
-                    const dropdown =
-                      document.querySelector(".profile-dropdown");
-                    dropdown.classList.toggle("show");
-                  }}
+                  onClick={handleAvatarClick}
                 >
                   {userData?.profile_photo_url ? (
                     <img
@@ -953,33 +1224,23 @@ const PlatinumDashboard = () => {
                   )}
                 </div>
 
-                {/* <div
-                  className="profile-avatar"
-                  id="profileAvatar"
-                  onClick={() => {
-                    const dropdown =
-                      document.querySelector(".profile-dropdown");
-                    dropdown.classList.toggle("show");
-                  }}
-                >
-                  <span>P</span>
-                </div> */}
-                <div className="profile-dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-item"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setShowEditProfile(true);
-                    }}
-                  >
-                    Edit Profile
-                  </a>
-
-                  <a href="#" className="dropdown-item text-danger">
-                    Logout
-                  </a>
-                </div>
+                {showProfileDropdown && (
+                  <div className="profile-dropdown">
+                    <a
+                      href="#"
+                      className="dropdown-item"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShowEditProfile(true);
+                      }}
+                    >
+                      Edit Profile
+                    </a>
+                    <a href="#" className="dropdown-item text-danger">
+                      Logout
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
