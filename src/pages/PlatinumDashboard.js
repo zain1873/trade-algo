@@ -985,6 +985,7 @@
 //           </div>
 //         </div>
 //       </nav>
+
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import "../styles/platinumDashboard.css";
@@ -1173,10 +1174,147 @@ const PlatinumDashboard = () => {
             id="navbarNav"
             ref={collapseRef}
           >
-            {/* YOUR LEFT NAVIGATION TABS */}
             <ul className="navbar-nav me-auto">
-              {/* Active dashboard tabs here */}
-              {/* (No Change Required) */}
+              {/* Always keep Dashboard */}
+              <button
+                className={`tab-button ${
+                  activeDashboardTab === "market" ? "active" : ""
+                }`}
+                onClick={() => setActiveDashboardTab("market")}
+              >
+                Dashboard
+              </button>
+
+              {/* New Items */}
+              {[
+                // { key: "briefing", label: "Weekly Briefing" },
+                { key: "webinars", label: "Webinars" },
+                { key: "challenges", label: "Trading Challenges" },
+                { key: "portfolio-heatmap", label: "Portfolio Heatmap" },
+                // { key: "leaderboard", label: "Leaderboard" },
+                // { key: "schedule-call", label: "Private Coaching" },
+                { key: "news", label: "News" },
+              ].map(({ key, label }) => (
+                <li className="nav-item" key={key}>
+                  <a
+                    className={`nav-link ${
+                      activeSection === key ? "active" : ""
+                    }`}
+                    href="#"
+                    onClick={() => handleNavClick(key)}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+
+              {/*  Premium Features Dropdown */}
+              <ul className="navbar-nav">
+                <li className="nav-item dropdown premium-dropdown">
+                  <a
+                    className="nav-link dropdown-toggle text-white fw-bold"
+                    href="#"
+                    id="premiumDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Premium Features
+                  </a>
+                  <ul
+                    className="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+                    aria-labelledby="premiumDropdown"
+                  >
+                    <li className="dropdown-header">Platinum Exclusives</li>
+
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("briefing")}
+                      >
+                        <i className="bi bi-file-earmark-text me-2"></i> Weekly
+                        Briefing
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("webinars")}
+                      >
+                        <i className="bi bi-easel me-2"></i> Webinars
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("news")}
+                      >
+                        <i className="bi bi-newspaper me-2"></i> News
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("leaderboard")}
+                      >
+                        <i className="bi bi-trophy me-2"></i> Leaderboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("challenges")}
+                      >
+                        <i className="bi bi-bar-chart-line me-2"></i> Trading
+                        Challenges
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("schedule-call")}
+                      >
+                        <i className="bi bi-person-workspace me-2"></i> Private
+                        Coaching
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("feature-voting")}
+                      >
+                        <i className="bi bi-stars me-2"></i> Feature Voting
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("membership-nft")}
+                      >
+                        <i className="bi bi-gem me-2"></i> Membership NFT
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleNavClick("journal-page")}
+                      >
+                        <i className="bi bi-bar-chart-line me-2"></i> Trade
+                        Journal
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </ul>
 
             <div className="d-flex align-items-center position-relative">
@@ -1296,7 +1434,6 @@ const PlatinumDashboard = () => {
                   <div className="call-credits me-3 mb-2">
                     <i className="bi bi-clock me-1"></i>
                     <span>
-                      <i className="bi bi-clock me-1"></i>
                       Call Credits:{" "}
                       {callCredits !== null
                         ? `${callCredits} hours remaining`
