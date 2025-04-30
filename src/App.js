@@ -25,6 +25,7 @@ import Products from "./pages/Products";
 import RequestDemo from "./pages/RequestDemo";
 import CourseDetails from "./pages/CourseDetails";
 import PlatinumDashboard from "./pages/PlatinumDashboard";
+import ViewChallenge from "./components/DashboardPlatinum/ViewChallenge";
 
 function App() {
   return (
@@ -186,6 +187,7 @@ function App() {
           path="/platinum-dashboard"
           element={<PlatinumDashboard />}
         ></Route>
+        <Route path="/view-challenges" element={<ViewChallenge />}></Route>
       </Routes>
     </Router>
   );

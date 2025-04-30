@@ -1581,15 +1581,14 @@ const PlatinumDashboard = () => {
                 <div className="col-lg-5 mb-4">
                   <div className="card chat-card">
                     <div className="card-body">
-                      <h5 className="card-title mb-4">Chat with Analysts</h5>
+                      <h5 className="card-title mb-4">Platinum member Chat</h5>
                       <div className="chat-container">
                         {messages.map((msg) => {
                           const isCurrentUser =
                             msg.sender_name === userData?.username;
                           const profilePhoto = isCurrentUser
                             ? userData?.profile_photo_url
-                            : msg.sender_profile_photo_url; // 🛠️ yeh field backend se bhejna zaruri hai
-
+                            : msg.sender_profile_photo_url;
                           return (
                             <div
                               key={msg.id}

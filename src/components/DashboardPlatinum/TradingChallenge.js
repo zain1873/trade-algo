@@ -727,11 +727,22 @@ const TradingChallenges = () => {
               <div className="challenge-actions">
                 <button
                   className="action-button filled"
-                  onClick={() => viewYourPerformance(challenge.id)}
+                  onClick={() => challenge.id}
                 >
                   View Your Performance
                 </button>
               </div>
+            </div>
+            <div className="challenge-actions">
+              <a href="/view-challenges">
+                {" "}
+                <button className="action-button outline">
+                  View Challenge Details
+                </button>{" "}
+              </a>
+              <button className="action-button filled">
+                View Your Performance
+              </button>
             </div>
 
             {/* Current Leaderboard */}
