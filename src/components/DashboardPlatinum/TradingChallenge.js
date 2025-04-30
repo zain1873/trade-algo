@@ -723,15 +723,6 @@ const TradingChallenges = () => {
                   <div className="prize-value">{challenge.prize}</div>
                 </div>
               </div>
-
-              <div className="challenge-actions">
-                <button
-                  className="action-button filled"
-                  onClick={() => challenge.id}
-                >
-                  View Your Performance
-                </button>
-              </div>
             </div>
             <div className="challenge-actions">
               <a href="/view-challenges">
