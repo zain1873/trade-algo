@@ -408,9 +408,7 @@ const MainTable = () => {
     }
 
     // Then apply cap size filtering
-    if (activeCapSize === "auto") {
-      return baseData;
-    } else if (activeCapSize === "large") {
+    if (activeCapSize === "large") {
       return largeCapData;
     } else if (activeCapSize === "medium") {
       return mediumCapData;
@@ -476,11 +474,6 @@ const MainTable = () => {
               </button>
             </li>
           </ul>
-
-          <button className="btn btn-link text-decoration-none">
-            View More
-            <i className="ms-1 bi bi-chevron-down small"></i>
-          </button>
         </div>
 
         <div className="text-muted small mb-3">May 2nd, 2025</div>
@@ -488,16 +481,6 @@ const MainTable = () => {
         {/* Market Cap Tabs */}
         <div className="cap-tabs mb-3">
           <ul className="nav nav-pills cap-nav">
-            <li className="nav-item">
-              <button
-                className={`cap-btn ${
-                  activeCapSize === "auto" ? "active" : ""
-                }`}
-                onClick={() => setActiveCapSize("auto")}
-              >
-                Auto
-              </button>
-            </li>
             <li className="nav-item">
               <button
                 className={`cap-btn ${
@@ -529,26 +512,6 @@ const MainTable = () => {
               </button>
             </li>
           </ul>
-        </div>
-
-        {/* View Options */}
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="d-flex gap-3">
-            <button className="btn btn-sm btn-light">
-              <i className="bi bi-list me-1"></i> COLUMNS
-            </button>
-            <button className="btn btn-sm btn-light">
-              <i className="bi bi-grid me-1"></i> DENSITY
-            </button>
-          </div>
-          <div className="d-flex gap-2">
-            <button className="btn btn-sm btn-light rounded-circle">
-              <i className="bi bi-graph-up"></i>
-            </button>
-            <button className="btn btn-sm btn-light rounded-circle">
-              <i className="bi bi-gear"></i>
-            </button>
-          </div>
         </div>
 
         {/* Current View Indicator */}
