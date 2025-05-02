@@ -133,6 +133,7 @@ historical css Container styling .trend-icons {
 .table_history tr th {
   background-color: var(--theme-color) !important;
   color: #fff !important;
+  border-color: #1c1e20 !important;
 }
 
 .table_history th,

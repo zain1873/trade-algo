@@ -23,13 +23,15 @@
 }
 
 .bg-dark .resources-details {
-  background-color: #1c1e20;
+  /* background-color: #1c1e20; */
+  background-color: #1c1e20 !important;
 }
+
 .bg-dark .session-description {
   color: #ccc;
 }
 .bg-dark .live-schedule {
-  background-color: #1c1e20;
+  background-color: #1c1e20 !important;
   border: 1px solid #2f2e2e;
 }
 

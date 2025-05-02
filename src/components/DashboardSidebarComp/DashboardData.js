@@ -122,6 +122,7 @@ import AtsFlow from "./AtsFordashboard";
 import OverallProgressBar from "./overallprogressbar";
 import ProgressBar from "./ProgressBar";
 import LiveTrainingSession from "./liveTrainingSession";
+import backgroundVideo from "../../assets/images/bannergreen.mp4";
 import axios from "axios";
 
 const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
@@ -167,6 +168,22 @@ function DashboardData({ darkMode }) {
   return (
     <div className="container">
       <div className="dashboard-header">
+        {/* Background Video */}
+        <video
+          className="dashboard-bg-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          onContextMenu={(e) => e.preventDefault()}
+        >
+          <source src={backgroundVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
         <div className="header-content">
           <div className="header-left">
             <h2>

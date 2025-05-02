@@ -166,9 +166,6 @@
 
 // export default LiveTrainingSession;
 
-
-
-
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../DashboardSidebarComp/styles/live-training-session.css";
@@ -220,7 +217,7 @@ function LiveTrainingSession() {
           </div>
 
           {pastWebinars.map((webinar, index) => (
-            <div className="col-lg-6" key={webinar.id}>
+            <div className="col-lg-6 mb-0 p-0 ps-2" key={webinar.id}>
               <div className={`session-card ${isLocked ? "locked" : ""}`}>
                 <div className="video-wrapper">
                   {playingIndex !== index ? (
@@ -230,7 +227,10 @@ function LiveTrainingSession() {
                         alt="Video thumbnail"
                         className="session-img"
                       />
-                      <button className="play-button" onClick={() => handlePlay(index)}>
+                      <button
+                        className="play-button"
+                        onClick={() => handlePlay(index)}
+                      >
                         ▶
                       </button>
                     </div>
@@ -260,7 +260,6 @@ function LiveTrainingSession() {
               </div>
             </div>
           ))}
-          
         </div>
       </div>
 

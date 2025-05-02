@@ -1,16 +1,19 @@
 .dashboard-header {
-    background-image: url(../images/dashboard-main-new.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    border-radius: 10px;
-    padding: 20px 10px;
-    position: relative;
-    overflow: hidden;
-    height: 336px;
-    border-radius: 0;
-    margin-bottom: 22px;
+  /* background-image: url(../images/dashboard-main-new.jpg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  border-radius: 10px;
+  padding: 20px 10px;
+  position: relative;
+  overflow: hidden;
+  height: 336px;
+  border-radius: 0;
+  margin-bottom: 22px;
+}
+.header-left {
+  margin-left: 10px;
 }
 
 /* minimal version, still no !important needed */
@@ -19,9 +22,7 @@
   color: #fff !important;
 }
 
-
-
-  /* Dropdown container (hidden by default) */
+/* Dropdown container (hidden by default) */
 .user-dropdown {
   position: absolute;
   top: 100%;
@@ -66,85 +67,83 @@
   cursor: pointer;
 }
 .header-content {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 25%;
-    width: 96%;
-  }
-  
-  .header-left h2 {
-    font-size: 44px;
-    font-weight: 700;
-  }
-  
-  .highlight {
-    color: #57cc61;
-  }
-  
-  .underline {
-    text-decoration: underline;
-    color: #93c5fd;
-  }
-  
-  .header-left p {
-    font-size: 1rem;
-    margin-top: 8px;
-  }
-  
-  .buttons {
-    margin-top: 15px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    margin-right: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #4ade80;
-    color: black;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #34d399;
-  }
-  
-  .btn-outline {
-    background: transparent;
-    border: 2px solid #93c5fd;
-    color: #93c5fd;
-  }
-  
-  .btn-outline:hover {
-    background: #93c5fd;
-    color: black;
-  }
-  
-  .date-btn {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .date-btn:hover {
-    background: white;
-    color: black;
-  }
-  .lite-section .theme_btn {
-    width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 25%;
+  width: 96%;
+}
 
-  }
-  
+.header-left h2 {
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #57cc61;
+}
+
+.underline {
+  text-decoration: underline;
+  color: #93c5fd;
+}
+
+.header-left p {
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #4ade80;
+  color: black;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #34d399;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #93c5fd;
+  color: #93c5fd;
+}
+
+.btn-outline:hover {
+  background: #93c5fd;
+  color: black;
+}
+
+.date-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: 0.3s ease-in-out;
+}
+
+.date-btn:hover {
+  background: white;
+  color: black;
+}
+.lite-section .theme_btn {
+  width: fit-content;
+}
 
 /* edit profile */
 .edit-form .theme_btn {

@@ -9,8 +9,6 @@ function ViewChallenge() {
   // Sample challenge data (you would fetch this from API in real app)
   const challenge = {
     deadline: "May 10, 2025",
-    points: 50,
-    difficulty: "Intermediate",
   };
 
   const handleAnswerChange = (e) => {
@@ -50,12 +48,6 @@ function ViewChallenge() {
         <div className="challenge-meta">
           <span className="badge-challenge bg-primary me-2">
             Deadline: {challenge.deadline}
-          </span>
-          <span className="badge-challenge bg-success me-2">
-            {challenge.points} Points
-          </span>
-          <span className="badge-challenge bg-warning">
-            {challenge.difficulty}
           </span>
         </div>
       </div>
