@@ -71,6 +71,7 @@ const Resources = ({ darkMode }) => {
             height="auto"
             controls
             poster="https://your-image-placeholder.jpg" // Optional: Add a thumbnail placeholder
+            onContextMenu={(e) => e.preventDefault()} // Disable right-click
           >
             <source
               src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
