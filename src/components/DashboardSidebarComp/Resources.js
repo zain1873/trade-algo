@@ -61,15 +61,24 @@ const Resources = ({ darkMode }) => {
     >
       <div className="video-container mt-0">
         <h4 className="video-title">Platform Walkthrough</h4>
-        <iframe
-          width="100%"
-          height="400"
-          src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
-          title="Platform Walkthrough"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+
+        {/* Video player with controls and no download */}
+        <div
+          className={`video-wrapper ${darkMode ? "dark-mode" : "light-mode"}`}
+        >
+          <video
+            width="100%"
+            height="auto"
+            controls
+            poster="https://your-image-placeholder.jpg" // Optional: Add a thumbnail placeholder
+          >
+            <source
+              src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
       {/* Dark mode class added here */}
@@ -82,7 +91,7 @@ const Resources = ({ darkMode }) => {
           <img src={authorImg} alt="Author" className="author-img me-2" />
           <div>
             <h6 className="author-name m-0">
-              Jessica kesa <span className="verified-badge">✔</span>
+              Jessica Kesa <span className="verified-badge">✔</span>
             </h6>
             <p className="author-role m-0">ValourWealth Analyst</p>
           </div>
