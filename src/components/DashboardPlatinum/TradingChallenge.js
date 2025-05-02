@@ -187,7 +187,7 @@ const TradingChallenges = () => {
               </div>
 
               <div className="challenge-actions">
-                <button className="action-button outline">View Challenge Details</button>
+               <a href="/view-challenges"> <button className="action-button outline">View Challenge Details</button> </a>
                 <button className="action-button filled">View Your Performance</button>
               </div>
             </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import forexWebinarImg from '../../assets/images/sesionImg.jpg';
+
 
 const ExclusiveWebinars = () => {
   const [activeTab, setActiveTab] = useState('Upcoming Webinars');
@@ -14,7 +16,8 @@ const ExclusiveWebinars = () => {
       registeredCount: 42,
       duration: '90 minutes',
       level: 'Advanced',
-      status: 'upcoming'
+      status: 'upcoming',
+      image: forexWebinarImg 
     },
     {
       id: 2,
@@ -26,7 +29,9 @@ const ExclusiveWebinars = () => {
       registeredCount: 56,
       duration: '60 minutes',
       level: 'Intermediate',
-      status: 'upcoming'
+      status: 'upcoming',
+      image: forexWebinarImg 
+
     },
     {
       id: 3,
@@ -135,6 +140,9 @@ const ExclusiveWebinars = () => {
           {activeTab === 'Upcoming Webinars' &&
             webinars.map((webinar) => (
               <div key={webinar.id} className="webinar-card">
+                {webinar.image && (
+                  <img src={webinar.image} alt={webinar.title} className="webinar-image obj_fit mb-3" />
+                )}
                 <div className="webinar-header">
                   <h4 className="webinar-title">{webinar.title}</h4>
                   <span className="status-badge">{webinar.status}</span>
