@@ -1407,7 +1407,7 @@ const PlatinumDashboard = () => {
       {showEditProfile && (
         <div className="edit-profile-modal">
           <EditProfile />
-          <div className="text-center mt-3">
+          <div className="text-center">
             <button
               className="btn btn-danger"
               onClick={() => setShowEditProfile(false)}

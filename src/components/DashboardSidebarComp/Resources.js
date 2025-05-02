@@ -64,7 +64,7 @@ const Resources = ({ darkMode }) => {
         <iframe
           width="100%"
           height="400"
-          src="https://www.youtube.com/embed/VIDEO_ID"
+          src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
           title="Platform Walkthrough"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -82,7 +82,7 @@ const Resources = ({ darkMode }) => {
           <img src={authorImg} alt="Author" className="author-img me-2" />
           <div>
             <h6 className="author-name m-0">
-              Dane Gilsek <span className="verified-badge">✔</span>
+              Jessica kesa <span className="verified-badge">✔</span>
             </h6>
             <p className="author-role m-0">ValourWealth Analyst</p>
           </div>

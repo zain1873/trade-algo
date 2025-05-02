@@ -18,8 +18,11 @@
   margin-bottom: 10px;
 }
 /* Optional: Tweak specific components */
-.bg-dark .resources-section {
+/* .bg-dark .resources-section {
   background-color: #1c1e20;
+} */
+.bg-dark .resources-section {
+  background-color: #1c1e20 !important;
 }
 
 .bg-dark .resources-details {

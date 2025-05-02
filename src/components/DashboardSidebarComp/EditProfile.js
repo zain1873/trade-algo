@@ -153,7 +153,6 @@
 
 // export default EditProfile;
 
-
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import countries from "world-countries";
@@ -166,15 +165,15 @@ const formattedCountries = countries.map((c) => ({
 }));
 
 function EditProfile() {
-  const [username, setUsername]       = useState("");
-  const [firstName, setFirstName]     = useState("");
-  const [password, setPassword]       = useState("");
-  const [country, setCountry]         = useState(null);
-  const [state, setState]             = useState("");
-  const [photoFile, setPhotoFile]     = useState(null);  // 👈 NEW
-  const [loading, setLoading]         = useState(false);
+  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [password, setPassword] = useState("");
+  const [country, setCountry] = useState(null);
+  const [state, setState] = useState("");
+  const [photoFile, setPhotoFile] = useState(null); // 👈 NEW
+  const [loading, setLoading] = useState(false);
 
-  const token    = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("accessToken");
   const API_BASE =
     process.env.REACT_APP_API_URL ||
     "https://valourwealthdjango-production.up.railway.app";
@@ -213,7 +212,7 @@ function EditProfile() {
       body.append("username", username);
       body.append("first_name", firstName);
       if (password) body.append("password", password);
-      if (country)  body.append("country", country.value);
+      if (country) body.append("country", country.value);
       body.append("state", state);
       body.append("profile_photo", photoFile);
     } else {
@@ -255,7 +254,7 @@ function EditProfile() {
   return (
     <section className="edit-profile py-5">
       <div className="container">
-        <div className="card shadow-sm p-4">
+        <div className="card-editplatinum shadow-sm p-4">
           <h4 className="mb-4 edit-form">Edit Profile</h4>
 
           <div className="mb-3 edit-form">

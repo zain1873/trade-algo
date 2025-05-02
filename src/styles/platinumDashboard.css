@@ -1,8 +1,13 @@
 /* PlatinumDashboard.css */
 
+body::-webkit-scrollbar-thumb {
+  background-color: #282d36; 
+}
+
 .profile-wrapper {
   position: relative;
 }
+
 
 .profile-avatar {
   width: 40px;
@@ -31,6 +36,11 @@
   transition: all 0.2s ease;
   min-width: 150px;
   z-index: 100;
+}
+
+
+.edit-form input {
+  background-color: #1c1c1c !important;
 }
 
 /* Style for the premium dropdown */
@@ -112,6 +122,7 @@
   height: 2px;
   background-color: #ccc;
 }
+
 
 .platinum-dashboard .navbar-nav .nav-item .nav-link {
   font-size: 14px;
@@ -5086,3 +5097,7 @@ h4 {
     font-size: 1.5rem;
   }
 }
+
+
+
+
