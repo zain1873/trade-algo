@@ -1470,33 +1470,38 @@ const PlatinumDashboard = () => {
             <div className="tabs-container mb-4">
               <div className="nav-tabs">
                 <button
-                  className={`tab-button ${
-                    activeDashboardTab === "market" ? "active" : ""
-                  }`}
+                  className="tab-button"
                   onClick={() => setActiveDashboardTab("market")}
+                  // className={`tab-button ${
+                  //   activeDashboardTab === "market" ? "active" : ""
+                  // }`}
+                  // onClick={() => setActiveDashboardTab("market")}
                 >
                   Dashboard
                 </button>
                 <button
-                  className={`tab-button ${
-                    activeDashboardTab === "schedule-Calls" ? "active" : ""
-                  }`}
+                  className="tab-button"
+                  // className={`tab-button ${
+                  //   activeDashboardTab === "schedule-Calls" ? "active" : ""
+                  // }`}
                   onClick={() => setActiveDashboardTab("schedule-Calls")}
                 >
                   Schedule Calls
                 </button>
                 <button
-                  className={`tab-button ${
-                    activeDashboardTab === "webinars" ? "active" : ""
-                  }`}
+                  className="tab-button"
+                  // className={`tab-button ${
+                  //   activeDashboardTab === "webinars" ? "active" : ""
+                  // }`}
                   onClick={() => setActiveDashboardTab("webinars")}
                 >
                   Webinars
                 </button>
                 <button
-                  className={`tab-button ${
-                    activeDashboardTab === "leaderboard" ? "active" : ""
-                  }`}
+                  className="tab-button"
+                  // className={`tab-button ${
+                  //   activeDashboardTab === "leaderboard" ? "active" : ""
+                  // }`}
                   onClick={() => setActiveDashboardTab("leaderboard")}
                 >
                   Leaderboard
