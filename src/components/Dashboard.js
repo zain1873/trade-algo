@@ -32,6 +32,8 @@ import OptionsAcademy from "./DashboardSidebarComp/OptionsAcademy";
 import Mentorship from "./DashboardSidebarComp/Mentorship";
 import WealthSeries from "./DashboardSidebarComp/WealthSeries";
 import Resources from "./DashboardSidebarComp/Resources";
+import TradeAlertsTable from "./DashboardSidebarComp/TradeAlertsTable";
+import MainTable from "./DashboardSidebarComp/MainTable";
 // import ChartGrid from "./DashboardSidebarComp/ChartGrid";
 // import LiveOption from "./DashboardSidebarComp/LiveOption";
 // import OptionChain from "./DashboardSidebarComp/OpenChain";
@@ -293,6 +295,10 @@ const Dashboard = () => {
                 return <EditProfile darkMode={darkMode} />;
               case "logout":
                 return <Logout darkMode={darkMode} />;
+              case "trade-alerts":
+                return <TradeAlertsTable darkMode={darkMode} />;
+              case "main-table":
+                return <MainTable darkMode={darkMode} />;
               default:
                 return null;
             }
@@ -537,27 +543,6 @@ const Dashboard = () => {
                 {/* Dropdown for   */}
                 {item.id === "trading-tools" && (
                   <div className="dropdown-container shadow tools-container p-0">
-                    {/* <div className="dropdown-content-wrap">
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("scanner")}>
-                      Scanner
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("swing-trade-ai")}>
-                      Swing Trade AI
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("chart-grid")}>
-                      Chart Grid
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("live-option")}>
-                      Live Option
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("option-chain")}>
-                      Option Chain
-                    </div>
-                    <div className="p-2 dropdown-inside" onClick={() => setActiveTab("trade-alerts")}>
-                      Trade Alerts
-                    </div>
-                  </div> */}
-
                     <div className="dropdown-content-wrap">
                       <div
                         className="p-2 dropdown-inside"
@@ -570,6 +555,25 @@ const Dashboard = () => {
                         onClick={() => setActiveTab("crypto")}
                       >
                         Crypto
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {/* Darkpool Data Dropdown */}
+                {item.id === "darkpool-data" && (
+                  <div className="dropdown-container shadow tools-container p-0">
+                    <div className="dropdown-content-wrap">
+                      <div
+                        className="p-2 dropdown-inside"
+                        onClick={() => setActiveTab("main-table")}
+                      >
+                        Main Table
+                      </div>
+                      <div
+                        className="p-2 dropdown-inside"
+                        onClick={() => setActiveTab("trade-alerts")}
+                      >
+                        ATS Alerts
                       </div>
                     </div>
                   </div>
