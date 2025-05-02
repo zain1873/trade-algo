@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "../DashboardSidebarComp/styles/TradeAlertsTable.css";
 
 const TradeAlertsTable = () => {
