@@ -699,11 +699,12 @@ const ScheduleCall = () => {
                   onChange={(e) => setSelectedUser(e.target.value)}
                 >
                   <option value="">Select a User</option>
-                  {users.map((user) => (
+                  {/* {users.map((user) => (
                     <option key={user.id} value={user.id}>
                       {user.username}
                     </option>
-                  ))}
+                  ))} */}
+                  
                 </select>
                 <div className="select-arrow">
                   <i className="bi bi-chevron-down"></i>
