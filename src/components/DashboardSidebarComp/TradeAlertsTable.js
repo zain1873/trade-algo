@@ -7,6 +7,71 @@ const TradeAlertsTable = () => {
 
   // Sample data for each tab category
   const tabData = {
+    Auto: [
+      {
+        time: "May 2nd 2:26 PM",
+        ticker: "SE",
+        company: "Sea Limited American Depositary",
+        volume: "1.6x",
+        price: "$142.96",
+      },
+      {
+        time: "May 2nd 2:26 PM",
+        ticker: "UAL",
+        company: "United Airlines Holdings, Inc.",
+        volume: "1.88x",
+        price: "$75.06",
+      },
+      {
+        time: "May 2nd 2:16 PM",
+        ticker: "BABA",
+        company: "Alibaba Group Holding Limited",
+        volume: "2.11x",
+        price: "$126.10",
+      },
+      {
+        time: "May 2nd 1:51 PM",
+        ticker: "CW",
+        company: "Curtiss-Wright Corporation",
+        volume: "1.84x",
+        price: "$357.99",
+      },
+      {
+        time: "May 2nd 1:21 PM",
+        ticker: "JLL",
+        company: "Jones Lang LaSalle Incorporated",
+        volume: "1.57x",
+        price: "$236.14",
+      },
+      {
+        time: "May 2nd 1:05 PM",
+        ticker: "LDOS",
+        company: "Leidos Holdings, Inc. Common Stock",
+        volume: "1.54x",
+        price: "$148.51",
+      },
+      {
+        time: "May 2nd 1:01 PM",
+        ticker: "SXI",
+        company: "Standex International Corporation",
+        volume: "1.54x",
+        price: "$157.80",
+      },
+      {
+        time: "May 2nd 12:51 PM",
+        ticker: "SITM",
+        company: "SiTime Corporation - Common Stock",
+        volume: "1.5x",
+        price: "$167.21",
+      },
+      {
+        time: "May 2nd 12:36 PM",
+        ticker: "COF",
+        company: "Capital One Financial Corporation",
+        volume: "1.55x",
+        price: "$188.07",
+      },
+    ],
     "Large Caps": [
       {
         time: "May 2nd 3:15 PM",
