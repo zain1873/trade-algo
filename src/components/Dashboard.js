@@ -198,16 +198,16 @@ const Dashboard = () => {
       icon: <GraduationCap size={20} />,
     },
     { id: "mentorship", label: "1 on 1 Mentorship", icon: <Users size={20} /> },
-    {
-      id: "maintable",
-      label: "Maintable",
-      icon: <Users size={20} />,
-    },
-    {
-      id: "atsTable",
-      label: "atsTable",
-      icon: <Users size={20} />,
-    },
+    // {
+    //   id: "maintable",
+    //   label: "Maintable",
+    //   icon: <Users size={20} />,
+    // },
+    // {
+    //   id: "atsTable",
+    //   label: "atsTable",
+    //   icon: <Users size={20} />,
+    // },
   ];
 
   const renderContent = () => {
