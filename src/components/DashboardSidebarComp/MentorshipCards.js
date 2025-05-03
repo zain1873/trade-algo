@@ -47,7 +47,7 @@ const PricingCard = ({
         ))}
       </div>
       
-      <button className="btn btn-dark w-100">
+      <button className="btn btn-dark w-100 manage_btn">
         {type === 'Starter' ? 'Manage My Sessions' : 'Contact Us'} <span className="ms-2">→</span>
       </button>
     </div>

@@ -47,6 +47,9 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+
+  
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.style.setProperty("--text-color", "#ffffff");
@@ -107,7 +110,9 @@ const Dashboard = () => {
           case "dashboard": return <DashboardData darkMode={darkMode} />;
           case "darkpool-data": return <HistoricalDataFlow darkMode={darkMode} />;
           case "live-sessions": return <LiveSessions darkMode={darkMode} />;
-          case "Trade-products": return <TradeProducts darkMode={darkMode} />;
+          // case "Trade-products": return <TradeProducts darkMode={darkMode} />;
+          case "Trade-products": return <TradeProducts darkMode={darkMode} setActiveTab={setActiveTab} />;
+
           case "trading-tools": return <TradingTools darkMode={darkMode} />;
           case "emerald": return <Emerald darkMode={darkMode} />;
           case "platinum": return <Platinum darkMode={darkMode} />;

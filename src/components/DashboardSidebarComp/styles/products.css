@@ -14,6 +14,7 @@
 }
 
 
+
 .card-content {
   padding: 16px;
   height: 230px;
@@ -94,4 +95,13 @@
 
 .cta-button:hover {
   color: #ffffff;
+}
+
+
+
+
+/* valour wealth products */
+.valour-products-theme-card {
+  margin-bottom: 20px !important;
+  cursor: pointer;
 }
