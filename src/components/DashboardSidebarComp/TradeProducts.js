@@ -279,8 +279,9 @@
 // export default FinancialCards;
 
 import React from "react";
-import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpeg";
-import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpeg";
+// import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpeg";
+import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpg";
+import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpg";
 
 function TradeProducts() {
   return (
