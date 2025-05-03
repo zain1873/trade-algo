@@ -7,14 +7,8 @@ const Mentorship = ( {darkMode} ) => {
   
   return (
     <div className="container mt-4">
-   
       <PlatinumCard/>
-
     </div>
-
-
-  
-
   );
 };
 
