@@ -38,15 +38,7 @@
     transition: all 0.2s ease;
   }
   
-  .tab-button:hover {
-    color: #3498db;
-  }
-  
-  .tab-button.active {
-    color: #3498db;
-    border-bottom: 2px solid #3498db;
-  }
-  
+
   /* Table */
   .table-container {
     overflow-x: auto;
