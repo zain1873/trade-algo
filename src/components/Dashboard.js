@@ -281,8 +281,15 @@ const Dashboard = () => {
                 return <HistoricalDataFlow darkMode={darkMode} />;
               case "live-sessions":
                 return <LiveSessions darkMode={darkMode} />;
+              // case "Trade-products":
+              //   return <TradeProducts darkMode={darkMode} />;
               case "Trade-products":
-                return <TradeProducts darkMode={darkMode} />;
+                return (
+                  <TradeProducts
+                    darkMode={darkMode}
+                    setActiveTab={setActiveTab}
+                  />
+                );
               case "trading-tools":
                 return <TradingTools darkMode={darkMode} />;
               case "emerald":
