@@ -54,6 +54,14 @@ import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png";
 import videoThumbnail from "../DashboardSidebarComp/images/live-option.jpg";
 
 const Resources = ({ darkMode }) => {
+  const handlePlay = () => {
+    const video = document.getElementById("platform-video");
+    const overlay = document.querySelector(".video-thumbnail-overlay");
+    overlay.style.display = "none";
+    video.style.display = "block";
+    video.play();
+  };
+
   return (
     <div
       className={`container mt-4 resources-section ${
