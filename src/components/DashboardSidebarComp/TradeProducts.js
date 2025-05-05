@@ -278,38 +278,130 @@
 
 // export default FinancialCards;
 
-import React from "react";
-// import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpeg";
-import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpg";
-import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpg";
+// import React from "react";
+// // import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpeg";
+// import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpg";
+// import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpg";
 
-function TradeProducts() {
+// function TradeProducts() {
+//   return (
+//     <div className="container">
+//       <div class="row mt-4">
+//         <div class="col-lg-4">
+//           <div class="valour-products-theme-card">
+//             <img
+//               className="obj_fit"
+//               src={valourThemeCard}
+//               alt=""
+//               style={{ borderRadius: "30px" }}
+//             />
+//           </div>
+//         </div>
+
+//         <div class="col-lg-4">
+//           <div class="valour-products-theme-card">
+//             <img
+//               className="obj_fit"
+//               src={valourThemeCard2}
+//               alt=""
+//               style={{ borderRadius: "30px" }}
+//             />
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default TradeProducts;
+
+import React, { useState } from "react";
+import "../DashboardSidebarComp/styles/products.css";
+import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpeg";
+import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpeg";
+import TradeGpt from "../DashboardSidebarComp/images/TradeGPT.png";
+import TradingAcademy from "../DashboardSidebarComp/images/Trading Academy.png";
+import oneMentorship from "../DashboardSidebarComp/images/1 on 1  Mentrship.png";
+
+function TradeProducts({ darkMode, setActiveTab }) {
+  const [activeState, setAciveState] = useState("valour-products");
+
   return (
-    <div className="container">
-      <div class="row mt-4">
-        <div class="col-lg-4">
-          <div class="valour-products-theme-card">
-            <img
-              className="obj_fit"
-              src={valourThemeCard}
-              alt=""
-              style={{ borderRadius: "30px" }}
-            />
+    <>
+      <div className="container">
+        <div className="row mt-4">
+          <div className="col-lg-4">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("wealth-series")}
+            >
+              <img
+                className="obj_fit"
+                src={valourThemeCard}
+                alt="Wealth Series"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
           </div>
-        </div>
 
-        <div class="col-lg-4">
-          <div class="valour-products-theme-card">
-            <img
-              className="obj_fit"
-              src={valourThemeCard2}
-              alt=""
-              style={{ borderRadius: "30px" }}
-            />
+          <div className="col-lg-4">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("platinum")}
+            >
+              <img
+                className="obj_fit"
+                src={valourThemeCard2}
+                alt="Platinum Program"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
+          </div>
+
+          <div className="col-lg-4">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("tradegpt")}
+            >
+              <img
+                className="obj_fit"
+                src={TradeGpt}
+                alt="TradeGPT"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
+          </div>
+
+          <div className="col-lg-4">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("options-academy")}
+            >
+              <img
+                className="obj_fit"
+                src={TradingAcademy}
+                alt="Trading Academy"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
+          </div>
+
+          <div className="col-lg-4">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("mentorship")}
+            >
+              <img
+                className="obj_fit"
+                src={oneMentorship}
+                alt="1-on-1 Mentorship"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

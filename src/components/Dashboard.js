@@ -190,7 +190,7 @@ const Dashboard = () => {
       icon: <DollarSign size={20} />,
       isNew: true,
     },
-    { id: "emerald", label: "Emerald Inc.", icon: <Gem size={20} /> },
+    { id: "emerald", label: "Beginner Hub", icon: <Gem size={20} /> },
     { id: "platinum", label: "Platinum Program", icon: <Star size={20} /> },
     {
       id: "options-academy",

@@ -51,7 +51,7 @@
 import React from "react";
 import "../DashboardSidebarComp/styles/resources.css";
 import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png";
-import videoThumbnail from "../DashboardSidebarComp/images/live-option.jpg";
+import videoThumbnail from "../DashboardSidebarComp/images/walkthrough-thumnail.png";
 
 const Resources = ({ darkMode }) => {
   const handlePlay = () => {

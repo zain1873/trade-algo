@@ -351,6 +351,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 60px !important;
+  margin: auto;
+  text-align: center;
+  width: 70px !important;
 }
 .sidebar-menu {
   padding: 0;
