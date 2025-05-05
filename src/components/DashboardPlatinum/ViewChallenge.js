@@ -132,10 +132,12 @@ function ViewChallenge() {
   const [screenshot, setScreenshot] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [membersCount, setMembersCount] = useState(0);
+
+  const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
     const fetchChallenge = async () => {
-      const token = localStorage.getItem("accessToken");
       try {
         const res = await axios.get(
           `https://valourwealthdjango-production.up.railway.app/api/challenges/${id}/`,
@@ -151,10 +153,32 @@ function ViewChallenge() {
       }
     };
 
-    fetchChallenge();
-  }, [id]);
+    const fetchParticipants = async () => {
+      try {
+        const res = await axios.get(
+          `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setMembersCount(res.data.length);
+      } catch (err) {
+        console.error("Failed to fetch participants", err);
+      }
+    };
+
+    const fetchAll = async () => {
+      await fetchChallenge();
+      await fetchParticipants();
+    };
+
+    fetchAll();
+  }, [id, token]);
 
   const handleAnswerChange = (e) => setAnswer(e.target.value);
+
   const handleScreenshotChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -165,7 +189,7 @@ function ViewChallenge() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("accessToken");
+
     const formData = new FormData();
     formData.append("answer", answer);
     formData.append("screenshot", screenshot);
@@ -183,12 +207,23 @@ function ViewChallenge() {
         }
       );
       setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setAnswer("");
-        setScreenshot(null);
-        setPreviewUrl("");
-      }, 3000);
+      setAnswer("");
+      setScreenshot(null);
+      setPreviewUrl("");
+
+      // Refetch members after successful submission
+      const res = await axios.get(
+        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setMembersCount(res.data.length);
+
+      // Reset submission status after 3s
+      setTimeout(() => setSubmitted(false), 3000);
     } catch (err) {
       console.error("Submission failed", err);
       alert("Submission failed");
@@ -197,78 +232,90 @@ function ViewChallenge() {
 
   if (!challenge) return <div>Loading challenge details...</div>;
 
+  const isChallengeOutdated = new Date(challenge.end_date) < new Date();
+
   return (
     <div className="challenge-container">
       <div className="challenge-header-details">
         <h2>{challenge.title}</h2>
         <div className="challenge-meta">
-          <span className="badge-challenge bg-primary me-2">
+          <span className="badge bg-primary me-2">
             Deadline: {challenge.end_date}
+          </span>
+          <span className="badge bg-secondary">
+            Participants: {membersCount}
           </span>
         </div>
       </div>
 
-      <div className="challenge-description-details">
+      <div className="challenge-description-details mt-3">
         <h4>Challenge Description:</h4>
         <p>{challenge.description}</p>
       </div>
 
-      <div className="submission-form">
+      <div className="submission-form mt-4">
         <h4>Your Submission</h4>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3 challenge-form">
-            <label htmlFor="answerText" className="form-label">
-              Your Answer:
-            </label>
-            <textarea
-              id="answerText"
-              className="form-control"
-              rows="6"
-              value={answer}
-              onChange={handleAnswerChange}
-              placeholder="Type your answer here..."
-              required
-            ></textarea>
-          </div>
 
-          <div className="mb-4">
-            <label htmlFor="screenshotUpload" className="form-label">
-              Upload Screenshot:
-            </label>
-            <input
-              type="file"
-              className="form-control"
-              id="screenshotUpload"
-              accept="image/*"
-              onChange={handleScreenshotChange}
-              required
-            />
-            {previewUrl && (
-              <div className="screenshot-preview mt-2">
-                <h5>Preview:</h5>
-                <img
-                  src={previewUrl}
-                  alt="Screenshot preview"
-                  className="img-thumbnail"
-                />
+        {isChallengeOutdated ? (
+          <div className="alert alert-warning mt-3">
+            This challenge has ended. Submissions are closed.
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3 challenge-form">
+              <label htmlFor="answerText" className="form-label">
+                Your Answer:
+              </label>
+              <textarea
+                id="answerText"
+                className="form-control"
+                rows="6"
+                value={answer}
+                onChange={handleAnswerChange}
+                placeholder="Type your answer here..."
+                required
+              ></textarea>
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="screenshotUpload" className="form-label">
+                Upload Screenshot:
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="screenshotUpload"
+                accept="image/*"
+                onChange={handleScreenshotChange}
+                required
+              />
+              {previewUrl && (
+                <div className="screenshot-preview mt-2">
+                  <h5>Preview:</h5>
+                  <img
+                    src={previewUrl}
+                    alt="Screenshot preview"
+                    className="img-thumbnail"
+                  />
+                </div>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-primary submit-btn"
+              disabled={submitted}
+            >
+              {submitted ? "Submitted!" : "Submit Answer"}
+            </button>
+
+            {submitted && (
+              <div className="alert alert-success mt-3" role="alert">
+                Your challenge answer has been submitted successfully!
               </div>
             )}
-          </div>
-
-          <button
-            type="submit"
-            className="btn btn-primary submit-btn"
-            disabled={submitted}
-          >
-            {submitted ? "Submitted!" : "Submit Answer"}
-          </button>
-
-          {submitted && (
-            <div className="alert alert-success mt-3" role="alert">
-              Your challenge answer has been submitted successfully!
-            </div>
-          )}
-        </form>
+          </form>
+        )}
       </div>
     </div>
   );
