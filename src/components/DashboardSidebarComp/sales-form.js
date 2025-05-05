@@ -47,7 +47,7 @@ function SalesContactForm({ onClose }) {
             <input
               type="email"
               name="email"
-              placeholder="ahmedmohamed2k10@gmail.com"
+              placeholder="youremail@gmail.com"
               value={formData.email}
               onChange={handleChange}
               required
