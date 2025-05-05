@@ -17,7 +17,13 @@ import "./styles/variable.css";
 import "./styles/responsive.css";
 import "./index.css";
 
-
+const handlePlay = () => {
+  const video = document.getElementById("platform-video");
+  const overlay = document.querySelector(".video-thumbnail-overlay");
+  overlay.style.display = "none";
+  video.style.display = "block";
+  video.play();
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

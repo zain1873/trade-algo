@@ -51,6 +51,7 @@
 import React from "react";
 import "../DashboardSidebarComp/styles/resources.css";
 import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png";
+import videoThumbnail from "../DashboardSidebarComp/images/live-option.jpg";
 
 const Resources = ({ darkMode }) => {
   return (
@@ -59,19 +60,30 @@ const Resources = ({ darkMode }) => {
         darkMode ? "dark-mode" : "light-mode"
       }`}
     >
-      <div className="video-container mt-0">
+      <div className="video-container video-resource-container mt-0">
         <h4 className="video-title">Platform Walkthrough</h4>
 
         {/* Video player with controls and no download */}
         <div
           className={`video-wrapper ${darkMode ? "dark-mode" : "light-mode"}`}
         >
+          {/* Custom thumbnail with play button overlay */}
+          <div className="video-thumbnail-overlay" onClick={() => handlePlay()}>
+            <img
+              src={videoThumbnail}
+              alt="Thumbnail"
+              className="video-thumbnail"
+            />
+            <button className="play-button">&#9658;</button>
+          </div>
+
           <video
+            id="platform-video"
             width="100%"
             height="auto"
             controls
-            poster="https://your-image-placeholder.jpg" // Optional: Add a thumbnail placeholder
-            onContextMenu={(e) => e.preventDefault()} // Disable right-click
+            style={{ display: "none" }}
+            onContextMenu={(e) => e.preventDefault()}
           >
             <source
               src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
@@ -92,7 +104,7 @@ const Resources = ({ darkMode }) => {
           <img src={authorImg} alt="Author" className="author-img me-2" />
           <div>
             <h6 className="author-name m-0">
-              Jessica Kesa <span className="verified-badge">✔</span>
+              Ian Man <span className="verified-badge">✔</span>
             </h6>
             <p className="author-role m-0">ValourWealth Analyst</p>
           </div>
