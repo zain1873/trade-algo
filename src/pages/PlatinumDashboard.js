@@ -1205,17 +1205,25 @@ const PlatinumDashboard = () => {
                 // { key: "schedule-call", label: "Private Coaching" },
                 { key: "news", label: "News" },
               ].map(({ key, label }) => (
-                <li className="nav-item" key={key}>
-                  <a
-                    className={`nav-link ${
-                      activeSection === key ? "active" : ""
-                    }`}
-                    href="#"
-                    onClick={() => handleNavClick(key)}
-                  >
-                    {label}
-                  </a>
-                </li>
+                // <li className="nav-item" key={key}>
+                //   <a
+                //     className={`nav-link ${
+                //       activeSection === key ? "active" : ""
+                //     }`}
+                //     href="#"
+                //     onClick={() => handleNavClick(key)}
+                //   >
+                //     {label}
+                //   </a>
+                // </li>
+                <button
+                  className={`tab-button ${
+                    activeDashboardTab === "market" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveDashboardTab("market")}
+                >
+                  Dashboard
+                </button>
               ))}
 
               {/*  Premium Features Dropdown */}
