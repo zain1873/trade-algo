@@ -224,6 +224,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import PlatinumCard from "../DashboardSidebarComp/platinumCard";
+import SalesContactForm from "./sales-form";
 
 const Mentorship = ({ darkMode }) => {
   const [userData, setUserData] = useState(null);
@@ -232,6 +233,7 @@ const Mentorship = ({ darkMode }) => {
     ? process.env.REACT_APP_API_URL
     : process.env.REACT_APP_API_URL + "/";
   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -266,6 +268,18 @@ const Mentorship = ({ darkMode }) => {
         <PlatinumCard />
       </div>
     );
+  }
+
+  {
+    /*  Modal Trigger Button */
+  }
+  <button onClick={() => setShowForm(true)}>Open Sales Form</button>;
+
+  {
+    /*  Render Modal */
+  }
+  {
+    showForm && <SalesContactForm onClose={() => setShowForm(false)} />;
   }
 
   //  While loading user data, show nothing or a loader
