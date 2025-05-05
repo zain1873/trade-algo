@@ -105,7 +105,8 @@ import axios from "axios";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import PlatinumCard from "../DashboardSidebarComp/platinumCard";
 import SalesContactForm from "./sales-form";
-import platinumImg1 from "../DashboardSidebarComp/platinum-1.jpg";
+
+import platinumImg1 from "../DashboardSidebarComp/platinum.jpg";
 import platinumImg2 from "../DashboardSidebarComp/platinum-2.jpg";
 
 const Platinum = () => {
