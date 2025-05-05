@@ -881,7 +881,7 @@ const TradingChallenges = () => {
       const token = localStorage.getItem("accessToken");
       await axios.post(
         `https://valourwealthdjango-production.up.railway.app/api/challenges/${challengeId}/join/`,
-        {},
+        { user: "user_data" }, // If needed, include data like user_id or challenge-specific data
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -1023,12 +1023,6 @@ const TradingChallenges = () => {
                       {challenge.participants_count} members
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="prize-section">
-                <div className="prize-icon">
-                  <i className="bi bi-gift"></i>
                 </div>
               </div>
             </div>
