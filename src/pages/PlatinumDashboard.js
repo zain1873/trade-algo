@@ -1002,7 +1002,6 @@ import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 
 const PlatinumDashboard = () => {
-  const [activeSection, setActiveSection] = useState("dashboard");
   const collapseRef = useRef(null);
   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
   const [userData, setUserData] = useState(null);
@@ -1025,8 +1024,19 @@ const PlatinumDashboard = () => {
     : process.env.REACT_APP_API_URL + "/";
   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
 
+  const [activeSection, setActiveSection] = useState(() => {
+    return localStorage.getItem("platinumActiveSection") || "dashboard";
+  });
+
+  // const handleNavClick = (key) => {
+  //   setActiveSection(key);
+  //   if (collapseRef.current?.classList.contains("show")) {
+  //     collapseRef.current.classList.remove("show");
+  //   }
+  // };
   const handleNavClick = (key) => {
     setActiveSection(key);
+    localStorage.setItem("platinumActiveSection", key); // 👈 save it
     if (collapseRef.current?.classList.contains("show")) {
       collapseRef.current.classList.remove("show");
     }
