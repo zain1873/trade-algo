@@ -265,21 +265,11 @@ const Mentorship = ({ darkMode }) => {
   if (userData && userData.subscription_status !== "platinum") {
     return (
       <div className="container mt-5">
+        <button onClick={() => setShowForm(true)}>Open Sales Form</button>;
+        {showForm && <SalesContactForm onClose={() => setShowForm(false)} />}
         <PlatinumCard />
       </div>
     );
-  }
-
-  {
-    /*  Modal Trigger Button */
-  }
-  <button onClick={() => setShowForm(true)}>Open Sales Form</button>;
-
-  {
-    /*  Render Modal */
-  }
-  {
-    showForm && <SalesContactForm onClose={() => setShowForm(false)} />;
   }
 
   //  While loading user data, show nothing or a loader
