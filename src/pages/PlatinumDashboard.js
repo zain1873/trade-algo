@@ -1002,6 +1002,7 @@ import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 
 const PlatinumDashboard = () => {
+  const [activeSection, setActiveSection] = useState("dashboard");
   const collapseRef = useRef(null);
   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
   const [userData, setUserData] = useState(null);
@@ -1024,19 +1025,8 @@ const PlatinumDashboard = () => {
     : process.env.REACT_APP_API_URL + "/";
   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
 
-  const [activeSection, setActiveSection] = useState(() => {
-    return localStorage.getItem("platinumActiveSection") || "dashboard";
-  });
-
-  // const handleNavClick = (key) => {
-  //   setActiveSection(key);
-  //   if (collapseRef.current?.classList.contains("show")) {
-  //     collapseRef.current.classList.remove("show");
-  //   }
-  // };
   const handleNavClick = (key) => {
     setActiveSection(key);
-    localStorage.setItem("platinumActiveSection", key); // 👈 save it
     if (collapseRef.current?.classList.contains("show")) {
       collapseRef.current.classList.remove("show");
     }
@@ -1205,25 +1195,17 @@ const PlatinumDashboard = () => {
                 // { key: "schedule-call", label: "Private Coaching" },
                 { key: "news", label: "News" },
               ].map(({ key, label }) => (
-                // <li className="nav-item" key={key}>
-                //   <a
-                //     className={`nav-link ${
-                //       activeSection === key ? "active" : ""
-                //     }`}
-                //     href="#"
-                //     onClick={() => handleNavClick(key)}
-                //   >
-                //     {label}
-                //   </a>
-                // </li>
-                <button
-                  className={`tab-button ${
-                    activeDashboardTab === "market" ? "active" : ""
-                  }`}
-                  onClick={() => setActiveDashboardTab("market")}
-                >
-                  Dashboard
-                </button>
+                <li className="nav-item" key={key}>
+                  <a
+                    className={`nav-link ${
+                      activeSection === key ? "active" : ""
+                    }`}
+                    href="#"
+                    onClick={() => handleNavClick(key)}
+                  >
+                    {label}
+                  </a>
+                </li>
               ))}
 
               {/*  Premium Features Dropdown */}
