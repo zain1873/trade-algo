@@ -40,6 +40,7 @@ import CryptoData from "./DashboardSidebarComp/CryptoData";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
 import TradeAlertsTable from "./DashboardSidebarComp/TradeAlertsTable";
 import MainTable from "./DashboardSidebarComp/MainTable";
+import SearchTicker from "./DashboardSidebarComp/SearchTicker";
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -207,10 +208,18 @@ const Dashboard = () => {
         <div className={`${sidebarCollapsed ? "col-11 offset-1" : "col-9 offset-3"} transition-margin`}>
           <div className="container-fluid" style={{ backgroundColor: "var(--background-color)", color: "var(--text-color)", minHeight: "100vh" }}>
             <div className="row align-items-center dashboard-head">
+
+              {/* search ticker from finhub stock api */}
               <div className="col position-relative search-main">
-                <input type="text" className={`search_bar ${darkMode ? "dark-mode" : ""}`} placeholder="Trade GPT Search Tickers" />
-                <i className="fas fa-search search-icon"></i>
+                {/* <input type="text" className={`search_bar ${darkMode ? "dark-mode" : ""}`} placeholder="Trade GPT Search Tickers" />
+                <i className="fas fa-search search-icon"></i> */}
+                 <SearchTicker/>
+
               </div>
+
+
+
+              {/* end component */}
               <div className="col-auto user_info position-relative">
                 <img src={user_logo} alt="Profile" className="rounded-circle" width="40" height="40" />
                 <div className="username_data">
