@@ -187,7 +187,8 @@ function App() {
           path="/platinum-dashboard"
           element={<PlatinumDashboard />}
         ></Route>
-        <Route path="/view-challenges" element={<ViewChallenge />}></Route>
+        {/* <Route path="/view-challenges" element={<ViewChallenge />}></Route> */}
+        <Route path="/challenges/:id" element={<ViewChallenge />} />
       </Routes>
     </Router>
   );

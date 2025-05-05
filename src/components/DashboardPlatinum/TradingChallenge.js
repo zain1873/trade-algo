@@ -513,6 +513,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const TradingChallenges = () => {
   const [activeTab, setActiveTab] = useState("Active Challenges");
@@ -725,15 +726,11 @@ const TradingChallenges = () => {
               </div>
             </div>
             <div className="challenge-actions">
-              <a href="/view-challenges">
-                {" "}
+              <Link to={`/challenges/${challenge.id}`}>
                 <button className="action-button outline">
                   View Challenge Details
-                </button>{" "}
-              </a>
-              <button className="action-button filled">
-                View Your Performance
-              </button>
+                </button>
+              </Link>
             </div>
 
             {/* Current Leaderboard */}
