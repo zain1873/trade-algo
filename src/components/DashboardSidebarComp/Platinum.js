@@ -106,8 +106,8 @@ import "../DashboardSidebarComp/styles/mentorship.css";
 import PlatinumCard from "../DashboardSidebarComp/platinumCard";
 import SalesContactForm from "./sales-form";
 
-import platinumImg1 from "../DashboardSidebarComp/platinum.jpg";
-import platinumImg2 from "../DashboardSidebarComp/platinum-2.jpg";
+import platinumImg1 from "../DashboardSidebarComp/images/platinum.jpg";
+import platinumImg2 from "../DashboardSidebarComp/images/platinum-2.jpg";
 
 const Platinum = () => {
   const [userData, setUserData] = useState(null);
