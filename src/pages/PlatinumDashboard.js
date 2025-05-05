@@ -1467,7 +1467,7 @@ const PlatinumDashboard = () => {
             </div>
 
             {/* Dashboard Tabs */}
-            {/* <div className="tabs-container mb-4">
+            <div className="tabs-container mb-4">
               <div className="nav-tabs">
                 <button
                   className="tab-button"
@@ -1503,67 +1503,6 @@ const PlatinumDashboard = () => {
                   //   activeDashboardTab === "leaderboard" ? "active" : ""
                   // }`}
                   onClick={() => setActiveDashboardTab("leaderboard")}
-                >
-                  Leaderboard
-                </button>
-              </div>
-            </div> */}
-
-            <div className="tabs-container mb-4">
-              <div className="nav-tabs">
-                <button
-                  className={`tab-button ${
-                    activeSection === "dashboard" &&
-                    activeDashboardTab === "market"
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setActiveSection("dashboard");
-                    setActiveDashboardTab("market");
-                  }}
-                >
-                  Dashboard
-                </button>
-                <button
-                  className={`tab-button ${
-                    activeSection === "dashboard" &&
-                    activeDashboardTab === "schedule-Calls"
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setActiveSection("dashboard");
-                    setActiveDashboardTab("schedule-Calls");
-                  }}
-                >
-                  Schedule Calls
-                </button>
-                <button
-                  className={`tab-button ${
-                    activeSection === "dashboard" &&
-                    activeDashboardTab === "webinars"
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setActiveSection("dashboard");
-                    setActiveDashboardTab("webinars");
-                  }}
-                >
-                  Webinars
-                </button>
-                <button
-                  className={`tab-button ${
-                    activeSection === "dashboard" &&
-                    activeDashboardTab === "leaderboard"
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setActiveSection("dashboard");
-                    setActiveDashboardTab("leaderboard");
-                  }}
                 >
                   Leaderboard
                 </button>
