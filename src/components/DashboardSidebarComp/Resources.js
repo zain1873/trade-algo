@@ -82,7 +82,7 @@ const Resources = ({ darkMode }) => {
               alt="Thumbnail"
               className="video-thumbnail"
             />
-            <button className="play-button">&#9658;</button>
+            <button className="play-button-resources">&#9658;</button>
           </div>
 
           <video

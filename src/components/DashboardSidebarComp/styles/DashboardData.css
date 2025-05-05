@@ -42,7 +42,7 @@
 .user_info {
   cursor: pointer;
   padding-bottom: 6px;
-  padding-right: 40px;
+  padding-right: 40px !important;
 }
 .bg-dark .search_bar {
   background-color: #1c1e20 !important;
