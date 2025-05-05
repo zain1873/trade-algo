@@ -173,7 +173,6 @@ const Platinum = () => {
           </button>
         </div>
         {showForm && <SalesContactForm onClose={() => setShowForm(false)} />}
-        <PlatinumCard />
       </div>
     );
   }
