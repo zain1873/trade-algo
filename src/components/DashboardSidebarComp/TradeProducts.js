@@ -317,11 +317,11 @@
 
 import React, { useState } from "react";
 import "../DashboardSidebarComp/styles/products.css";
-import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpeg";
-import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpeg";
-import TradeGpt from "../DashboardSidebarComp/images/TradeGPT.png";
-import TradingAcademy from "../DashboardSidebarComp/images/Trading Academy.png";
-import oneMentorship from "../DashboardSidebarComp/images/1 on 1  Mentrship.png";
+import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpg";
+import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpg";
+import TradeGpt from "../DashboardSidebarComp/images/TradeGPT.jpg";
+import TradingAcademy from "../DashboardSidebarComp/images/Trading Academy.jpg";
+import oneMentorship from "../DashboardSidebarComp/images/1 on 1  Mentrship.jpg";
 
 function TradeProducts({ darkMode, setActiveTab }) {
   const [activeState, setAciveState] = useState("valour-products");
