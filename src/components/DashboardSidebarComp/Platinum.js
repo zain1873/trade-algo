@@ -62,7 +62,7 @@
 
 import React from "react";
 import platinumIMg from "../DashboardSidebarComp/platinum-1.jpg";
-import platinumIMg from "../DashboardSidebarComp/platinum-2.jpg";
+import platinumIMg1 from "../DashboardSidebarComp/platinum-2.jpg";
 
 function Platinum() {
   return (
@@ -85,7 +85,7 @@ function Platinum() {
             <div class="platinum_img">
               <img
                 className="obj_fit"
-                src={platinumIMg}
+                src={platinumIMg1}
                 alt=""
                 style={{ borderRadius: "20px" }}
               />
