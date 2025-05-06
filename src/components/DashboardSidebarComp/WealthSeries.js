@@ -7,18 +7,28 @@ function WealthSeries() {
     <div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 mb-4">
+          <div className="col-lg-6 mb-4">
             <div className="card-wealth-series">
               <div className="wealth-card-img">
-                <img src={wealthcardimg} className="obj_fit" alt="Card 1" />
+                <img
+                  src={wealthcardimg}
+                  className="obj_fit"
+                  style={{ borderRadius: "20px" }}
+                  alt="Card 1"
+                />
               </div>
             </div>
           </div>
 
-          <div className="col-lg-4 mb-4">
+          <div className="col-lg-6 mb-4">
             <div className="card-wealth-series">
               <div className="wealth-card-img">
-                <img src={wealthcardimg2} className="obj_fit" alt="Card 1" />
+                <img
+                  src={wealthcardimg2}
+                  className="obj_fit"
+                  style={{ borderRadius: "20px" }}
+                  alt="Card 1"
+                />
               </div>
             </div>
           </div>
