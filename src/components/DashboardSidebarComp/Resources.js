@@ -112,7 +112,7 @@ const Resources = ({ darkMode }) => {
           <img src={authorImg} alt="Author" className="author-img me-2" />
           <div>
             <h6 className="author-name m-0">
-              Ian Man <span className="verified-badge">✔</span>
+              Jack G <span className="verified-badge">✔</span>
             </h6>
             <p className="author-role m-0">ValourWealth Analyst</p>
           </div>
@@ -121,7 +121,7 @@ const Resources = ({ darkMode }) => {
         <h5 className="session-title mt-3">Platform Walkthrough Sessions</h5>
         <p className="session-description">
           Join us for a platform walkthrough livestream where we'll be taking
-          you on a tour of our latest update. Dane will guide you through all
+          you on a tour of our latest update. Jack will guide you through all
           the features, functionalities, and show you how to get the most out of
           the platform. Don't miss out on this exciting chance to learn and
           explore!
