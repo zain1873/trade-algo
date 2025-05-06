@@ -228,7 +228,7 @@ function LiveTrainingSession() {
                         className="session-img"
                       />
                       <button
-                        className="play-button"
+                        className="play-button-session"
                         onClick={() => handlePlay(index)}
                       >
                         ▶
