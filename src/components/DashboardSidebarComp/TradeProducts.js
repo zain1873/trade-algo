@@ -386,7 +386,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
             </div>
           </div>
 
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
               onClick={() => setActiveTab("mentorship")}

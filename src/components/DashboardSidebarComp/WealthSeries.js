@@ -6,7 +6,7 @@ function WealthSeries() {
   return (
     <div>
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row">
           <div className="col-lg-4 mb-4">
             <div className="card-wealth-series">
               <div className="wealth-card-img">
