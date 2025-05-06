@@ -330,7 +330,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
     <>
       <div className="container">
         <div className="row mt-4">
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
               onClick={() => setActiveTab("wealth-series")}
@@ -344,7 +344,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
             </div>
           </div>
 
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
               onClick={() => setActiveTab("platinum")}
@@ -358,7 +358,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
             </div>
           </div>
 
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
               onClick={() => setActiveTab("tradegpt")}
@@ -372,7 +372,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
             </div>
           </div>
 
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
               onClick={() => setActiveTab("options-academy")}
