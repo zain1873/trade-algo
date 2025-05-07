@@ -173,7 +173,8 @@ const SessionsComponent = () => {
       </div>
 
       {/* Sessions Count Panel */}
-      <div className="sessions-panel">
+
+      {/* <div className="sessions-panel">
         <div className="sessions-header">
           <h5>Sessions available:</h5>
           <div className="sessions-badges">
@@ -199,7 +200,7 @@ const SessionsComponent = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Mentorship Description */}
       {activeTab === "mentorship" && (
