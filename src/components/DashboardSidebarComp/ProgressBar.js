@@ -83,7 +83,6 @@
 // export default ProgressBarsDisplay;
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import "../DashboardSidebarComp/styles/progressbar.css";
 
 const CircularProgressBar = ({ percentage, color }) => {
@@ -164,7 +163,10 @@ const ProgressBarsDisplay = ({ courseId }) => {
           <h2 className="text-white">Your Progress</h2>
         </div>
 
-        <div className="text-center mb-3">
+        <div
+          className="text-center mb-3"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           {["beginner", "intermediate", "professional"].map((level) => (
             <button
               key={level}
