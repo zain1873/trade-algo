@@ -710,7 +710,7 @@ function FeatureVotingTabs() {
                           ></div>
                         </div>
 
-                        <div className="vote-btn-container mt-2">
+                        <div className="vote-btn-container mt-5">
                           <button
                             className="btn btn-sm btn-outline-light"
                             onClick={() => handleVote(feature.id)}
