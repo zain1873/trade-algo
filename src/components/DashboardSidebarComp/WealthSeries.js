@@ -5,7 +5,7 @@ import SalesContactForm from "./sales-form";
 
 function WealthSeries() {
   const [showForm, setShowForm] = useState(false);
-  
+
   return (
     <div>
       <div className="container">
@@ -42,8 +42,8 @@ function WealthSeries() {
             </div>
           </div>
         </div>
+        {showForm && <SalesContactForm onClose={() => setShowForm(false)} />}
       </div>
-      {showForm && <SalesContactForm onClose={() => setShowForm(false)} />}
     </div>
   );
 }
