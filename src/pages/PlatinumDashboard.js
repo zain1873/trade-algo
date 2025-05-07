@@ -1319,9 +1319,11 @@ const PlatinumDashboard = () => {
 
 
           <div className="backtodashboardbtn">
-            <a href="/dashboard">
-            <button className="theme_btn">Back to dashboard</button>
-            </a>
+          <h3><a href="/dashboard">
+              
+              {/* <button className="theme_btn">Back to dashboard</button> */}
+              </a></h3>
+            
           </div>
             
 
