@@ -540,11 +540,8 @@
 
 // export default FeatureVotingTabs;
 
-
-
-
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function FeatureVotingTabs() {
   const [activeTab, setActiveTab] = useState("active-voting");
@@ -679,9 +676,11 @@ function FeatureVotingTabs() {
                       >
                         {feature.status}
                       </span>
-                      <span className="feature-category">
-                        {feature.category}
-                      </span>
+                      {feature.category && (
+                        <span className="feature-category">
+                          - {feature.category}
+                        </span>
+                      )}
                     </div>
                     <h2 className="feature-title">{feature.title}</h2>
                     <p className="feature-description">{feature.description}</p>
@@ -690,7 +689,8 @@ function FeatureVotingTabs() {
                       <div className="voting-progress-container">
                         <div className="voting-stats">
                           <span>
-                            {feature.votes_count || 0} of {feature.votes_needed} votes needed
+                            {feature.votes_count || 0} of {feature.votes_needed}{" "}
+                            votes needed
                           </span>
                         </div>
                         <div className="progress">
