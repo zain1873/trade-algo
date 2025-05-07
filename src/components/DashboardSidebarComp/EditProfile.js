@@ -255,7 +255,7 @@ function EditProfile() {
     <section className="edit-profile py-5">
       <div className="container">
         <div className="card-editplatinum shadow-sm p-4">
-          <h4 className="mb-4 edit-form">Edit Profile</h4>
+          <h4 className="mb-4 edit-form " >Edit Profile</h4>
 
           <div className="mb-3 edit-form">
             <label>Username</label>
@@ -288,7 +288,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3 edit-form">
+          <div style={{backgroundColor: '#1e1e1e'}}  className="mb-3 edit-form">
             <label>Country</label>
             <Select
               options={formattedCountries}

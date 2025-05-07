@@ -312,6 +312,10 @@
   /* background-color: #ccc; */
  }
  
+ a {
+  color: transparent !important;
+}
+
 
  .news-wrap img {
   height: 450px;
