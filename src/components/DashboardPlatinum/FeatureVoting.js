@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FeatureVotingTabs from "./FeatureVotingTabs";
-import "../DashboardSidebarComp/styles/mentorship.css"; // apka styling import already tha
+import "../DashboardSidebarComp/styles/mentorship.css";
 
 function FeatureVoting() {
   const [featureTitle, setFeatureTitle] = useState("");
