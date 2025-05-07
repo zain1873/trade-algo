@@ -2050,6 +2050,9 @@ body::-webkit-scrollbar-thumb {
   .challenge-actions .button {
     background-color: #2a2a2a !important;
   }
+  .feature-voting-container .form-input:focus {
+    border-color: 1px solid #27272a;
+  }
 }
 
 /* media queries */
