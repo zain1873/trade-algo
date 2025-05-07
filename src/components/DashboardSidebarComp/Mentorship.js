@@ -148,8 +148,8 @@
 // export default Mentorship;
 
 import React, { useState } from "react";
-import MentorshipPlans from "./MentorshipCards";
 import "../DashboardSidebarComp/styles/mentorship.css";
+import MentorshipPlans from "./MentorshipCards";
 
 const SessionsComponent = () => {
   const [activeTab, setActiveTab] = useState("mentorship");
@@ -229,7 +229,13 @@ const SessionsComponent = () => {
             <div className="telegram-access">
               <p>Access the telegram channel here:</p>
               <button className="btn btn-dark telegram-btn">
-                <i className="telegram-icon">✈️</i> Mentorship Telegram Alerts
+                <a
+                  target="_blank"
+                  className="text-decoration-none text-white"
+                  href="https://t.me/+nO3GSU_Jvts5MGE0"
+                >
+                  <i className="telegram-icon">✈</i> Mentorship Telegram Alerts
+                </a>
               </button>
             </div>
           </div>
