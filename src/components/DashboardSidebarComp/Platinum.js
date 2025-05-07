@@ -154,7 +154,7 @@ const Platinum = () => {
           <div className="col-lg-6 mb-3" onClick={() => setShowForm(true)}>
             <img
               src={platinumImg1}
-              className="img-fluid rounded"
+              className="img-fluid rounded cursor-pointer"
               alt="Platinum 1"
             />
           </div>
@@ -162,7 +162,7 @@ const Platinum = () => {
             
            <img
               src={platinumImg2}
-              className="img-fluid rounded"
+              className="img-fluid rounded cursor-pointer"
               alt="Platinum 2"
             />
           </div>
