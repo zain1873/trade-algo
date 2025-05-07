@@ -311,6 +311,7 @@ const ExclusiveWebinars = () => {
                 activeTab === "Past Recordings" &&
                 recordings.map((rec) => (
                   <div key={rec.id} className="webinar-card">
+                    
                     <div className="webinar-header">
                       <h4 className="webinar-title">{rec.title}</h4>
                       <span className="status-badge">{rec.status}</span>

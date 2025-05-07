@@ -1349,7 +1349,7 @@ const TradingChallenges = () => {
 
             <div className="challenge-actions">
               <Link to={`/challenges/${challenge.id}`}>
-                <button className="action-button outline">
+                <button className="action-button joined">
                   View Challenge Details
                 </button>
               </Link>

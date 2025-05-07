@@ -1317,6 +1317,14 @@ const PlatinumDashboard = () => {
               </ul>
             </ul>
 
+
+          <div className="backtodashboardbtn">
+            <a href="/dashboard">
+            <button className="theme_btn">Back to dashboard</button>
+            </a>
+          </div>
+            
+
             <div className="d-flex align-items-center position-relative">
               {/* Notifications Bell */}
               <div
