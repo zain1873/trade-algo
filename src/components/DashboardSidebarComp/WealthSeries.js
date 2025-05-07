@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import wealthcardimg from "../DashboardSidebarComp/images/wealthseries-1.jpg";
 import wealthcardimg2 from "../DashboardSidebarComp/images/wealthseries-2.jpg";
 import SalesContactForm from "./sales-form";
