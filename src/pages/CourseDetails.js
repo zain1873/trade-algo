@@ -646,6 +646,41 @@ const ValourAcademy = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [grade, setGrade] = useState(null);
 
+
+  const [passedLevels, setPassedLevels] = useState([]);
+
+  useEffect(() => {
+    const fetchProgress = async () => {
+      const token = localStorage.getItem("accessToken");
+      const res = await fetch(
+        `https://valourwealthdjango-production.up.railway.app/courses/${courseId}/progress/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+      const currentLevel = data.levels.find(
+        (lvl) => lvl.level.toLowerCase() === selectedLevel
+      );
+      setProgressData({
+        totalProgress: data.total_progress,
+        levelProgress: currentLevel?.percent || 0,
+        videoProgress: currentLevel?.percent || 0,
+      });
+      setVideoWatched(currentLevel?.watched_video_ids || []);
+      setPassedLevels(data.passed_levels.map(lvl => lvl.toLowerCase())); // ✅ Add this line
+    };
+  
+    if (courseId) fetchProgress();
+  }, [courseId, selectedLevel]);
+  
+
+
+
+
   const toggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
   };
@@ -785,19 +820,22 @@ const ValourAcademy = () => {
     setGrade(percent);
   };
 
+  // const isLevelUnlocked = (level) => {
+  //   if (level === "beginner") return true;
+  //   if (level === "intermediate")
+  //     return grade >= 50 && selectedLevel === "beginner";
+  //   if (level === "professional")
+  //     return grade >= 50 && selectedLevel === "intermediate";
+  //   return false;
+  // };
+
   const isLevelUnlocked = (level) => {
     if (level === "beginner") return true;
-    if (level === "intermediate")
-      return grade >= 50 && selectedLevel === "beginner";
-    if (level === "professional")
-      return grade >= 50 && selectedLevel === "intermediate";
+    if (level === "intermediate") return passedLevels.includes("beginner");
+    if (level === "professional") return passedLevels.includes("intermediate");
     return false;
   };
-
-  // const isVideoUnlocked = (index) => {
-  //   if (index === 0) return true;
-  //   return videoWatched.includes(getVideosForLevel(selectedLevel)[index - 1]?.id);
-  // };
+  
 
   const isVideoUnlocked = (index) => {
     return true; // All videos are unlocked
@@ -807,11 +845,7 @@ const ValourAcademy = () => {
     return true; // So notes unlock immediately
   };
 
-  // const areAllVideosWatched = () => {
-  //   const videos = getVideosForLevel(selectedLevel);
-  //   return videos.length && videos.every((v) => videoWatched.includes(v.id));
-  // };
-
+  
   const canAccessNotes = () => areAllVideosWatched();
   const canAccessMCQs = () => canAccessNotes();
 
