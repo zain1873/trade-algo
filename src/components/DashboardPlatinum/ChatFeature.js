@@ -6,7 +6,7 @@ const ChatFeature = () => {
     {
       id: 1,
       sender: "agent",
-      text: "Hello! Welcome to Opulent International. How can I assist you today?",
+      text: "Hello! Welcome to Valour Wealth. How can I assist you today?",
       time: "14:16",
     },
   ]);
@@ -62,7 +62,7 @@ const ChatFeature = () => {
       {isChatOpen ? (
         <div className="chat-box">
           <div className="chat-header">
-            <div className="header-left">
+            <div className="header-left-feature">
               <div className="profile-icon">
                 <img src="/logo-circle.png" alt="Opulent Logo" />
               </div>
@@ -90,7 +90,7 @@ const ChatFeature = () => {
                   </div>
                 )}
                 <div className="message-content">
-                  <div className="message-text">{message.text}</div>
+                  <div className="message-text-feature">{message.text}</div>
                   <div className="message-time">{message.time}</div>
                 </div>
                 {message.sender === "user" && (
