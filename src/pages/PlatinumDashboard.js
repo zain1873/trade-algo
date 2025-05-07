@@ -987,19 +987,20 @@
 //       </nav>
 
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
-import "../styles/platinumDashboard.css";
-import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
+import { useEffect, useRef, useState } from "react";
+import ChatFeature from "../components/DashboardPlatinum/ChatFeature";
+import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
+import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
 import MarketNews from "../components/DashboardPlatinum/MarketNews";
-import Wabinars from "../components/DashboardPlatinum/Wabinars";
-import TradingChallenges from "../components/DashboardPlatinum/TradingChallenge";
-import ScheduleCall from "../components/DashboardPlatinum/ScheduleCall";
-import PortfolioHeatmap from "../components/DashboardPlatinum/PortfolioHeatmap";
-import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
 import PlatinumMembershipNFT from "../components/DashboardPlatinum/MembershipNft";
-import JournalPage from "../components/DashboardPlatinum/JournalPage";
+import PortfolioHeatmap from "../components/DashboardPlatinum/PortfolioHeatmap";
+import ScheduleCall from "../components/DashboardPlatinum/ScheduleCall";
+import TradingChallenges from "../components/DashboardPlatinum/TradingChallenge";
+import Wabinars from "../components/DashboardPlatinum/Wabinars";
+import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
+import "../styles/platinumDashboard.css";
 
 const PlatinumDashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -1317,15 +1318,13 @@ const PlatinumDashboard = () => {
               </ul>
             </ul>
 
-
-          <div className="backtodashboardbtn">
-          <h3><a href="/dashboard">
-              
-              {/* <button className="theme_btn">Back to dashboard</button> */}
-              </a></h3>
-            
-          </div>
-            
+            <div className="backtodashboardbtn">
+              <h3>
+                <a href="/dashboard">
+                  {/* <button className="theme_btn">Back to dashboard</button> */}
+                </a>
+              </h3>
+            </div>
 
             <div className="d-flex align-items-center position-relative">
               {/* Notifications Bell */}
@@ -1710,6 +1709,7 @@ const PlatinumDashboard = () => {
         {activeSection === "membership-nft" && <PlatinumMembershipNFT />}
         {activeSection === "journal-page" && <JournalPage />}
       </div>
+      <ChatFeature />
     </div>
   );
 };
