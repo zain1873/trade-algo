@@ -4,6 +4,8 @@ import wealthcardimg2 from "../DashboardSidebarComp/images/wealthseries-2.jpg";
 import SalesContactForm from "./sales-form";
 
 function WealthSeries() {
+  const [showForm, setShowForm] = useState(false);
+  
   return (
     <div>
       <div className="container">
