@@ -43,7 +43,7 @@ const ProgressBarsDisplay = () => {
           <h4 className='text-white'>Watched</h4>
 
         </div>
-        <div className="col-md-3 text-center">
+        <div className="col-md-3 text-center ">
           <CircularProgressBar percentage={95} color="#F05252" />
           <h4 className='text-white'>Success rate</h4>
 

@@ -59,7 +59,7 @@ function postEditor() {
                           />
                         </div>
                       </a>
-                      <div className="other-news-info">
+                      <div className="other-news-info" style={{backgroundColor: '#1e1e1e'}}>
                         <h4 className="mb-0">
                           Wednesday's Biggest Analyst Calls: Nvidia, Apple,
                           Tesla, Walmart...

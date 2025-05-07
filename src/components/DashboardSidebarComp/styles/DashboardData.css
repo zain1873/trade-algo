@@ -151,3 +151,231 @@
 .bg-dark .edit-form .form-label {
   color: #fff !important;
 }
+
+
+
+/* search ticker css */
+
+/* StockTicker.css */
+.stock-ticker {
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  max-width: 350px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Default search-only view */
+.search-only-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+}
+
+/* Search Container */
+.search-container {
+  position: relative;
+  margin-left: 15px;
+}
+
+
+.search-bar {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border-radius: 20px;
+  border: 1px solid #333;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #777;
+}
+
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: #777;
+}
+
+.search-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Navigation */
+.back-link {
+  color: #3498db;
+  text-align: right;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Stock Header */
+.stock-header {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
+
+.column.headers {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.column.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #181818 !important;
+
+}
+
+.symbol-container {
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.symbol {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.company-name {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Trend Visualization */
+.trend {
+  width: 100px;
+  height: 30px;
+}
+
+.trend svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 2;
+}
+
+.trend-up path {
+  stroke: #4caf50;
+}
+
+.trend-down path {
+  stroke: #f44336;
+}
+
+/* Price Display */
+.price-container {
+  text-align: right;
+}
+
+.price-container .price {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.change {
+  font-size: 14px;
+}
+
+.positive {
+  color: #4caf50;
+}
+
+.negative {
+  color: #f44336;
+}
+
+
+
+/* Stock Details */
+.stock-details-rows {
+  padding: 15px 0;
+  margin-left: 10px ;
+}
+.stock-details {
+  margin-left: 20px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  color: #777;
+}
+
+.detail-value {
+  font-weight: bold;
+}
+
+/* Historical Data Link */
+.historical-data-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.historical-data-link a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.historical-data-link a:hover {
+  text-decoration: underline;
+}
+
+/* Loading and Error States */
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+.error {
+  color: #f44336;
+}
+
+.search_main {
+  z-index: 100;
+  background: red;
+  position: absolute !important;
+  top: 64px;
+  width: 30%;
+}

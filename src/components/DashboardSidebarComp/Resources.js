@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../DashboardSidebarComp/styles/resources.css";
-import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png"
+import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png";
+import SalesContactForm from "./SalesContactForm";
 
 const Resources = ({ darkMode }) => {
+  const [showForm, setShowForm] = useState(false); 
+
   return (
     <div className={`container mt-4 resources-section ${darkMode ? "dark-mode" : "light-mode"}`}>
       <div className="video-container mt-0">
@@ -18,7 +21,6 @@ const Resources = ({ darkMode }) => {
         ></iframe>
       </div>
 
-      {/* Dark mode class added here */}
       <div className={`resources-details mt-4 ${darkMode ? "dark-mode" : "light-mode"}`}>
         <div className="author-info d-flex align-items-center">
           <img src={authorImg} alt="Author" className="author-img me-2" />
@@ -42,6 +44,13 @@ const Resources = ({ darkMode }) => {
           <p className="replay-text">Replays are available at any time.</p>
         </div>
       </div>
+
+      {/*  Modal Trigger Button */}
+      <button onClick={() => setShowForm(true)}>Open Sales Form</button>
+
+      {/*  Render Modal */}
+      {showForm && <SalesContactForm onClose={() => setShowForm(false)} />}
+
     </div>
   );
 };

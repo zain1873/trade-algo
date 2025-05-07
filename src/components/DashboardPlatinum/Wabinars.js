@@ -192,6 +192,7 @@ const ExclusiveWebinars = () => {
                   <span className="status-badge">{recording.status}</span>
                 </div>
                 <p className="webinar-description">{recording.description}</p>
+
                 
                 <div className="presenter-info">
                   <i className="bi bi-person-video3 presenter-icon"></i>
