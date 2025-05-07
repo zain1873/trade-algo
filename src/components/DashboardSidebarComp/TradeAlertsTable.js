@@ -1,205 +1,47 @@
-// import React, { useState } from "react";
 
+// import React, { useEffect, useState } from "react";
 // import "../DashboardSidebarComp/styles/TradeAlertsTable.css";
 
+// const API_BASE_URL = "https://valourwealthdjango-production.up.railway.app/";
+
+// const apiPaths = {
+//   "Large Caps": "api/alerts/large_caps/",
+//   "Medium Caps": "api/alerts/medium_caps/",
+//   "Small Caps": "api/alerts/small_caps/",
+// };
+
 // const TradeAlertsTable = () => {
-//   const [activeTab, setActiveTab] = useState("Auto");
+//   const [activeTab, setActiveTab] = useState("Large Caps");
+//   const [tableData, setTableData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
 
-//   // // Sample data for each tab category
-//   // const tabData = {
-//   //   Auto: [
-//   //     {
-//   //       time: "May 2nd 2:26 PM",
-//   //       ticker: "SE",
-//   //       company: "Sea Limited American Depositary",
-//   //       volume: "1.6x",
-//   //       price: "$142.96",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:26 PM",
-//   //       ticker: "UAL",
-//   //       company: "United Airlines Holdings, Inc.",
-//   //       volume: "1.88x",
-//   //       price: "$75.06",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:16 PM",
-//   //       ticker: "BABA",
-//   //       company: "Alibaba Group Holding Limited",
-//   //       volume: "2.11x",
-//   //       price: "$126.10",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:51 PM",
-//   //       ticker: "CW",
-//   //       company: "Curtiss-Wright Corporation",
-//   //       volume: "1.84x",
-//   //       price: "$357.99",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:21 PM",
-//   //       ticker: "JLL",
-//   //       company: "Jones Lang LaSalle Incorporated",
-//   //       volume: "1.57x",
-//   //       price: "$236.14",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:05 PM",
-//   //       ticker: "LDOS",
-//   //       company: "Leidos Holdings, Inc. Common Stock",
-//   //       volume: "1.54x",
-//   //       price: "$148.51",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:01 PM",
-//   //       ticker: "SXI",
-//   //       company: "Standex International Corporation",
-//   //       volume: "1.54x",
-//   //       price: "$157.80",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 12:51 PM",
-//   //       ticker: "SITM",
-//   //       company: "SiTime Corporation - Common Stock",
-//   //       volume: "1.5x",
-//   //       price: "$167.21",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 12:36 PM",
-//   //       ticker: "COF",
-//   //       company: "Capital One Financial Corporation",
-//   //       volume: "1.55x",
-//   //       price: "$188.07",
-//   //     },
-//   //   ],
-//   //   "Large Caps": [
-//   //     {
-//   //       time: "May 2nd 3:15 PM",
-//   //       ticker: "AAPL",
-//   //       company: "Apple Inc.",
-//   //       volume: "2.3x",
-//   //       price: "$182.53",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 3:02 PM",
-//   //       ticker: "MSFT",
-//   //       company: "Microsoft Corporation",
-//   //       volume: "1.75x",
-//   //       price: "$415.22",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:48 PM",
-//   //       ticker: "AMZN",
-//   //       company: "Amazon.com Inc.",
-//   //       volume: "1.92x",
-//   //       price: "$183.95",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:30 PM",
-//   //       ticker: "GOOGL",
-//   //       company: "Alphabet Inc.",
-//   //       volume: "1.63x",
-//   //       price: "$171.77",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:47 PM",
-//   //       ticker: "META",
-//   //       company: "Meta Platforms Inc.",
-//   //       volume: "2.05x",
-//   //       price: "$476.20",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:22 PM",
-//   //       ticker: "TSLA",
-//   //       company: "Tesla Inc.",
-//   //       volume: "2.45x",
-//   //       price: "$177.84",
-//   //     },
-//   //   ],
-//   //   "Medium Caps": [
-//   //     {
-//   //       time: "May 2nd 3:22 PM",
-//   //       ticker: "ETSY",
-//   //       company: "Etsy Inc.",
-//   //       volume: "2.7x",
-//   //       price: "$63.45",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:54 PM",
-//   //       ticker: "SNAP",
-//   //       company: "Snap Inc.",
-//   //       volume: "3.1x",
-//   //       price: "$16.29",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:10 PM",
-//   //       ticker: "PINS",
-//   //       company: "Pinterest Inc.",
-//   //       volume: "1.9x",
-//   //       price: "$42.78",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:38 PM",
-//   //       ticker: "ROKU",
-//   //       company: "Roku Inc.",
-//   //       volume: "2.4x",
-//   //       price: "$58.96",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 12:45 PM",
-//   //       ticker: "PLTR",
-//   //       company: "Palantir Technologies Inc.",
-//   //       volume: "3.3x",
-//   //       price: "$24.32",
-//   //     },
-//   //   ],
-//   //   "Small Caps": [
-//   //     {
-//   //       time: "May 2nd 3:05 PM",
-//   //       ticker: "BNGO",
-//   //       company: "Bionano Genomics Inc.",
-//   //       volume: "4.2x",
-//   //       price: "$1.12",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 2:41 PM",
-//   //       ticker: "VZIO",
-//   //       company: "VIZIO Holding Corp.",
-//   //       volume: "3.8x",
-//   //       price: "$11.25",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:59 PM",
-//   //       ticker: "CLSK",
-//   //       company: "CleanSpark Inc.",
-//   //       volume: "5.1x",
-//   //       price: "$16.77",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 1:33 PM",
-//   //       ticker: "BLNK",
-//   //       company: "Blink Charging Co.",
-//   //       volume: "3.6x",
-//   //       price: "$2.95",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 12:27 PM",
-//   //       ticker: "MVIS",
-//   //       company: "MicroVision Inc.",
-//   //       volume: "4.5x",
-//   //       price: "$0.78",
-//   //     },
-//   //     {
-//   //       time: "May 2nd 11:52 AM",
-//   //       ticker: "EXPR",
-//   //       company: "Express Inc.",
-//   //       volume: "6.2x",
-//   //       price: "$0.92",
-//   //     },
-//   //   ],
-//   // };
+//   // Fetch API Data
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       setLoading(true);
+//       setError(null);
 
-//   // Function to handle tab changes
+//       const url = `${API_BASE_URL}${apiPaths[activeTab]}`;
+
+//       try {
+//         const response = await fetch(url);
+//         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+//         const data = await response.json();
+//         setTableData(Array.isArray(data) ? data : []);
+//       } catch (err) {
+//         console.error("Fetch error:", err.message);
+//         setError("Failed to load data. Please try again later.");
+//         setTableData([]);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, [activeTab]);
+
 //   const handleTabChange = (tab) => {
 //     setActiveTab(tab);
 //   };
@@ -209,8 +51,8 @@
 //       <h2 className="theme-title mb-4">ATS Irregular Activity Alerts</h2>
 
 //       {/* Tabs */}
-//       <div className="tabs-container ">
-//         {["Large Caps", "Medium Caps", "Small Caps"].map((tab) => (
+//       <div className="tabs-container">
+//         {Object.keys(apiPaths).map((tab) => (
 //           <button
 //             key={tab}
 //             className={`tab-button ${activeTab === tab ? "active" : ""}`}
@@ -226,10 +68,7 @@
 //         <table className="alerts-table">
 //           <thead>
 //             <tr>
-//               <th className="time-col">
-//                 TIME ENTERED
-//                 <i className="arrow-down"></i>
-//               </th>
+//               <th className="time-col">TIME ENTERED</th>
 //               <th>TICKER</th>
 //               <th>COMPANY NAME</th>
 //               <th>IRREGULAR VOLUME</th>
@@ -237,20 +76,42 @@
 //             </tr>
 //           </thead>
 //           <tbody>
-//             {tabData[activeTab].map((alert, index) => (
-//               <tr key={index}>
-//                 <td>{alert.time}</td>
-//                 <td className="ticker-col">{alert.ticker}</td>
-//                 <td>{alert.company}</td>
-//                 <td className="volume-col">{alert.volume}</td>
-//                 <td>{alert.price}</td>
+//             {loading ? (
+//               <tr>
+//                 <td colSpan="5" className="text-center">
+//                   Loading data...
+//                 </td>
 //               </tr>
-//             ))}
+//             ) : error ? (
+//               <tr>
+//                 <td colSpan="5" className="text-danger text-center">
+//                   {error}
+//                 </td>
+//               </tr>
+//             ) : tableData.length > 0 ? (
+//               tableData.map((alert, index) => (
+//                 <tr key={index}>
+//                   <td>{alert.time_entered || "-"}</td>
+//                   <td className="ticker-col">{alert.ticker || "-"}</td>
+//                   <td>{alert.company_name || "-"}</td>
+//                   <td className="volume-col">
+//                     {alert.irregular_volume || "-"}
+//                   </td>
+//                   <td>{alert.price_detected || "-"}</td>
+//                 </tr>
+//               ))
+//             ) : (
+//               <tr>
+//                 <td colSpan="5" className="text-center">
+//                   No data available.
+//                 </td>
+//               </tr>
+//             )}
 //           </tbody>
 //         </table>
 //       </div>
 
-//       {/* Chart and settings icons */}
+//       {/* Chart and Settings Icons */}
 //       <div className="action-buttons">
 //         <button className="chart-btn">
 //           <span className="chart-icon"></span>
@@ -266,7 +127,7 @@
 // export default TradeAlertsTable;
 
 import React, { useEffect, useState } from "react";
-import "../DashboardSidebarComp/styles/TradeAlertsTable.css";
+import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 
 const API_BASE_URL = "https://valourwealthdjango-production.up.railway.app/";
 
@@ -276,24 +137,21 @@ const apiPaths = {
   "Small Caps": "api/alerts/small_caps/",
 };
 
-const TradeAlertsTable = () => {
+const TradeAlertsTable = ({ darkMode }) => {
   const [activeTab, setActiveTab] = useState("Large Caps");
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch API Data
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
-
       const url = `${API_BASE_URL}${apiPaths[activeTab]}`;
 
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-
         const data = await response.json();
         setTableData(Array.isArray(data) ? data : []);
       } catch (err) {
@@ -308,83 +166,84 @@ const TradeAlertsTable = () => {
     fetchData();
   }, [activeTab]);
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
-
   return (
-    <div className="ats-container p-0 container">
-      <h2 className="theme-title mb-4">ATS Irregular Activity Alerts</h2>
-
-      {/* Tabs */}
-      <div className="tabs-container">
-        {Object.keys(apiPaths).map((tab) => (
-          <button
-            key={tab}
-            className={`tab-button ${activeTab === tab ? "active" : ""}`}
-            onClick={() => handleTabChange(tab)}
-          >
-            {tab}
-          </button>
-        ))}
+    <div
+      className="container"
+      style={{
+        backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
+        color: darkMode ? "#ffffff" : "#000000",
+        padding: "20px",
+      }}
+    >
+      <div className="theme-title">
+        <h2>ATS Irregular Activity Alerts</h2>
       </div>
 
+      {/* Tabs */}
+      <ul className="nav nav-tabs gap-2 mt-4 historic-table">
+        {Object.keys(apiPaths).map((tab) => (
+          <li className="nav-item" key={tab}>
+            <button
+              className={`nav-link ${activeTab === tab ? "active" : ""}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          </li>
+        ))}
+      </ul>
+
       {/* Table */}
-      <div className="table-container table_history">
-        <table className="alerts-table">
-          <thead>
+      <div className="table-responsive mt-3">
+        <table className="table table-bordered table_history">
+          <thead
+            className="table-primary"
+            style={{
+              backgroundColor: darkMode ? "#000000" : "#ffffff",
+              color: darkMode ? "#ffffff" : "#000000",
+              border: darkMode ? "1px solid #444" : "1px solid #ddd",
+            }}
+          >
             <tr>
-              <th className="time-col">TIME ENTERED</th>
+              <th>TIME ENTERED</th>
               <th>TICKER</th>
               <th>COMPANY NAME</th>
               <th>IRREGULAR VOLUME</th>
               <th>PRICE DETECTED</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody
+            style={{
+              backgroundColor: darkMode ? "#1c1e20" : "#ffffff",
+              color: darkMode ? "#ffffff" : "#1c1e20",
+              border: darkMode ? "1px solid #444" : "1px solid #ddd",
+            }}
+          >
             {loading ? (
               <tr>
-                <td colSpan="5" className="text-center">
-                  Loading data...
-                </td>
+                <td colSpan="5" className="text-center">Loading data...</td>
               </tr>
             ) : error ? (
               <tr>
-                <td colSpan="5" className="text-danger text-center">
-                  {error}
-                </td>
+                <td colSpan="5" className="text-danger text-center">{error}</td>
               </tr>
             ) : tableData.length > 0 ? (
-              tableData.map((alert, index) => (
-                <tr key={index}>
-                  <td>{alert.time_entered || "-"}</td>
-                  <td className="ticker-col">{alert.ticker || "-"}</td>
-                  <td>{alert.company_name || "-"}</td>
-                  <td className="volume-col">
-                    {alert.irregular_volume || "-"}
-                  </td>
-                  <td>{alert.price_detected || "-"}</td>
+              tableData.map((item, idx) => (
+                <tr key={idx}>
+                  <td>{item.time_entered || "-"}</td>
+                  <td>{item.ticker || "-"}</td>
+                  <td>{item.company_name || "-"}</td>
+                  <td>{item.irregular_volume || "-"}</td>
+                  <td>{item.price_detected || "-"}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center">
-                  No data available.
-                </td>
+                <td colSpan="5" className="text-center">No data available.</td>
               </tr>
             )}
           </tbody>
         </table>
-      </div>
-
-      {/* Chart and Settings Icons */}
-      <div className="action-buttons">
-        <button className="chart-btn">
-          <span className="chart-icon"></span>
-        </button>
-        <button className="settings-btn">
-          <span className="settings-icon"></span>
-        </button>
       </div>
     </div>
   );
