@@ -139,7 +139,7 @@ const OptionsAcademy = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="tutorial-nav">
+                  {/* <div className="tutorial-nav">
                     <ul className="nav nav-tabs">
                       <li className="nav-item">
                         <button className="nav-link active">Overview</button>
@@ -148,7 +148,7 @@ const OptionsAcademy = () => {
                         <button className="nav-link">Downloads</button>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                   <div className="tutorial-details">
                     <div className="duration-info">
                       13 minutes 54 seconds | {selectedCategory}
@@ -214,7 +214,7 @@ const OptionsAcademy = () => {
                           )}
                         </div>
                         <div className="playlist-info">
-                          <div className="video-title">{item.title}</div>
+                          <div className="video-title-card">{item.title}</div>
                           <h5 className="text-black">{item.title}</h5>
                           <p>{item.duration}</p>
                         </div>

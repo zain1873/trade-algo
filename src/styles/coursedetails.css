@@ -318,7 +318,7 @@
 
 .video-thumbnail {
   width: 100%;
-  height: auto;
+  height: 200px !important;
   display: block;
 }
 

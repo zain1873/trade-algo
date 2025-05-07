@@ -227,9 +227,8 @@
 
 // export default ExclusiveWebinars;
 
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import React, { useEffect, useState } from "react";
 const ExclusiveWebinars = () => {
   const [activeTab, setActiveTab] = useState("Upcoming Webinars");
   const [webinars, setWebinars] = useState([]);

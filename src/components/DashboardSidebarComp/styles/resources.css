@@ -98,8 +98,6 @@
 }
 
 .video-wrapper {
-  resize: both;
-  overflow: hidden;
   max-width: 100%;
   max-height: 500px; /* Set max height */
 }
