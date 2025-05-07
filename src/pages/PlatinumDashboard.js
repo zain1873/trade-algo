@@ -1319,11 +1319,10 @@ const PlatinumDashboard = () => {
             </ul>
 
             <div className="backtodashboardbtn">
-              <h3>
-                <a href="/dashboard">
+              
+                <a href="/dashboard"> Back to Dashboard
                   {/* <button className="theme_btn">Back to dashboard</button> */}
                 </a>
-              </h3>
             </div>
 
             <div className="d-flex align-items-center position-relative">
