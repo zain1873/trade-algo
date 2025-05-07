@@ -100,14 +100,13 @@
 
 // export default Platinum;
 
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
-import PlatinumCard from "../DashboardSidebarComp/platinumCard";
 import SalesContactForm from "./sales-form";
 
-import platinumImg1 from "../DashboardSidebarComp/images/platinum.jpg";
 import platinumImg2 from "../DashboardSidebarComp/images/platinum-2.jpg";
+import platinumImg1 from "../DashboardSidebarComp/images/platinum.jpg";
 
 const Platinum = () => {
   const [userData, setUserData] = useState(null);
@@ -134,7 +133,7 @@ const Platinum = () => {
     fetchUser();
   }, [accessToken]);
 
-  // ✅ Redirect platinum users
+  //  Redirect platinum users
   useEffect(() => {
     if (userData?.subscription_status === "platinum") {
       window.location.href = "/platinum-dashboard";
@@ -152,26 +151,23 @@ const Platinum = () => {
           </p>
         </div>
         <div className="row">
-          <div className="col-lg-6 mb-3">
+          <div className="col-lg-6 mb-3" onClick={() => setShowForm(true)}>
             <img
               src={platinumImg1}
               className="img-fluid rounded"
               alt="Platinum 1"
             />
           </div>
-          <div className="col-lg-6 mb-3">
-            <img
+          <div className="col-lg-6 mb-3" onClick={() => setShowForm(true)}>
+            
+           <img
               src={platinumImg2}
               className="img-fluid rounded"
               alt="Platinum 2"
             />
           </div>
         </div>
-        <div className="text-center my-4">
-          <button className="btn btn-primary" onClick={() => setShowForm(true)}>
-            Get Started
-          </button>
-        </div>
+        <div className="text-center my-4"></div>
         {showForm && <SalesContactForm onClose={() => setShowForm(false)} />}
       </div>
     );
