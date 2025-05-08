@@ -1,39 +1,38 @@
 // new dashboard
-import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
-  Menu,
-  Search,
-  Sun,
-  Moon,
-  Home,
-  Tv,
-  Building,
-  Wrench,
   Book,
-  Package,
+  Building,
   DollarSign,
   Gem,
-  Star,
   GraduationCap,
+  Home,
+  Menu,
+  Moon,
+  Package,
+  Star,
+  Sun,
+  Tv,
   Users,
+  Wrench,
 } from "lucide-react";
-import "../styles/dashboard.css";
-import HistoricalDataFlow from "./DashboardSidebarComp/HistoricalDataFlow";
+import React, { useEffect, useState } from "react";
 import user_logo from "../assets/images/dashboard_logo.png";
-import valourWealth from "../assets/images/Valour_Wealth.png";
 import valourWealthInverted from "../assets/images/full-transparent.png";
+import valourWealth from "../assets/images/Valour_Wealth.png";
+import "../styles/dashboard.css";
 import DashboardData from "./DashboardSidebarComp/DashboardData";
-import LiveSessions from "./DashboardSidebarComp/LiveSessions";
-import TradeProducts from "./DashboardSidebarComp/TradeProducts";
 import Emerald from "./DashboardSidebarComp/Emerald";
-import Platinum from "./DashboardSidebarComp/Platinum";
-import OptionsAcademy from "./DashboardSidebarComp/OptionsAcademy";
+import HistoricalDataFlow from "./DashboardSidebarComp/HistoricalDataFlow";
+import LiveSessions from "./DashboardSidebarComp/LiveSessions";
+import MainTable from "./DashboardSidebarComp/MainTable";
 import Mentorship from "./DashboardSidebarComp/Mentorship";
-import WealthSeries from "./DashboardSidebarComp/WealthSeries";
+import OptionsAcademy from "./DashboardSidebarComp/OptionsAcademy";
+import Platinum from "./DashboardSidebarComp/Platinum";
 import Resources from "./DashboardSidebarComp/Resources";
 import TradeAlertsTable from "./DashboardSidebarComp/TradeAlertsTable";
-import MainTable from "./DashboardSidebarComp/MainTable";
+import TradeProducts from "./DashboardSidebarComp/TradeProducts";
+import WealthSeries from "./DashboardSidebarComp/WealthSeries";
 // import ChartGrid from "./DashboardSidebarComp/ChartGrid";
 // import LiveOption from "./DashboardSidebarComp/LiveOption";
 // import OptionChain from "./DashboardSidebarComp/OpenChain";
@@ -45,11 +44,11 @@ import MainTable from "./DashboardSidebarComp/MainTable";
 // import ScannerTool from "./DashboardSidebarComp/ScannerTool";
 // import SwingTradeAI from "./DashboardSidebarComp/SwingTradeAI";
 
-import EditProfile from "./DashboardSidebarComp/EditProfile";
-import Logout from "./DashboardSidebarComp/Logout";
-import ForexData from "./DashboardSidebarComp/ForexData";
-import StocksData from "./DashboardSidebarComp/StocksData";
 import CryptoData from "./DashboardSidebarComp/CryptoData";
+import EditProfile from "./DashboardSidebarComp/EditProfile";
+import ForexData from "./DashboardSidebarComp/ForexData";
+import Logout from "./DashboardSidebarComp/Logout";
+import StocksData from "./DashboardSidebarComp/StocksData";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
 import StockTicker from "./StockTicker";
 
@@ -237,6 +236,8 @@ const Dashboard = () => {
         "Trade-products",
         "edit-profile",
         "logout",
+        "maintable",
+        "atsTable",
       ],
       platinum: [
         "dashboard",
@@ -642,14 +643,14 @@ const Dashboard = () => {
           >
             {/* Header with Search */}
             <div className="row align-items-center dashboard-head">
-              <div className="col position-relative search-main">
+              <div className="col search-main">
                 {/* <input
                   type="text"
                   className={`search_bar ${darkMode ? "dark-mode" : ""}`}
                   placeholder="Search Tickers..."
                 />
                 <i className="fas fa-search search-icon"></i> */}
-               <StockTicker/>
+                <StockTicker />
               </div>
 
               <div className="col-auto user_info position-relative">
