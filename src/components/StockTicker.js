@@ -1,45 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 const API_KEY = "04RGF1U9PAJ49VYI";
 
 const StockTicker = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [stockData, setStockData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const fetchStock = async (symbol) => {
     if (!symbol) return;
-    
+
     setIsLoading(true);
-    setError('');
-    
+    setError("");
+
     try {
       const res = await fetch(
         `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${API_KEY}`
       );
       const data = await res.json();
-      
-      if (data["Global Quote"] && Object.keys(data["Global Quote"]).length > 0) {
+
+      if (
+        data["Global Quote"] &&
+        Object.keys(data["Global Quote"]).length > 0
+      ) {
         const quote = data["Global Quote"];
-        
+
         setStockData({
           symbol: quote["01. symbol"],
           price: parseFloat(quote["05. price"]).toFixed(2),
           change: parseFloat(quote["09. change"]).toFixed(2),
-          changePercent: quote["10. change percent"].replace('%', ''),
+          changePercent: quote["10. change percent"].replace("%", ""),
           open: parseFloat(quote["02. open"]).toFixed(4),
           high: parseFloat(quote["03. high"]).toFixed(4),
           low: parseFloat(quote["04. low"]).toFixed(4),
           volume: quote["06. volume"],
           prevClose: parseFloat(quote["08. previous close"]).toFixed(4),
-          companyName: getCompanyName(quote["01. symbol"])
+          companyName: getCompanyName(quote["01. symbol"]),
         });
       } else {
-        setError('Stock not found');
+        setError("Stock not found");
         setStockData(null);
       }
     } catch (err) {
-      setError('Failed to fetch stock data');
+      setError("Failed to fetch stock data");
       setStockData(null);
     } finally {
       setIsLoading(false);
@@ -48,14 +51,14 @@ const StockTicker = () => {
 
   const getCompanyName = (symbol) => {
     const companies = {
-      'AAPL': 'Apple Inc.',
-      'MSFT': 'Microsoft Corp.',
-      'GOOGL': 'Alphabet Inc.',
-      'AMZN': 'Amazon.com Inc.',
-      'META': 'Meta Platforms Inc.',
-      'TSLA': 'Tesla Inc.',
-      'NVDA': 'NVIDIA Corp.',
-      'JPM': 'JPMorgan Chase & Co.'
+      AAPL: "Apple Inc.",
+      MSFT: "Microsoft Corp.",
+      GOOGL: "Alphabet Inc.",
+      AMZN: "Amazon.com Inc.",
+      META: "Meta Platforms Inc.",
+      TSLA: "Tesla Inc.",
+      NVDA: "NVIDIA Corp.",
+      JPM: "JPMorgan Chase & Co.",
     };
     return companies[symbol] || `${symbol} Stock`;
   };
@@ -67,14 +70,14 @@ const StockTicker = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSearch();
     }
   };
 
   const handleBack = () => {
     setStockData(null);
-    setSearchQuery('');
+    setSearchQuery("");
   };
 
   return (
@@ -91,7 +94,12 @@ const StockTicker = () => {
               onKeyDown={handleKeyDown}
             />
             <button className="search-button" onClick={handleSearch}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -112,7 +120,12 @@ const StockTicker = () => {
               onKeyDown={handleKeyDown}
             />
             <button className="search-button" onClick={handleSearch}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -124,7 +137,7 @@ const StockTicker = () => {
 
           <div className="stock-details">
             <div className="back-link" onClick={handleBack}>
-              Back to watchlist
+              {/* Back to watchlist */}
             </div>
 
             <div className="stock-header">
@@ -136,23 +149,43 @@ const StockTicker = () => {
 
               <div className="column data">
                 <div className="symbol-container">
-                  <div className="close-button" onClick={handleBack}>×</div>
+                  <div className="close-button" onClick={handleBack}>
+                    ×
+                  </div>
                   <div className="symbol">{stockData.symbol}</div>
                   <div className="company-name">{stockData.companyName}</div>
                 </div>
 
                 <div className="trend">
-                  <svg viewBox="0 0 100 30" className={parseFloat(stockData.change) >= 0 ? "trend-up" : "trend-down"}>
-                    <path d={parseFloat(stockData.change) >= 0 
-                      ? "M0,20 Q25,15 50,10 T100,5" 
-                      : "M0,5 Q25,10 50,15 T100,20"} />
+                  <svg
+                    viewBox="0 0 100 30"
+                    className={
+                      parseFloat(stockData.change) >= 0
+                        ? "trend-up"
+                        : "trend-down"
+                    }
+                  >
+                    <path
+                      d={
+                        parseFloat(stockData.change) >= 0
+                          ? "M0,20 Q25,15 50,10 T100,5"
+                          : "M0,5 Q25,10 50,15 T100,20"
+                      }
+                    />
                   </svg>
                 </div>
 
                 <div className="price-container">
                   <div className="price">${stockData.price}</div>
-                  <div className={`change ${parseFloat(stockData.change) >= 0 ? 'positive' : 'negative'}`}>
-                    {parseFloat(stockData.change) >= 0 ? '+' : ''}{stockData.changePercent}%
+                  <div
+                    className={`change ${
+                      parseFloat(stockData.change) >= 0
+                        ? "positive"
+                        : "negative"
+                    }`}
+                  >
+                    {parseFloat(stockData.change) >= 0 ? "+" : ""}
+                    {stockData.changePercent}%
                   </div>
                 </div>
               </div>
@@ -173,7 +206,9 @@ const StockTicker = () => {
               </div>
               <div className="detail-row">
                 <div className="detail-label">Volume:</div>
-                <div className="detail-value">{stockData.volume !== 'NaN' ? stockData.volume : 'NaN'}</div>
+                <div className="detail-value">
+                  {stockData.volume !== "NaN" ? stockData.volume : "NaN"}
+                </div>
               </div>
               <div className="detail-row">
                 <div className="detail-label">Prev Close:</div>
@@ -181,9 +216,9 @@ const StockTicker = () => {
               </div>
             </div>
 
-            <div className="historical-data-link">
+            {/* <div className="historical-data-link">
               <a href="#view-historical">View Historical Data</a>
-            </div>
+            </div> */}
           </div>
         </>
       )}
