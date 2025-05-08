@@ -152,9 +152,8 @@ body::-webkit-scrollbar-thumb {
   background-color: #070707;
   color: #e9ecef;
   min-height: 100vh;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
 
 /* Navbar Styles */
@@ -741,18 +740,8 @@ body::-webkit-scrollbar-thumb {
 
 /* General styles */
 .leaderboard-container {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
   padding: 20px;
   background-color: #111;
@@ -1008,18 +997,8 @@ body::-webkit-scrollbar-thumb {
 /* MarketNews.css */
 
 .market-news-container {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
   padding: 20px;
   background-color: #111;
@@ -1311,18 +1290,8 @@ body::-webkit-scrollbar-thumb {
 /* ExclusiveWebinars.css */
 
 .webinars-container {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
   padding: 20px;
   background-color: #111;
@@ -1458,7 +1427,7 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
 }
 #featureDescription {
-  background: #27272a;
+  background: #2222;
   color: #fff;
 }
 .webinar-description {
@@ -1614,18 +1583,8 @@ body::-webkit-scrollbar-thumb {
 /* TradingChallenges.css */
 
 .trading-challenges-container {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
   padding: 20px;
   background-color: #111;
@@ -1972,6 +1931,11 @@ body::-webkit-scrollbar-thumb {
   font-weight: 500;
 }
 
+.backtodashboardbtn a {
+  margin-right: 22px;
+  color: #fff;
+}
+
 .entry-performance {
   font-size: 14px;
   font-weight: 600;
@@ -2077,11 +2041,7 @@ body::-webkit-scrollbar-thumb {
 /* portfolio heaptmap */
 /* Main container styling */
 .portfolio-container {
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   background-color: #111;
   color: #ffffff;
   padding: 20px;
@@ -2281,8 +2241,7 @@ body::-webkit-scrollbar-thumb {
   left: 0;
   right: 0;
   height: 100%;
-  background-image:
-    linear-gradient(90deg, transparent 0%, transparent 100%),
+  background-image: linear-gradient(90deg, transparent 0%, transparent 100%),
     linear-gradient(
       90deg,
       rgba(100, 180, 255, 0.2) 0%,
@@ -2373,11 +2332,7 @@ body::-webkit-scrollbar-thumb {
   /* background-color: #0a0a0a; */
   color: white;
   padding: 20px 0;
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 .details-title {
@@ -2525,11 +2480,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Portfolio Analysis Styles */
 .portfolio-analysis-container {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   color: #ffffff;
   padding: 20px;
 }
@@ -3155,9 +3106,8 @@ body::-webkit-scrollbar-thumb {
   background-color: #121111;
   color: #ffffff;
   padding: 20px;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
 .feature-voting-container .card-body {
   background-color: #222222;
@@ -3307,9 +3257,8 @@ body::-webkit-scrollbar-thumb {
 .feature-voting-container {
   background-color: #0a0a0a;
   color: #ffffff;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   padding: 20px;
   min-height: 100vh;
 }
@@ -3818,9 +3767,8 @@ body::-webkit-scrollbar-thumb {
 .platinum-membership-container {
   background-color: #0a0a0a;
   color: #ffffff;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   padding: 20px;
   min-height: 100vh;
 }
@@ -4158,9 +4106,8 @@ body::-webkit-scrollbar-thumb {
 /* nft collection */
 
 .nft-collection-container {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   color: #ffffff;
   padding: 20px 0;
 }
@@ -4324,9 +4271,8 @@ body::-webkit-scrollbar-thumb {
 /* market place */
 
 .marketplace-container {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   color: #ffffff;
   padding: 20px 0;
 }
@@ -4428,9 +4374,8 @@ body::-webkit-scrollbar-thumb {
 .trade-journal-container {
   background-color: #0a0a0a;
   color: #ffffff;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   padding: 20px;
   min-height: 100vh;
 }
@@ -4772,12 +4717,7 @@ body::-webkit-scrollbar-thumb {
 /* schedule calls */
 
 .schedule-container {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
   background-color: #101010;
   color: #fff;

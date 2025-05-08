@@ -780,6 +780,14 @@ hr {
   flex-grow: 1;
   padding: 16px 0;
 }
+.card-features .feature-item {
+  width: 330px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+}
 
 .feature-item {
   display: flex;
