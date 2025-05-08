@@ -1126,10 +1126,11 @@ body .dark {
 /* Stock Details */
 .stock-details-rows {
   padding: 15px 0;
-  margin-left: 10px ;
+  margin-left: 10px;
 }
 .stock-details {
   margin-left: 20px;
+  background-color: #1e1e1e;
 }
 
 .detail-row {
@@ -1174,9 +1175,8 @@ body .dark {
 }
 
 .search_main {
-  z-index: 100;
-  background: red;
   position: absolute !important;
-  top: 64px;
-  width: 30%;
+  z-index: 100;
+  top: 6px;
 }
+

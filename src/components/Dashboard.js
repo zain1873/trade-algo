@@ -633,7 +633,7 @@ const Dashboard = () => {
           } transition-margin`}
         >
           <div
-            className="container-fluid"
+            className="container-fluid position-relative"
             style={{
               backgroundColor: "var(--background-color)",
               color: "var(--text-color)",
