@@ -1682,7 +1682,6 @@ body::-webkit-scrollbar-thumb {
 .challenge-main {
   flex: 2;
   padding: 20px;
-  border-right: 1px solid #333;
 }
 
 .challenge-leaderboard {
@@ -1845,6 +1844,7 @@ body::-webkit-scrollbar-thumb {
 .challenge-actions a {
   text-decoration: none;
   background-color: #343232;
+  margin-left: 0 !important;
 }
 
 .action-button {
@@ -4989,7 +4989,6 @@ h4 {
 }
 
 .challenge-header-details {
-  border-bottom: 1px solid #e9ecef;
   margin-bottom: 20px;
   padding-bottom: 15px;
 }
@@ -5046,7 +5045,7 @@ h4 {
 .challenge-form textarea.form-control {
   resize: vertical;
   min-height: 150px;
-  border: 1px solid #ced4da;
+  border: 1px solid #43484c;
   background-color: #1a1a1a;
 }
 .challenge-form textarea::placeholder {

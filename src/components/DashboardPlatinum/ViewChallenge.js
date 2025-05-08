@@ -249,12 +249,11 @@ function ViewChallenge() {
       </div>
 
       <div className="challenge-description-details mt-3">
-        <h4>Challenge Description:</h4>
-        <p>{challenge.description}</p>
+        <h4 className="text-white">Challenge Description:</h4>
+        <p className="text-white">{challenge.description}</p>
       </div>
 
       <div className="submission-form mt-4">
-        <h4>Your Submission</h4>
 
         {isChallengeOutdated ? (
           <div className="alert alert-warning mt-3">
@@ -263,9 +262,6 @@ function ViewChallenge() {
         ) : (
           <form onSubmit={handleSubmit}>
             <div className="mb-3 challenge-form">
-              <label htmlFor="answerText" className="form-label">
-                Your Answer:
-              </label>
               <textarea
                 id="answerText"
                 className="form-control"
@@ -303,7 +299,7 @@ function ViewChallenge() {
 
             <button
               type="submit"
-              className="btn btn-primary submit-btn"
+              className="btn submit-btn"
               disabled={submitted}
             >
               {submitted ? "Submitted!" : "Submit Answer"}
