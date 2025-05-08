@@ -1427,7 +1427,7 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
 }
 #featureDescription {
-  background: #2222;
+  background: #27272a;
   color: #fff;
 }
 .webinar-description {
@@ -1841,6 +1841,10 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+.challenge-actions a {
+  text-decoration: none;
+  background-color: #343232;
 }
 
 .action-button {
@@ -3110,7 +3114,7 @@ body::-webkit-scrollbar-thumb {
     Arial, sans-serif;
 }
 .feature-voting-container .card-body {
-  background-color: #222222;
+  background-color: #0a0a0a;
 }
 .form-container .card {
   border: none;
@@ -4673,7 +4677,6 @@ body::-webkit-scrollbar-thumb {
 
 .detail-label {
   color: #888;
-  width: 60px;
 }
 
 .detail-value {
@@ -5013,7 +5016,6 @@ h4 {
   padding: 20px;
   border-radius: 6px;
   margin-bottom: 25px;
-  border-left: 4px solid #3498db;
 }
 
 .challenge-description-details h4 {
@@ -5051,11 +5053,9 @@ h4 {
   color: #fff;
 }
 
-.challenge-form .form-control:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+.challenge-form button {
+  background-color: #2c2b2b !important;
 }
-
 .form-label {
   font-weight: 500;
   color: #fff;

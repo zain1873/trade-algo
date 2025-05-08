@@ -237,12 +237,12 @@ function ViewChallenge() {
   return (
     <div className="challenge-container">
       <div className="challenge-header-details">
-        <h2>{challenge.title}</h2>
+        <h2 className="text-white">{challenge.title}</h2>
         <div className="challenge-meta">
-          <span className="badge bg-primary me-2">
+          <span className="badges bg-primary me-2">
             Deadline: {challenge.end_date}
           </span>
-          <span className="badge bg-secondary">
+          <span className="badges bg-secondary">
             Participants: {membersCount}
           </span>
         </div>
