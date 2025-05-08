@@ -390,6 +390,14 @@ const TradeJournal = () => {
                   </div>
                 );
               })}
+
+              {isModalOpen && selectedEntry && (
+                <ViewJournalDetails
+                  isOpen={isModalOpen}
+                  onClose={handleCloseDetails}
+                  entry={selectedEntry}
+                />
+              )}
             </div>
           )}
         </div>
