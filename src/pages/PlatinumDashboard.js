@@ -1331,7 +1331,6 @@ const PlatinumDashboard = () => {
                   <path d="M8 3.293l6 6V15a1 1 0 0 1-1 1h-3v-4H6v4H3a1 1 0 0 1-1-1V9.293l6-6zm5 6.707V15h-2v-4H5v4H3v-5.707L8 4.586l5 5.414z" />
                   <path d="M7.293 1.5a1 1 0 0 1 1.414 0l6 6-.707.707L8 2.207 1.293 8.207l-.707-.707 6-6z" />
                 </svg>
-                Back to Dashboard
               </a>
             </div>
 
