@@ -251,6 +251,7 @@
 // export default TradeAlertsTable;
 
 import React, { useEffect, useState } from "react";
+import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css"; // reuse same style
 
 const API_BASE_URL = "https://valourwealthdjango-production.up.railway.app/";
@@ -326,39 +327,36 @@ const TradeAlertsTable = ({ darkMode }) => {
         ))}
 
         {/* Trend Toggle */}
+
         <div className="trend-icons" style={{ display: "flex", gap: "10px" }}>
-          <button
+          <FaArrowTrendUp
+            className="up-icon"
+            style={{
+              backgroundColor: active === "up" ? "green" : "grey",
+              color: "black",
+              padding: "10px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
             onClick={() => {
               setTrend("up");
               setActiveTrend("up");
             }}
+          />
+          <FaArrowTrendDown
+            className="down-icon"
             style={{
-              backgroundColor: activeTrend === "up" ? "green" : "grey",
-              color: "white",
-              padding: "10px 12px",
+              backgroundColor: active === "down" ? "red" : "grey",
+              color: active === "down" ? "white" : "black",
+              padding: "10px",
               borderRadius: "5px",
-              border: "none",
               cursor: "pointer",
             }}
-          >
-            Up
-          </button>
-          <button
             onClick={() => {
               setTrend("down");
               setActiveTrend("down");
             }}
-            style={{
-              backgroundColor: activeTrend === "down" ? "red" : "grey",
-              color: "white",
-              padding: "10px 12px",
-              borderRadius: "5px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Down
-          </button>
+          />
         </div>
       </ul>
 

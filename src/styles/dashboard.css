@@ -8,7 +8,10 @@ body .dark {
 }
 .chat-btns {
   max-height: 50px !important;
+  justify-content: center !important;
 }
+
+
 
 /* Sidebar Transition */
 .transition-width {

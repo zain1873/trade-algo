@@ -85,6 +85,8 @@
 }
 .historic-table {
   background: none !important;
+  justify-content: center;
+  width: 100% !important;
 }
 
 .historic-table .nav-item .nav-link {

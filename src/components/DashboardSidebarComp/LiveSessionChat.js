@@ -115,10 +115,10 @@ const TradingPlatform = () => {
               />
             </div>
 
-            <button className="btn btn-info text-white w-100 mb-3 chat-btns">
+            <button className="btn btn-info text-white w-100 mb-3 chat-btns ">
               Join audience
             </button>
-            <button className="btn btn-outline-secondary w-100 mb-4 chat-btns theme_btn">
+            <button className="btn btn-outline-secondary w-100 mb-4 chat-btns  theme_btn">
               Log in with Vimeo
             </button>
 
