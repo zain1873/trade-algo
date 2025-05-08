@@ -153,7 +153,7 @@
 
 // export default EditProfile;
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import countries from "world-countries";
 import "../../styles/dashboard.css";
@@ -255,7 +255,7 @@ function EditProfile() {
     <section className="edit-profile py-5">
       <div className="container">
         <div className="card-editplatinum shadow-sm p-4">
-          <h4 className="mb-4 edit-form " >Edit Profile</h4>
+          <h4 className="mb-4 edit-form ">Edit Profile</h4>
 
           <div className="mb-3 edit-form">
             <label>Username</label>
@@ -288,7 +288,7 @@ function EditProfile() {
             />
           </div>
 
-          <div className="mb-3 edit-form">
+          {/* <div className="mb-3 edit-form">
             <label>Country</label>
             <Select styles={{backgroundColor: '#1c1c1c'}}
               options={formattedCountries}
@@ -308,6 +308,55 @@ function EditProfile() {
               value={state}
               onChange={(e) => setState(e.target.value)}
               placeholder="Enter your state or region"
+            />
+          </div> */}
+
+          <div className="mb-3 edit-form">
+            <label>Country</label>
+            <Select
+              styles={{
+                control: (base) => ({
+                  ...base,
+                  backgroundColor: "#1c1c1c",
+                  color: "#fff",
+                  borderColor: "#333",
+                }),
+                singleValue: (base) => ({
+                  ...base,
+                  color: "#fff",
+                }),
+                menu: (base) => ({
+                  ...base,
+                  backgroundColor: "#1c1c1c",
+                }),
+                option: (base, state) => ({
+                  ...base,
+                  backgroundColor: state.isFocused ? "#2a2a2a" : "#1c1c1c",
+                  color: "#fff",
+                }),
+              }}
+              options={formattedCountries}
+              value={country}
+              onChange={setCountry}
+              placeholder="Select country"
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+          </div>
+
+          <div className="mb-3 edit-form">
+            <label>State / Province</label>
+            <input
+              type="text"
+              className="form-input"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              placeholder="Enter your state or region"
+              style={{
+                backgroundColor: "#1c1c1c",
+                color: "#fff",
+                border: "1px solid #333",
+              }}
             />
           </div>
 
