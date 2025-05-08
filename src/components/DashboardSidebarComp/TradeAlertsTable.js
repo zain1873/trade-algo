@@ -276,6 +276,7 @@ const TradeAlertsTable = ({ darkMode }) => {
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [active, setActive] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
