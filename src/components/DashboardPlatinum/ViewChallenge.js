@@ -334,56 +334,42 @@ function ViewChallenge() {
   const [submitted, setSubmitted] = useState(false);
   const [membersCount, setMembersCount] = useState(0);
   const [isJoined, setIsJoined] = useState(false);
+  const [participantId, setParticipantId] = useState(null);
 
   const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
     const fetchChallenge = async () => {
-      try {
-        const res = await axios.get(
-          `https://valourwealthdjango-production.up.railway.app/api/challenges/${id}/`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setChallenge(res.data);
-      } catch (err) {
-        console.error("Failed to load challenge", err);
-      }
+      const res = await axios.get(
+        `https://valourwealthdjango-production.up.railway.app/api/challenges/${id}/`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setChallenge(res.data);
     };
 
     const fetchParticipants = async () => {
-      try {
-        const res = await axios.get(
-          `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setMembersCount(res.data.length);
-
-        const currentUser = JSON.parse(localStorage.getItem("user"));
-        const hasJoined = res.data.some((p) => p.user === currentUser?.id);
-        setIsJoined(hasJoined);
-      } catch (err) {
-        console.error("Failed to fetch participants", err);
+      const res = await axios.get(
+        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      const user = JSON.parse(localStorage.getItem("user"));
+      const participant = res.data.find(
+        (p) => p.challenge === parseInt(id) && p.user === user?.id
+      );
+      setMembersCount(
+        res.data.filter((p) => p.challenge === parseInt(id)).length
+      );
+      if (participant) {
+        setIsJoined(true);
+        setParticipantId(participant.id);
       }
     };
 
-    const fetchAll = async () => {
-      await fetchChallenge();
-      await fetchParticipants();
-    };
-
-    fetchAll();
+    fetchChallenge();
+    fetchParticipants();
   }, [id, token]);
 
   const handleAnswerChange = (e) => setAnswer(e.target.value);
-
   const handleScreenshotChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -394,15 +380,13 @@ function ViewChallenge() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
     formData.append("answers", answer);
     formData.append("screenshots", screenshot);
-    formData.append("challenge", id);
 
     try {
-      await axios.post(
-        "https://valourwealthdjango-production.up.railway.app/api/challenge-participants/",
+      await axios.patch(
+        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/${participantId}/`,
         formData,
         {
           headers: {
@@ -415,17 +399,6 @@ function ViewChallenge() {
       setAnswer("");
       setScreenshot(null);
       setPreviewUrl("");
-
-      const res = await axios.get(
-        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setMembersCount(res.data.length);
-
       setTimeout(() => setSubmitted(false), 3000);
     } catch (err) {
       console.error("Submission failed", err);
@@ -434,7 +407,6 @@ function ViewChallenge() {
   };
 
   if (!challenge) return <div>Loading challenge details...</div>;
-
   const isChallengeOutdated = new Date(challenge.end_date) < new Date();
 
   return (

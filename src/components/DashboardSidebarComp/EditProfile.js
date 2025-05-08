@@ -288,14 +288,14 @@ function EditProfile() {
             />
           </div>
 
-          <div style={{backgroundColor: '#1e1e1e'}}  className="mb-3 edit-form">
+          <div className="mb-3 edit-form">
             <label>Country</label>
-            <Select
+            <Select styles={{backgroundColor: '#1c1c1c'}}
               options={formattedCountries}
               value={country}
               onChange={setCountry}
               placeholder="Select country"
-              className="react-select-container"
+              className="react-select-container "
               classNamePrefix="react-select"
             />
           </div>
