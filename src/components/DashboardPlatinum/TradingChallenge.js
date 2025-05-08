@@ -1198,7 +1198,8 @@ const TradingChallenges = () => {
       const token = localStorage.getItem("accessToken");
       await axios.post(
         `https://valourwealthdjango-production.up.railway.app/api/challenges/${challengeId}/join/`,
-        { user: "user_data" },
+        // { user: "user_data" },
+        {},
         {
           headers: {
             Authorization: `Bearer ${token}`,

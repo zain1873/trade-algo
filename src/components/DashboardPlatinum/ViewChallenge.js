@@ -121,9 +121,9 @@
 
 // export default ViewChallenge;
 
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 
 function ViewChallenge() {
   const { id } = useParams();
@@ -191,8 +191,11 @@ function ViewChallenge() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("answer", answer);
-    formData.append("screenshot", screenshot);
+    // formData.append("answer", answer);
+    // formData.append("screenshot", screenshot);
+    // formData.append("challenge", id);
+    formData.append("answers", answer);
+    formData.append("screenshots", screenshot);
     formData.append("challenge", id);
 
     try {
@@ -254,7 +257,6 @@ function ViewChallenge() {
       </div>
 
       <div className="submission-form mt-4">
-
         {isChallengeOutdated ? (
           <div className="alert alert-warning mt-3">
             This challenge has ended. Submissions are closed.
