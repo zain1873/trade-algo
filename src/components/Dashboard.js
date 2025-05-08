@@ -51,6 +51,7 @@ import ForexData from "./DashboardSidebarComp/ForexData";
 import StocksData from "./DashboardSidebarComp/StocksData";
 import CryptoData from "./DashboardSidebarComp/CryptoData";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
+import StockTicker from "./StockTicker";
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -642,12 +643,13 @@ const Dashboard = () => {
             {/* Header with Search */}
             <div className="row align-items-center dashboard-head">
               <div className="col position-relative search-main">
-                <input
+                {/* <input
                   type="text"
                   className={`search_bar ${darkMode ? "dark-mode" : ""}`}
                   placeholder="Search Tickers..."
                 />
-                <i className="fas fa-search search-icon"></i>
+                <i className="fas fa-search search-icon"></i> */}
+               <StockTicker/>
               </div>
 
               <div className="col-auto user_info position-relative">
