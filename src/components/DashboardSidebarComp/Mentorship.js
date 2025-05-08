@@ -3,23 +3,28 @@ import "../DashboardSidebarComp/styles/mentorship.css";
 import MentorshipPlans from "./MentorshipCards";
 
 const SessionsComponent = () => {
-  const [activeTab, setActiveTab] = useState("mentorship");
+  const [activeTab, setActiveTab] = useState("pricing");
 
   return (
     <div className="sessions-container">
       {/* Top Buttons */}
       <div className="buttons-container">
         <button
-          className="btn btn-secondary manage-btn"
-          onClick={() => setActiveTab("mentorship")}
-        >
-          Contact Us
-        </button>
-        <button
-          className="btn btn-outline-light price-btn"
+          className={`btn ${
+            activeTab === "pricing" ? "btn-secondary" : "btn-outline-light"
+          } manage-btn`}
           onClick={() => setActiveTab("pricing")}
         >
           View All Price Plans
+        </button>
+
+        <button
+          className={`btn ${
+            activeTab === "mentorship" ? "btn-secondary" : "btn-outline-light"
+          } price-btn`}
+          onClick={() => setActiveTab("mentorship")}
+        >
+          Contact us
         </button>
       </div>
 
@@ -53,6 +58,7 @@ const SessionsComponent = () => {
               <button className="btn btn-dark telegram-btn">
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-decoration-none text-white"
                   href="https://t.me/+nO3GSU_Jvts5MGE0"
                 >

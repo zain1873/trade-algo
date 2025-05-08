@@ -22,6 +22,10 @@
   color: #fff !important;
 }
 
+.dark-mode-content {
+  margin-top: 85px;
+}
+
 /* Dropdown container (hidden by default) */
 .user-dropdown {
   position: absolute;
