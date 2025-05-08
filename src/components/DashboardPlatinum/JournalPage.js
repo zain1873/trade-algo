@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const TradeJournal = () => {
   const [showJournalForm, setShowJournalForm] = useState(false);
   const [journalEntries, setJournalEntries] = useState([]);
+  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     symbol: "",
     tradeType: "long",
@@ -24,6 +27,16 @@ const TradeJournal = () => {
     lessonsLearned: "",
     additionalNotes: "",
   });
+
+  const handleViewDetails = (entry) => {
+    setSelectedEntry(entry);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedEntry(null);
+    setIsModalOpen(false);
+  };
 
   const API_BASE = process.env.REACT_APP_API_URL;
   const API_URL = `${API_BASE}api/trade-journal/`;
@@ -358,7 +371,20 @@ const TradeJournal = () => {
                       {entry.lessons_learned.slice(0, 100)}
                       {entry.lessons_learned.length > 100 ? "..." : ""}
                     </div>
-                    <button className="view-details-button">
+                    <button
+                      className="view-details-button"
+                      onClick={() =>
+                        handleViewDetails({
+                          ...entry,
+                          profitLoss: parseFloat(
+                            calculateProfitLoss(entry).profitLoss
+                          ),
+                          profitLossPercentage: parseFloat(
+                            calculateProfitLoss(entry).profitLossPercentage
+                          ),
+                        })
+                      }
+                    >
                       View Details
                     </button>
                   </div>
