@@ -333,7 +333,7 @@ function ViewChallenge() {
   const [previewUrl, setPreviewUrl] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [membersCount, setMembersCount] = useState(0);
-  const [participantId, setParticipantId] = useState(null);
+  const [joinedParticipantId, setJoinedParticipantId] = useState(null);
 
   const token = localStorage.getItem("accessToken");
 
@@ -357,16 +357,18 @@ function ViewChallenge() {
     const fetchParticipants = async () => {
       try {
         const res = await axios.get(
-          `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
+          `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        setMembersCount(res.data.length);
         const participant = res.data.find((p) => p.challenge === parseInt(id));
-        if (participant) setParticipantId(participant.id);
+        if (participant) setJoinedParticipantId(participant.id);
+        setMembersCount(
+          res.data.filter((p) => p.challenge === parseInt(id)).length
+        );
       } catch (err) {
         console.error("Failed to fetch participants", err);
       }
@@ -392,19 +394,17 @@ function ViewChallenge() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!participantId) {
-      alert("You must join the challenge first.");
+    if (!joinedParticipantId) {
+      alert("You must join this challenge first.");
       return;
     }
-
-    const formData = new FormData();
-    formData.append("answers", answer);
-    formData.append("screenshots", screenshot);
-
     try {
+      const formData = new FormData();
+      formData.append("answers", answer);
+      formData.append("screenshots", screenshot);
+
       await axios.post(
-        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/${participantId}/submit_response/`,
+        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/${joinedParticipantId}/submit_response/`,
         formData,
         {
           headers: {
@@ -448,67 +448,74 @@ function ViewChallenge() {
         <p className="text-white">{challenge.description}</p>
       </div>
 
-      <div className="submission-form mt-4">
-        {isChallengeOutdated ? (
-          <div className="alert alert-warning mt-3">
-            This challenge has ended. Submissions are closed.
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3 challenge-form">
-              <textarea
-                id="answerText"
-                className="form-control"
-                rows="6"
-                value={answer}
-                onChange={handleAnswerChange}
-                placeholder="Type your answer here..."
-                required
-              ></textarea>
+      {joinedParticipantId ? (
+        <div className="submission-form mt-4">
+          {isChallengeOutdated ? (
+            <div className="alert alert-warning mt-3">
+              This challenge has ended. Submissions are closed.
             </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3 challenge-form">
+                <textarea
+                  id="answerText"
+                  className="form-control"
+                  rows="6"
+                  value={answer}
+                  onChange={handleAnswerChange}
+                  placeholder="Type your answer here..."
+                  required
+                ></textarea>
+              </div>
 
-            <div className="mb-4">
-              <label htmlFor="screenshotUpload" className="form-label">
-                Upload Screenshot:
-              </label>
-              <input
-                type="file"
-                className="form-control"
-                id="screenshotUpload"
-                accept="image/*"
-                onChange={handleScreenshotChange}
-                required
-              />
-              {previewUrl && (
-                <div className="screenshot-preview mt-2">
-                  <h5>Preview:</h5>
-                  <img
-                    src={previewUrl}
-                    alt="Screenshot preview"
-                    className="img-thumbnail"
-                  />
+              <div className="mb-4">
+                <label htmlFor="screenshotUpload" className="form-label">
+                  Upload Screenshot:
+                </label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="screenshotUpload"
+                  accept="image/*"
+                  onChange={handleScreenshotChange}
+                  required
+                />
+                {previewUrl && (
+                  <div className="screenshot-preview mt-2">
+                    <h5>Preview:</h5>
+                    <img
+                      src={previewUrl}
+                      alt="Screenshot preview"
+                      className="img-thumbnail"
+                    />
+                  </div>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                className="btn submit-btn"
+                disabled={submitted}
+              >
+                {submitted ? "Submitted!" : "Submit Answer"}
+              </button>
+
+              {submitted && (
+                <div className="alert alert-success mt-3" role="alert">
+                  Your challenge answer has been submitted successfully!
                 </div>
               )}
-            </div>
-
-            <button
-              type="submit"
-              className="btn submit-btn"
-              disabled={submitted}
-            >
-              {submitted ? "Submitted!" : "Submit Answer"}
-            </button>
-
-            {submitted && (
-              <div className="alert alert-success mt-3" role="alert">
-                Your challenge answer has been submitted successfully!
-              </div>
-            )}
-          </form>
-        )}
-      </div>
+            </form>
+          )}
+        </div>
+      ) : (
+        <div className="alert alert-danger mt-4">
+          You must <strong>join this challenge</strong> before submitting.
+        </div>
+      )}
     </div>
   );
 }
 
 export default ViewChallenge;
+
