@@ -9,7 +9,7 @@ const SessionsComponent = () => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}api/generate-tradegpt-token/`,
+        `https://valourwealthdjango-production.up.railway.app/api/generate-tradegpt-token/`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
