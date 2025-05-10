@@ -24,7 +24,7 @@ const SessionsComponent = () => {
       const { token } = await response.json();
 
       // Redirect to TradeGPT with token
-      window.location.href = `https://frontend-eight-rho-95.vercel.app/dashboard?token=${token}`;
+      window.location.href = `https://frontend-eight-rho-95.vercel.app?token=${token}`;
     } catch (error) {
       console.error("TradeGPT redirect failed:", error);
     }
