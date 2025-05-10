@@ -1,9 +1,34 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import MentorshipPlans from "./MentorshipCards";
 
 const SessionsComponent = () => {
   const [activeTab, setActiveTab] = useState("pricing");
+  const handleTradeGPTRedirect = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}api/generate-tradegpt-token/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to get token");
+      }
+
+      const { token } = await response.json();
+
+      // Redirect to TradeGPT with token
+      window.location.href = `https://frontend-eight-rho-95.vercel.app/dashboard?token=${token}`;
+    } catch (error) {
+      console.error("TradeGPT redirect failed:", error);
+    }
+  };
 
   return (
     <div className="sessions-container">
@@ -64,6 +89,12 @@ const SessionsComponent = () => {
                 >
                   <i className="telegram-icon">✈</i> Mentorship Telegram Alerts
                 </a>
+              </button>
+              <button
+                onClick={handleTradeGPTRedirect}
+                className="btn btn-primary"
+              >
+                Go to TradeGPT
               </button>
             </div>
           </div>
