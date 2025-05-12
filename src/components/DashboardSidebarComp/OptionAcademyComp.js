@@ -256,9 +256,6 @@ const OptionsAcademy = () => {
                     <div className="logo-container">
                       {/* <img src="/api/placeholder/40/40" alt="Logo" className="logo" /> */}
                     </div>
-                    <h2 className="options-title mb-3 text-white">
-                      Options Academy
-                    </h2>
                   </div>
 
                   <div className="video-container-options">
@@ -381,9 +378,6 @@ const OptionsAcademy = () => {
                     <div className="logo-container">
                       {/* <img src="/api/placeholder/40/40" alt="Logo" className="logo" /> */}
                     </div>
-                    <h2 className="options-title mb-3 text-white">
-                      Options Academy
-                    </h2>
                   </div>
 
                   <div className="video-container-options">
