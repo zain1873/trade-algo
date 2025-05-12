@@ -1,7 +1,5 @@
-import React from "react";
-import { Star, MessageCircle, BarChart3 } from "lucide-react";
+import { BarChart3, MessageCircle, Star } from "lucide-react";
 
-// Individual Feature Item Component
 const FeatureItem = ({ text }) => (
   <div className="feature-item d-flex align-items-start mb-2">
     <div
@@ -48,7 +46,7 @@ const PricingCard = ({ type, icon, sessions, duration, price, features }) => {
       </div>
 
       <button className="btn btn-dark w-100">
-        {type === "Starter" ? "Manage My Sessions" : "Contact Us"}{" "}
+        {type === "Starter" ? "Contact us" : "Contact Us"}{" "}
         <span className="ms-2">→</span>
       </button>
     </div>
