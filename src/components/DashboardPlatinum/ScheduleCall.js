@@ -463,10 +463,10 @@
 
 // export default ScheduleCall;
 
-import React, { useState, useEffect } from "react";
-import SessionManagement from "./SessionManagement";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/platinum.css";
+import SessionManagement from "./SessionManagement";
 
 const ScheduleCall = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -699,12 +699,11 @@ const ScheduleCall = () => {
                   onChange={(e) => setSelectedUser(e.target.value)}
                 >
                   <option value="">Select a User</option>
-                  {/* {users.map((user) => (
+                  {users.map((user) => (
                     <option key={user.id} value={user.id}>
                       {user.username}
                     </option>
-                  ))} */}
-                  
+                  ))}
                 </select>
                 <div className="select-arrow">
                   <i className="bi bi-chevron-down"></i>
