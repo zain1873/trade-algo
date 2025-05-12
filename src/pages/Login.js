@@ -118,9 +118,9 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import sideLoginImg from "../assets/images/login-side-img.jpg";
 import websiteLogo from "../assets/images/Valour_Wealth.png";
 import "../styles/global.css";
-import sideLoginImg from '../assets/images/login-side-img.jpg'
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -181,15 +181,15 @@ function Login() {
 
   return (
     <div className="login-container p-4">
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-6 p-0">
             <div className="login-img">
-                <img
-                  src={sideLoginImg}
-                  alt="Website Logo"
-                  className="login-rightimg  obj_fit"
-                />
+              <img
+                src={sideLoginImg}
+                alt="Website Logo"
+                className="login-rightimg  obj_fit"
+              />
             </div>
           </div>
           <div className="col-lg-6 p-0">
@@ -229,7 +229,12 @@ function Login() {
                   />
                 </div>
 
-                <button style={{margin : '0px', height: '42px'}} type="submit" className="login-btn" disabled={loading}>
+                <button
+                  style={{ margin: "0px", height: "42px" }}
+                  type="submit"
+                  className="login-btn"
+                  disabled={loading}
+                >
                   {loading ? "Logging in..." : "Login"}
                 </button>
               </form>
