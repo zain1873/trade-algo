@@ -541,7 +541,7 @@
 // export default FeatureVotingTabs;
 
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function FeatureVotingTabs() {
   const [activeTab, setActiveTab] = useState("active-voting");
@@ -658,9 +658,6 @@ function FeatureVotingTabs() {
               <div key={feature.id} className="feature-card">
                 <div className="feature-card-content">
                   <div className="vote-count-container">
-                    <div className="vote-icon">
-                      <i className="bi bi-chevron-up"></i>
-                    </div>
                     <div className="vote-count">{feature.votes_count || 0}</div>
                     <div className="vote-label">
                       {feature.votes_count === 1 ? "vote" : "votes"}
@@ -702,7 +699,7 @@ function FeatureVotingTabs() {
                                 feature.votes_count || 0,
                                 feature.votes_needed
                               )}%`,
-                              backgroundColor: "#fff",
+                              // backgroundColor: "#fff",
                             }}
                             aria-valuenow={feature.votes_count || 0}
                             aria-valuemin="0"
