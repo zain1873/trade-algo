@@ -111,7 +111,7 @@ function SalesContactForm({ onClose, inquiryType }) {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/sales-inquiry/`,
+        `${process.env.REACT_APP_API_URL}api/sales-inquiry/`,
         {
           method: "POST",
           headers: {
