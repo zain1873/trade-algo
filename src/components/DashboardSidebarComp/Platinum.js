@@ -105,7 +105,7 @@ import { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import SalesContactForm from "./sales-form";
 
-import platinumImg2 from "../DashboardSidebarComp/images/platinum-2.jpg";
+import platinumImg2 from "../DashboardSidebarComp/images/platinum-monthly.jpg";
 import platinumImg1 from "../DashboardSidebarComp/images/platinum.jpg";
 
 const Platinum = () => {
@@ -144,12 +144,6 @@ const Platinum = () => {
   if (userData && userData.subscription_status !== "platinum") {
     return (
       <div className="container mt-5">
-        <div className="row text-center mb-4">
-          <h2>Unlock Platinum Access</h2>
-          <p className="text-muted">
-            Get mentorship, features, and exclusive tools.
-          </p>
-        </div>
         <div className="row">
           <div className="col-lg-6 mb-3" onClick={() => setShowForm(true)}>
             <img

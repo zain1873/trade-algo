@@ -130,6 +130,12 @@ body .dark {
   color: white;
   border-color: #93c5fd;
 }
+.login-img {
+  height: 600px;
+}
+.login-img img {
+  border-radius: 20px;
+}
 
 .dark-mode .search_bar::placeholder {
   color: #bbb;
@@ -505,6 +511,9 @@ body .dark {
 .dashboard-head {
   margin-bottom: 0;
   padding: 12px 6px;
+  /* position: sticky !important;
+  top: 30px;
+  background-color: #1c1e20; */
 }
 
 /* Mobile View */

@@ -1,4 +1,3 @@
-
 // // // import React, { useState } from "react";
 // // // import { Link, useNavigate } from "react-router-dom";
 // // // import "../styles/global.css";
@@ -11,7 +10,6 @@
 // // //   const [loading, setLoading] = useState(false);
 // // //   const navigate = useNavigate();
 
-
 // // //   const handleSubmit = async (e) => {
 // // //     e.preventDefault();
 // // //     setError("");
@@ -23,7 +21,7 @@
 // // //       const response = await fetch(API_URL, {
 // // //         method: "POST",
 // // //         headers: { "Content-Type": "application/json" },
-// // //         body: JSON.stringify({ username: email, password }), 
+// // //         body: JSON.stringify({ username: email, password }),
 // // //       });
 
 // // //       console.log("🟡 Raw Response:", response);
@@ -64,7 +62,7 @@
 // // //             <input
 // // //               type="email"
 // // //               placeholder="Enter your Username"
-// // //               value={email} 
+// // //               value={email}
 // // //               onChange={(e) => setEmail(e.target.value)}
 // // //               required
 // // //             />
@@ -118,11 +116,11 @@
 
 // // // export default Login;
 
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/global.css";
 import websiteLogo from "../assets/images/Valour_Wealth.png";
+import "../styles/global.css";
+import sideLoginImg from '../assets/images/login-side-img.jpg'
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -138,7 +136,7 @@ function Login() {
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
     ? process.env.REACT_APP_API_URL
     : process.env.REACT_APP_API_URL + "/";
-  
+
   const LOGIN_URL = `${API_BASE_URL}api/token/`;
 
   const handleSubmit = async (e) => {
@@ -183,48 +181,65 @@ function Login() {
 
   return (
     <div className="login-container p-4">
-      <div className="login-box">
-        <div className="logo-web">
-          <img src={websiteLogo} alt="Website Logo" className="website-logo" />
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 p-0">
+            <div className="login-img">
+                <img
+                  src={sideLoginImg}
+                  alt="Website Logo"
+                  className="login-rightimg  obj_fit"
+                />
+            </div>
+          </div>
+          <div className="col-lg-6 p-0">
+            <div className="login-box">
+              <div className="logo-web">
+                <img
+                  src={websiteLogo}
+                  alt="Website Logo"
+                  className="website-logo"
+                />
+              </div>
+
+              <h2>Login</h2>
+
+              {error && <p className="error-message">{error}</p>}
+
+              <form onSubmit={handleSubmit}>
+                <div className="input-group">
+                  <label>Username</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="input-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <button style={{margin : '0px', height: '42px'}} type="submit" className="login-btn" disabled={loading}>
+                  {loading ? "Logging in..." : "Login"}
+                </button>
+              </form>
+
+              <Link to="/" className="back-home">
+                Back to Home
+              </Link>
+            </div>
+          </div>
         </div>
-
-        <h2>Login</h2>
-
-        {error && <p className="error-message">{error}</p>}
-
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label>Username</label>
-            <input
-              type="text"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <button type="submit" className="login-btn" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-
-
-
-        <Link to="/" className="back-home">
-          Back to Home
-        </Link>
       </div>
     </div>
   );
@@ -233,4 +248,3 @@ function Login() {
 export default Login;
 
 // ===============================================================
-

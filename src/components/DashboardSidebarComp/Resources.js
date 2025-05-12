@@ -65,11 +65,14 @@ const Resources = ({ darkMode }) => {
   return (
     <div
       className={`container mt-4 resources-section ${
-        darkMode ? "dark-mode" : "light-mode"
+        darkMode ? "" : "light-mode"
       }`}
     >
-      <div className="video-container video-resource-container mt-0">
-        <h4 className="video-title">Platform Walkthrough</h4>
+     <div className="container">
+      <div className="row">
+        <div className="col-lg-4">
+           <div className="video-container video-resource-container mt-0">
+        <h4 className="video-title mb-3">Platform Walkthrough</h4>
 
         {/* Video player with controls and no download */}
         <div
@@ -101,11 +104,15 @@ const Resources = ({ darkMode }) => {
           </video>
         </div>
       </div>
+        </div>
+      </div>
+
+     </div>
 
       {/* Dark mode class added here */}
       <div
         className={`resources-details mt-4 ${
-          darkMode ? "dark-mode" : "light-mode"
+          darkMode ? "" : "light-mode"
         }`}
       >
         <div className="author-info d-flex align-items-center">
@@ -118,7 +125,7 @@ const Resources = ({ darkMode }) => {
           </div>
         </div>
 
-        <h5 className="session-title mt-3">Platform Walkthrough Sessions</h5>
+        <h5 className="session-title mt-3 ">Platform Walkthrough Sessions</h5>
         <p className="session-description">
           Join us for a platform walkthrough livestream where we'll be taking
           you on a tour of our latest update. Jack will guide you through all

@@ -232,7 +232,7 @@ const PricingCards = () => {
   ];
 
   return (
-    <div className="container py-5">
+    <div className="container">
       <div className="row">
         {cardsData.map((card, index) => (
           <div className="col-lg-4 mb-4" key={index}>

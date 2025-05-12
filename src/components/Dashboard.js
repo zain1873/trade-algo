@@ -524,7 +524,8 @@ const Dashboard = () => {
                       </span>
 
                       {/*  Add Play Icon for Dropdown Indicator */}
-                      {item.id === "trading-tools" && (
+                      {(item.id === "trading-tools" ||
+                        item.id === "darkpool-data") && (
                         <i
                           className="fas fa-play ms-2 indicator"
                           style={{
