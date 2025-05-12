@@ -16,7 +16,7 @@ import {
   Users,
   Wrench,
 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import user_logo from "../assets/images/dashboard_logo.png";
 import valourWealthInverted from "../assets/images/full-transparent.png";
 import valourWealth from "../assets/images/Valour_Wealth.png";
@@ -198,16 +198,6 @@ const Dashboard = () => {
       icon: <GraduationCap size={20} />,
     },
     { id: "mentorship", label: "1 on 1 Mentorship", icon: <Users size={20} /> },
-    // {
-    //   id: "maintable",
-    //   label: "Maintable",
-    //   icon: <Users size={20} />,
-    // },
-    // {
-    //   id: "atsTable",
-    //   label: "atsTable",
-    //   icon: <Users size={20} />,
-    // },
   ];
 
   const renderContent = () => {
@@ -255,6 +245,8 @@ const Dashboard = () => {
         "logout",
         "maintable",
         "atsTable",
+        "main-table",
+        "trade-alerts",
       ],
     };
 
@@ -283,8 +275,7 @@ const Dashboard = () => {
                 return <HistoricalDataFlow darkMode={darkMode} />;
               case "live-sessions":
                 return <LiveSessions darkMode={darkMode} />;
-              // case "Trade-products":
-              //   return <TradeProducts darkMode={darkMode} />;
+
               case "Trade-products":
                 return (
                   <TradeProducts

@@ -101,7 +101,7 @@
 // export default Platinum;
 
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import SalesContactForm from "./sales-form";
 
@@ -154,15 +154,16 @@ const Platinum = () => {
           <div className="col-lg-6 mb-3" onClick={() => setShowForm(true)}>
             <img
               src={platinumImg1}
-              className="img-fluid rounded cursor-pointer"
+              className="img-fluid rounded"
+              style={{ cursor: "pointer" }}
               alt="Platinum 1"
             />
           </div>
           <div className="col-lg-6 mb-3" onClick={() => setShowForm(true)}>
-            
-           <img
+            <img
               src={platinumImg2}
-              className="img-fluid rounded cursor-pointer"
+              className="img-fluid rounded"
+              style={{ cursor: "pointer" }}
               alt="Platinum 2"
             />
           </div>

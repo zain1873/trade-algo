@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import wealthcardimg from "../DashboardSidebarComp/images/wealthseries-1.jpg";
 import wealthcardimg2 from "../DashboardSidebarComp/images/wealthseries-2.jpg";
@@ -19,8 +19,8 @@ function WealthSeries() {
               >
                 <img
                   src={wealthcardimg}
-                  className="obj_fit cursor-pointer"
-                  style={{ borderRadius: "20px" }}
+                  className="obj_fit"
+                  style={{ borderRadius: "20px", cursor: "pointer" }}
                   alt="Card 1"
                 />
               </div>
@@ -35,8 +35,8 @@ function WealthSeries() {
               >
                 <img
                   src={wealthcardimg2}
-                  className="obj_fit cursor-pointer"
-                  style={{ borderRadius: "20px" }}
+                  className="obj_fit"
+                  style={{ borderRadius: "20px", cursor: "pointer" }}
                   alt="Card 1"
                 />
               </div>
