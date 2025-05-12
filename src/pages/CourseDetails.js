@@ -227,7 +227,6 @@ const ValourAcademy = () => {
           body: JSON.stringify({ answers: userAnswers }),
         }
       );
-
       const data = await res.json();
       setGrade(Math.round(data.score));
 
