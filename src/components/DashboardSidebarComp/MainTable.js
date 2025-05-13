@@ -622,7 +622,7 @@ const MainTable = () => {
           </ul>
         </div>
 
-        <div className="text-muted small mb-3">Live Updated</div>
+        {/* <div className="text-muted small mb-3">Live Updated</div> */}
 
         {/* Market Cap Tabs */}
         <div className="cap-tabs mb-3">
