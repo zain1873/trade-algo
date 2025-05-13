@@ -112,7 +112,7 @@ h3 {
   align-items: center;
   height: 100vh;
   /* background:linear-gradient(to right, #4e565e, #494f84); */
-  background-image: url("../assets/images/login");
+  background-image: url("../assets/images/login-background-new.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -130,11 +130,11 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius:0;
+  border-radius: 0;
 }
 .login-img .logo {
   border-radius: 0;
-} 
+}
 
 /* Title */
 .login-box h2 {
