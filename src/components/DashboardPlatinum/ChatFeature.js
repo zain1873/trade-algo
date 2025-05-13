@@ -336,8 +336,10 @@ const ChatFeature = () => {
                     <div className="sender-name fw-bold mb-1">
                       {isCurrentUser ? "You" : msg.sender_name}
                     </div>
-                    <div className="message-text-feature">{msg.content}</div>
-                    <div className="message-time text-end small">
+                    <div className="message-text-feature text-white">
+                      {msg.content}
+                    </div>
+                    <div className="message-time text-end small text-white">
                       {new Date(msg.timestamp).toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
