@@ -145,29 +145,29 @@ const ChatFeature = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [analystList, setAnalystList] = useState([]);
-  const [selectedAnalystId, setSelectedAnalystId] = useState(null);
+  const [assignedAnalyst, setAssignedAnalyst] = useState(null);
   const [conversationId, setConversationId] = useState(null);
 
   const API_BASE_URL = process.env.REACT_APP_API_URL;
   const accessToken = localStorage.getItem("accessToken");
 
-  const fetchAnalysts = async () => {
+  const fetchAssignedAnalyst = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}api/analysts/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/assigned-analyst/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-      setAnalystList(res.data);
+      setAssignedAnalyst(res.data);
+      startAnalystChat(res.data.id);
     } catch (err) {
-      console.error("Failed to fetch analysts", err);
+      console.error("Failed to fetch assigned analyst", err);
     }
   };
 
-  const startAnalystChat = async () => {
+  const startAnalystChat = async (analystId) => {
     try {
       const res = await axios.post(
         `${API_BASE_URL}/api/chat/start/`,
-        { analyst_id: selectedAnalystId },
+        { analyst_id: analystId },
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
       const convo = res.data;
@@ -210,19 +210,8 @@ const ChatFeature = () => {
   };
 
   useEffect(() => {
-    fetchAnalysts();
+    fetchAssignedAnalyst();
   }, []);
-
-  useEffect(() => {
-    if (selectedAnalystId) {
-      startAnalystChat();
-    }
-  }, [selectedAnalystId]);
-
-  const getCurrentTime = () => {
-    const now = new Date();
-    return `${now.getHours()}:${now.getMinutes().toString().padStart(2, "0")}`;
-  };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -237,10 +226,13 @@ const ChatFeature = () => {
           <div className="chat-header">
             <div className="header-left-feature">
               <div className="profile-icon">
-                <img src="/logo-circle.png" alt="Valour Logo" />
+                <img
+                  src={assignedAnalyst?.profile_photo_url || "/logo-circle.png"}
+                  alt="Analyst"
+                />
               </div>
               <div className="header-text">
-                <h2>Analyst Chat</h2>
+                <h2>{assignedAnalyst?.username || "Analyst Chat"}</h2>
                 <p>Secure Channel</p>
               </div>
             </div>
@@ -254,21 +246,6 @@ const ChatFeature = () => {
             </div>
           </div>
 
-          <div className="mb-2 px-3">
-            <select
-              className="form-select"
-              value={selectedAnalystId || ""}
-              onChange={(e) => setSelectedAnalystId(e.target.value)}
-            >
-              <option value="">-- Select Analyst --</option>
-              {analystList.map((a) => (
-                <option key={a.id} value={a.id}>
-                  {a.username}
-                </option>
-              ))}
-            </select>
-          </div>
-
           <div className="chat-messages">
             {messages.map((msg) => (
               <div
@@ -279,7 +256,12 @@ const ChatFeature = () => {
               >
                 {msg.sender !== "user" && (
                   <div className="agent-avatar">
-                    <img src="/logo-circle.png" alt="Agent" />
+                    <img
+                      src={
+                        assignedAnalyst?.profile_photo_url || "/logo-circle.png"
+                      }
+                      alt="Agent"
+                    />
                   </div>
                 )}
                 <div className="message-content">
