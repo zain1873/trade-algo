@@ -115,15 +115,12 @@
 
 // export default DashboardData;
 
-import React, { useEffect, useState } from "react";
-import "../DashboardSidebarComp/styles/DashboardData.css";
-import HistoricalDataFlow from "./HistoricalDataFlow";
-import AtsFlow from "./AtsFordashboard";
-import OverallProgressBar from "./overallprogressbar";
-import ProgressBar from "./ProgressBar";
-import LiveTrainingSession from "./liveTrainingSession";
-import backgroundVideo from "../../assets/images/bannergreen.mp4";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import "../DashboardSidebarComp/styles/DashboardData.css";
+import AtsFlow from "./AtsFordashboard";
+import LiveTrainingSession from "./liveTrainingSession";
+import ProgressBar from "./ProgressBar";
 
 const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
   ? process.env.REACT_APP_API_URL
@@ -219,7 +216,8 @@ function DashboardData({ darkMode }) {
       {/* <ProgressBar />
        */}
 
-      <OverallProgressBar />
+      {/* <OverallProgressBar /> */}
+      <ProgressBar />
 
       <AtsFlow darkMode={darkMode} />
     </div>

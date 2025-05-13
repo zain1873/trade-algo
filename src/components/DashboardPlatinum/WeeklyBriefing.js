@@ -211,13 +211,13 @@
 //     },
 //     summary:
 //       "This week's briefing covers the Fed's latest policy signals, earnings season expectations, and emerging opportunities in the technology and healthcare sectors. We also analyze recent market volatility and provide actionable trade ideas for platinum members.",
-//     keyPoints: [
-//       "Fed signals potential rate cuts in coming months",
-//       "Q1 earnings season begins with major banks reporting",
-//       "Technology sector showing strength despite valuation concerns",
-//       "Healthcare presents defensive opportunities amid volatility",
-//       "Emerging markets showing signs of recovery",
-//     ],
+    // keyPoints: [
+    //   "Fed signals potential rate cuts in coming months",
+    //   "Q1 earnings season begins with major banks reporting",
+    //   "Technology sector showing strength despite valuation concerns",
+    //   "Healthcare presents defensive opportunities amid volatility",
+    //   "Emerging markets showing signs of recovery",
+    // ],
 //   };
 
 //   const tradeIdeas = [
