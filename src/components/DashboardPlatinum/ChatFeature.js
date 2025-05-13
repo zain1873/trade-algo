@@ -153,7 +153,7 @@ const ChatFeature = () => {
 
   const fetchAssignedAnalyst = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/assigned-analyst/`, {
+      const res = await axios.get(`${API_BASE_URL}api/assigned-analyst/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       setAssignedAnalyst(res.data);
@@ -166,7 +166,7 @@ const ChatFeature = () => {
   const startAnalystChat = async (analystId) => {
     try {
       const res = await axios.post(
-        `${API_BASE_URL}/api/chat/start/`,
+        `${API_BASE_URL}api/chat/start/`,
         { analyst_id: analystId },
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
@@ -181,12 +181,9 @@ const ChatFeature = () => {
   const fetchMessages = async () => {
     if (!conversationId) return;
     try {
-      const res = await axios.get(
-        `${API_BASE_URL}/api/chat/my-conversations/`,
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      );
+      const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
       const convo = res.data.find((c) => c.id === conversationId);
       setMessages(convo?.messages || []);
     } catch (err) {
@@ -198,7 +195,7 @@ const ChatFeature = () => {
     if (!inputMessage.trim() || !conversationId) return;
     try {
       await axios.post(
-        `${API_BASE_URL}/api/chat/send/`,
+        `${API_BASE_URL}api/chat/send/`,
         { conversation: conversationId, content: inputMessage },
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
