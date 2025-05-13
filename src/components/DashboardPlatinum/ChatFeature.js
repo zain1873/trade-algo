@@ -1,60 +1,80 @@
-// import React, { useState } from "react";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 // import "../DashboardSidebarComp/styles/ChatFeature.css";
 
 // const ChatFeature = () => {
-//   const [messages, setMessages] = useState([
-//     {
-//       id: 1,
-//       sender: "agent",
-//       text: "Hello! Welcome to Valour Wealth. How can I assist you today?",
-//       time: "14:16",
-//     },
-//   ]);
+//   const [messages, setMessages] = useState([]);
 //   const [inputMessage, setInputMessage] = useState("");
 //   const [isChatOpen, setIsChatOpen] = useState(false);
+//   const [assignedAnalyst, setAssignedAnalyst] = useState(null);
+//   const [conversationId, setConversationId] = useState(null);
 
-//   const handleSendMessage = () => {
-//     if (inputMessage.trim() !== "") {
-//       const newUserMessage = {
-//         id: messages.length + 1,
-//         sender: "user",
-//         text: inputMessage,
-//         time: getCurrentTime(),
-//       };
+//   const API_BASE_URL = process.env.REACT_APP_API_URL;
+//   const accessToken = localStorage.getItem("accessToken");
 
-//       setMessages([...messages, newUserMessage]);
-
-//       setTimeout(() => {
-//         const newAgentMessage = {
-//           id: messages.length + 2,
-//           sender: "agent",
-//           text: "Thank you for your message. One of our Analysts will get in touch with you shortly.",
-//           time: getCurrentTime(),
-//         };
-//         setMessages((prevMessages) => [...prevMessages, newAgentMessage]);
-//       }, 1000);
-
-//       setInputMessage("");
+//   const fetchAssignedAnalyst = async () => {
+//     try {
+//       const res = await axios.get(`${API_BASE_URL}api/assigned-analyst/`, {
+//         headers: { Authorization: `Bearer ${accessToken}` },
+//       });
+//       setAssignedAnalyst(res.data);
+//       startAnalystChat(res.data.id);
+//     } catch (err) {
+//       console.error("Failed to fetch assigned analyst", err);
 //     }
 //   };
 
-//   const getCurrentTime = () => {
-//     const now = new Date();
-//     return `${now.getHours()}:${now.getMinutes().toString().padStart(2, "0")}`;
+//   const startAnalystChat = async (analystId) => {
+//     try {
+//       const res = await axios.post(
+//         `${API_BASE_URL}api/chat/start/`,
+//         { analyst_id: analystId },
+//         { headers: { Authorization: `Bearer ${accessToken}` } }
+//       );
+//       const convo = res.data;
+//       setConversationId(convo.id);
+//       setMessages(convo.messages || []);
+//     } catch (err) {
+//       console.error("Failed to start chat", err);
+//     }
 //   };
+
+//   const fetchMessages = async () => {
+//     if (!conversationId) return;
+//     try {
+//       const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
+//         headers: { Authorization: `Bearer ${accessToken}` },
+//       });
+//       const convo = res.data.find((c) => c.id === conversationId);
+//       setMessages(convo?.messages || []);
+//     } catch (err) {
+//       console.error("Error fetching messages", err);
+//     }
+//   };
+
+//   const sendMessage = async () => {
+//     if (!inputMessage.trim() || !conversationId) return;
+//     try {
+//       await axios.post(
+//         `${API_BASE_URL}api/chat/send/`,
+//         { conversation: conversationId, content: inputMessage },
+//         { headers: { Authorization: `Bearer ${accessToken}` } }
+//       );
+//       setInputMessage("");
+//       fetchMessages();
+//     } catch (err) {
+//       console.error("Error sending message", err);
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchAssignedAnalyst();
+//   }, []);
 
 //   const handleKeyPress = (e) => {
 //     if (e.key === "Enter") {
-//       handleSendMessage();
+//       sendMessage();
 //     }
-//   };
-
-//   const toggleChat = () => {
-//     setIsChatOpen(!isChatOpen);
-//   };
-
-//   const closeChat = () => {
-//     setIsChatOpen(false);
 //   };
 
 //   return (
@@ -64,36 +84,51 @@
 //           <div className="chat-header">
 //             <div className="header-left-feature">
 //               <div className="profile-icon">
-//                 <img src="/logo-circle.png" alt="Opulent Logo" />
+//                 <img
+//                   src={assignedAnalyst?.profile_photo_url || "/logo-circle.png"}
+//                   alt="Analyst"
+//                 />
 //               </div>
 //               <div className="header-text">
-//                 <h2>Premium Support</h2>
-//                 <p>Online</p>
+//                 <h2>{assignedAnalyst?.username || "Analyst Chat"}</h2>
+//                 <p>Secure Channel</p>
 //               </div>
 //             </div>
 //             <div className="header-actions">
-//               <button className="action-button" onClick={closeChat}>
+//               <button
+//                 className="action-button"
+//                 onClick={() => setIsChatOpen(false)}
+//               >
 //                 <i className="fas fa-times"></i>
 //               </button>
 //             </div>
 //           </div>
 
 //           <div className="chat-messages">
-//             {messages.map((message) => (
+//             {messages.map((msg) => (
 //               <div
-//                 key={message.id}
-//                 className={`message ${message.sender === "user" ? "user-message" : "agent-message"}`}
+//                 key={msg.id}
+//                 className={`message ${
+//                   msg.sender === "user" ? "user-message" : "agent-message"
+//                 }`}
 //               >
-//                 {message.sender === "agent" && (
+//                 {msg.sender !== "user" && (
 //                   <div className="agent-avatar">
-//                     <img src="/logo-circle.png" alt="Agent" />
+//                     <img
+//                       src={
+//                         assignedAnalyst?.profile_photo_url || "/logo-circle.png"
+//                       }
+//                       alt="Agent"
+//                     />
 //                   </div>
 //                 )}
 //                 <div className="message-content">
-//                   <div className="message-text-feature">{message.text}</div>
-//                   <div className="message-time">{message.time}</div>
+//                   <div className="message-text-feature">{msg.content}</div>
+//                   <div className="message-time">
+//                     {new Date(msg.timestamp).toLocaleTimeString()}
+//                   </div>
 //                 </div>
-//                 {message.sender === "user" && (
+//                 {msg.sender === "user" && (
 //                   <div className="message-status">
 //                     <i className="fas fa-check"></i>
 //                   </div>
@@ -116,8 +151,10 @@
 //             />
 //             <div className="input-actions">
 //               <button
-//                 className={`send-button-feature ${inputMessage ? "active" : ""}`}
-//                 onClick={handleSendMessage}
+//                 className={`send-button-feature ${
+//                   inputMessage ? "active" : ""
+//                 }`}
+//                 onClick={sendMessage}
 //               >
 //                 <i className="fas fa-paper-plane"></i>
 //               </button>
@@ -125,7 +162,7 @@
 //           </div>
 //         </div>
 //       ) : (
-//         <div className="chat-bubble" onClick={toggleChat}>
+//         <div className="chat-bubble" onClick={() => setIsChatOpen(true)}>
 //           <div className="chat-bubble-icon">
 //             <i className="fas fa-comments"></i>
 //           </div>
@@ -147,6 +184,7 @@ const ChatFeature = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [assignedAnalyst, setAssignedAnalyst] = useState(null);
   const [conversationId, setConversationId] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   const API_BASE_URL = process.env.REACT_APP_API_URL;
   const accessToken = localStorage.getItem("accessToken");
@@ -210,6 +248,21 @@ const ChatFeature = () => {
     fetchAssignedAnalyst();
   }, []);
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (!accessToken) return;
+      try {
+        const res = await axios.get(`${API_BASE_URL}api/user/profile/`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+        setUserData(res.data);
+      } catch (err) {
+        console.error("Failed to fetch user", err);
+      }
+    };
+    fetchUser();
+  }, [accessToken]);
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       sendMessage();
@@ -229,7 +282,7 @@ const ChatFeature = () => {
                 />
               </div>
               <div className="header-text">
-                <h2>{assignedAnalyst?.username || "Analyst Chat"}</h2>
+                <h2>{assignedAnalyst?.username || ""}</h2>
                 <p>Secure Channel</p>
               </div>
             </div>
@@ -244,36 +297,71 @@ const ChatFeature = () => {
           </div>
 
           <div className="chat-messages">
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`message ${
-                  msg.sender === "user" ? "user-message" : "agent-message"
-                }`}
-              >
-                {msg.sender !== "user" && (
-                  <div className="agent-avatar">
+            {messages.map((msg) => {
+              const isCurrentUser = msg.sender_name === userData?.username;
+              const profilePhoto = isCurrentUser
+                ? userData?.profile_photo_url
+                : msg.sender_profile_photo_url;
+              return (
+                <div
+                  key={msg.id}
+                  className={`message d-flex ${
+                    isCurrentUser
+                      ? "justify-content-end"
+                      : "justify-content-start"
+                  }`}
+                >
+                  {!isCurrentUser && (
                     <img
-                      src={
-                        assignedAnalyst?.profile_photo_url || "/logo-circle.png"
-                      }
-                      alt="Agent"
+                      src={profilePhoto || "/default-user.png"}
+                      className="chat-avatar me-2"
+                      alt="Sender"
+                      style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
                     />
+                  )}
+
+                  <div
+                    className={`message-bubble ${
+                      isCurrentUser
+                        ? "bg-dark text-white"
+                        : "bg-light text-dark"
+                    }`}
+                    style={{ padding: 10, borderRadius: 10, maxWidth: "70%" }}
+                  >
+                    <div className="sender-name fw-bold mb-1">
+                      {isCurrentUser ? "You" : msg.sender_name}
+                    </div>
+                    <div className="message-text-feature">{msg.content}</div>
+                    <div className="message-time text-end small">
+                      {new Date(msg.timestamp).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
+                    </div>
                   </div>
-                )}
-                <div className="message-content">
-                  <div className="message-text-feature">{msg.content}</div>
-                  <div className="message-time">
-                    {new Date(msg.timestamp).toLocaleTimeString()}
-                  </div>
+
+                  {isCurrentUser && (
+                    <img
+                      src={profilePhoto || "/default-user.png"}
+                      className="chat-avatar ms-2"
+                      alt="Me"
+                      style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}
                 </div>
-                {msg.sender === "user" && (
-                  <div className="message-status">
-                    <i className="fas fa-check"></i>
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="encrypted-message">
