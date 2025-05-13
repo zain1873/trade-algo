@@ -1356,7 +1356,7 @@ const PlatinumDashboard = () => {
               </div>
 
               {/* Messages Chat */}
-              <div
+              {/* <div
                 className="position-relative me-3"
                 onClick={handleMessagesClick}
               >
@@ -1369,11 +1369,11 @@ const PlatinumDashboard = () => {
                 {showMessagesPopup && (
                   <div className="popup-box">
                     {" "}
-                    {/* Messages Popup */}
+                    
                     <div>No new messages</div>
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* Profile Avatar */}
               <div className="position-relative profile-wrapper">
