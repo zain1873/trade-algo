@@ -154,7 +154,7 @@ const ChatFeature = () => {
 
   const fetchAnalysts = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/analysts/`, {
+      const res = await axios.get(`${API_BASE_URL}api/analysts/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       setAnalystList(res.data);
