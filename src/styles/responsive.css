@@ -14,7 +14,10 @@
         left: 2%;
     }
     .login-box {
-        height: auto;
+       position: absolute;
+        z-index: 2;
+        top: 0;
+        background-color: #fff4f4db;
     }
    
 }
