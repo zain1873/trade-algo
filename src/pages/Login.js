@@ -182,7 +182,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="container-fluid">
-        <div className="row" style={{position: 'relative'}}>
+        <div className="row" style={{ position: "relative" }}>
           <div className="col-lg-6 p-0">
             <div className="login-img">
               <img
