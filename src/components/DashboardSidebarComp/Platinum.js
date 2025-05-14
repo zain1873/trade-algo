@@ -238,20 +238,14 @@ const Platinum = () => {
   // if (showTransition) {
   //   return (
   //     <div className="transition-screen">
-  //       <svg
-  //         className="transition-svg"
-  //         viewBox="0 0 200 200"
-  //         xmlns="http://www.w3.org/2000/svg"
-  //       >
-  //         <circle
-  //           cx="100"
-  //           cy="100"
-  //           r="90"
-  //           stroke="#ffffff"
-  //           strokeWidth="6"
-  //           fill="none"
+  //       <div className="rotating-logo-container">
+  //         <div className="wave-effect"></div>
+  //         <img
+  //           src={accessingLogo}
+  //           alt="Accessing Platinum"
+  //           className="rotating-logo"
   //         />
-  //       </svg>
+  //       </div>
   //       <div className="transition-text">
   //         {onboardingTexts.slice(0, currentTextIndex + 1).map((line, idx) => (
   //           <div key={idx} className="fade-text">
@@ -262,24 +256,19 @@ const Platinum = () => {
   //     </div>
   //   );
   // }
-
   if (showTransition) {
     return (
       <div className="transition-screen">
-        <div className="rotating-logo-container">
+        <div
+          className="rotating-logo-container"
+          onClick={() => (window.location.href = "/platinum-dashboard")}
+        >
           <div className="wave-effect"></div>
           <img
             src={accessingLogo}
             alt="Accessing Platinum"
-            className="rotating-logo"
+            className="static-logo"
           />
-        </div>
-        <div className="transition-text">
-          {onboardingTexts.slice(0, currentTextIndex + 1).map((line, idx) => (
-            <div key={idx} className="fade-text">
-              {line}
-            </div>
-          ))}
         </div>
       </div>
     );

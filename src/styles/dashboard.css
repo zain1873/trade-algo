@@ -1363,6 +1363,7 @@ body .dark {
   display: flex;
   width: 100%; */
   position: fixed !important;
+  background-color: #1c1e20 !important;
   z-index: 10;
   top: 0px;
   justify-content: space-between;
