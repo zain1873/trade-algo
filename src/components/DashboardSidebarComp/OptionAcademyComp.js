@@ -29,25 +29,25 @@ const OptionsAcademy = () => {
     {
       id: 1,
       title: "Intro to Options",
-      duration: "13 minutes 54 seconds",
+
       isPlaying: true,
     },
     {
       id: 2,
       title: "Basic Strategies",
-      duration: "18 minutes 9 seconds",
+
       isPlaying: false,
     },
     {
       id: 3,
       title: "Options Pricing",
-      duration: "15 minutes 50 seconds",
+
       isPlaying: false,
     },
     {
       id: 5,
       title: "Trading Risk",
-      duration: "17 minutes 50 seconds",
+
       isPlaying: false,
     },
   ];
@@ -96,7 +96,7 @@ const OptionsAcademy = () => {
               }`}
               onClick={() => handleTabChange("options-academy")}
             >
-              Crypto
+              Stock
             </button>
           </li>
           <li className="nav-item">
@@ -114,7 +114,7 @@ const OptionsAcademy = () => {
               className={`nav-link ${activeTab === "support" ? "active" : ""}`}
               onClick={() => handleTabChange("support")}
             >
-              Stock
+              Crypto
             </button>
           </li>
         </ul>
@@ -279,7 +279,6 @@ const OptionsAcademy = () => {
                   </div>
 
                   <div className="tutorial-details">
-
                     <h4 className="tutorial-heading">Tutorial Description</h4>
                     <p className="tutorial-desc">
                       In this tutorial, we will be covering the following
@@ -399,9 +398,6 @@ const OptionsAcademy = () => {
                   </div>
 
                   <div className="tutorial-details">
-                    <div className="duration-info">
-                      13 minutes 54 seconds | {selectedCategory}
-                    </div>
                     <h4 className="tutorial-heading">Tutorial Description</h4>
                     <p className="tutorial-desc">
                       In this tutorial, we will be covering the following
