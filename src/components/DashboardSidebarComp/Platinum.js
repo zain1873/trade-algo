@@ -245,7 +245,7 @@ const Platinum = () => {
             fontSize="16"
             fontFamily="Arial"
           >
-            PLATINUM
+            WELCOME TO PLATINUM
           </text>
         </svg>
       </div>
