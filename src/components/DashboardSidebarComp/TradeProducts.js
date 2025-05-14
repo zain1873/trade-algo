@@ -416,7 +416,13 @@ function TradeProducts({ darkMode, setActiveTab }) {
           <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
-              onClick={() => setActiveTab("mentorship")}
+              onClick={() =>
+                window.open(
+                  "https://t.me/+nO3GSU_Jvts5MGE0",
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
             >
               <img
                 className="obj_fit"

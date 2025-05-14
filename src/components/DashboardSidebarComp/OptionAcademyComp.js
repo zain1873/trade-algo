@@ -278,21 +278,8 @@ const OptionsAcademy = () => {
                     </div>
                   </div>
 
-                  <div className="tutorial-nav">
-                    <ul className="nav nav-tabs">
-                      <li className="nav-item">
-                        <button className="nav-link active">Overview</button>
-                      </li>
-                      <li className="nav-item">
-                        <button className="nav-link">Downloads</button>
-                      </li>
-                    </ul>
-                  </div>
-
                   <div className="tutorial-details">
-                    <div className="duration-info">
-                      13 minutes 54 seconds | {selectedCategory}
-                    </div>
+
                     <h4 className="tutorial-heading">Tutorial Description</h4>
                     <p className="tutorial-desc">
                       In this tutorial, we will be covering the following
