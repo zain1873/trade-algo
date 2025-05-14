@@ -315,14 +315,15 @@
 
 // export default TradeProducts;
 
-import React, { useState } from "react";
-import "../DashboardSidebarComp/styles/products.css";
+import { useState } from "react";
+import oneMentorship from "../DashboardSidebarComp/images/1 on 1  Mentrship.jpg";
+import beginnerhub from "../DashboardSidebarComp/images/beginnerhub.jpg";
 import valourThemeCard from "../DashboardSidebarComp/images/products-theme-card.jpg";
 import valourThemeCard2 from "../DashboardSidebarComp/images/products-theme-card2.jpg";
+import tradesignal from "../DashboardSidebarComp/images/signaltrade.jpg";
 import TradeGpt from "../DashboardSidebarComp/images/TradeGPT.jpg";
 import TradingAcademy from "../DashboardSidebarComp/images/Trading Academy.jpg";
-import oneMentorship from "../DashboardSidebarComp/images/1 on 1  Mentrship.jpg";
-
+import "../DashboardSidebarComp/styles/products.css";
 function TradeProducts({ darkMode, setActiveTab }) {
   const [activeState, setAciveState] = useState("valour-products");
 
@@ -395,6 +396,32 @@ function TradeProducts({ darkMode, setActiveTab }) {
                 className="obj_fit"
                 src={oneMentorship}
                 alt="1-on-1 Mentorship"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
+          </div>
+          <div className="col-lg-3">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("mentorship")}
+            >
+              <img
+                className="obj_fit"
+                src={beginnerhub}
+                alt="Beginner Hub"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
+          </div>
+          <div className="col-lg-3">
+            <div
+              className="valour-products-theme-card"
+              onClick={() => setActiveTab("mentorship")}
+            >
+              <img
+                className="obj_fit"
+                src={tradesignal}
+                alt="Trade signal"
                 style={{ borderRadius: "30px" }}
               />
             </div>
