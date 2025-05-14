@@ -179,6 +179,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import accessingLogo from "../DashboardSidebarComp/images/accessingplatinumdahboard.png";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import SalesContactForm from "./sales-form";
 
@@ -268,7 +269,7 @@ const Platinum = () => {
         <div className="rotating-logo-container">
           <div className="wave-effect"></div>
           <img
-            src="../DashboardSidebarComp/images/accessingplatinumdahboard.png"
+            src={accessingLogo}
             alt="Accessing Platinum"
             className="rotating-logo"
           />

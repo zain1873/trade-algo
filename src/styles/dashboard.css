@@ -465,6 +465,7 @@ body .dark {
 }
 .dashboard_row .offset-3 {
   margin-left: 17%;
+  background-color: #1c1e20;
 }
 
 .dropdown-container {
@@ -1355,10 +1356,15 @@ body .dark {
   margin-top: 82px !important;
 }
 .dashboard-head {
-  position: absolute;
+  /* position: absolute; */
   /* top: -74px; */
-  z-index: 10;
+  /* z-index: 10;
   display: flex;
-  width: 100%;
+  width: 100%; */
+  position: fixed !important;
+  z-index: 10;
+  top: 0px;
+  justify-content: space-between;
+  width: -webkit-fill-available !important;
   padding: 4px 12px !important;
 }
