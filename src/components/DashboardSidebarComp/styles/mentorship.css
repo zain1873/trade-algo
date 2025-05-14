@@ -925,3 +925,103 @@ hr {
     opacity: 1;
   }
 }
+
+.transition-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotating-logo-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin-bottom: 30px;
+}
+
+.rotating-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
+  z-index: 2;
+  position: relative;
+}
+
+.wave-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2),
+    0 0 20px 10px rgba(192, 192, 192, 0.2),
+    0 0 30px 15px rgba(255, 215, 0, 0.15); /* silver + white + gold */
+  animation: pulseWaves 2s infinite ease-in-out;
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseWaves {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.transition-text {
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+
+.fade-text {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-text:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-text:nth-child(2) {
+  animation-delay: 1.2s;
+}
+.fade-text:nth-child(3) {
+  animation-delay: 2.4s;
+}
+.fade-text:nth-child(4) {
+  animation-delay: 3.6s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

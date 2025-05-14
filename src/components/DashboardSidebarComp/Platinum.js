@@ -234,23 +234,45 @@ const Platinum = () => {
     }
   }, [userData]);
 
+  // if (showTransition) {
+  //   return (
+  //     <div className="transition-screen">
+  //       <svg
+  //         className="transition-svg"
+  //         viewBox="0 0 200 200"
+  //         xmlns="http://www.w3.org/2000/svg"
+  //       >
+  //         <circle
+  //           cx="100"
+  //           cy="100"
+  //           r="90"
+  //           stroke="#ffffff"
+  //           strokeWidth="6"
+  //           fill="none"
+  //         />
+  //       </svg>
+  //       <div className="transition-text">
+  //         {onboardingTexts.slice(0, currentTextIndex + 1).map((line, idx) => (
+  //           <div key={idx} className="fade-text">
+  //             {line}
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
   if (showTransition) {
     return (
       <div className="transition-screen">
-        <svg
-          className="transition-svg"
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="#ffffff"
-            strokeWidth="6"
-            fill="none"
+        <div className="rotating-logo-container">
+          <div className="wave-effect"></div>
+          <img
+            src="../DashboardSidebarComp/images/accessingplatinumdahboard.png"
+            alt="Accessing Platinum"
+            className="rotating-logo"
           />
-        </svg>
+        </div>
         <div className="transition-text">
           {onboardingTexts.slice(0, currentTextIndex + 1).map((line, idx) => (
             <div key={idx} className="fade-text">
