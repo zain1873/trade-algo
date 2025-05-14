@@ -867,30 +867,42 @@ hr {
   height: 100%;
   z-index: 9999;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fadeInOut 2s ease-in-out forwards;
 }
 
 .transition-svg {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
   animation: pulse 1.5s infinite ease-in-out;
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+.transition-text {
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+
+.fade-text {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-text:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-text:nth-child(2) {
+  animation-delay: 1.2s;
+}
+.fade-text:nth-child(3) {
+  animation-delay: 2.4s;
+}
+.fade-text:nth-child(4) {
+  animation-delay: 3.6s;
 }
 
 @keyframes pulse {
@@ -899,11 +911,17 @@ hr {
     opacity: 0.8;
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 1;
   }
   100% {
     transform: scale(1);
     opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

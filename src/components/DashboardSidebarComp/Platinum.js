@@ -189,6 +189,7 @@ const Platinum = () => {
   const [userData, setUserData] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [showTransition, setShowTransition] = useState(false);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const accessToken = localStorage.getItem("accessToken");
 
@@ -196,6 +197,8 @@ const Platinum = () => {
     ? process.env.REACT_APP_API_URL
     : process.env.REACT_APP_API_URL + "/";
   const USER_API_URL = `${API_BASE_URL}api/user/profile/`;
+
+  const onboardingTexts = ["Welcome", "to the", "Platinum Member", "World"];
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -215,9 +218,19 @@ const Platinum = () => {
   useEffect(() => {
     if (userData?.subscription_status === "platinum") {
       setShowTransition(true);
-      setTimeout(() => {
-        window.location.href = "/platinum-dashboard";
-      }, 2000);
+
+      const interval = setInterval(() => {
+        setCurrentTextIndex((prev) => {
+          if (prev < onboardingTexts.length - 1) return prev + 1;
+          else {
+            clearInterval(interval);
+            setTimeout(() => {
+              window.location.href = "/platinum-dashboard";
+            }, 1500);
+            return prev;
+          }
+        });
+      }, 1200);
     }
   }, [userData]);
 
@@ -232,22 +245,19 @@ const Platinum = () => {
           <circle
             cx="100"
             cy="100"
-            r="80"
+            r="90"
             stroke="#ffffff"
-            strokeWidth="4"
+            strokeWidth="6"
             fill="none"
           />
-          <text
-            x="100"
-            y="110"
-            textAnchor="middle"
-            fill="white"
-            fontSize="16"
-            fontFamily="Arial"
-          >
-            WELCOME TO PLATINUM
-          </text>
         </svg>
+        <div className="transition-text">
+          {onboardingTexts.slice(0, currentTextIndex + 1).map((line, idx) => (
+            <div key={idx} className="fade-text">
+              {line}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
