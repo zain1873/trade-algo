@@ -11,7 +11,9 @@
   height: 336px;
   border-radius: 0;
   margin-bottom: 22px;
+  background: #1c1e20 !important;
 }
+
 .header-left {
   margin-left: 10px;
 }

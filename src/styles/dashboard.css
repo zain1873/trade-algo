@@ -1356,7 +1356,7 @@ body .dark {
 }
 .dashboard-head {
   position: absolute;
-  top: -74px;
+  top: -84px;
   z-index: 10;
   display: flex;
   width: 100%;

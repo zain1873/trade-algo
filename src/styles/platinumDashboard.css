@@ -55,6 +55,10 @@ body::-webkit-scrollbar-thumb {
   position: relative !important;
 }
 
+.news-item-title a {
+  color: #fff !important;
+}
+
 .premium-dropdown .dropdown-header {
   font-size: 13px;
   text-transform: uppercase;
@@ -400,7 +404,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .message-bubble {
-  background-color: #2b2f3a;
+  background-color: #2b2f3a !important;
   padding: 10px 14px;
   border-radius: 12px;
   max-width: 70%;
