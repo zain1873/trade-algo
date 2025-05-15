@@ -178,6 +178,9 @@ body .dark {
   display: flex;
   align-items: center;
   gap: 10px;
+  align-items: start;
+  padding: 14px !important;
+  height: fit-content;
 }
 .user_info h5 {
   font-size: 15px;
@@ -1369,4 +1372,7 @@ body .dark {
   justify-content: space-between;
   width: -webkit-fill-available !important;
   padding: 4px 12px !important;
+}
+.dark-mode-content {
+  margin-top: 70px !important;
 }

@@ -15,6 +15,7 @@ import {
   Tv,
   Users,
   Wrench,
+  CandlestickChart 
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import user_logo from "../assets/images/dashboard_logo.png";
@@ -51,6 +52,7 @@ import Logout from "./DashboardSidebarComp/Logout";
 import StocksData from "./DashboardSidebarComp/StocksData";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
 import StockTicker from "./StockTicker";
+import Tradegpt from "./DashboardSidebarComp/Tradegpt";
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -197,7 +199,14 @@ const Dashboard = () => {
       label: "Trading Academy",
       icon: <GraduationCap size={20} />,
     },
+ 
     { id: "mentorship", label: "1 on 1 Mentorship", icon: <Users size={20} /> },
+
+    {
+      id: "trade-gpt",
+      label: "TradeGpt",
+      icon: <CandlestickChart size={20} />,
+    }
   ];
 
   const renderContent = () => {
@@ -311,7 +320,10 @@ const Dashboard = () => {
                 return <TradeAlertsTable darkMode={darkMode} />;
               case "main-table":
                 return <MainTable darkMode={darkMode} />;
+              case "trade-gpt":
+                return <Tradegpt darkMode={darkMode} />;
               default:
+              
                 return null;
             }
           })()
@@ -634,7 +646,7 @@ const Dashboard = () => {
             }}
           >
             {/* Header with Search */}
-            <div className="row align-items-center dashboard-head">
+            <div className="row dashboard-head">
               <div className="col search-main">
                 {/* <input
                   type="text"

@@ -362,7 +362,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
           <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
-              onClick={() => setActiveTab("tradegpt")}
+              onClick={() => setActiveTab("trade-gpt")}
             >
               <img
                 className="obj_fit"
@@ -403,7 +403,7 @@ function TradeProducts({ darkMode, setActiveTab }) {
           <div className="col-lg-3">
             <div
               className="valour-products-theme-card"
-              onClick={() => setActiveTab("mentorship")}
+              onClick={() => setActiveTab("emerald")}
             >
               <img
                 className="obj_fit"
