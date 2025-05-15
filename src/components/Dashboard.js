@@ -3,6 +3,7 @@ import axios from "axios";
 import {
   Book,
   Building,
+  CandlestickChart,
   DollarSign,
   Gem,
   GraduationCap,
@@ -15,7 +16,6 @@ import {
   Tv,
   Users,
   Wrench,
-  CandlestickChart 
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import user_logo from "../assets/images/dashboard_logo.png";
@@ -50,9 +50,9 @@ import EditProfile from "./DashboardSidebarComp/EditProfile";
 import ForexData from "./DashboardSidebarComp/ForexData";
 import Logout from "./DashboardSidebarComp/Logout";
 import StocksData from "./DashboardSidebarComp/StocksData";
+import Tradegpt from "./DashboardSidebarComp/Tradegpt";
 import TradingTools from "./DashboardSidebarComp/TradingTools";
 import StockTicker from "./StockTicker";
-import Tradegpt from "./DashboardSidebarComp/Tradegpt";
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -199,14 +199,14 @@ const Dashboard = () => {
       label: "Trading Academy",
       icon: <GraduationCap size={20} />,
     },
- 
+
     { id: "mentorship", label: "1 on 1 Mentorship", icon: <Users size={20} /> },
 
     {
       id: "trade-gpt",
       label: "TradeGpt",
       icon: <CandlestickChart size={20} />,
-    }
+    },
   ];
 
   const renderContent = () => {
@@ -221,6 +221,7 @@ const Dashboard = () => {
         "Trade-products",
         "edit-profile",
         "logout",
+        "trade-gpt",
       ],
       premium: [
         "dashboard",
@@ -237,6 +238,7 @@ const Dashboard = () => {
         "logout",
         "maintable",
         "atsTable",
+        "trade-gpt",
       ],
       platinum: [
         "dashboard",
@@ -255,6 +257,7 @@ const Dashboard = () => {
         "maintable",
         "atsTable",
         "main-table",
+        "trade-gpt",
         "trade-alerts",
       ],
     };
@@ -323,7 +326,6 @@ const Dashboard = () => {
               case "trade-gpt":
                 return <Tradegpt darkMode={darkMode} />;
               default:
-              
                 return null;
             }
           })()
