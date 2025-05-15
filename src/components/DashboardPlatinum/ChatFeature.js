@@ -189,6 +189,65 @@ const ChatFeature = () => {
   const API_BASE_URL = process.env.REACT_APP_API_URL;
   const accessToken = localStorage.getItem("accessToken");
 
+  // const fetchAssignedAnalyst = async () => {
+  //   try {
+  //     const res = await axios.get(`${API_BASE_URL}api/assigned-analyst/`, {
+  //       headers: { Authorization: `Bearer ${accessToken}` },
+  //     });
+  //     setAssignedAnalyst(res.data);
+  //     startAnalystChat(res.data.id);
+  //   } catch (err) {
+  //     console.error("Failed to fetch assigned analyst", err);
+  //   }
+  // };
+
+  // const startAnalystChat = async (analystId) => {
+  //   try {
+  //     const res = await axios.post(
+  //       `${API_BASE_URL}api/chat/start/`,
+  //       { analyst_id: analystId },
+  //       { headers: { Authorization: `Bearer ${accessToken}` } }
+  //     );
+  //     const convo = res.data;
+  //     setConversationId(convo.id);
+  //     setMessages(convo.messages || []);
+  //   } catch (err) {
+  //     console.error("Failed to start chat", err);
+  //   }
+  // };
+
+  // const fetchMessages = async () => {
+  //   if (!conversationId) return;
+  //   try {
+  //     const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
+  //       headers: { Authorization: `Bearer ${accessToken}` },
+  //     });
+  //     const convo = res.data.find((c) => c.id === conversationId);
+  //     setMessages(convo?.messages || []);
+  //   } catch (err) {
+  //     console.error("Error fetching messages", err);
+  //   }
+  // };
+
+  // const sendMessage = async () => {
+  //   if (!inputMessage.trim() || !conversationId) return;
+  //   try {
+  //     await axios.post(
+  //       `${API_BASE_URL}api/chat/send/`,
+  //       { conversation: conversationId, content: inputMessage },
+  //       { headers: { Authorization: `Bearer ${accessToken}` } }
+  //     );
+  //     setInputMessage("");
+  //     fetchMessages();
+  //   } catch (err) {
+  //     console.error("Error sending message", err);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchAssignedAnalyst();
+  // }, []);
+
   const fetchAssignedAnalyst = async () => {
     try {
       const res = await axios.get(`${API_BASE_URL}api/assigned-analyst/`, {
