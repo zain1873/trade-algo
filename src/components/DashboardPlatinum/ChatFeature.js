@@ -296,7 +296,7 @@ const ChatFeature = () => {
             </div>
           </div>
 
-          <div className="chat-messages">
+          {/* <div className="chat-messages">
             {messages.map((msg) => {
               const isCurrentUser = msg.sender_name === userData?.username;
               const profilePhoto = isCurrentUser
@@ -340,6 +340,74 @@ const ChatFeature = () => {
                       {msg.content}
                     </div>
                     <div className="message-time text-end small text-white">
+                      {new Date(msg.timestamp).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })}
+                    </div>
+                  </div>
+
+                  {isCurrentUser && (
+                    <img
+                      src={profilePhoto || "/default-user.png"}
+                      className="chat-avatar ms-2"
+                      alt="Me"
+                      style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div> */}
+
+          <div className="chat-messages">
+            {messages.map((msg) => {
+              const isCurrentUser = msg.sender_name === userData?.username;
+              const profilePhoto = isCurrentUser
+                ? userData?.profile_photo_url
+                : msg.sender_profile_photo_url;
+              return (
+                <div
+                  key={msg.id}
+                  className={`message d-flex ${
+                    isCurrentUser
+                      ? "justify-content-end"
+                      : "justify-content-start"
+                  }`}
+                >
+                  {!isCurrentUser && (
+                    <img
+                      src={profilePhoto || "/default-user.png"}
+                      className="chat-avatar me-2"
+                      alt="Sender"
+                      style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}
+
+                  <div
+                    className={`message-bubble ${
+                      isCurrentUser
+                        ? "bg-dark text-white"
+                        : "bg-light text-dark"
+                    }`}
+                    style={{ padding: 10, borderRadius: 10, maxWidth: "70%" }}
+                  >
+                    <div className="sender-name fw-bold mb-1">
+                      {isCurrentUser ? "You" : msg.sender_name}
+                    </div>
+                    <div className="message-text-feature">{msg.content}</div>
+                    <div className="message-time text-end small">
                       {new Date(msg.timestamp).toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
