@@ -625,7 +625,7 @@ const MainTable = () => {
         {/* <div className="text-muted small mb-3">Live Updated</div> */}
 
         {/* Market Cap Tabs */}
-        <div className="cap-tabs mb-3">
+        <div className="nav nav-tabs gap-2 mt-4 historic-table">
           <ul className="nav nav-pills cap-nav">
             <li className="nav-item">
               <button
