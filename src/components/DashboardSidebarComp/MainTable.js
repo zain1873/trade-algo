@@ -600,10 +600,10 @@ const MainTable = () => {
 
         {/* Tab Selection */}
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <ul className="nav nav-tabs flex-grow-1 intrady-table-tabs">
+          <ul className="nav nav-tabs gap-2 mt-4 historic-table">
             <li className="nav-item">
               <button
-                className={`nav-link ${
+                className={`nav-link active ${
                   activeTab === "intraday" ? "active" : ""
                 }`}
                 onClick={() => setActiveTab("intraday")}
@@ -661,7 +661,7 @@ const MainTable = () => {
         </div>
 
         {/* Trend Buttons */}
-        <div className="d-flex gap-3 align-items-center mb-3">
+        <div className="d-flex gap-3 align-items-center mb-3" style={{justifyContent: 'end'}}>
           <button
             className={`btn ${
               trend === "up" ? "btn-success" : "btn-outline-secondary"
