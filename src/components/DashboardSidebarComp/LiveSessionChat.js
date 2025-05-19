@@ -154,7 +154,7 @@ const TradingPlatform = () => {
   const handleStartStream = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/mux/create-stream/"
+        "https://valourwealthdjango-production.up.railway.app/api/mux/create-stream/"
       ); // Replace with your actual backend URL
       const id = res.data.data.playback_ids[0].id;
       setPlaybackId(id);
