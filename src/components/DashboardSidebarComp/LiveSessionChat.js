@@ -152,9 +152,14 @@ const TradingPlatform = () => {
   const [playbackId, setPlaybackId] = useState(null);
   const handleStartStream = async () => {
     try {
+      // const res = await axios.post(
+      //   "https://valourwealthdjango-production.up.railway.app/api/mux/create-stream/"
+      // );
       const res = await axios.post(
-        "https://valourwealthdjango-production.up.railway.app/api/mux/create-stream/"
+        "https://valourwealthdjango-production.up.railway.app/api/mux/create-stream/",
+        {}
       );
+
       const data = res.data.data;
 
       if (data && data.playback_ids && data.playback_ids.length > 0) {
