@@ -211,13 +211,13 @@
 //     },
 //     summary:
 //       "This week's briefing covers the Fed's latest policy signals, earnings season expectations, and emerging opportunities in the technology and healthcare sectors. We also analyze recent market volatility and provide actionable trade ideas for platinum members.",
-    // keyPoints: [
-    //   "Fed signals potential rate cuts in coming months",
-    //   "Q1 earnings season begins with major banks reporting",
-    //   "Technology sector showing strength despite valuation concerns",
-    //   "Healthcare presents defensive opportunities amid volatility",
-    //   "Emerging markets showing signs of recovery",
-    // ],
+// keyPoints: [
+//   "Fed signals potential rate cuts in coming months",
+//   "Q1 earnings season begins with major banks reporting",
+//   "Technology sector showing strength despite valuation concerns",
+//   "Healthcare presents defensive opportunities amid volatility",
+//   "Emerging markets showing signs of recovery",
+// ],
 //   };
 
 //   const tradeIdeas = [
@@ -421,6 +421,7 @@
 // export default MarketBriefing;
 
 // PlatinumBriefing.jsx
+
 import {
   faChevronRight,
   faLongArrowAltDown,
@@ -649,7 +650,7 @@ const PlatinumBriefing = () => {
       <div className="row">
         <div className="col-md-8 pe-md-3">
           <div style={styles.mainCard} className="mb-4">
-            <div style={styles.videoPlaceholder}>
+            {/* <div style={styles.videoPlaceholder}>
               <iframe
                 width="100%"
                 height="100%"
@@ -659,7 +660,20 @@ const PlatinumBriefing = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
+            </div> */}
+            <div style={styles.videoPlaceholder}>
+              <video
+                width="100%"
+                height="100%"
+                controls
+                poster={current.thumbnail_url || ""}
+                style={{ borderRadius: "8px", backgroundColor: "#000" }}
+              >
+                <source src={current.video_url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
+
             <div className="p-4">
               <h5 className="mb-2">{current.title}</h5>
               <div className="d-flex mb-4" style={styles.timestamp}>
