@@ -150,14 +150,19 @@ import analystImg from "../DashboardSidebarComp/images/pic.jpeg";
 const TradingPlatform = () => {
   const [name, setName] = useState("");
   const [playbackId, setPlaybackId] = useState(null);
-
   const handleStartStream = async () => {
     try {
       const res = await axios.post(
         "https://valourwealthdjango-production.up.railway.app/api/mux/create-stream/"
-      ); // Replace with your actual backend URL
-      const id = res.data.data.playback_ids[0].id;
-      setPlaybackId(id);
+      );
+      const data = res.data.data;
+
+      if (data && data.playback_ids && data.playback_ids.length > 0) {
+        const id = data.playback_ids[0].id;
+        setPlaybackId(id);
+      } else {
+        console.error("No playback ID found in response", res.data);
+      }
     } catch (err) {
       console.error("Error creating stream", err);
     }
