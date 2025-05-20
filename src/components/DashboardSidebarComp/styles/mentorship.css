@@ -1127,17 +1127,32 @@ hr {
 /* Outer full glow effect */
 .outer-glow-overlay {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 300vw;
+  height: 300vh;
   background: radial-gradient(
     circle,
-    rgba(255, 215, 0, 0.4) 0%,
-    transparent 70%
+    rgba(192, 192, 192, 0.4) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    transparent 80%
   );
   opacity: 0;
+  transform: scale(0.2);
   pointer-events: none;
   z-index: 10;
   animation: outerGlowExpand 1.2s forwards ease-out;
+}
+
+@keyframes outerGlowExpand {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes pulseWave {
@@ -1151,16 +1166,5 @@ hr {
   }
   100% {
     opacity: 0;
-  }
-}
-
-@keyframes outerGlowExpand {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(3);
   }
 }
