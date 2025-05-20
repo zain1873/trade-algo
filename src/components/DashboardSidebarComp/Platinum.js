@@ -263,7 +263,12 @@ const Platinum = () => {
           className="rotating-logo-container"
           onClick={() => (window.location.href = "/platinum-dashboard")}
         >
-          <div className="wave-effect"></div>
+          <div className="wave-effect">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
           <img
             src={accessingLogo}
             alt="Accessing Platinum"
