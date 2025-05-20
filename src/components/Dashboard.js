@@ -15,7 +15,6 @@ import {
   Sun,
   Tv,
   Users,
-  Wrench,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import user_logo from "../assets/images/dashboard_logo.png";
@@ -51,7 +50,6 @@ import ForexData from "./DashboardSidebarComp/ForexData";
 import Logout from "./DashboardSidebarComp/Logout";
 import StocksData from "./DashboardSidebarComp/StocksData";
 import Tradegpt from "./DashboardSidebarComp/Tradegpt";
-import TradingTools from "./DashboardSidebarComp/TradingTools";
 import StockTicker from "./StockTicker";
 
 const Dashboard = () => {
@@ -179,7 +177,7 @@ const Dashboard = () => {
       label: "Darkpool Data",
       icon: <Building size={20} />,
     },
-    { id: "trading-tools", label: "Trading Tools", icon: <Wrench size={20} /> },
+    // { id: "trading-tools", label: "Trading Tools", icon: <Wrench size={20} /> },
     { id: "resources", label: "Resources", icon: <Book size={20} /> },
     {
       id: "Trade-products",
@@ -295,8 +293,8 @@ const Dashboard = () => {
                     setActiveTab={setActiveTab}
                   />
                 );
-              case "trading-tools":
-                return <TradingTools darkMode={darkMode} />;
+              // case "trading-tools":
+              //   return <TradingTools darkMode={darkMode} />;
               case "emerald":
                 return <Emerald darkMode={darkMode} />;
               case "platinum":
