@@ -290,12 +290,16 @@ const ExclusiveWebinars = () => {
       if (res.data.success) {
         const updated = webinars.map((w) =>
           w.id === id
-            ? { ...w, registered_count: res.data.registered_count }
+            ? {
+                ...w,
+                registered_count: res.data.registered_count,
+                already_registered: true, // mark as registered
+              }
             : w
         );
         setWebinars(updated);
       } else {
-        alert(res.data.message); // e.g. "User already registered"
+        alert(res.data.message); // fallback
       }
     } catch (err) {
       console.error("Failed to register:", err);
@@ -442,9 +446,10 @@ const ExclusiveWebinars = () => {
                   </div>
                   <button
                     className="register-button"
+                    disabled={webinar.already_registered}
                     onClick={() => handleRegister(webinar.id)}
                   >
-                    Register Now
+                    {webinar.already_registered ? "Registered" : "Register Now"}
                   </button>
                 </div>
               </div>
