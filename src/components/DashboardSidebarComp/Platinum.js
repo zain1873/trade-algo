@@ -201,13 +201,21 @@ const Platinum = () => {
 
   const onboardingTexts = ["Welcome", "to the", "Platinum Member", "World"];
 
-  setTimeout(() => {
-    // optional fade out first
-    document.querySelector(".transition-screen").classList.add("fade-out");
+  // setTimeout(() => {
+  //   // optional fade out first
+  //   document.querySelector(".transition-screen").classList.add("fade-out");
+  //   setTimeout(() => {
+  //     window.location.href = "/platinum-dashboard";
+  //   }, 1000); // delay after fade
+  // }, 1500);
+  const [showOuterGlow, setShowOuterGlow] = useState(false);
+
+  const handleGlowClick = () => {
+    setShowOuterGlow(true);
     setTimeout(() => {
       window.location.href = "/platinum-dashboard";
-    }, 1000); // delay after fade
-  }, 1500);
+    }, 1200); // matches glow animation
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -267,10 +275,12 @@ const Platinum = () => {
   if (showTransition) {
     return (
       <div className="transition-screen">
-        <div
+        <div className="rotating-logo-container" onClick={handleGlowClick}>
+          {showOuterGlow && <div className="outer-glow-overlay"></div>}
+
+          {/* <div
           className="rotating-logo-container"
-          onClick={() => (window.location.href = "/platinum-dashboard")}
-        >
+          onClick={() => (window.location.href = "/platinum-dashboard")}> */}
           <div className="wave-effect">
             <div className="pulse-ring"></div>
             <div className="pulse-ring"></div>
