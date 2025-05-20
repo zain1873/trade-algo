@@ -201,6 +201,14 @@ const Platinum = () => {
 
   const onboardingTexts = ["Welcome", "to the", "Platinum Member", "World"];
 
+  setTimeout(() => {
+    // optional fade out first
+    document.querySelector(".transition-screen").classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = "/platinum-dashboard";
+    }, 1000); // delay after fade
+  }, 1500);
+
   useEffect(() => {
     const fetchUser = async () => {
       if (!accessToken) return;
