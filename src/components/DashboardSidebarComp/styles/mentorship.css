@@ -1111,7 +1111,7 @@ hr {
   animation: pulseWave 2.5s ease-in-out infinite;
   border: 2px solid transparent;
   background-image: linear-gradient(white, white),
-    radial-gradient(circle at center, #c0c0c0, #ffd700);
+    radial-gradient(circle at center, #c0c0c0d8, #ec6e07);
   background-origin: border-box;
   background-clip: content-box, border-box;
   box-shadow: 0 0 15px 4px rgba(255, 215, 0, 0.4);
@@ -1126,22 +1126,24 @@ hr {
 
 /* Outer full glow effect */
 .outer-glow-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 300vw;
-  height: 300vh;
-  background: radial-gradient(
-    circle,
-    rgba(192, 192, 192, 0.4) 0%,
-    rgba(255, 255, 255, 0.05) 40%,
-    transparent 80%
-  );
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
   opacity: 0;
   transform: scale(0.2);
-  pointer-events: none;
-  z-index: 10;
   animation: outerGlowExpand 1.2s forwards ease-out;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(192, 192, 192, 0.15) 25%,
+    rgba(192, 192, 192, 0.05) 50%,
+    transparent 80%
+  );
 }
 
 @keyframes outerGlowExpand {
