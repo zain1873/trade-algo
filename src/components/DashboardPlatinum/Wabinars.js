@@ -228,7 +228,7 @@
 // export default ExclusiveWebinars;
 
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 const ExclusiveWebinars = () => {
   const [activeTab, setActiveTab] = useState("Upcoming Webinars");
   const [webinars, setWebinars] = useState([]);
@@ -255,10 +255,30 @@ const ExclusiveWebinars = () => {
     fetchWebinars();
   }, []);
 
+  // const handleRegister = async (id) => {
+  //   try {
+  //     await axios.patch(
+  //       `${API_URL}${id}/`,
+  //       {},
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       }
+  //     );
+  //     const updated = webinars.map((w) =>
+  //       w.id === id ? { ...w, registered_count: w.registered_count + 1 } : w
+  //     );
+  //     setWebinars(updated);
+  //   } catch (err) {
+  //     console.error("Failed to register:", err);
+  //   }
+  // };
+
   const handleRegister = async (id) => {
     try {
-      await axios.patch(
-        `${API_URL}${id}/`,
+      const res = await axios.post(
+        `${API_URL}${id}/register/`,
         {},
         {
           headers: {
@@ -266,10 +286,17 @@ const ExclusiveWebinars = () => {
           },
         }
       );
-      const updated = webinars.map((w) =>
-        w.id === id ? { ...w, registered_count: w.registered_count + 1 } : w
-      );
-      setWebinars(updated);
+
+      if (res.data.success) {
+        const updated = webinars.map((w) =>
+          w.id === id
+            ? { ...w, registered_count: res.data.registered_count }
+            : w
+        );
+        setWebinars(updated);
+      } else {
+        alert(res.data.message); // e.g. "User already registered"
+      }
     } catch (err) {
       console.error("Failed to register:", err);
     }
@@ -311,7 +338,6 @@ const ExclusiveWebinars = () => {
                 activeTab === "Past Recordings" &&
                 recordings.map((rec) => (
                   <div key={rec.id} className="webinar-card">
-                    
                     <div className="webinar-header">
                       <h4 className="webinar-title">{rec.title}</h4>
                       <span className="status-badge">{rec.status}</span>
