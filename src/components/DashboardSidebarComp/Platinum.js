@@ -264,9 +264,9 @@ const Platinum = () => {
           onClick={() => (window.location.href = "/platinum-dashboard")}
         >
           <div className="wave-effect">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="pulse-ring"></div>
+            <div className="pulse-ring"></div>
+            <div className="pulse-ring"></div>
           </div>
 
           <img
