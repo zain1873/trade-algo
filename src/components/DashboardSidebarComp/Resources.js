@@ -89,7 +89,9 @@ const Resources = ({ darkMode }) => {
                     alt="Thumbnail"
                     className="video-thumbnail"
                   />
-                  <button className="play-button-resources">&#9658;</button>
+                  <button className="play-button-resources" aria-label="Play">
+                    <i className="fas fa-play"></i>
+                  </button>
                 </div>
 
                 <video

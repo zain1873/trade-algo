@@ -117,3 +117,9 @@ video-thumbnail-overlay .video-thumbnail {
 .video-wrapper {
   height: auto;
 }
+
+.play-button-resources {
+  padding: 0;
+  width: 70px;
+  height: auto;
+}
