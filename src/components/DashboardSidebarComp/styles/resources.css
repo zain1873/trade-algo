@@ -4,14 +4,13 @@
   border-radius: 10px;
 }
 .resources-section .video-resource-container {
-  height: 626px;
+  height: auto !important;
 }
 
 .video-thumbnail-overlay img {
-  height: auto;
+  height: 100% !important;
 }
-
-.video-container {
+fpla .video-container {
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -75,7 +74,7 @@ video-thumbnail-overlay .video-thumbnail {
 }
 
 #platform-video {
-  height: 664px;
+  height: auto !important;
   background: #1c1e20 !important;
 }
 
