@@ -10,7 +10,8 @@
 .video-thumbnail-overlay img {
   height: 100% !important;
 }
-fpla .video-container {
+
+.video-container {
   padding: 15px;
   border-radius: 10px;
   text-align: center;
