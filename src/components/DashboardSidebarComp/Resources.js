@@ -48,10 +48,9 @@
 
 // export default Resources;
 
-import React from "react";
-import "../DashboardSidebarComp/styles/resources.css";
 import authorImg from "../DashboardSidebarComp/images/thubnail_stream.png";
 import videoThumbnail from "../DashboardSidebarComp/images/walkthrough-thumnail.png";
+import "../DashboardSidebarComp/styles/resources.css";
 
 const Resources = ({ darkMode }) => {
   const handlePlay = () => {
@@ -68,53 +67,53 @@ const Resources = ({ darkMode }) => {
         darkMode ? "" : "light-mode"
       }`}
     >
-     <div className="container">
-      <div className="row">
-        <div className="col-lg-4">
-           <div className="video-container video-resource-container mt-0">
-        <h4 className="video-title mb-3">Platform Walkthrough</h4>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="video-container video-resource-container mt-0">
+              <h4 className="video-title mb-3">Platform Walkthrough</h4>
 
-        {/* Video player with controls and no download */}
-        <div
-          className={`video-wrapper ${darkMode ? "dark-mode" : "light-mode"}`}
-        >
-          {/* Custom thumbnail with play button overlay */}
-          <div className="video-thumbnail-overlay" onClick={() => handlePlay()}>
-            <img
-              src={videoThumbnail}
-              alt="Thumbnail"
-              className="video-thumbnail"
-            />
-            <button className="play-button-resources">&#9658;</button>
+              {/* Video player with controls and no download */}
+              <div
+                className={`video-wrapper ${
+                  darkMode ? "dark-mode" : "light-mode"
+                }`}
+              >
+                {/* Custom thumbnail with play button overlay */}
+                <div
+                  className="video-thumbnail-overlay"
+                  onClick={() => handlePlay()}
+                >
+                  <img
+                    src={videoThumbnail}
+                    alt="Thumbnail"
+                    className="video-thumbnail"
+                  />
+                  <button className="play-button-resources">&#9658;</button>
+                </div>
+
+                <video
+                  id="platform-video"
+                  width="100%"
+                  height="auto"
+                  controls
+                  style={{ display: "none" }}
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  <source
+                    src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
           </div>
-
-          <video
-            id="platform-video"
-            width="100%"
-            height="auto"
-            controls
-            style={{ display: "none" }}
-            onContextMenu={(e) => e.preventDefault()}
-          >
-            <source
-              src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/course_videos/platform%20walkthrough%20.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
         </div>
       </div>
-        </div>
-      </div>
-
-     </div>
 
       {/* Dark mode class added here */}
-      <div
-        className={`resources-details mt-4 ${
-          darkMode ? "" : "light-mode"
-        }`}
-      >
+      <div className={`resources-details mt-4 ${darkMode ? "" : "light-mode"}`}>
         <div className="author-info d-flex align-items-center">
           <img src={authorImg} alt="Author" className="author-img me-2" />
           <div>
