@@ -70,7 +70,7 @@ const Resources = ({ darkMode }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="video-container video-resource-container mt-0">
+            <div className="video-container video-resource mt-0">
               <h4 className="video-title mb-3">Platform Walkthrough</h4>
 
               {/* Video player with controls and no download */}
