@@ -1336,6 +1336,16 @@ const PlatinumDashboard = () => {
 
             <div className="d-flex align-items-center position-relative">
               {/* Notifications Bell */}
+              {/* <div
+                className="position-relative me-3"
+                onClick={handleNotificationsClick}
+              >
+                <i className="bi bi-bell fs-5 text-light"></i>
+                {unreadNotifications > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                    {unreadNotifications}
+                  </span>
+                )} */}
               <div
                 className="position-relative me-3"
                 onClick={handleNotificationsClick}
@@ -1347,10 +1357,36 @@ const PlatinumDashboard = () => {
                   </span>
                 )}
                 {showNotificationsPopup && (
-                  <div className="popup-box">
-                    {" "}
-                    {/* Notification Popup */}
-                    <div>No new notifications</div>
+                  <div
+                    className="notification-popup position-absolute rounded shadow p-3"
+                    style={{
+                      display: showNotificationsPopup ? "block" : "none",
+                      top: "120%",
+                      right: 0,
+                      zIndex: 1000,
+                      width: "280px",
+                      backgroundColor: "#1b1a1a",
+                      color: "#f8f8f8",
+                      border: "1px solid #333",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+                    }}
+                  >
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <strong>Notifications</strong>
+                      <small className="text-muted" style={{ color: "#aaa" }}>
+                        {unreadNotifications} new
+                      </small>
+                    </div>
+                    <hr className="my-2" style={{ borderColor: "#333" }} />
+                    <div className="notification-item py-2 px-1">
+                      You have a new message.
+                    </div>
+                    <div className="notification-item py-2 px-1">
+                      Your report is ready.
+                    </div>
+                    <div className="notification-item py-2 px-1">
+                      New login from device.
+                    </div>
                   </div>
                 )}
               </div>
