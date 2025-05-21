@@ -134,9 +134,9 @@
 .message-text-feature {
   padding: 12px 15px;
   border-radius: 18px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
-  color: #000;
+  color: #fffdfd;
 }
 
 .agent-message .message-text {

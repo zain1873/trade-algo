@@ -291,7 +291,10 @@ const ChatFeature = () => {
           <div className="chat-header">
             <div className="header-left-feature">
               <div className="profile-icon">
-                <img src="/logo-circle.png" alt="Group" />
+                <img
+                  src="https://pub-e58a5f6126d0464c9b810e772987ba18.r2.dev/profile_photos/dashboard-logo_-_Copy_59nlLwW.png"
+                  alt="Group"
+                />
               </div>
               <div className="header-text">
                 <h2>Platinum Group Chat</h2>
