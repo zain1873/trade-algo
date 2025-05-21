@@ -1,10 +1,14 @@
 .resources-section {
-  background-color: #f8f9fa;
+  background-color: #1c1e20 !important;
   padding: 20px;
   border-radius: 10px;
 }
 .resources-section .video-resource-container {
-  height: 740px;
+  height: 626px;
+}
+
+.video-thumbnail-overlay img {
+  height: auto;
 }
 
 .video-container {
@@ -68,6 +72,11 @@ video-thumbnail-overlay .video-thumbnail {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+}
+
+#platform-video {
+  height: 664px;
+  background: #1c1e20 !important;
 }
 
 .verified-badge {
