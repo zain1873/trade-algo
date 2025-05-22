@@ -131,11 +131,11 @@
 
 // export default PortfolioComponent;
 
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
-import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
 import HeatmapDetails from "./portfolioDetails/HeatmapDetails";
+import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
 function PortfolioComponent() {
   const [portfolio, setPortfolio] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -144,9 +144,27 @@ function PortfolioComponent() {
     fetchPortfolio();
   }, []);
 
+  // const fetchPortfolio = async () => {
+  //   try {
+  //     const token = localStorage.getItem("accessToken"); // Assuming you store JWT token here
+  //     const response = await axios.get(
+  //       "https://valourwealthdjango-production.up.railway.app/api/portfolio/",
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     setPortfolio(response.data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.error("Error fetching portfolio:", error);
+  //     setLoading(false);
+  //   }
+  // };
   const fetchPortfolio = async () => {
     try {
-      const token = localStorage.getItem("accessToken"); // Assuming you store JWT token here
+      const token = localStorage.getItem("accessToken");
       const response = await axios.get(
         "https://valourwealthdjango-production.up.railway.app/api/portfolio/",
         {
@@ -155,7 +173,33 @@ function PortfolioComponent() {
           },
         }
       );
-      setPortfolio(response.data);
+
+      const data = response.data;
+
+      // Format to match UI
+      const assets = [
+        {
+          id: 1,
+          asset_type: "stocks",
+          percentage: data.asset_allocation.stocks,
+          value: data.asset_allocation.stock_value,
+        },
+        {
+          id: 2,
+          asset_type: "crypto",
+          percentage: data.asset_allocation.crypto,
+          value: data.asset_allocation.crypto_value,
+        },
+      ];
+
+      const formatted = {
+        total_value: data.summary.total_portfolio_value,
+        total_gain_loss: data.summary.change_value,
+        total_gain_loss_percent: data.summary.percent_change,
+        assets: assets,
+      };
+
+      setPortfolio(formatted);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching portfolio:", error);
