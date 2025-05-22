@@ -200,11 +200,11 @@ function PortfolioComponent() {
       // };
       const formatted = {
         total_value: data.portfolio_value,
-        total_gain_loss: 0, // or derive it if available
-        total_gain_loss_percent: 0, // or derive it if available
+        total_gain_loss: 0,
+        total_gain_loss_percent: 0,
         assets: [],
-        balance: data.account.balance,
-        equity: data.account.equity,
+        balance: data.account?.balance || 0,
+        equity: data.account?.equity || 0,
       };
 
       setPortfolio(formatted);
