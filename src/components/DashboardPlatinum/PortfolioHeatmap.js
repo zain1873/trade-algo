@@ -1,8 +1,95 @@
-// import React from "react";
-// import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
-// import HeatmapDetails from "./portfolioDetails/HeatmapDetails";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 
+// import HeatmapDetails from "./portfolioDetails/HeatmapDetails";
+// import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
 // function PortfolioComponent() {
+//   const [portfolio, setPortfolio] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     fetchPortfolio();
+//   }, []);
+
+//   // const fetchPortfolio = async () => {
+//   //   try {
+//   //     const token = localStorage.getItem("accessToken"); // Assuming you store JWT token here
+//   //     const response = await axios.get(
+//   //       "https://valourwealthdjango-production.up.railway.app/api/portfolio/",
+//   //       {
+//   //         headers: {
+//   //           Authorization: `Bearer ${token}`,
+//   //         },
+//   //       }
+//   //     );
+//   //     setPortfolio(response.data);
+//   //     setLoading(false);
+//   //   } catch (error) {
+//   //     console.error("Error fetching portfolio:", error);
+//   //     setLoading(false);
+//   //   }
+//   // };
+//   const fetchPortfolio = async () => {
+//     try {
+//       const token = localStorage.getItem("accessToken");
+//       const response = await axios.get(
+//         "https://valourwealthdjango-production.up.railway.app/api/portfolio/",
+//         {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         }
+//       );
+
+//       const data = response.data;
+
+//       // Format to match UI
+//       const assets = [
+//         {
+//           id: 1,
+//           asset_type: "stocks",
+//           percentage: data.asset_allocation.stocks,
+//           value: data.asset_allocation.stock_value,
+//         },
+//         {
+//           id: 2,
+//           asset_type: "crypto",
+//           percentage: data.asset_allocation.crypto,
+//           value: data.asset_allocation.crypto_value,
+//         },
+//       ];
+
+//       // const formatted = {
+//       //   total_value: data.summary.total_portfolio_value,
+//       //   total_gain_loss: data.summary.change_value,
+//       //   total_gain_loss_percent: data.summary.percent_change,
+//       //   assets: assets,
+//       // };
+//       const formatted = {
+//         total_value: data.portfolio_value,
+//         total_gain_loss: 0, // or derive it if available
+//         total_gain_loss_percent: 0, // or derive it if available
+//         assets: [],
+//         balance: data.account.balance,
+//         equity: data.account.equity,
+//       };
+
+//       setPortfolio(formatted);
+//       setLoading(false);
+//     } catch (error) {
+//       console.error("Error fetching portfolio:", error);
+//       setLoading(false);
+//     }
+//   };
+
+//   if (loading) {
+//     return <div>Loading portfolio...</div>;
+//   }
+
+//   if (!portfolio) {
+//     return <div>No portfolio data available.</div>;
+//   }
+
 //   return (
 //     <div className="portfolio-container">
 //       <div className="portfolio-header">
@@ -13,8 +100,8 @@
 //         </div>
 
 //         <div>
-//           <h2 class="portfolio-title">Portfolio</h2>
-//           <p class="portfolio-subtitle">
+//           <h2 className="portfolio-title">Portfolio</h2>
+//           <p className="portfolio-subtitle">
 //             Track and manage your investments with exclusive platinum tools
 //           </p>
 //         </div>
@@ -31,55 +118,50 @@
 //                   <div>
 //                     <div className="small">Total Portfolio Value</div>
 //                     <div className="total-value">
-//                       $245,678.90
+//                       ${parseFloat(portfolio.total_value).toLocaleString()}
 //                       <span className="value-change">
-//                         <i className="bi bi-arrow-up"></i> +$3,245.67 (+1.34%)
+//                         <i className="bi bi-arrow-up"></i> +$
+//                         {parseFloat(
+//                           portfolio.total_gain_loss
+//                         ).toLocaleString()}{" "}
+//                         ({portfolio.total_gain_loss_percent}%)
 //                       </span>
 //                     </div>
 //                   </div>
-//                   <div className="button-group">
+//                   {/* <div className="button-group">
 //                     <button className="btn btn-light">
 //                       <i className="bi bi-plus"></i> Add Funds
 //                     </button>
 //                     <button className="btn btn-dark">
 //                       <i className="bi bi-bar-chart-line"></i> Analytics
 //                     </button>
-//                   </div>
+//                   </div> */}
 //                 </div>
 
 //                 <div className="asset-categories">
-//                   <div className="asset-card stocks">
-//                     <div className="asset-header">
-//                       <span>Stocks</span>
-//                       <span className="asset-percentage">45%</span>
+//                   {portfolio.assets.map((asset) => (
+//                     <div
+//                       key={asset.id}
+//                       className={`asset-card ${asset.asset_type}`}
+//                     >
+//                       <div className="asset-header">
+//                         <span>
+//                           {asset.asset_type.charAt(0).toUpperCase() +
+//                             asset.asset_type.slice(1)}
+//                         </span>
+//                         <span className="asset-percentage">
+//                           {asset.percentage}%
+//                         </span>
+//                       </div>
+//                       <div className="asset-value">
+//                         ${parseFloat(asset.value).toLocaleString()}
+//                       </div>
 //                     </div>
-//                     <div className="asset-value">$110,555.51</div>
-//                   </div>
-//                   <div className="asset-card crypto">
-//                     <div className="asset-header">
-//                       <span>Crypto</span>
-//                       <span className="asset-percentage">30%</span>
-//                     </div>
-//                     <div className="asset-value">$73,703.67</div>
-//                   </div>
-//                   <div className="asset-card forex">
-//                     <div className="asset-header">
-//                       <span>Forex</span>
-//                       <span className="asset-percentage">15%</span>
-//                     </div>
-//                     <div className="asset-value">$36,851.84</div>
-//                   </div>
-//                   <div className="asset-card commodities">
-//                     <div className="asset-header">
-//                       <span>Commodities</span>
-//                       <span className="asset-percentage">10%</span>
-//                     </div>
-//                     <div className="asset-value">$24,567.89</div>
-//                   </div>
+//                   ))}
 //                 </div>
 
 //                 <div className="chart-container">
-//                   {/* This would be your actual chart component */}
+//                   {/* Chart will come later */}
 //                   <div className="chart-line"></div>
 //                 </div>
 //               </div>
@@ -93,29 +175,22 @@
 //                 <h5 className="card-title">Asset Allocation</h5>
 
 //                 <div className="pie-chart-container">
-//                   {/* This would be your actual pie chart component */}
+//                   {/* Pie chart will come later */}
 //                   <div className="pie-chart">
 //                     <div className="pie-chart-inner"></div>
 //                   </div>
 //                 </div>
 
 //                 <div className="allocation-breakdown">
-//                   <div className="allocation-item">
-//                     <div>Stocks</div>
-//                     <div>45%</div>
-//                   </div>
-//                   <div className="allocation-item">
-//                     <div>Crypto</div>
-//                     <div>30%</div>
-//                   </div>
-//                   <div className="allocation-item">
-//                     <div>Forex</div>
-//                     <div>15%</div>
-//                   </div>
-//                   <div className="allocation-item">
-//                     <div>Commodities</div>
-//                     <div>10%</div>
-//                   </div>
+//                   {portfolio.assets.map((asset) => (
+//                     <div key={asset.id} className="allocation-item">
+//                       <div>
+//                         {asset.asset_type.charAt(0).toUpperCase() +
+//                           asset.asset_type.slice(1)}
+//                       </div>
+//                       <div>{asset.percentage}%</div>
+//                     </div>
+//                   ))}
 //                 </div>
 //               </div>
 //             </div>
@@ -123,8 +198,9 @@
 //         </div>
 //       </div>
 
-//       {/* <PortfolioDetails />
-//       <HeatmapDetails /> */}
+//       {/* Future: PortfolioDetails + HeatmapDetails can be uncommented */}
+//       <PortfolioDetails />
+//       <HeatmapDetails />
 //     </div>
 //   );
 // }
@@ -136,6 +212,7 @@ import { useEffect, useState } from "react";
 
 import HeatmapDetails from "./portfolioDetails/HeatmapDetails";
 import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
+
 function PortfolioComponent() {
   const [portfolio, setPortfolio] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -144,24 +221,6 @@ function PortfolioComponent() {
     fetchPortfolio();
   }, []);
 
-  // const fetchPortfolio = async () => {
-  //   try {
-  //     const token = localStorage.getItem("accessToken"); // Assuming you store JWT token here
-  //     const response = await axios.get(
-  //       "https://valourwealthdjango-production.up.railway.app/api/portfolio/",
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //     setPortfolio(response.data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.error("Error fetching portfolio:", error);
-  //     setLoading(false);
-  //   }
-  // };
   const fetchPortfolio = async () => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -176,35 +235,18 @@ function PortfolioComponent() {
 
       const data = response.data;
 
-      // Format to match UI
-      const assets = [
-        {
-          id: 1,
-          asset_type: "stocks",
-          percentage: data.asset_allocation.stocks,
-          value: data.asset_allocation.stock_value,
-        },
-        {
-          id: 2,
-          asset_type: "crypto",
-          percentage: data.asset_allocation.crypto,
-          value: data.asset_allocation.crypto_value,
-        },
-      ];
-
-      // const formatted = {
-      //   total_value: data.summary.total_portfolio_value,
-      //   total_gain_loss: data.summary.change_value,
-      //   total_gain_loss_percent: data.summary.percent_change,
-      //   assets: assets,
-      // };
       const formatted = {
         total_value: data.portfolio_value,
-        total_gain_loss: 0, // or derive it if available
-        total_gain_loss_percent: 0, // or derive it if available
-        assets: [],
+        total_gain_loss: 0,
+        total_gain_loss_percent: 0,
+        assets: [], // optionally fill from asset_allocation
         balance: data.account.balance,
         equity: data.account.equity,
+        margin: data.account.margin,
+        free_margin: data.account.free_margin,
+        leverage: data.account.leverage,
+        market_watch: data.market_watch,
+        recent_trades: data.recent_trades,
       };
 
       setPortfolio(formatted);
@@ -215,13 +257,8 @@ function PortfolioComponent() {
     }
   };
 
-  if (loading) {
-    return <div>Loading portfolio...</div>;
-  }
-
-  if (!portfolio) {
-    return <div>No portfolio data available.</div>;
-  }
+  if (loading) return <div>Loading portfolio...</div>;
+  if (!portfolio) return <div>No portfolio data available.</div>;
 
   return (
     <div className="portfolio-container">
@@ -231,7 +268,6 @@ function PortfolioComponent() {
             <i className="bi bi-briefcase"></i>
           </div>
         </div>
-
         <div>
           <h2 className="portfolio-title">Portfolio</h2>
           <p className="portfolio-subtitle">
@@ -242,7 +278,6 @@ function PortfolioComponent() {
 
       <div className="dashboard-container">
         <div className="row">
-          {/* Portfolio Summary Section */}
           <div className="col-lg-8 pe-lg-2">
             <div className="card summary-card p-0">
               <div className="card-body">
@@ -261,59 +296,97 @@ function PortfolioComponent() {
                       </span>
                     </div>
                   </div>
-                  {/* <div className="button-group">
-                    <button className="btn btn-light">
-                      <i className="bi bi-plus"></i> Add Funds
-                    </button>
-                    <button className="btn btn-dark">
-                      <i className="bi bi-bar-chart-line"></i> Analytics
-                    </button>
-                  </div> */}
                 </div>
 
-                <div className="asset-categories">
-                  {portfolio.assets.map((asset) => (
-                    <div
-                      key={asset.id}
-                      className={`asset-card ${asset.asset_type}`}
-                    >
-                      <div className="asset-header">
-                        <span>
-                          {asset.asset_type.charAt(0).toUpperCase() +
-                            asset.asset_type.slice(1)}
-                        </span>
-                        <span className="asset-percentage">
-                          {asset.percentage}%
-                        </span>
-                      </div>
-                      <div className="asset-value">
-                        ${parseFloat(asset.value).toLocaleString()}
-                      </div>
+                <div className="row mt-4">
+                  <div className="col-md-6">
+                    <div className="card p-3">
+                      <h5>Account Summary</h5>
+                      <ul className="list-group list-group-flush">
+                        <li className="list-group-item">
+                          Balance: ${portfolio.balance.toLocaleString()}
+                        </li>
+                        <li className="list-group-item">
+                          Equity: ${portfolio.equity.toLocaleString()}
+                        </li>
+                        <li className="list-group-item">
+                          Margin: ${portfolio.margin.toLocaleString()}
+                        </li>
+                        <li className="list-group-item">
+                          Free Margin: ${portfolio.free_margin.toLocaleString()}
+                        </li>
+                        <li className="list-group-item">
+                          Leverage: 1:{portfolio.leverage}
+                        </li>
+                      </ul>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="col-md-6">
+                    <div className="card p-3">
+                      <h5>Recent Trades</h5>
+                      <table className="table table-sm">
+                        <thead>
+                          <tr>
+                            <th>Symbol</th>
+                            <th>Type</th>
+                            <th>Volume</th>
+                            <th>Price</th>
+                            <th>Profit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {portfolio.recent_trades.map((trade, idx) => (
+                            <tr key={idx}>
+                              <td>{trade.symbol || "-"}</td>
+                              <td>{trade.type}</td>
+                              <td>{trade.volume}</td>
+                              <td>{trade.price}</td>
+                              <td>${trade.profit}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="chart-container">
-                  {/* Chart will come later */}
-                  <div className="chart-line"></div>
+                <div className="card mt-4 p-3">
+                  <h5>Market Watch</h5>
+                  <table className="table table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th>Symbol</th>
+                        <th>Bid</th>
+                        <th>Ask</th>
+                        <th>Spread</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {portfolio.market_watch.map((item, index) => (
+                        <tr key={index}>
+                          <td>{item.symbol}</td>
+                          <td>{item.bid}</td>
+                          <td>{item.ask}</td>
+                          <td>{item.spread}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Asset Allocation Section */}
           <div className="col-lg-4 ps-lg-2">
             <div className="card allocation-card p-0">
               <div className="card-body">
                 <h5 className="card-title">Asset Allocation</h5>
-
                 <div className="pie-chart-container">
-                  {/* Pie chart will come later */}
                   <div className="pie-chart">
                     <div className="pie-chart-inner"></div>
                   </div>
                 </div>
-
                 <div className="allocation-breakdown">
                   {portfolio.assets.map((asset) => (
                     <div key={asset.id} className="allocation-item">
@@ -331,7 +404,6 @@ function PortfolioComponent() {
         </div>
       </div>
 
-      {/* Future: PortfolioDetails + HeatmapDetails can be uncommented */}
       <PortfolioDetails />
       <HeatmapDetails />
     </div>
