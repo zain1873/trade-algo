@@ -1181,7 +1181,10 @@ const PlatinumDashboard = () => {
                 className={`tab-button ${
                   activeDashboardTab === "market" ? "active" : ""
                 }`}
-                onClick={() => setActiveDashboardTab("market")}
+                onClick={() => {
+                  setActiveDashboardTab("market");
+                  setActiveSection("dashboard"); // Add this line
+                }}
               >
                 Dashboard
               </button>
