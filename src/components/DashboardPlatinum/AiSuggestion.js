@@ -1,52 +1,52 @@
-// // const AISuggestions = () => {
-// //   // Sample data for AI suggestions
-// //   const suggestions = [
-// //     {
-// //       id: 1,
-// //       title: "Exposure",
-// //       description: "Your portfolio currently down",
-// //       impact: "High Impact",
-// //       impactLevel: "high",
-// //     },
-// //   ];
+const AISuggestions = () => {
+  // Sample data for AI suggestions
+  const suggestions = [
+    {
+      id: 1,
+      title: "Exposure",
+      description: "Your portfolio currently down",
+      impact: "High Impact",
+      impactLevel: "high",
+    },
+  ];
 
-// //   return (
-// //     <>
-// //       <div className="d-flex align-items-center mb-4">
-// //         <h2 className="ai-suggestions-title">
-// //           AI-Powered Portfolio Suggestions
-// //         </h2>
-// //         <div className="info-icon ms-2">
-// //           <i className="bi bi-info-circle"></i>
-// //         </div>
-// //       </div>
+  return (
+    <>
+      <div className="d-flex align-items-center mb-4">
+        <h2 className="ai-suggestions-title">
+          AI-Powered Portfolio Suggestions
+        </h2>
+        <div className="info-icon ms-2">
+          <i className="bi bi-info-circle"></i>
+        </div>
+      </div>
 
-// //       <div className="suggestions-container">
-// //         {suggestions.map((suggestion) => (
-// //           <div key={suggestion.id} className="suggestion-card">
-// //             <div className="suggestion-header">
-// //               {/* <div className="suggestion-icon-title">
-// //                 <div
-// //                   className={`suggestion-icon ${suggestion.impactLevel}-icon`}
-// //                 >
-// //                   <i className="bi bi-lightbulb"></i>
-// //                 </div>
-// //                 <h3 className="suggestion-title">{suggestion.title}</h3>
-// //               </div> */}
-// //               <div className={`impact-badge ${suggestion.impactLevel}-impact`}>
-// //                 {suggestion.impact}
-// //               </div>
-// //             </div>
+      <div className="suggestions-container">
+        {suggestions.map((suggestion) => (
+          <div key={suggestion.id} className="suggestion-card">
+            <div className="suggestion-header">
+              {/* <div className="suggestion-icon-title">
+                <div
+                  className={`suggestion-icon ${suggestion.impactLevel}-icon`}
+                >
+                  <i className="bi bi-lightbulb"></i>
+                </div>
+                <h3 className="suggestion-title">{suggestion.title}</h3>
+              </div> */}
+              <div className={`impact-badge ${suggestion.impactLevel}-impact`}>
+                {suggestion.impact}
+              </div>
+            </div>
 
-// //             <p className="suggestion-description">{suggestion.description}</p>
-// //           </div>
-// //         ))}
-// //       </div>
-// //     </>
-// //   );
-// // };
+            <p className="suggestion-description">{suggestion.description}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
 
-// // export default AISuggestions;
+export default AISuggestions;
 
 // import axios from "axios";
 // import { useEffect, useState } from "react";
@@ -131,100 +131,100 @@
 
 // export default AISuggestions;
 
-import axios from "axios";
-import { useEffect, useState } from "react";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 
-const AISuggestions = () => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [suggestions, setSuggestions] = useState([]);
+// const AISuggestions = () => {
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [suggestions, setSuggestions] = useState([]);
 
-  useEffect(() => {
-    const fetchSuggestions = async () => {
-      try {
-        const token = localStorage.getItem("access_token");
-        const res = await axios.get("/api/portfolio/ai-suggestions/", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+//   useEffect(() => {
+//     const fetchSuggestions = async () => {
+//       try {
+//         const token = localStorage.getItem("access_token");
+//         const res = await axios.get("/api/portfolio/ai-suggestions/", {
+//           headers: { Authorization: `Bearer ${token}` },
+//         });
 
-        // DEBUG: log the raw response so we know its shape
-        console.log("AI Suggestions API returned:", res.data);
+//         // DEBUG: log the raw response so we know its shape
+//         console.log("AI Suggestions API returned:", res.data);
 
-        let recs = [];
+//         let recs = [];
 
-        // Case A: { recommendations: [ "...", "..." ] }
-        if (Array.isArray(res.data.recommendations)) {
-          recs = res.data.recommendations.map((text, i) => ({
-            id: i,
-            description: text,
-            impact: "", // you could derive this from text or leave blank
-            impactLevel: "medium", // default or parse out a keyword
-          }));
+//         // Case A: { recommendations: [ "...", "..." ] }
+//         if (Array.isArray(res.data.recommendations)) {
+//           recs = res.data.recommendations.map((text, i) => ({
+//             id: i,
+//             description: text,
+//             impact: "", // you could derive this from text or leave blank
+//             impactLevel: "medium", // default or parse out a keyword
+//           }));
 
-          // Case B: { pulse: "Line1\nLine2\nLine3" }
-        } else if (typeof res.data.pulse === "string") {
-          recs = res.data.pulse.split("\n").map((line, i) => ({
-            id: i,
-            description: line.replace(/^\*\w+\*:\s*/, ""),
-            impact: "",
-            impactLevel: "medium",
-          }));
+//           // Case B: { pulse: "Line1\nLine2\nLine3" }
+//         } else if (typeof res.data.pulse === "string") {
+//           recs = res.data.pulse.split("\n").map((line, i) => ({
+//             id: i,
+//             description: line.replace(/^\*\w+\*:\s*/, ""),
+//             impact: "",
+//             impactLevel: "medium",
+//           }));
 
-          // Case C: fallback if you just get a string
-        } else if (typeof res.data === "string") {
-          recs = res.data.split("\n").map((line, i) => ({
-            id: i,
-            description: line,
-            impact: "",
-            impactLevel: "medium",
-          }));
-        } else {
-          throw new Error("Unexpected response format");
-        }
+//           // Case C: fallback if you just get a string
+//         } else if (typeof res.data === "string") {
+//           recs = res.data.split("\n").map((line, i) => ({
+//             id: i,
+//             description: line,
+//             impact: "",
+//             impactLevel: "medium",
+//           }));
+//         } else {
+//           throw new Error("Unexpected response format");
+//         }
 
-        setSuggestions(recs);
-      } catch (err) {
-        console.error(err);
-        setError(err.response?.data || err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+//         setSuggestions(recs);
+//       } catch (err) {
+//         console.error(err);
+//         setError(err.response?.data || err.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
 
-    fetchSuggestions();
-  }, []);
+//     fetchSuggestions();
+//   }, []);
 
-  if (loading) return <p>Loading AI suggestions…</p>;
-  if (error)
-    return <p className="text-danger">Error: {JSON.stringify(error)}</p>;
+//   if (loading) return <p>Loading AI suggestions…</p>;
+//   if (error)
+//     return <p className="text-danger">Error: {JSON.stringify(error)}</p>;
 
-  return (
-    <>
-      <div className="d-flex align-items-center mb-4">
-        <h2 className="ai-suggestions-title">Portfolio Pulse</h2>
-        <div className="info-icon ms-2">
-          <i className="bi bi-info-circle"></i>
-        </div>
-      </div>
+//   return (
+//     <>
+//       <div className="d-flex align-items-center mb-4">
+//         <h2 className="ai-suggestions-title">Portfolio Pulse</h2>
+//         <div className="info-icon ms-2">
+//           <i className="bi bi-info-circle"></i>
+//         </div>
+//       </div>
 
-      {suggestions.length === 0 ? (
-        <p>No suggestions available.</p>
-      ) : (
-        <div className="suggestions-container">
-          {suggestions.map((s) => (
-            <div key={s.id} className="suggestion-card">
-              <div className="suggestion-header">
-                <div className={`impact-badge ${s.impactLevel}-impact`}>
-                  {s.impact}
-                </div>
-              </div>
-              <p className="suggestion-description">{s.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </>
-  );
-};
+//       {suggestions.length === 0 ? (
+//         <p>No suggestions available.</p>
+//       ) : (
+//         <div className="suggestions-container">
+//           {suggestions.map((s) => (
+//             <div key={s.id} className="suggestion-card">
+//               <div className="suggestion-header">
+//                 <div className={`impact-badge ${s.impactLevel}-impact`}>
+//                   {s.impact}
+//                 </div>
+//               </div>
+//               <p className="suggestion-description">{s.description}</p>
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </>
+//   );
+// };
 
-export default AISuggestions;
+// export default AISuggestions;
