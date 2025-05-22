@@ -2062,6 +2062,41 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 20px;
   display: flex;
 }
+.dashboard-container .heatmap-card  {
+  color: #fff !important;
+  height: auto;
+  background-color: transparent;
+}
+.dashboard-container .heatmap-card h5 {
+  margin-bottom: 10px;
+}
+.heatmap-card .list-group-item {
+  background-color: #666666;
+  color: #fff;
+}
+.heatmap-card .table thead tr th {
+  background-color: #000000;
+  color: #fff;
+  padding: 12px;
+  border: 1px solid #fff;
+}
+.heatmap-card .table tbody tr td {
+  background-color: #222;
+  color: #fff;
+} 
+/* .progress-bar {
+  max-width: 100px;
+    margin: 0;
+
+} */
+.allocation-progress {
+  width: 10%;
+  margin: 0;
+}
+.allocation-progress .progress-bar {
+  margin: 0;
+}
+
 .allocation-card .card-body {
   background: #101012;
   color: #fff;

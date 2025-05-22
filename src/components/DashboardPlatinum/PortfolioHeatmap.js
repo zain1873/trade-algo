@@ -300,7 +300,7 @@ function PortfolioComponent() {
 
                 <div className="row mt-4">
                   <div className="col-md-6">
-                    <div className="card p-3">
+                    <div className="card heatmap-card">
                       <h5>Account Summary</h5>
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item">
@@ -323,7 +323,7 @@ function PortfolioComponent() {
                   </div>
 
                   <div className="col-md-6">
-                    <div className="card p-3">
+                    <div className="card heatmap-card">
                       <h5>Recent Trades</h5>
                       <table className="table table-sm">
                         <thead>
@@ -351,7 +351,7 @@ function PortfolioComponent() {
                   </div>
                 </div>
 
-                <div className="card mt-4 p-3">
+                <div className="card heatmap-card mt-4">
                   <h5>Market Watch</h5>
                   <table className="table table-striped table-sm">
                     <thead>
