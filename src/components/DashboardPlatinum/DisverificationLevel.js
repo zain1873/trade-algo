@@ -162,7 +162,7 @@ const SectorIQ = () => {
   }, []);
 
   return (
-    <div className="sector-iq-container p-4 bg-white rounded shadow-sm">
+    <div className="sector-iq-container p-4 rounded shadow-sm">
       <h3 className="mb-3">📊 SectorIQ</h3>
       <div className="p-3 bg-dark text-white rounded">
         <h5>AI Sector Summary</h5>
