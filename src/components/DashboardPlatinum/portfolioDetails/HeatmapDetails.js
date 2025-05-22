@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import CorrectionLink from "../portfolioDetails/CorrectionLink";
-import DiversificationLevel from "../DisverificationLevel";
+import { useState } from "react";
 import AISuggestions from "../AiSuggestion";
+import DiversificationLevel from "../DisverificationLevel";
+import CorrectionLink from "../portfolioDetails/CorrectionLink";
 
 const PortfolioAnalysis = () => {
   const [activeTab, setActiveTab] = useState("sector-exposure");
@@ -160,14 +160,14 @@ const PortfolioAnalysis = () => {
               Last updated: April 12, 2025 at 10:30 AM
             </p>
           </div>
-          <div className="action-buttons">
+          {/* <div className="action-buttons">
             <button className="btn btn-refresh me-2">
               <i className="bi bi-arrow-clockwise"></i> Refresh Analysis
             </button>
             <button className="btn btn-export">
               <i className="bi bi-download"></i> Export Data
             </button>
-          </div>
+          </div> */}
         </div>
 
         <div className="tabs-container">
