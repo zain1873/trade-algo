@@ -371,12 +371,12 @@ const PortfolioAnalysis = () => {
               <strong>{titleLine}</strong>
               <span
                 className={`impact-badge ${
-                  impactLine.toLowerCase().includes("high")
+                  (impactLine || "").toLowerCase().includes("high")
                     ? "high-risk"
                     : "medium-risk"
                 }`}
               >
-                {impactLine}
+                {impactLine || "Unknown Impact"}
               </span>
             </div>
             <p className="mb-1">{desc.join(" ")}</p>
