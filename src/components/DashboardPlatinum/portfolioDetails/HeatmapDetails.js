@@ -231,6 +231,20 @@ const PortfolioAnalysis = () => {
     fetchAISuggestions();
   }, []);
 
+  // const fetchSectorExposure = async () => {
+  //   try {
+  //     const token = localStorage.getItem("accessToken");
+  //     const res = await axios.get(
+  //       "https://valourwealthdjango-production.up.railway.app/api/portfolio/sector-exposure/",
+  //       {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       }
+  //     );
+  //     setSectorData(res.data || []);
+  //   } catch (error) {
+  //     console.error("Sector exposure fetch error", error);
+  //   }
+  // };
   const fetchSectorExposure = async () => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -240,9 +254,13 @@ const PortfolioAnalysis = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setSectorData(res.data || []);
+
+      // Handle: res.data might be an object like { data: [...] }
+      const data = Array.isArray(res.data) ? res.data : res.data?.data || [];
+      setSectorData(data);
     } catch (error) {
       console.error("Sector exposure fetch error", error);
+      setSectorData([]); // fallback to empty array to avoid breaking map
     }
   };
 
