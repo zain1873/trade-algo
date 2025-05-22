@@ -287,40 +287,74 @@ const PortfolioAnalysis = () => {
     }).format(value);
   };
 
+  // const renderSectorCards = () => (
+  //   <div className="row g-3">
+  //     {sectorData.map((sector, index) => (
+  //       <div key={index} className="col-md-6 col-lg-3">
+  //         <div className="sector-card">
+  //           <div className="d-flex justify-content-between mb-2">
+  //             <h5 className="sector-name">{sector.sector_name}</h5>
+  //             <span
+  //               className={`risk-badge ${sector.risk_level
+  //                 .toLowerCase()
+  //                 .replace(" ", "-")}`}
+  //               >
+  //               {sector.risk_level}
+  //             </span>
+  //           </div>
+  //           <div className="allocation-label">Allocation</div>
+  //           <div className="progress allocation-progress">
+  //             <div
+  //               className={`progress-bar ${sector.risk_level
+  //                 .toLowerCase()
+  //                 .replace(" ", "-")}-bg`}
+  //               role="progressbar"
+  //               style={{ width: `${sector.allocation_percentage}%` }}
+  //             ></div>
+  //           </div>
+  //           <div className="allocation-percentage">
+  //             {sector.allocation_percentage}%
+  //           </div>
+  //           <div className="sector-value">
+  //             {formatCurrency(sector.allocation_value)}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
+
   const renderSectorCards = () => (
     <div className="row g-3">
-      {sectorData.map((sector, index) => (
-        <div key={index} className="col-md-6 col-lg-3">
-          <div className="sector-card">
-            <div className="d-flex justify-content-between mb-2">
-              <h5 className="sector-name">{sector.sector_name}</h5>
-              <span
-                className={`risk-badge ${sector.risk_level
-                  .toLowerCase()
-                  .replace(" ", "-")}`}
-              >
-                {sector.risk_level}
-              </span>
-            </div>
-            <div className="allocation-label">Allocation</div>
-            <div className="progress allocation-progress">
-              <div
-                className={`progress-bar ${sector.risk_level
-                  .toLowerCase()
-                  .replace(" ", "-")}-bg`}
-                role="progressbar"
-                style={{ width: `${sector.allocation_percentage}%` }}
-              ></div>
-            </div>
-            <div className="allocation-percentage">
-              {sector.allocation_percentage}%
-            </div>
-            <div className="sector-value">
-              {formatCurrency(sector.allocation_value)}
+      {sectorData.map((sector, index) => {
+        const riskLevel = sector?.risk_level || "Unknown";
+        const riskClass = riskLevel.toLowerCase().replace(/\s+/g, "-");
+
+        return (
+          <div key={index} className="col-md-6 col-lg-3">
+            <div className="sector-card">
+              <div className="d-flex justify-content-between mb-2">
+                <h5 className="sector-name">{sector?.sector_name || "N/A"}</h5>
+                <span className={`risk-badge ${riskClass}`}>{riskLevel}</span>
+              </div>
+              <div className="allocation-label">Allocation</div>
+              <div className="progress allocation-progress">
+                <div
+                  className={`progress-bar ${riskClass}-bg`}
+                  role="progressbar"
+                  style={{ width: `${sector?.allocation_percentage || 0}%` }}
+                ></div>
+              </div>
+              <div className="allocation-percentage">
+                {sector?.allocation_percentage || 0}%
+              </div>
+              <div className="sector-value">
+                {formatCurrency(sector?.allocation_value || 0)}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 
