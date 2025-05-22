@@ -192,11 +192,19 @@ function PortfolioComponent() {
         },
       ];
 
+      // const formatted = {
+      //   total_value: data.summary.total_portfolio_value,
+      //   total_gain_loss: data.summary.change_value,
+      //   total_gain_loss_percent: data.summary.percent_change,
+      //   assets: assets,
+      // };
       const formatted = {
-        total_value: data.summary.total_portfolio_value,
-        total_gain_loss: data.summary.change_value,
-        total_gain_loss_percent: data.summary.percent_change,
-        assets: assets,
+        total_value: data.portfolio_value,
+        total_gain_loss: 0, // or derive it if available
+        total_gain_loss_percent: 0, // or derive it if available
+        assets: [],
+        balance: data.account.balance,
+        equity: data.account.equity,
       };
 
       setPortfolio(formatted);
@@ -255,10 +263,12 @@ function PortfolioComponent() {
                   </div>
                   <div className="button-group">
                     <button className="btn btn-light">
-                      <i className="bi bi-plus"></i> Add Funds
+                      <i className="bi bi-wallet2 me-1"></i> Balance: $
+                      {parseFloat(portfolio.balance).toLocaleString()}
                     </button>
                     <button className="btn btn-dark">
-                      <i className="bi bi-bar-chart-line"></i> Analytics
+                      <i className="bi bi-bar-chart-line me-1"></i> Equity: $
+                      {parseFloat(portfolio.equity).toLocaleString()}
                     </button>
                   </div>
                 </div>
