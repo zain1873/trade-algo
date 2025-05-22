@@ -415,7 +415,6 @@ const PortfolioAnalysis = () => {
                 downturns. Consider rebalancing to reduce sector-specific risk.
               </p>
             </div>
-            {renderAISuggestions()}
           </>
         );
       case "correlation-risk":
@@ -423,6 +422,9 @@ const PortfolioAnalysis = () => {
       case "diversification-level":
         return <DiversificationLevel />;
       case "ai-suggestions":
+        {
+          renderAISuggestions();
+        }
         return <AISuggestions />;
       default:
         return null;
@@ -456,7 +458,7 @@ const PortfolioAnalysis = () => {
               }`}
               onClick={() => setActiveTab("correlation-risk")}
             >
-              Correlation Risk
+              Portfolio Pulse
             </button>
             <button
               className={`tab-button ${
@@ -464,7 +466,7 @@ const PortfolioAnalysis = () => {
               }`}
               onClick={() => setActiveTab("diversification-level")}
             >
-              Diversification Level
+              Sector IQ
             </button>
             <button
               className={`tab-button ${
