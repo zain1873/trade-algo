@@ -200,11 +200,11 @@ function PortfolioComponent() {
       // };
       const formatted = {
         total_value: data.portfolio_value,
-        total_gain_loss: 0,
-        total_gain_loss_percent: 0,
+        total_gain_loss: 0, // or derive it if available
+        total_gain_loss_percent: 0, // or derive it if available
         assets: [],
-        balance: data.account?.balance || 0,
-        equity: data.account?.equity || 0,
+        balance: data.account.balance,
+        equity: data.account.equity,
       };
 
       setPortfolio(formatted);
@@ -261,16 +261,14 @@ function PortfolioComponent() {
                       </span>
                     </div>
                   </div>
-                  <div className="button-group">
+                  {/* <div className="button-group">
                     <button className="btn btn-light">
-                      <i className="bi bi-wallet2 me-1"></i> Balance: $
-                      {parseFloat(portfolio.balance).toLocaleString()}
+                      <i className="bi bi-plus"></i> Add Funds
                     </button>
                     <button className="btn btn-dark">
-                      <i className="bi bi-bar-chart-line me-1"></i> Equity: $
-                      {parseFloat(portfolio.equity).toLocaleString()}
+                      <i className="bi bi-bar-chart-line"></i> Analytics
                     </button>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="asset-categories">
