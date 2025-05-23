@@ -984,3 +984,12 @@ section:last-child {
   line-height: 1;
   vertical-align: middle;
 }
+
+.form-check-input:checked {
+  background-color: var(--theme-color) !important;
+  border-color: var(--theme-color) !important;
+  box-shadow: none;
+}
+.form-check-input:focus {
+  box-shadow: none !important;
+}
