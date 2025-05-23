@@ -250,10 +250,24 @@ function PortfolioComponent() {
       // };
 
       const formatted = {
-        total_value: data.portfolio_value || 0,
-        total_gain_loss: 0,
-        total_gain_loss_percent: 0,
-        assets: [],
+        total_value: data.summary?.total_portfolio_value || 0,
+        total_gain_loss: data.summary?.change_value || 0,
+        total_gain_loss_percent: data.summary?.percent_change || 0,
+
+        assets: [
+          {
+            id: 1,
+            asset_type: "stocks",
+            value: data.asset_allocation?.stock_value || 0,
+            percentage: data.asset_allocation?.stocks || 0,
+          },
+          {
+            id: 2,
+            asset_type: "crypto",
+            value: data.asset_allocation?.crypto_value || 0,
+            percentage: data.asset_allocation?.crypto || 0,
+          },
+        ],
 
         balance: data.account?.balance || 0,
         equity: data.account?.equity || 0,
