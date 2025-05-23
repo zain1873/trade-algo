@@ -1103,7 +1103,7 @@ const PlatinumDashboard = () => {
 
         // Step 2: Start 1-on-1 chat (create if not exists)
         await axios.post(
-          `${API_BASE_URL}api/chat/start/`,
+          `${API_BASE_URL}api/analyst-chat/start/`,
           { analyst_id: analystId },
           {
             headers: { Authorization: `Bearer ${accessToken}` },

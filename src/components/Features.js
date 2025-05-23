@@ -1,5 +1,3 @@
-import React from "react";
-
 function Features() {
   return (
     <section className="features pb-0">
@@ -7,7 +5,7 @@ function Features() {
         <div className="sec_heading  text-center">
           <h2>Our Services</h2>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-lg-3">
             <div className="feature-card">
               <div className="feature-info">
@@ -27,7 +25,7 @@ function Features() {
             </div>
           </div>
 
-          <div className="col-lg-3">
+          {/* <div className="col-lg-3">
             <div className="feature-card">
               <div className="feature-info">
                 <h2>Crypto Group</h2>
@@ -44,7 +42,7 @@ function Features() {
                 <a href="/contact">Contact for More</a>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="col-lg-3">
             <div className="feature-card">
@@ -85,18 +83,17 @@ function Features() {
         </div>
 
         <section className="join-us">
-        <div className="sec_heading  text-center">
-          <h2>Get access to</h2>
-        </div>
-        <p>
-          Join us and change your trading potential! We have similar access and
-          technology to hedge funds and wall street via Ai and the best part is
-          we are here to level the playing field for the retail investor like
-          yourself.
-        </p>
-      </section>
+          <div className="sec_heading  text-center">
+            <h2>Get access to</h2>
+          </div>
+          <p>
+            Join us and change your trading potential! We have similar access
+            and technology to hedge funds and wall street via Ai and the best
+            part is we are here to level the playing field for the retail
+            investor like yourself.
+          </p>
+        </section>
       </div>
-  
     </section>
   );
 }
