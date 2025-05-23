@@ -1089,6 +1089,36 @@ const PlatinumDashboard = () => {
     };
     fetchUser();
   }, [accessToken]);
+  useEffect(() => {
+    const startChatWithAnalyst = async () => {
+      try {
+        // Step 1: Get analyst ID
+        const analystRes = await axios.get(
+          `${API_BASE_URL}api/assigned-analyst/`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          }
+        );
+        const analystId = analystRes.data.id;
+
+        // Step 2: Start 1-on-1 chat (create if not exists)
+        await axios.post(
+          `${API_BASE_URL}api/chat/start/`,
+          { analyst_id: analystId },
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          }
+        );
+
+        // Step 3: Fetch messages again after ensuring chat exists
+        fetchMessages();
+      } catch (err) {
+        console.error("Error starting analyst chat:", err);
+      }
+    };
+
+    if (accessToken) startChatWithAnalyst();
+  }, []);
 
   useEffect(() => {
     const fetchAdminPhoto = async () => {
