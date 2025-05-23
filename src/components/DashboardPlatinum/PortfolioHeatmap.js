@@ -235,33 +235,33 @@ function PortfolioComponent() {
 
       const data = response.data;
 
-      const formatted = {
-        total_value: data.portfolio_value,
-        total_gain_loss: 0,
-        total_gain_loss_percent: 0,
-        assets: [],
-        balance: data.account?.balance || 0,
-        equity: data.account?.equity || 0,
-        margin: data.account?.margin || 0,
-        free_margin: data.account?.free_margin || 0,
-        leverage: data.account?.leverage || 0,
-        market_watch: data.market_watch || [],
-        recent_trades: data.recent_trades || [],
-      };
-
       // const formatted = {
       //   total_value: data.portfolio_value,
       //   total_gain_loss: 0,
       //   total_gain_loss_percent: 0,
-      //   assets: [], // optionally fill from asset_allocation
-      //   balance: data.account.balance,
-      //   equity: data.account.equity,
-      //   margin: data.account.margin,
-      //   free_margin: data.account.free_margin,
-      //   leverage: data.account.leverage,
-      //   market_watch: data.market_watch,
-      //   recent_trades: data.recent_trades,
+      //   assets: [],
+      //   balance: data.account?.balance || 0,
+      //   equity: data.account?.equity || 0,
+      //   margin: data.account?.margin || 0,
+      //   free_margin: data.account?.free_margin || 0,
+      //   leverage: data.account?.leverage || 0,
+      //   market_watch: data.market_watch || [],
+      //   recent_trades: data.recent_trades || [],
       // };
+
+      const formatted = {
+        total_value: data.portfolio_value,
+        total_gain_loss: 0,
+        total_gain_loss_percent: 0,
+        assets: [], // optionally fill from asset_allocation
+        balance: data.account?.balance || 0,
+        equity: data.account.equity,
+        margin: data.account.margin,
+        free_margin: data.account.free_margin,
+        leverage: data.account.leverage,
+        market_watch: data.market_watch,
+        recent_trades: data.recent_trades,
+      };
 
       setPortfolio(formatted);
       setLoading(false);
