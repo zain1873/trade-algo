@@ -1153,12 +1153,10 @@ const PlatinumDashboard = () => {
   // };
   const fetchMessages = async () => {
     try {
-      const res = await axios.get(
-        `${API_BASE_URL}api/chat/analyst-conversations/`,
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      );
+      const res = await axios.get(`${API_BASE_URL}api/analyst-chat/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
       if (res.data.length > 0) {
         const convo = res.data[0];
         setConversationId(convo.id);
@@ -1173,10 +1171,16 @@ const PlatinumDashboard = () => {
     if (!input.trim() || !conversationId) return;
     try {
       await axios.post(
-        `${API_BASE_URL}api/chat/send/`,
-        { conversation: conversationId, content: input },
-        { headers: { Authorization: `Bearer ${accessToken}` } }
+        `${API_BASE_URL}api/analyst-chat/send/`,
+        {
+          chat: chatId, // from GET above
+          content: input,
+        },
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
       );
+
       setInput("");
       fetchMessages();
     } catch (err) {
