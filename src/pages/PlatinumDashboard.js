@@ -1106,9 +1106,12 @@ const PlatinumDashboard = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}api/chat/my-conversations/`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
+      const res = await axios.get(
+        `${API_BASE_URL}api/chat/analyst-conversations/`,
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
       if (res.data.length > 0) {
         const convo = res.data[0];
         setConversationId(convo.id);
