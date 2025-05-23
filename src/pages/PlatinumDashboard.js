@@ -1172,13 +1172,8 @@ const PlatinumDashboard = () => {
     try {
       await axios.post(
         `${API_BASE_URL}api/analyst-chat/send/`,
-        {
-          chat: chatId, // from GET above
-          content: input,
-        },
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
+        { chat: conversationId, content: input },
+        { headers: { Authorization: `Bearer ${accessToken}` } }
       );
 
       setInput("");
