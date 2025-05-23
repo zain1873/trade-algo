@@ -1134,6 +1134,23 @@ const PlatinumDashboard = () => {
     fetchAdminPhoto();
   }, []);
 
+  // const fetchMessages = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       `${API_BASE_URL}api/chat/analyst-conversations/`,
+  //       {
+  //         headers: { Authorization: `Bearer ${accessToken}` },
+  //       }
+  //     );
+  //     if (res.data.length > 0) {
+  //       const convo = res.data[0];
+  //       setConversationId(convo.id);
+  //       setMessages(convo.messages);
+  //     }
+  //   } catch (err) {
+  //     console.error("\u274C Error fetching messages", err);
+  //   }
+  // };
   const fetchMessages = async () => {
     try {
       const res = await axios.get(
@@ -1148,7 +1165,7 @@ const PlatinumDashboard = () => {
         setMessages(convo.messages);
       }
     } catch (err) {
-      console.error("\u274C Error fetching messages", err);
+      console.error("❌ Error fetching messages", err);
     }
   };
 
