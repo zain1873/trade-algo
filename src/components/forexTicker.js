@@ -265,12 +265,12 @@ import "../styles/ticker.css";
 const symbols = [
   { symbol: "BINANCE:BTCUSDT", label: "BTC-USD", icon: "₿" },
   { symbol: "BINANCE:ETHUSDT", label: "ETH-USD", icon: "Ξ" },
-  { symbol: "BINANCE:BNBUSDT", label: "BNB-USD", icon: "🟡" },
-  { symbol: "BINANCE:DOGEUSDT", label: "DOGE-USD", icon: "🐶" },
-  { symbol: "BINANCE:XRPUSDT", label: "XRP-USD", icon: "💧" },
-  { symbol: "BINANCE:ADAUSDT", label: "ADA-USD", icon: "🅰" },
-  { symbol: "BINANCE:SOLUSDT", label: "SOL-USD", icon: "🌞" },
-  { symbol: "BINANCE:MATICUSDT", label: "MATIC-USD", icon: "🟣" },
+  { symbol: "BINANCE:BNBUSDT", label: "BNB-USD", icon: "" },
+  { symbol: "BINANCE:DOGEUSDT", label: "DOGE-USD", icon: "" },
+  { symbol: "BINANCE:XRPUSDT", label: "XRP-USD", icon: "" },
+  { symbol: "BINANCE:ADAUSDT", label: "ADA-USD", icon: "" },
+  { symbol: "BINANCE:SOLUSDT", label: "SOL-USD", icon: "" },
+  { symbol: "BINANCE:MATICUSDT", label: "MATIC-USD", icon: "" },
 ];
 
 const API_KEY = "d08gifhr01qh1ecc2v7gd08gifhr01qh1ecc2v80";
