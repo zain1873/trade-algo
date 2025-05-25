@@ -57,7 +57,7 @@ function Newsletter() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const res = await fetch(
       "https://valourwealthdjango-production.up.railway.app/api/newsletter/subscribe/",
       {

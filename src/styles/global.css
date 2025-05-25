@@ -491,6 +491,11 @@ h3 {
 .market_details p {
   font-size: 18px;
   color: #000;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .market_details .mid_img {
@@ -508,10 +513,10 @@ h3 {
 }
 
 .market_details .name {
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
-  margin-top: 50px;
-  font-weight: 700;
+  margin-top: 20px;
+  font-weight: 600;
 }
 
 /* forex ticker */

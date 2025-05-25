@@ -12,7 +12,6 @@
   width: 100%;
   border-bottom: 1px solid #555;
   background: #fff;
-  
 }
 .navbar-brand {
   font-size: 1.5rem;
@@ -26,7 +25,6 @@
   height: 72px;
   margin-left: -44px !important;
   z-index: 1000;
-
 }
 
 .navbar-nav {
@@ -38,7 +36,7 @@
   border-radius: 0;
   justify-content: center;
 }
-.navbar-nav  .login-btn {
+.navbar-nav .login-btn {
   border: 2px solid #000 !important;
 }
 
@@ -55,7 +53,6 @@
 .nav-item .nav-link:hover {
   color: var(--theme-color) !important;
 }
-
 
 /* Navbar Toggle Button */
 .navbar-toggler {
@@ -77,13 +74,13 @@
 }
 
 .demo-btn {
-    background-color: var(--theme-color) !important;
-    color: #fff !important;
-    font-weight: 500;
+  background-color: var(--theme-color) !important;
+  color: #fff !important;
+  font-weight: 500;
 }
 
 .demo-btn:hover {
-    /* background-color: var(--accent-main); */
+  /* background-color: var(--accent-main); */
 }
 
 /* Login Button */
@@ -107,7 +104,6 @@
   -ms-transition: color 0.4s ease-in-out, border 0.4s ease-in-out;
   -o-transition: color 0.4s ease-in-out, border 0.4s ease-in-out;
 }
-
 
 /* Login Button Background Animation */
 .login-btn::before {
@@ -137,12 +133,12 @@
 .search-box .search-input:focus {
   outline: none; /* Removes the default outline */
   box-shadow: none; /* Removes any shadow effect */
+  background: #fff;
 }
 
 .navbar-toggler-icon {
   background-color: #fff;
 }
-
 
 /* Second Navbar */
 /* .second-navbar {
@@ -158,12 +154,11 @@
 .navbar-toggler:focus {
   box-shadow: none !important;
 }
-.btn-login-mobile  {
+.btn-login-mobile {
   background-color: var(--theme-color);
   border: none;
   padding: 10px 20px;
   font-weight: 500;
-  
 }
 
 /* .second-navbar .nav-links {
@@ -208,7 +203,6 @@
   width: 320px;
 }
 
-
 .search-box .search-icon {
   background: none;
   border: none;
@@ -222,8 +216,6 @@
   border-radius: 50%;
   height: 36px;
   width: 36px;
-
-
 }
 
 .search-box .search-icon i {
@@ -235,8 +227,6 @@
 .search-box .search-icon:hover i {
   color: #007bff;
 }
-
-
 
 @media only screen and (max-width: 992px) {
   .navbar-nav {
@@ -261,28 +251,28 @@
     width: 100%;
     top: 99px;
     transition: 0.4s ease-in-out !important;
-    /*Smoothtransition*/z-index: 2;
+    /*Smoothtransition*/
+    z-index: 2;
     left: 0;
-}
-.navbar-toggler {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  border: none !important;
-  gap: 10px;
-
-}
+  }
+  .navbar-toggler {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border: none !important;
+    gap: 10px;
+  }
 
   .navbar-nav .nav-link {
     color: #fff !important;
-    border-bottom: 1px solid #474040;    
+    border-bottom: 1px solid #474040;
     padding: 20px 12px !important;
   }
   .navbar-nav .nav-item {
     width: 100%;
     text-align: left;
   }
-  .navbar-nav  {
+  .navbar-nav {
     padding: 0 !important;
     gap: 0;
   }
@@ -311,8 +301,6 @@
   }
   .search-box .search-icon {
     display: none !important;
-
-
   }
 
   /* .second-navbar .container {
@@ -328,8 +316,6 @@
     z-index: 100 !important;
     display: none;
   } */
-
-  
 }
 
 @media only screen and (max-width: 768px) {
@@ -337,8 +323,6 @@
     display: flex;
   }
 }
-
-
 
 .search-box {
   display: flex !important;
@@ -366,8 +350,3 @@
   font-size: 16px;
   color: #333;
 }
-
-
-
-
-
